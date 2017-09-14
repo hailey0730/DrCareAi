@@ -1750,7 +1750,7 @@
 
 	h3 {
 		font-size: 1.5em;
-		margin-bottom: 1em;
+		/*margin-bottom: 1em;*/
 	}
 
 	h4 {
@@ -2345,6 +2345,10 @@
 			cursor: default;
 			list-style: none;
 			padding-left: 0;
+		}
+
+		#banner .actions{
+			text-align: left;
 		}
 
 			ul.actions li {
@@ -3786,8 +3790,9 @@
 
 			#banner > article h2 {
 				color: inherit;
-				font-size: 3.6em;
+				font-size: 2.5em;
 				margin-bottom: 0.25em;
+				text-align: left;
 			}
 
 		#banner .indicators {
@@ -3849,7 +3854,7 @@
 			}
 
 				#banner > article h2 {
-					font-size: 3em;
+					font-size: 2.5em;
 				}
 
 				#banner > article .inner {
