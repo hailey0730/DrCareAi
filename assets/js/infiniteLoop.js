@@ -94,7 +94,7 @@ function randomPost(){
     post += '<div class="content">';
     post += '<h3>Random Post!</h3>';
     post += content.join('');
-    post += '<ul class="actions"><li><a href="#" class="button">More</a></li></ul></div>';
+    post += '<ul class="actions"><li><a href="#" class="button">閱讀</a></li></ul></div>';
     post += '</article>';
     post += '</li>';
 }else{
@@ -105,7 +105,7 @@ function randomPost(){
     post += '<div class="content">';
     post += '<h3>Random Post!</h3>';
     post += content2.join('');
-    post += '<ul class="actions"><li><a href="#" class="button">More</a></li></ul></div>';
+    post += '<ul class="actions"><li><a href="#" class="button">閱讀</a></li></ul></div>';
     post += '</article>';
     post += '</li>';
 }

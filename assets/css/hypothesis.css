@@ -1784,7 +1784,7 @@
 	}
 
 	h3 {
-		font-size: 1.35rem;
+		font-size: 1.5rem;
 	}
 
 	h4 {
@@ -1895,7 +1895,7 @@
 	}
 
 	a {
-		color: #3b3b3b;
+		color: #5dc9dd;
 	}
 
 	strong, b {
@@ -1912,7 +1912,14 @@
 		color: black;
 	}
 
+	#one > #wrapper > .inner > .path > h3{
+		color: #5dc9dd;
+		font-size: 1.3em;
+	}
 
+	#one > #wrapper > .inner > h3{
+		color: #5dc9dd;
+	}
 
 	blockquote {
 		border-left-color: #eeeeee;
@@ -4761,6 +4768,16 @@
 
 	}
 
+@media screen and (max-width: 480px){
+	#mapster_wrap_0{
+		right: 5em;
+	}
+
+	.add{
+		font-size: 2em;
+	}
+
+}
 
 
 /* Nav Panel */

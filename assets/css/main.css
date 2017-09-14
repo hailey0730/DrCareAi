@@ -3008,7 +3008,7 @@
 
 		.image.fit.message img{
 			max-width: 80%;
-			margin-top: 50px;
+			margin-top: 5em;
 		}
 
 			.image.fit img {
@@ -3039,9 +3039,9 @@
 				max-height: 30em;
 			}
 
-			.image.fit.message img{
+		#five > .inner > .split > section >	.image.fit.message img{
 			max-width: 60%;
-			margin-top: 0 150px;
+			margin-top: 0;
 		}
 
 		}
