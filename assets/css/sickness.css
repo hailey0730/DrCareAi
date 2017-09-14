@@ -1,0 +1,200 @@
+#banner{
+	background-color: #ffffff;
+	padding: 3em 0 0 0; 
+}
+
+/*article content*/
+#wrapper > .inner > .path > p{
+	color: #5dc9dd;
+}
+
+#wrapper > .inner > h1{
+	color: black;
+	margin: 0;
+}
+
+#wrapper > .inner{
+	margin-bottom: 50px;
+}
+
+#wrapper > .inner > p{
+	color: black;
+}
+
+/*moreDoctors*/
+#black{
+	color: #000000;
+	display: inline;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+#blue{
+	display: inline;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.contentSickness{
+	background-color: rgba(187, 190, 193, 0.19);
+	padding: 0 1.5rem 0 0;
+	max-height: 14.5em;
+}
+
+.bulletsDiv{
+	background-color: #5dc9dd;
+	text-align: center;
+	float: left;
+	max-height: 14.5em;
+}
+
+@media screen and (max-width: 1280px){
+	.contentSickness{
+		background-color: rgba(187, 190, 193, 0.19);
+		padding: 0 1.5rem 0 0;
+		max-height: 16em;
+	}
+
+	.bulletsDiv{
+		background-color: #5dc9dd;
+		text-align: center;
+		float: left;
+		max-height: 16em;
+	}
+}
+
+@media screen and (max-width: 980px){
+	.contentSickness{
+		background-color: rgba(187, 190, 193, 0.19);
+		padding: 0 1.5rem 0 0;
+		max-height: 14.5em;
+	}
+
+	.bulletsDiv{
+		background-color: #5dc9dd;
+		text-align: center;
+		float: left;
+		max-height: 16em;
+	}
+}
+
+.bulletsDiv > p{
+	background-color: #5dc9dd;
+	text-align: center;
+	vertical-align: bottom;
+	width: 40px;
+	height: 200px;
+	color:#ffffff;
+    line-height: 170px;
+}
+
+.nameTag{
+	float:left;
+	padding: 0 0 0 1em;
+}
+
+.nameTag > h3{
+	display: inline;	
+	line-height: 140px;
+	color: black;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.nameTag span {
+	/*margin-left: 10px;*/
+	color: #bbbec1;
+}
+
+.nameTag > p{
+	
+}
+
+.address{
+	 width: 100px;
+    float: right;
+    margin-right: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+.address > h3{
+	display: inline;	
+	line-height: 120px;
+}
+
+@media screen and (max-width: 980px){
+	.address{
+	 width: 35em;
+    float: right;
+    padding: 0px;
+    text-align: left;
+}
+}
+@media screen and (max-width: 840px){
+	.address{
+	 width: 25em;
+    float: right;
+    padding: 0px;
+    text-align: left;
+}
+}
+
+@media screen and (max-width: 610px){
+.address{
+	 width: 10em;
+    float: right;
+    padding: 0px;
+    text-align: left;
+}
+}
+
+.more{
+	display: inline;
+	float: right;
+	cursor: pointer;
+}
+
+.more > p{
+	color: #5dc9dd;
+	text-align: center;
+	vertical-align: bottom;
+	float: right;
+	font-size: 20px;
+}
+
+/*relatedEssay*/
+.inner{
+	margin-bottom: 20px;
+}
+
+.relatedEssay{
+	/*float: right;*/
+}
+
+#relatedEssay > .inner > .split > section > h2{
+	color: black;
+}
+
+.picTag{
+	float: right;
+}
+
+.like{
+	float: right;
+}
+
+.like > a{
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+#likePic{
+	padding-left: 5px;
+}
+
+.icon{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
