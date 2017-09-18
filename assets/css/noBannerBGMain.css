@@ -1927,6 +1927,7 @@
 				.features > article:nth-child(2n -1) {
 					padding-left: 3em;
 					padding-right: 0;
+					padding-bottom: 2em;
 					width: 100%;
 				}
 
@@ -1937,6 +1938,7 @@
 				.features > article:nth-child(2n) {
 					padding-left: 3em;
 					padding-right: 0;
+					padding-bottom: 2em;
 					width: 100%;
 				}
 
@@ -3437,7 +3439,7 @@
 /* Wrapper */
 
 	.wrapper {
-		padding: 7.5em 0 5.5em 0 ;
+		/*padding: 7.5em 0 5.5em 0 ;*/
 		position: relative;
 	}
 
@@ -3960,7 +3962,7 @@
 		@media screen and (max-width: 1280px) {
 
 			.wrapper {
-				padding: 5em 0 3em 0 ;
+				/*padding: 5em 0 3em 0 ;*/
 			}
 
 		}
@@ -3968,7 +3970,7 @@
 		@media screen and (max-width: 736px) {
 
 			.wrapper {
-				padding: 3em 0 1em 0 ;
+				/*padding: 3em 0 1em 0 ;*/
 			}
 
 				.wrapper > .inner {
@@ -4638,7 +4640,7 @@
 
 		@media screen and (max-width: 1680px) {
 
-			#banner {
+			body > #banner {
 				min-height: 0;
 			}
 
@@ -4646,7 +4648,7 @@
 
 		@media screen and (max-width: 1280px) {
 
-			#banner {
+			body > #banner {
 				padding: 6em 0 3em 0 ;
 				background-attachment: scroll;
 			}
@@ -4655,8 +4657,8 @@
 
 		@media screen and (max-width: 980px) {
 
-			#banner {
-				padding: 10em 0 6em 0 ;
+			body > #banner {
+				padding: 7.9em 0 6em 0 ;
 			}
 
 				#banner .icon {
@@ -4667,8 +4669,8 @@
 
 		@media screen and (max-width: 736px) {
 
-			#banner {
-				padding: 5em 0 2em 0 ;
+			body > #banner {
+				padding: 5.6em 0 2em 0 ;
 			}
 
 				#banner > .inner {
@@ -4687,8 +4689,8 @@
 
 		@media screen and (max-width: 480px) {
 
-			#banner {
-				padding: 4em 0 1em 0 ;
+			body > #banner {
+				padding: 5.5em 0 1em 0 ;
 			}
 
 		}

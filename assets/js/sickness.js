@@ -1,5 +1,6 @@
+  var moreCounter = 3;
+  var clicked = false;
 $(document).ready(function(){
-	var moreCounter = 0;
 	var likeNum = 30;
 
   //content value determine content to show in page
@@ -33,26 +34,34 @@ $(document).ready(function(){
 
     $(".more").click(function(){
 
-
         //testing
         var name = "錢德光";
         var category = "兒科";
         var location = "沙田";
         var address = "香港香港";
-
         //now i can have three pages of doctors, can use loop and moreCounter to determine the content for more than three pages
-        if(moreCounter == 0){
-        	$('#nameTag1').html("<h3>"+name+"</h3><span>醫⽣生</span><p>"+category+"</p>");
-       $('#address1').html("<h3>"+location+"</h3><p>"+address+'</p>');
-        }else if (moreCounter == 1){
-        	 $('#nameTag2').html("<h3>"+name+"</h3><span>醫⽣生</span><p>"+category+"</p>");
-       $('#address2').html("<h3>"+location+"</h3><p>"+address+'</p>');
-        }else if (moreCounter ==2){
-        	 $('#nameTag3').html("<h3>"+name+"</h3><span>醫⽣生</span><p>"+category+"</p>");
-       $('#address3').html("<h3>"+location+"</h3><p>"+address+'</p>');
-        }
-        moreCounter ++;
-        // renew doctors contacts
+        // if(moreCounter == 0){
+       //  	$('#nameTag1').html("<h3>"+name+"</h3><span>醫⽣生</span><p>"+category+"</p>");
+       // $('#address1').html("<h3>"+location+"</h3><p>"+address+'</p>');
+       //  // }else if (moreCounter == 1){
+       //  	 $('#nameTag2').html("<h3>"+name+"</h3><span>醫⽣生</span><p>"+category+"</p>");
+       // $('#address2').html("<h3>"+location+"</h3><p>"+address+'</p>');
+       //  // }else if (moreCounter ==2){
+       //  	 $('#nameTag3').html("<h3>"+name+"</h3><span>醫⽣生</span><p>"+category+"</p>");
+       // $('#address3').html("<h3>"+location+"</h3><p>"+address+'</p>');
+        // }
+        if (clicked == false){
+         $.ajax({
+          method: "GET",
+          url: "",
+        })
+          .done(function( msg ) {
+            var json = JSON.parse(msg);
+            // $('posts').append();
+          });
+       clicked = true;
+        $('.posts').append(moreDoc());
+      }
        
     });
 
@@ -75,3 +84,29 @@ $(document).ready(function(){
     });
 
 });
+
+function moreDoc(){
+  var doc = '';
+  console.log("moreDoc");
+   //testing
+        var name = "錢德光";
+        var category = "兒科";
+        var location = "沙田";
+        var address = "香港香港";
+for(var i = 0; i < 6; i ++){
+   moreCounter ++;
+        doc += '<div class="contentSickness"><div class="bulletsDiv"><p>';
+        doc += moreCounter;
+        doc +='</p></div><a href=""><div id="nameTag" class="nameTag"><h3>';
+        doc += name;
+        doc += '</h3><span>醫生</span><p>';
+        doc += category;
+        doc += '</p></div><div id="address1" class="address"><h3>';
+        doc +- location;
+        doc += '</h3><p>';
+        doc += address;
+        doc += '</p></div></a></div>';
+      }
+
+        return doc;
+}

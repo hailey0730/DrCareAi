@@ -2074,27 +2074,34 @@
 			opacity: 0.25;
 		}
 
+	
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],
 	button,
 	.button {
 		background-color: transparent;
-		box-shadow: inset 0 0 0 1px #23b1ec;
-		color: #23b1ec !important;
-		width: 8em;
-		height: 2em;
-		line-height: 2em;
+		box-shadow: inset 0 0 0 1px rgba(144, 144, 144, 0.25);
+		color: #a4a8a8;
+		width: 250px;
+		border-radius: 0em;
 	}
-
-
 
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: rgba(35, 177, 236, 0.1);
+			background-color: rgba(80, 158, 216, 0.1);
+			color: #509ed8 !important;
+		}
+
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		input[type="button"]:active,
+		button:active,
+		.button:active {
+			background-color: rgba(80, 158, 216, 0.3);
 		}
 
 			input[type="submit"]:hover:active,
@@ -3069,14 +3076,14 @@
 			flex-grow: 0;
 		}
 
-		/*.posts > * {
+		.posts > * {
 			width: 33.33333%;
-		}*/
+		}
 
-		/*.posts > * {
+		.posts > * {
 			padding: 1.5rem;
 			width: calc(33.33333% + 1rem);
-		}*/
+		}
 
 		.posts > :nth-child(-n + 3) {
 			padding-top: 0;
@@ -3094,15 +3101,15 @@
 			padding-right: 0;
 		}
 
-		/*.posts > :nth-child(3n + 1),
+		.posts > :nth-child(3n + 1),
 		.posts > :nth-child(3n) {
 			width: calc(33.33333% + -0.5rem);
-		}*/
+		}
 
-		/*.posts > div > article {
+		.posts > div > article {
 			background-color: #ffffff;
 			margin: 0 0 3rem 0;
-		}*/
+		}
 
 			.posts > div > article > .image {
 				width: 100%;
@@ -3428,7 +3435,7 @@
 			}
 
 		#header + #banner {
-			margin-top: 3em;
+			/*margin-top: 3em;*/
 		}
 
 		body.is-loading #banner:after {
@@ -4926,6 +4933,8 @@
 		transform: translateX(0);
 		visibility: visible;
 	}
+
+
 
 	@font-face {
     font-family: 'PingFang'; /*a name to be used later*/

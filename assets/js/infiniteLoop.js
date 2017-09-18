@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 	// Each time the user scrolls
 	win.scroll(function() {
-			console.log($('#text-area').val());
+			// console.log($('#text-area').val());
 
 		// End of the document reached?
 		if ($(document).height() - win.height() == win.scrollTop()) {

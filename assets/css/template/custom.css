@@ -69,7 +69,7 @@
 .post > .Content {
 	width: calc(100% - 6em);
 	padding: 1em 3em;
-	height: 300px;
+	height: 20em;
 }
 
 .Content > div.image.featured {
@@ -107,7 +107,7 @@
 	position: relative;
 	margin-left: 5%;
 	width: 65%;
-	height: calc(100% - 125px);
+	/*height: calc(100% - 125px);*/
 	overflow: hidden;
 	line-height: 25px;
 	font-size: 11pt;
@@ -133,6 +133,7 @@
 	margin-left: 5%;
 	width: 65%;
 	height: 60px;
+	margin-top: 1em;
 }
 
 @media screen and (max-width: 980px) {
@@ -144,7 +145,7 @@
 	}
 				
 		.post > .Content {
-			height: 450px;
+			height: 36.5em;
 		}
 
 		.Content > div.image.featured {
@@ -169,8 +170,9 @@
 		}
 
 		.Content > footer {
-			margin-left: 5%;
+			margin-top: 5em;
 			width: 90%;
+			flex-direction: column-reverse;
 		}
 
 	.button {
@@ -246,7 +248,7 @@
 
 		.Content > a {
 			height: 60px;
-			margin: 0;
+			margin: 2em 0 0 0;
 			width: 100%;
 		}
 
@@ -260,7 +262,7 @@
 
 
 		.Content > footer {
-			margin-top: 10px;
+			margin-top: 3em;
 			margin-left: 0;
 			width: 100%;
 		}
