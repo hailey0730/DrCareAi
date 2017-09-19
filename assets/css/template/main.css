@@ -43,14 +43,14 @@
 	.post {
 		padding: 0 0 0 0 ;
 		background: #ffffff;
-		/*border: solid 1px rgba(160, 160, 160, 0.3);*/
+		border: solid 1px rgba(160, 160, 160, 0.3);
 		border: solid 1px #fff;
 		margin: 0 0 3em 0;
 		position: relative;
 		-webkit-box-shadow:0 0 10px rgba(0, 0, 0, .5);  
 		-moz-box-shadow:0 0 10px rgba(0, 0, 0, .5);  
-		/*box-shadow:0 0 10px rgba(0, 0, 0, .2);  */
-		box-shadow:0 0 10px #fff;  
+		box-shadow:0 0 10px rgba(0, 0, 0, .2);  
+		/*box-shadow:0 0 10px #fff;  */
 	}
 
 		.post > header {

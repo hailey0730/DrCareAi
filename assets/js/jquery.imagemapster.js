@@ -2694,6 +2694,7 @@ A jQuery plugin to enhance image maps.
      */
     
     function mousedown(e) {
+        console.log(e);
         if (!m.hasCanvas()) {
             this.blur();
         }
@@ -3270,7 +3271,6 @@ A jQuery plugin to enhance image maps.
 
             u.setOpacity(me.images[0], 0);
             $(me.images[1]).show();
-
             u.setOpacity(me.images[1],1);
 
             if (opts.isSelectable && opts.onGetList) {

@@ -1467,6 +1467,15 @@
 		color: #bbbec1;
 	}
 
+	.rightBottom{
+		float: right;
+
+	}
+
+	.black{
+		color: #000;
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		line-height: 1.5;
 		letter-spacing: 0.04em;
@@ -2004,7 +2013,7 @@
 			}
 
 			.stats > article h3 span {
-				display: block;
+				/*display: block;*/
 				font-size: 2.5em;
 				font-weight: 300;
 				line-height: 1;
@@ -3464,20 +3473,29 @@
 
 /* Wrapper */
 
-#two{
+#Timetwo{
 	background-color: #5dc9dd;
 }
 
-#three{
+#Timethree{
 	background-color: #de6565;
 }
 
-#four,#five,#six{
+#Timefour,#Timefive,#Timesix{
 	background-color: #7fb533;
+}
+
+#Timeseven{
+	background-color: rgba(187,190,193,0.19);
 }
 
 	.wrapper {
 		padding: 7.5em 0 5.5em 0 ;
+		position: relative;
+	}
+
+	.wrapper.time{
+		padding: 7.5em 0 3em 0 ;
 		position: relative;
 	}
 

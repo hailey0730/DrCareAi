@@ -3526,7 +3526,7 @@
 
 	.inner {
 		margin: 0 auto;
-		width: 68rem;
+		/*width: 68rem;*/
 		max-width: calc(100% - 6rem);
 	}
 
@@ -4794,6 +4794,14 @@
 		-webkit-transition: opacity 0.5s ease;
 		-ms-transition: opacity 0.5s ease;
 		transition: opacity 0.5s ease;
+
+		margin-right: 15em;
+	}
+
+	@media screen and (max-width: 736px){
+		#wrapper{
+			margin-right: 5em;
+		}
 	}
 
 	#navPanel {
