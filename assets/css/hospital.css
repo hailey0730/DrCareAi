@@ -1,12 +1,9 @@
-body{
-	overflow-x: hidden;
-}
 
 /*bottom map*/
 .bulletsDiv{
 	background-color: #7fb533;
 	float:left;
-	max-height: 8em;
+	max-height: 100%;
 	width:2em;
 }
 
@@ -18,18 +15,23 @@ body{
 	float: left;
 	padding:1em 3em 0 1em;
 	text-align:left;
+	max-width: 60%;
 }
 
-.right{
-	/*max-width: 100%;*/
+#Timeseven{
+	overflow: hidden;
+}
+
+.posts{
+	/*overflow-y: scroll;*/
 }
 
 @media screen and (max-width: 480px){
 	.hospital{
-		max-width: 15.5em;
+		/*max-width: 15.5em;*/
 	}
 	.hospitalDiv > .bulletsDiv{
-		max-height: 10em;
+		/*max-height: 10em;*/
 	}
 }
 
@@ -40,14 +42,20 @@ body{
 	}
 
 	.wrapper > .inner {
-		max-width: 25em;
-		margin: 0 auto 0 0.5em;
+		max-width: calc(100% - 3em);
+		margin: 0 auto;
 	}
+
+	.split > .left > .posts > :nth-child(n){
+			width:25em;
+			max-height: 15em;
+		}
 
 }
 
 .hospital > p{
 	margin: 0;
+	line-height: 1.2em;
 }
 
 .hospitalDiv{
@@ -55,17 +63,21 @@ body{
 	background-color: white;
 }
 
-.split > #urgent{
+#urgent{
 	font-size:1.5em;
 	margin-bottom: 0;
 	margin-left:0em !important;
+	display: inline-block;
+	text-align: left;
 }
 
-.split > #urgentWait{
+#urgentWait{
 	text-align: right;
 	margin-bottom: 1em;
-	/*float: right;*/
+	float: right;
 	color: black;
+	position: relative;
+	right: 2em;
 }
 
 .split.urgent{
@@ -79,10 +91,13 @@ body{
 
 .timeDiv{
 	margin-top: 2em;
+	max-width: 30%;
+	float:right;
 }
 
 a > div > h3{
 	margin-bottom: 0;
+	font-size: 1.5em;
 }
 
 @media screen and (max-width: 736px) {
@@ -124,8 +139,10 @@ a > div > h3{
 				-moz-flex-direction: column;
 				-webkit-flex-direction: column;
 				-ms-flex-direction: column;
-				flex-direction: column;
+				/*flex-direction: column;*/
 				margin-left: 0;
+				flex-direction: column-reverse;
+
 			}
 
 				.split > * {
@@ -432,7 +449,9 @@ a > div > h3{
 		}
 
 		.posts > :nth-child(n){
-			width:30em;
+			width:25em;
+			max-height: 7em;
+			max-width: 100%;
 		}
 
 		/*.posts > :nth-child(-n + 3) {

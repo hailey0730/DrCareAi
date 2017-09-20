@@ -3477,6 +3477,12 @@
 	background-color: #5dc9dd;
 }
 
+@media screen and (max-width: 360px){
+	#Timetwo{
+	margin-top: 1em;
+}
+}
+
 #Timethree{
 	background-color: #de6565;
 }
@@ -3494,7 +3500,7 @@
 		position: relative;
 	}
 
-	.wrapper.time{
+	.wrapper .timetop{
 		padding: 7.5em 0 3em 0 ;
 		position: relative;
 	}

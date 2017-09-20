@@ -1,4 +1,4 @@
-var clickCounter = {part:'',counter:0};
+var clickCounter = {part:'',counter:false};
 
 $(document).ready(function(){
 	var sickness ='';
@@ -38,55 +38,85 @@ $(document).ready(function(){
 });
 
 	$('.content img').mapster({
-		fillColor: 'ff0000', 
-	    stroke: true, 
+		fillOpacity: 0, 
+	    // stroke: true, 
 	    singleSelect: true
 	});
 
+    $('body').click(function(evt){
+        console.log(evt.target.nodeName);
+        if(evt.target.nodeName != "AREA")
+        {
+            $(".list").remove();
+            $('.body').attr("src","images/BodyExport/Body.png");
+            clickCounter.counter = false;
+
+            $.ajax({
+        method: "GET",
+        url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+    })
+    .done(function( msg ) {
+        var json = JSON.parse(msg);
+        var i = 0;
+        var titleList = [];
+        var diseaseList = [];
+        var numRow = 0;
+        for (var key in json){
+            var disease = json[key];
+            titleList[i] = key;
+            diseaseList[i] = disease;
+            i++;
+        }
+        if(titleList.length % 2 != 0){
+            numRow =  titleList.length / 2 + 1;
+        }else{
+            numRow = titleList.length / 2;
+        }
+        for(var j = 0; j < numRow; j++){
+            var title1 = titleList[j*2];
+            var disease1 = diseaseList[j*2];
+            if(titleList[j*2+1] != null){
+                var title2 = titleList[j*2+1];
+                var disease2 = diseaseList[j*2+1];
+            }
+
+            $('.posts').append(diseaseRow(title1, title2, disease1, disease2));
+        }
+
+        
+        });
+        }
+    });
+
 });
 
-function showRelevantDisease(body){
+function highlight(body){
+    if(clickCounter.counter == false){
+        var img = "images/BodyExport/";
+        img += body;
+        $('.body').attr("src", img);
+    }
+}
+
+function noHighlight(){
+    console.log(clickCounter.counter);
+    if(clickCounter.counter == false){
+    $('.body').attr("src","images/BodyExport/Body.png");
+}
+}
+
+function showRelevantDisease(body, bodyPath){
+    var img = "images/BodyExport/";
+    img += bodyPath;
+    $('.body').attr("src", img);
+
 	$(".list").remove();
 	if(clickCounter.part == body){
-		if(clickCounter.counter >= 1){
-			clickCounter.counter = 0;
-
-			$.ajax({
-		method: "GET",
-		url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-	})
-	.done(function( msg ) {
-		var json = JSON.parse(msg);
-		var i = 0;
-		var titleList = [];
-		var diseaseList = [];
-		var numRow = 0;
-		for (var key in json){
-			var disease = json[key];
-			titleList[i] = key;
-			diseaseList[i] = disease;
-			i++;
-		}
-		if(titleList.length % 2 != 0){
-			numRow =  titleList.length / 2 + 1;
+		if(clickCounter.counter == true){
+        
 		}else{
-			numRow = titleList.length / 2;
-		}
-		for(var j = 0; j < numRow; j++){
-			var title1 = titleList[j*2];
-			var disease1 = diseaseList[j*2];
-			if(titleList[j*2+1] != null){
-				var title2 = titleList[j*2+1];
-				var disease2 = diseaseList[j*2+1];
-			}
 
-			$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-		}
-
-		
-		});
-		}else{
-			clickCounter.counter++;
+			clickCounter.counter = true;
 			$.ajax({
 		method: "GET",
 		url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
@@ -124,7 +154,7 @@ function showRelevantDisease(body){
 });
 		}
 	}else{
-		clickCounter.counter++;
+		clickCounter.counter = true;
 		clickCounter.part = body;
 			$.ajax({
 		method: "GET",

@@ -3,30 +3,67 @@ $(document).ready(function(){
 	//value determined by which article client clicked
 	// $('some id').click(function(){	set value;	})
 
-	window.sessionStorage.setItem('content', value);
+	window.sessionStorage.setItem('content', value);	
 
+//=========================update article without button=============================
+	// $.ajax({
+	// 	method: "GET",
+	// 	url: ""
+
+	// }).done(function(data){
+		// var json = JSON.parse(data);
+
+		$('.spotlights article').each(function(i, obj){
+			var article = $(this).children();
+			console.log(article);		//[0] a, [1] h3, [2] p
+			$(article[0]).attr("href", );
+			$('.spotlights article a img').attr("src", );	//not sure if this can access img
+			$(article[1]).text();
+			$('.spotlights article h3 a').attr("href", );	//not sure if this can access a
+			$(article[2]).text();
+
+		});
+
+	// });
+
+//=========================update articles with date display=========================
+	// $.ajax({
+	// 	method: "GET",
+	// 	url: ""
+
+	// }).done(function(data){
+		// var json = JSON.parse(data);
+		$('.featured-posts article a img').attr("src", );
+		$('.featured-posts article header span').text();
+		$('.featured-posts article header h3').text();
+		$('.featured-posts article p').text();
+		$('.featured-posts article ul li a').attr("href", );
+
+		//========without pic=========================
+		$('.other li').each(function(i, obj){
+			console.log($(this).children());	//[0] a, [1] br, [2] span
+			var liChild = $(this).children();
+			$(liChild[0]).attr("href", );
+			$(liChild[0]).text( );
+			$(liChild[2]).text( );
+
+
+		});
+
+	// });
+
+//==========================box slider===============================================
 	$.ajax({
 		method: "GET",
 		url: "http://www.chatbot.hk/DrCare.HotArticle.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
 
 	}).done(function(data){
 		var json = JSON.parse(data);
-		var article = '';
-		article += '<img src="';
-		article += json[0].ImageUrl;
-		article += '" alt="">';
-		
-		$('#firstSlide').html(article);
+		$('#firstSlide img').attr("src", json[0].ImageUrl);
 		$('#firstH2').text(json[0].Subject);
-		var link = '';
-		link += '<a class="button big" href="';
-		link += json[0].Url;
-		link += '">詳情</a>';
-		$('#firstLink').html(link);
+		$('#firstLink a').attr("href", json[0].Url);
 		$('#banner').append(hotArticle(json));
-			// $('.bxslider').bxslider();
-// console.log($('#banner').html());
-
+			
 /*
 	Faction by Pixelarity
 	pixelarity.com | hello@pixelarity.com

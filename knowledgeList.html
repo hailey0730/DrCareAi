@@ -28,7 +28,7 @@
 							<li>
 								<a href="#" class="icon fa-angle-down">Doctors</a>
 								<ul>
-									<li><a href="#">Option One</a></li>
+									<li><a href="hospitalTime.html">急症室等候時間</a></li>
 									<li><a href="#">Option Two</a></li>
 									<li><a href="#">Option Three</a></li>
 									<li>
@@ -180,13 +180,20 @@
 								</section>
 								<section>
 								<div>
-										<div class="content">
-										<img src="images/organs-of-the-body-right-side.jpg" width="358" height="481" alt="Planets" usemap="#planetmap">
+										<div class="content" >
+										<img class="body" id="body" src="images/BodyExport/Body.png" width="266" height="690" alt="Planets" usemap="#planetmap">
 										</div>
 										<map name="planetmap">
-										  <area data-key="head" shape="rect" coords="156,5,206,66" href="#" onclick="showRelevantDisease('頭')"> <!--onmouseleave="noHighlight()"  onclick="showRelevantDisease('head')">-->
-										  <area data-key="chest" shape="poly" coords="140,119,156,100,212,100,220,127,221,162,141,159" href="#">
-										  <area data-key="arm" shape="poly" coords="137,82,117,96,116,135,110,173,101,197,94,225,80,253,90,273,107,272,122,217,131,172,137,158,156,94,229,83,245,114,242,150,260,189,271,239,273,268,265,279,250,269,240,216,229,188,222,174,219,116,214,94" href="#">
+										  <area data-key="head" shape="rect" coords="90,19,171,114"  href="#" onmouseover="highlight('Body_head.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('頭','Body_head.png');return false;"> 
+										  <area data-key="neck" shape="rect" coords="106,106,160,129" href="#" onmouseover="highlight('Bodybuild_neck.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Bodybuild_neck.png');return false;">
+										  <area data-key="chest" shape="poly" coords="98,134,157,134,186,143,189,211,175,249,134,211,87,246,75,213,74,146" href="#" onmouseover="highlight('Bodybuild_chest.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Bodybuild_chest.png');return false;">
+										  <area data-key="arm" shape="poly" coords="194,186,188,143,224,166,251,393,247,401,244,397" href="#" onmouseover="highlight('Bodybuild_arm.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Bodybuild_arm.png');return false;">
+										  <area data-key="arm" shape="poly" coords="73,181,85,141,44,161,7,399,16,402" href="#" onmouseover="highlight('Bodybuild_arm.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Bodybuild_arm.png');return false;">
+										  <area data-key="abdomen" shape="poly" coords="88,242,131,225,174,243,171,265,185,309,145,332,113,332,72,311,93,263" href="#" onmouseover="highlight('Bodybuild_Abdomen.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Bodybuild_Abdomen.png');return false;">
+										  <area data-key="pelvis" shape="poly" coords="74,317,114,334,150,334,183,311,191,336,138,366,122,365,69,343" href="#" onmouseover="highlight('Bodybuild_Pelvis.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Bodybuild_Pelvis.png');return false;">
+										  <area data-key="leg" shape="rect" coords="66,359,128,672" href="#" onmouseover="highlight('Body_leg.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Body_leg.png');return false;">
+										  <area data-key="leg" shape="rect" coords="136,361,198,673" href="#" onmouseover="highlight('Body_leg.png');return false;" onmouseout="noHighlight();return false;" onclick="showRelevantDisease('','Body_leg.png');return false;">
+										  
 										</map>
 
 								</div>
@@ -207,7 +214,7 @@
 								<li class="icon fa-phone"><a href="#">(000) 000-0000</a></li>
 								<li class="icon fa-envelope-o"><a href="#">info@untitled.tld</a></li>
 							</ul>
-							<ul class="icons-bordered">		var idx = $('#knowledgePic').index(this);
+							<ul class="icons-bordered">		
 
 								<li><a class="icon fa-facebook" href="#">
 									<span class="label">Facebook</span>

@@ -8,18 +8,18 @@
     'use strict';
 
     function scaleImageMap(){
+console.log("scale map");
         function resizeMap() {
+            console.log("resize map");
             function resizeAreaTag(cachedAreaCoords,idx){
                 function scale(coord){
                     var dimension = ( 1 === (isWidth = 1-isWidth) ? 'width' : 'height' );
-
                     return Math.floor(Number(coord) * scallingFactor[dimension]);
                 }
 
                 var isWidth = 0;
 
                 areas[idx].coords = cachedAreaCoords.split(',').map(scale).join(',');
-
             }
 
             var scallingFactor = {
@@ -36,15 +36,15 @@
         }
 
         function debounce() {
+            console.log("debounce");
             clearTimeout(timer);
             timer = setTimeout(resizeMap, 250);
         }
 
         function start(){
             console.log("start");
-            console.log(image.width);
-            console.log(image.naturalWidth);
             if ((image.width !== image.naturalWidth) || (image.height !== image.naturalHeight)) {
+                console.log("in start if");
                 resizeMap();
             }
         }
@@ -100,7 +100,7 @@
                 maps.push(element);
             }
         }
-
+console.log("init");
         var maps;
 
         return function imageMapResizeF(target){
@@ -117,7 +117,7 @@
                 default:
                     throw new TypeError('Unexpected data type ('+typeof target+').');
             }
-
+console.log(maps);
             return maps;
         };
     }

@@ -37,30 +37,6 @@ $(document).ready(function() {
 });
 
 
-
-// function randomRow(){
-// 	var column1 = randomColumn();
-// 	var column2 = randomColumn();
-// 	var column3 = randomColumn();
-// 	var row = '<ul class="posts">';
-// 	row += column1;
-// 	row += column2;
-// 	row += column3;
-// 	row += '</ul>'
-// 	console.log('should add new row');
-// 	return row;
-// }
-
-// function randomColumn(){
-// 	var post1 = randomPost();
-// 	var post2 = randomPost();
-// 	var column = '<div>';
-// 	column += post1;
-// 	column += post2;
-// 	column += '</div>';
-// 	return column;
-// }
-
 function randomPost(){
 	var content = ['<p>afsd jwe nglka fdjsao, fdjsai ds jeiw jjhsa jklds,dsa s sijf. fdshjakl  hdsfiloa hnjls nfdsiao hofgdsn pi ks knlf, gfdip snpij njd  dpnmj sa.</p>', 
 	'<p>In a luctus purus, in tempus mi. Integer vulputate tincidunt arcu quis aliquet. Maecenas sollicitudin nec nisi sit amet dictum. Curabitur sagittis nulla id sem vulputate, eget blandit nibh ullamcorper. Nam feugiat elementum pharetra. Vestibulum a purus eget mi mattis tincidunt a sed felis.</p>', 
