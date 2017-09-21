@@ -1,0 +1,31 @@
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+
+
+#page-wrap { 
+	/*width: 960px; */
+	/*margin: 80px auto; */
+}
+
+h1 {
+	font-size: 32px;
+	font-stretch: condensed;
+	text-transform: uppercase;
+}
+
+h1 span {
+  display: inline-block;
+  /*padding: 10px 20px;*/
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  /*border-radius: 20px;*/
+  /*margin-top: 20px;*/
+  text-align: center;
+  text-decoration: none;
+  box-shadow: transparent;
+}

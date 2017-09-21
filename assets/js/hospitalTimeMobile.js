@@ -53,87 +53,12 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 			// $(this).attr("href", link);
 		})
 		// $('.posts').append(allHospital(testList));		//input: json, default show all
-	if(window.matchMedia("(max-width:1300px)").matches){
-		resize();
-	}
+	
 	$('.right').mapster({
   		fillOpacity: 0, 
   		singleSelect: true
   	});
-		//===========tooltips======================================
-		var originalwidth = $('.right').width();
-		var originalHeight = $('.right').height();
-
-
-// IIFE to ensure safe use of $
-(function( $ ) {
-
-  // Create plugin
-  $.fn.tooltips = function(el) {
-
-  	var $tooltip,
-  	$body = $('body'),
-  	$el;
-
-    // Ensure chaining works
-    return this.each(function(i, el) {
-
-      $el = $(el).attr("data-tooltip", i);  //area
-      if($el.attr("data-key") != "area1" || $el.attr("data-key") != "area2" || $el.attr("data-key") != "area3"){
-
-      // Make DIV and append to page 
-      var $tooltip = $('<div class="tooltip" data-tooltip="' + i + '">' + $el.attr('title') + '<div class="arrow"></div></div>').appendTo("body");
-
-      // Position right away, so first appearance is smooth
-      // var linkPosition = $el.position();
-      // var coordPosition = $el.attr("alt");
-      var coordPosition = $el.attr("data-pos");
-      var positionArray = coordPosition.split(',');
-
-      // var positionArray = coordPosition.split(',').map(function(i){
-      // 	return parseInt(i);
-      // });
-      
-      var imgPos = $('.right').offset();
-      var imgWidth = $('.right').width();
-      var imgHeight = $('.right').height();
-      
-      $tooltip.css({
-      	// 'position':'absolute',
-          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
-          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
-      });
-
-      $el
-      // Get rid of yellow box popup
-      .removeAttr("title")
-
-      // always show
-
-      $el = $(this);
-
-      $tooltip = $('div[data-tooltip=' + $el.data('tooltip') + ']');
-
-        // Reposition tooltip, in case of page movement e.g. screen resize                        
-        // var linkPosition = $el.position();
-
-        $tooltip.css({
-          // 'position':'absolute',
-          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
-          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
-      });
-
-        // Adding class handles animation through CSS
-        $tooltip.addClass("active");
-    }
-
-});
-
-
-}
-
-})(jQuery);
-		//=========================================================
+		
 	});
  $(window).bind('resize',onWindowResize);
 
@@ -150,22 +75,23 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 			if(clickCounter.area == location){
 			clickCounter.counter = false;
 				//deselect area
-				$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
+				$('.right').attr("src", "images/map-hongkong.png");
+
 			}else{
 				clickCounter.area = location;
 				clickCounter.counter = true;
 				// $.ajax({
-	// 	method: "GET",
-	// 	url: "",
-	// })
-	// .done(function( msg ) {
-	// 	var json = JSON.parse(msg);
-		$('.posts').append(allHospital(testList));		//input: json
+				// 	method: "GET",
+				// 	url: "",
+				// })
+				// .done(function( msg ) {
+				// 	var json = JSON.parse(msg);
+					$('.posts').append(allHospital(testList));		//input: json
 
-		// $('.bottom').each(function(i,obj){
-		// 	var hour = json[i]. //time
-		// 	$(this).text(hour);
-		// });
+					// $('.bottom').each(function(i,obj){
+					// 	var hour = json[i]. //time
+					// 	$(this).text(hour);
+					// });
 			}
 
 			}else{
@@ -233,8 +159,9 @@ function resize() {
 	var imgPos = $('.right').offset();
 	var imgWidth = $('.right').width();
 	var imgHeight = $('.right').height();
-	if($(window).width() < 1300){
-		window.location.replace('hospitalTimeMobile.html');
+	if($(window).width() >= 1300){
+		window.location.replace('hospitalTime.html');
+	}else{
 		// var locations = $('map > area').slice(-3);
 		// $(locations[0]).attr("coords","414,264,516,263,537,249,539,300,550,302,558,357,513,326,515,340,483,325,457,350,436,347,438,326,418,320,408,315");
 		// $(locations[0]).attr("onclick", "showTime('select_KL.png','area1');return false;");
@@ -244,22 +171,10 @@ function resize() {
 	    $('.left').width( $('.split').width() / 2 );
 	    $('.posts').width($('.left').width());
 
-	}else{
-
-	$('area').each(function(i,obj){
-		if(i<18){
-			$(this).attr("title", "超過5小時");
-
-			$('area[title]').tooltips();
-			$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
-	}
-
-		});
-		
-		
-	}
+	
     // newWidth = $('.split').children().width();	//to make width = .split > * width
     // console.log(newWidth);
+}
 
 }
 
@@ -286,3 +201,9 @@ window.setTimeout(function() {
 checking=false;
 },resizeDelay );
 }
+
+// $(window).on( 'resize', function () {
+//     $('.left').width( $('.split').width() / 2 );
+//     $('.posts').width($('.left').width());
+
+// }).resize();

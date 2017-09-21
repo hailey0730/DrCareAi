@@ -1,4 +1,5 @@
 
+
 /*bottom map*/
 .bulletsDiv{
 	background-color: #7fb533;
@@ -13,7 +14,7 @@
 
 .hospital{
 	float: left;
-	padding:1em 3em 0 1em;
+	padding:0.5em 1.5em 0.5em 1em;
 	text-align:left;
 	max-width: 60%;
 }
@@ -23,7 +24,18 @@
 }
 
 .posts{
-	/*overflow-y: scroll;*/
+	overflow-y: scroll;
+	width: 100%;
+	height: 30em;
+}
+
+.posts::-webkit-scrollbar{
+	display: none;
+}
+
+.mapEstimate{
+	margin:0 0 0 0;
+	text-align: right;
 }
 
 @media screen and (max-width: 480px){
@@ -48,7 +60,7 @@
 
 	.split > .left > .posts > :nth-child(n){
 			width:25em;
-			max-height: 15em;
+			max-height: 9.5em;
 		}
 
 }
@@ -56,6 +68,7 @@
 .hospital > p{
 	margin: 0;
 	line-height: 1.2em;
+	color: #000;
 }
 
 .hospitalDiv{
@@ -90,9 +103,22 @@
 }
 
 .timeDiv{
-	margin-top: 2em;
 	max-width: 30%;
 	float:right;
+	position: relative;
+	top:1.5em;
+	right:1em;
+}
+
+.timeDiv > h3{
+	font-size: 1.5em;
+}
+
+.timeDiv > h3 span{
+	font-size: 2.5em;
+	font-weight: 300;
+	line-height:1;
+	margin-bottom: 0.25em;
 }
 
 a > div > h3{
@@ -452,6 +478,7 @@ a > div > h3{
 			width:25em;
 			max-height: 7em;
 			max-width: 100%;
+			margin-bottom: 0.5em;
 		}
 
 		/*.posts > :nth-child(-n + 3) {
