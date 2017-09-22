@@ -1,13 +1,24 @@
+var resizeTime = 100;     // total duration of the resize effect, 0 is instant
+var resizeDelay = 100;  
   var moreCounter = 3;
   var clicked = false;
+  var liked = false;
+  var faved = false;
+  var likeNum = 30;
+  var favNum = 25;
 $(document).ready(function(){
-	var likeNum = 30;
+	
 
   //content value determine content to show in page
   // var type = "循環系統疾病";
   // var name = sessionStorage.getItem('sickness');
-  console.log(name);
   var name = '中風';
+  if(window.matchMedia("(max-width:720px)").matches){
+    $('#wrapper').css("margin-right", 5+'em');
+  }else{
+    $('#wrapper').css("margin-right", $('body').width() * 1/3 + 'px');  
+  }
+  
   //set content of this page
   $.ajax({
   method: "GET",
@@ -24,13 +35,17 @@ $(document).ready(function(){
     $('#what').text(json[0].What);
     $('#why').text(json[0].Why);
     $('#how').text(json[0].How);
-    console.log("done ajax");
+    
+    var docCat = '(';
+    docCat += 'YYY';
+    docCat += '科醫生）'
+    $('#blue').text(docCat);
   });
 
   
 
-	$("#like").html(" | "+likeNum+'<img id="likePic" src="images/like-128copy3.png">');
-	var liked = false;
+	$(".fa-thumbs-o-up").text(likeNum);
+	$('.fa-heart').text(favNum;)
 
     $(".more").click(function(){
 
@@ -65,25 +80,74 @@ $(document).ready(function(){
        
     });
 
-    $("#addFavourite").click(function(){
-    	//add to favourite and send info back
-    });
-
-    $("#like").click(function(){
-    	if(liked == false){
-    	likeNum++;
-    	$("#like").html(" | "+likeNum+'<img id="likePic" src="images/like-128copy3.png">');
-    	liked = true;
-    	//send info back 
-	    }else{
-	    	likeNum--;
-    	$("#like").html(" | "+likeNum+'<img id="likePic" src="images/like-128copy3.png">');
-    	liked = false;
-    	//send info back 
-	    }
-    });
-
 });
+
+ $(window).bind('resize',onWindowResize);
+
+ function addFavourite(){
+      //add to favourite and send info back
+      if(faved == false){
+        favNum++;
+    $('.fa-heart').text(favNum;);
+    faved = true;
+      //send info back 
+    
+      }else{
+        favNum--;
+    $('.fa-heart').text(favNum;);
+    faved = false;
+      //send info back 
+      }
+      
+ }
+
+ function like(){
+  if(liked == false){
+      likeNum++;
+      $(".fa-thumbs-o-up").text(likeNum);
+      liked = true;
+      //send info back 
+      }else{
+        likeNum--;
+      $(".fa-thumbs-o-up").text(likeNum);
+      liked = false;
+      //send info back 
+      }
+ }
+
+ function resize(newWidth,newHeight) {
+  if(newWidth > 720){
+
+    $('#wrapper').css("margin-right", newWidth * 1/3 + 'px');
+  }else{
+    $('#wrapper').css("margin-right", 5+'em');
+
+  }
+
+}
+
+// Track window resizing events, but only actually call the map resize when the
+// window isn't being resized any more
+
+function onWindowResize() {
+var curWidth = $(window).width(),
+curHeight = $(window).height(),
+checking=false;
+if (checking) {
+  return;
+}
+checking = true;
+window.setTimeout(function() {
+  var newWidth = $(window).width(),
+  newHeight = $(window).height();
+  if (newWidth === curWidth &&
+    newHeight === curHeight) {
+    resize(newWidth,newHeight);
+
+}
+checking=false;
+},resizeDelay );
+}
 
 function moreDoc(){
   var doc = '';

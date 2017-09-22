@@ -1646,7 +1646,7 @@
 	}
 
 	body, input, select, textarea {
-		font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+		font-family: 'PingFang';
 		font-size: 13pt;
 		font-weight: 400;
 		letter-spacing: 0.02em;
@@ -1794,7 +1794,7 @@
 	code {
 		border-radius: 0;
 		border: solid 1px;
-		font-family: "Courier New", monospace;
+		font-family: 'PingFang';
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -1802,7 +1802,7 @@
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: "Courier New", monospace;
+		font-family: 'PingFang';
 		font-size: 0.9em;
 		margin: 0 0 2em 0;
 	}
@@ -3974,5 +3974,11 @@
 		}
 
 /* Footer */
+@font-face {
+    font-family: 'PingFang'; /*a name to be used later*/
+    src:url('PingFang-HK-Light/PingFang-HK-Light.ttf'); /*URL to font*/
+    /*src: url('http://www.fonts101.com/search/PingFang-HK-Light.ttf'); /*URL to font*/
+
+}
 
 	

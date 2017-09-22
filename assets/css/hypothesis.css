@@ -1693,7 +1693,7 @@
 	}
 
 	body, input, select, textarea {
-		font-family: "Lato", Arial, Helvetica, sans-serif;
+		font-family: 'PingFang';
 		font-weight: 200;
 		font-size: 1rem;
 		line-height: 1.65;
@@ -1848,7 +1848,7 @@
 	code {
 		border-radius: 0.5rem;
 		border: solid 1px;
-		font-family: "Courier New", monospace;
+		font-family: 'PingFang';
 		font-size: 0.9rem;
 		margin: 0 0.25rem;
 		padding: 0.25rem 0.65rem;
@@ -1856,7 +1856,7 @@
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: "Courier New", monospace;
+		font-family: 'PingFang';
 		font-size: 0.9rem;
 		margin: 0 0 2rem 0;
 	}
@@ -1904,7 +1904,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #5dc9dd;
-		font-family: PingFang;
+		font-family: 'PingFang';
 
 	}
 

@@ -229,7 +229,7 @@ function diseaseColumn(t, d){
     for( var i = 0; i < d.length; i++){
     	column += '<li><a class="add" onclick=passSickness("';
     	column += d[i];
-    	column += '") href="#">';
+    	column += '") href="#"> > ';
     	column += d[i];
     	column += '</a></li>';
     }

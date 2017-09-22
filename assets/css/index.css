@@ -1,0 +1,4 @@
+
+.split > *:first-child{
+		margin-right: 10em;
+	}
