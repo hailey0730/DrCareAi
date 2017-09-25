@@ -207,13 +207,23 @@ function allHospital(list){
 }
 
 function hospitalInfo(obj){
+
+	var estimate = "";
+	if(obj.等候時間 > 5){	//some number 
+		estimate = "超過";
+		}else{
+		estimate = "大約";
+		} 
+	
 	var hospital = '<div class="hospitalDiv"><div class="bulletsDiv"><p>" " </p></div><a href=""><div class="hospital"><h3>';
 		hospital +=  obj.醫院;	//hospital name
 		hospital += '</h3><p><span style="font-weight:bold">地址:</span>';
 		hospital +=  obj.地址;	//hospital address
 		hospital += '</p><p><span style="font-weight:bold">電話:</span>';
 		hospital +=  obj.電話;	//hospital phone
-		hospital += '</p></div><div class="timeDiv"><h3><span class="time bottom">';
+		hospital += '</p></div><div class="timeDiv"><p class="mapEstimate">';
+		hospital +=  estimate;
+		hosptial += '</p><h3><span class="time bottom">';
 		hospital +=  obj.等候時間;	//hour
 		hospital += '</span>小時</h3></div></a></div>';
 

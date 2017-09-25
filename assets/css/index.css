@@ -1,4 +1,12 @@
 
 .split > *:first-child{
-		margin-right: 10em;
+		/*margin-right: 5em;*/
 	}
+
+.inner > .split > .content > h3{
+	width: 12em;
+}
+
+.tooltip{
+	font-size: 12px;
+}

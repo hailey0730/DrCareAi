@@ -18,6 +18,7 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 			testList[i] = json[i];
 		}
 
+// setting hospital name and area for testing purpose
 		$('.hospital').each(function(i,obj){
   		var children = $(this).children();
        	testList[i].醫院 = children[0].innerHTML;
@@ -33,6 +34,8 @@ var resizeDelay = 100;    // time to wait before checking the window size again
        	}
 
   	});
+
+// display list is shown, testList save all hospitals
   	for(var i = 0; i< testList.length; i++){
 		display[i] = testList[i];
 	}
@@ -217,24 +220,36 @@ function allHospital(list){
 }
 
 function hospitalInfo(obj,i){
-	if(obj.醫院 == "東區尤德夫人那打素醫院" || obj.醫院 == "雅麗氏何妙齡那打素醫院"){
-		//doesn't work
-		var bigger = {
-			'width':'25em',
-			'max-height': '10em',
-			'max-width': '100%',
-			'margin-bottom': '0.5em'
-		}
-		$('.posts > :nth-child('+i+')').css(bigger);
-	}
+		//doesn't work, trying to make extra big div for longer names
+	// if(obj.醫院 == "東區尤德夫人那打素醫院" || obj.醫院 == "雅麗氏何妙齡那打素醫院"){
+	// 	var bigger = {
+	// 		'width':'25em',
+	// 		'max-height': '10em',
+	// 		'max-width': '100%',
+	// 		'margin-bottom': '0.5em'
+	// 	}
+	// 	$('.posts > :nth-child('+i+')').css(bigger);
+	// }
+	var hours = 0;
+	var estimate = "";
+	if(obj.等候時間 > 5){	//some number 
+		estimate = "超過";
+		hours = '5';
+		}else{
+		estimate = "大約";
+		hours = obj.等候時間;
+		} 
+		
 		var hospital = '<div class="hospitalDiv"><div class="bulletsDiv"><p>" " </p></div><a href=""><div class="hospital"><h3>';
 		hospital +=  obj.醫院;	//hospital name
 		hospital += '</h3><p><span style="font-weight:bold">地址:</span>';
 		hospital +=  obj.地址;	//hospital address
 		hospital += '</p><p><span style="font-weight:bold">電話:</span>';
 		hospital +=  obj.電話;	//hospital phone
-		hospital += '</p></div><div class="timeDiv"><h3><span class="time bottom">';
-		hospital +=  obj.等候時間;	//hour
+		hospital += '</p></div><div class="timeDiv"><p class="mapEstimate">';
+		hospital +=  estimate;
+		hospital += '</p><h3><span class="time bottom">';
+		hospital +=  hours;	//hour
 		hospital += '</span>小時</h3></div></a></div>';
 	
 		return hospital;
@@ -244,25 +259,44 @@ function hospitalInfo(obj,i){
 function reorder(hospital){
 	$('.hospitalDiv').remove();
 	var area = '';
-	for(var i = 0; i < display.length; i++){
-		if(display[i].醫院 == hospital){
-			var first = display.splice(i, 1);
-			area = first[0].地區;
-			display.splice(0,0, first[0]);
+	display = [];
+	for(var i = 0; i < testList.length; i++){
+		if(testList[i].醫院 == hospital){
+			// var first = testList.splice(i, 1);
+			display[0] = testList[i];
+			area = display[0].地區;
+			// testList.splice(0,0, first[0]);
+			break;
 		}
+	}
+	var j = 1;
+	for(var i = 0; i < testList.length; i++){
+		if(testList[i].醫院 != hospital){
+		if(testList[i].地區 == area){
+			display[j] = testList[i];
+			j++;
+		}
+	}
 	}
 	$('.posts').append(allHospital(display));		//input: json
 	setBulletsDiv(display);
 	if(area == "新界"){
 	$('.hospitalDiv').first().css("background-color", "#b5d606");
-
+		$('.right').attr("src", 'images/Mapfordesktop/Map_highlighted_green.png');
 	}else if(area == "九龍"){
 	$('.hospitalDiv').first().css("background-color", "#d94b5d");
+		$('.right').attr("src", 'images/Mapfordesktop/Map_highlighted_red.png');
 
 	}else if(area == "港島"){
 	$('.hospitalDiv').first().css("background-color", "#4ecae4");
+		$('.right').attr("src", 'images/Mapfordesktop/Highlighted blue.png');
 
 	}
+	var children = $('.hospitalDiv').first().children();
+	var grandchildren = $(children[1]).children();
+	$($(grandchildren[0]).children()).css("color", "white");
+	$($(grandchildren[1]).children()).css("color", "white");
+
 }
 
 

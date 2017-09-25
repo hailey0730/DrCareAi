@@ -45,7 +45,7 @@ $(document).ready(function(){
   
 
 	$(".fa-thumbs-o-up").text(likeNum);
-	$('.fa-heart').text(favNum;)
+	$('.fa-heart').text(favNum);
 
     $(".more").click(function(){
 
@@ -88,13 +88,13 @@ $(document).ready(function(){
       //add to favourite and send info back
       if(faved == false){
         favNum++;
-    $('.fa-heart').text(favNum;);
+    $('.fa-heart').text(favNum);
     faved = true;
       //send info back 
     
       }else{
         favNum--;
-    $('.fa-heart').text(favNum;);
+    $('.fa-heart').text(favNum);
     faved = false;
       //send info back 
       }

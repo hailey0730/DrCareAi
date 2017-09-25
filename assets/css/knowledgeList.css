@@ -80,8 +80,19 @@
 
 .add{
 	font-size: 1.4em;
+	text-decoration: underline;
 }
 
 #test{
 	color: black;
+}
+
+#test > a{
+	color: #5dc9dd;
+}
+
+h3{
+	font-size: 2rem;
+	width:7em;
+	color:#bbbec1;
 }

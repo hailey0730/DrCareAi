@@ -1,25 +1,39 @@
 var resizeTime = 100;     // total duration of the resize effect, 0 is instant
 var resizeDelay = 100;   
+var testList = [];
 $(document).ready(function() {
 
-$('area').each(function(i,obj){
-	// set time as title to be displayed in tooltip
-	if(i<18){
-		// var hours = 0;
-		// // hours = json[i]. //something about time
-		// hours = testList[i].等候時間;
-		// var estimate = "";
-		// if(hours > 5){	//some number 
-		// estimate = "超過";
-		// hours = 5;
-		// }else{
-		// estimate = "大約";
-		// } 
-		// $(this).attr("title", estimate + hours + "小時");
-		$(this).attr("title", "大約" + 4 + "小時");
+$.ajax({
+		method: "GET",
+		url: "http://www.chatbot.hk/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+	})
+	.done(function( msg ) {
+		var json = JSON.parse(msg);
+		for(var i = 0; i < json.length; i++){
+			testList[i] = json[i];
+		}
 
-	}
-});
+		$('area').each(function(i,obj){
+		// set time as title to be displayed in tooltip
+		if(i<18){
+			var hours = 0;
+			// hours = json[i]. //something about time
+			hours = testList[i].等候時間;
+			var estimate = "";
+			if(hours > 5){	//some number 
+			estimate = "超過";
+			hours = 5;
+			}else{
+			estimate = "大約";
+			} 
+			$(this).attr("title", estimate + hours + "小時");
+			// $(this).attr("title", "大約" + 4 + "小時");
+
+		}
+	});
+		$('area[title]').tooltips();
+	});
+
 if(window.matchMedia("(max-width:1300px)").matches){
 		resize();
 	}
