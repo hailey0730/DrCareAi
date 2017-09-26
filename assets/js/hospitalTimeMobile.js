@@ -45,7 +45,12 @@ $('.time').each(function(i, obj){
 		var hours = 0;
 		// hours = json[i]. //something about time
 		hours = testList[i].等候時間;
-		$(this).text(hours);
+		if(hours > 5){	//some number 
+				$(this).text('5');
+			}else{
+				$(this).text(hours);
+
+			} 
 		});
 
 	$('.estimate').each(function(i,obj){
@@ -54,9 +59,9 @@ $('.time').each(function(i, obj){
 		// hours = json[i]. //something about time
 		hours = testList[i].等候時間;
 			if(hours > 5){	//some number 
-				$(this).text('5');
+				$(this).text('等候 超過');
 			}else{
-				$(this).text(hours);
+				$(this).text('等候 大約');
 
 			} 
 		}

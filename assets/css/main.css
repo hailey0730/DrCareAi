@@ -1697,8 +1697,13 @@
 
 		.split > * {
 			margin-left: 5em !important;
-			width: 50%;
+			width: 45%;
 			-ms-flex: 1 1 auto;
+		}
+
+		.split.reversed > img, .content{
+			-ms-flex: 1 0 auto;
+
 		}
 
 			.split > * > :last-child {
@@ -1718,6 +1723,15 @@
 
 		.split.style1.centered.reversed > .portrait{
 			width: 33%;
+		}
+
+		.compat-object-fit{
+			background-size: cover;
+			background-position: center center;
+
+			.image.fit.portrait > img{
+				opacity: 0;
+			}
 		}
 
 		.split.style1.centered.reversed > .detail{
@@ -2979,6 +2993,11 @@
 		}
 
 /* Image */
+@-moz-document url-prefix() {
+    .right{
+    	width:100%;
+    }
+}
 
 	.image {
 		border-radius: 4px;
@@ -3017,6 +3036,14 @@
 			display: block;
 			width: 100%;
 		}
+
+		.image.fit.portrait{
+			/*background-image: url(../../images/hand.png);*/
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+		}
+
 
 		.image.fit.message img{
 			max-width: 80%;
@@ -5034,7 +5061,6 @@
 
 	@font-face {
     font-family: 'PingFang'; /*a name to be used later*/
-    src:url('PingFang-HK-Light/PingFang-HK-Light.ttf'); /*URL to font*/
-    /*src: url('http://www.fonts101.com/search/PingFang-HK-Light.ttf'); /*URL to font*/*/
+    src:url('PingFang-HK-Light/PingFang-HK-Light.ttf');/* format('truetype'); /*format('embedded-opentype'); /*URL to font*/
 
 }

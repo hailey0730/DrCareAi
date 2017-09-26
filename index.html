@@ -4,18 +4,41 @@
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 -->
-<html>
+<html class="no-js">
 <head>
 	<title>DrCare.ai</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="assets/js/jquery.min.js"></script> -->
+	<!-- <script src="assets/js/jQuery-ajaxTransport-XDomainRequest-master/jquery.xdomainrequest.min.js" ></script>
+	<script src="assets/js/modernizr-custom.js" ></script> -->
+	<!-- <script type="text/javascript">
+		$(document).ready(function(){
+			if(!Modernizr.objectfit){
+				var imgURL = $('.image fit portrait').find('img').prop('src');
+				$('.portrait').css('background-image','url(' + imgURL + ')').addClass('compat-object-fit');
+			}
+		});
+	</script> -->
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
 	<link rel="stylesheet" href="assets/css/tooltips.css" />
 	<link rel="stylesheet" href="assets/css/index.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	
+	<!-- <script type="text/javascript">
+	$(document).ready(function(){
+		Modernizr.load({
+		  test: Modernizr.webgl,
+		  yep : 'three.js', /* JavaScript 3D Library */
+		  nope: 'jebgl.js' /*  */
+		});
+	});
+		
+	</script> -->
 </head>
 <body id="top">
 
@@ -35,8 +58,8 @@
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
 						<li><a href="hospitalTime.html">急症室等候時間</a></li>
-						<li><a href="#">Option Two</a></li>
-						<li><a href="#">Option Three</a></li>
+						<li><a href="knowledgeList.html">疾病分類</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">搜尋醫生</a></li>
 						<li>
 							<a href="#">Submenu</a>
 							<ul>
@@ -76,7 +99,7 @@
 		<div class="inner">
 			<div class="split style1 centered reversed">
 				<section class="portrait">
-					<span class="image fit portrait"><img src="images/hand.png" alt="" /></span>
+					<span class="image fit portrait" style="background-image: url(images/hand.png)"><img src="images/hand.png" style="opacity: 0;" alt="" /></span>
 				</section>
 				<section class="detail">
 					<h2>Dr.Care 一站式服務 助你管理自己和家人的健康</h2>
@@ -334,7 +357,11 @@
 
 			$(document).scroll(function(){
 				// console.log($(this).scrollTop());
-				if($(this).scrollTop() > 500 && bool) {
+				var hT = $('#two').offset().top,
+			       hH = $('#two').outerHeight(),
+			       wH = $(window).height();
+			       //hT+hH-wH is better for browser but not for mobile
+				if($(this).scrollTop() > (hT-wH) && bool) {
 					// alert($(window).height());
 					$('#animateNum1').animateNumber(
 					{

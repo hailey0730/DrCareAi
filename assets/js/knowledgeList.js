@@ -1,5 +1,6 @@
 var clickCounter = {part:'',counter:false};
-
+var titleList = [];
+var diseaseList = [];
 $(document).ready(function(){
 	var sickness ='';
 	$.ajax({
@@ -9,8 +10,8 @@ $(document).ready(function(){
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		var i = 0;
-		var titleList = [];
-		var diseaseList = [];
+		titleList = [];
+		diseaseList = [];
 		var numRow = 0;
 		for (var key in json){
 			var disease = json[key];
@@ -43,48 +44,61 @@ $(document).ready(function(){
 	    singleSelect: true
 	});
 
-    $('body').click(function(evt){
+    $('body').click(function(evt){      //when clicking somewhere else to deselect
         console.log(evt.target.nodeName);
         if(evt.target.nodeName != "AREA")
         {
-            $(".list").remove();
+            // $(".list").remove();
             $('.body').attr("src","images/BodyExport/Body.png");
             clickCounter.counter = false;
 
-            $.ajax({
-        method: "GET",
-        url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-    })
-    .done(function( msg ) {
-        var json = JSON.parse(msg);
-        var i = 0;
-        var titleList = [];
-        var diseaseList = [];
-        var numRow = 0;
-        for (var key in json){
-            var disease = json[key];
-            titleList[i] = key;
-            diseaseList[i] = disease;
-            i++;
-        }
-        if(titleList.length % 2 != 0){
-            numRow =  titleList.length / 2 + 1;
-        }else{
-            numRow = titleList.length / 2;
-        }
-        for(var j = 0; j < numRow; j++){
-            var title1 = titleList[j*2];
-            var disease1 = diseaseList[j*2];
-            if(titleList[j*2+1] != null){
-                var title2 = titleList[j*2+1];
-                var disease2 = diseaseList[j*2+1];
-            }
+    //         $.ajax({
+    //     method: "GET",
+    //     url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+    // })
+    // .done(function( msg ) {
+    //     var json = JSON.parse(msg);
+    //     var i = 0;
+    //     var titleList = [];
+    //     var diseaseList = [];
+    //     var numRow = 0;
+    //     for (var key in json){
+    //         var disease = json[key];
+    //         titleList[i] = key;
+    //         diseaseList[i] = disease;
+    //         i++;
+    //     }
+    //     if(titleList.length % 2 != 0){
+    //         numRow =  titleList.length / 2 + 1;
+    //     }else{
+    //         numRow = titleList.length / 2;
+    //     }
+    //     for(var j = 0; j < numRow; j++){
+    //         var title1 = titleList[j*2];
+    //         var disease1 = diseaseList[j*2];
+    //         if(titleList[j*2+1] != null){
+    //             var title2 = titleList[j*2+1];
+    //             var disease2 = diseaseList[j*2+1];
+    //         }
 
-            $('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-        }
+    //         $('.posts').append(diseaseRow(title1, title2, disease1, disease2));
+    //     }
 
         
-        });
+    //     });
+
+     $('article').each(function(j, obj){     //set title opacity
+            var content = $(this).children().children();
+            var li = $(content[1]).children();
+            // console.log(content[0]);    //h3
+            // console.log(li);
+            // console.log($(li[0]).children());   //disease
+            $(content).css("opacity","1");
+            });
+
+     $('.add').each(function(j,obj){
+        $(this).css("opacity","1");
+     })
         }
     });
 
@@ -110,7 +124,7 @@ function showRelevantDisease(body, bodyPath){
     img += bodyPath;
     $('.body').attr("src", img);
 
-	$(".list").remove();
+	// $(".list").remove();
 	if(clickCounter.part == body){
 		if(clickCounter.counter == true){
         
@@ -125,30 +139,55 @@ function showRelevantDisease(body, bodyPath){
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		var i = 0;
-		var titleList = [];
-		var diseaseList = [];
-		var numRow = 0;
-		for (var key in json){
-			var disease = json[key];
-			titleList[i] = key;
-			diseaseList[i] = disease;
-			i++;
-		}
-		if(titleList.length % 2 != 0){
-			numRow =  titleList.length / 2 + 1;
-		}else{
-			numRow = titleList.length / 2;
-		}
-		for(var j = 0; j < numRow; j++){
-			var title1 = titleList[j*2];
-			var disease1 = diseaseList[j*2];
-			if(titleList[j*2+1] != null){
-				var title2 = titleList[j*2+1];
-				var disease2 = diseaseList[j*2+1];
-			}
 
-			$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-		}
+        for(var key in json){
+            $('article').each(function(j, obj){     //set title opacity
+            var content = $(this).children().children();
+            var li = $(content[1]).children();
+            // console.log(content[0]);    //h3
+            // console.log(li);
+            // console.log($(li[0]).children());   //disease
+            $(content).css("opacity","0.3");
+            if($(content[0]).text() == key){
+                $(content).css("opacity","1");
+            }
+            });
+
+            $('.add').each(function(j,obj){         //set disease opacity
+                var diseaseList = json[key];
+                $(this).css("opacity","0.3");
+                for(var k = 0; k < diseaseList.length; k ++){
+                    if($(this).text().substring(3) == diseaseList[k]){
+                        $(this).css("opacity","1");
+                    }
+
+                }
+            });
+        }
+		// var titleList = [];
+		// var diseaseList = [];
+		// var numRow = 0;
+		// for (var key in json){
+		// 	var disease = json[key];
+		// 	titleList[i] = key;
+		// 	diseaseList[i] = disease;
+		// 	i++;
+		// }
+		// if(titleList.length % 2 != 0){
+		// 	numRow =  titleList.length / 2 + 1;
+		// }else{
+		// 	numRow = titleList.length / 2;
+		// }
+		// for(var j = 0; j < numRow; j++){
+		// 	var title1 = titleList[j*2];
+		// 	var disease1 = diseaseList[j*2];
+		// 	if(titleList[j*2+1] != null){
+		// 		var title2 = titleList[j*2+1];
+		// 		var disease2 = diseaseList[j*2+1];
+		// 	}
+
+		// 	$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
+		// }
 
 		
 });
@@ -164,30 +203,55 @@ function showRelevantDisease(body, bodyPath){
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		var i = 0;
-		var titleList = [];
-		var diseaseList = [];
-		var numRow = 0;
-		for (var key in json){
-			var disease = json[key];
-			titleList[i] = key;
-			diseaseList[i] = disease;
-			i++;
-		}
-		if(titleList.length % 2 != 0){
-			numRow =  titleList.length / 2 + 1;
-		}else{
-			numRow = titleList.length / 2;
-		}
-		for(var j = 0; j < numRow; j++){
-			var title1 = titleList[j*2];
-			var disease1 = diseaseList[j*2];
-			if(titleList[j*2+1] != null){
-				var title2 = titleList[j*2+1];
-				var disease2 = diseaseList[j*2+1];
-			}
+        for(var key in json){
+            $('article').each(function(j, obj){     //set title opacity
+            var content = $(this).children().children();
+            var li = $(content[1]).children();
+            // console.log(content[0]);    //h3
+            // console.log(li);
+            // console.log($(li[0]).children());   //disease
+            $(content).css("opacity","0.3");
+            if($(content[0]).text() == key){
+                $(content).css("opacity","1");
+            }
+            });
 
-			$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-		}
+            $('.add').each(function(j,obj){         //set disease opacity
+                var diseaseList = json[key];
+                $(this).css("opacity","0.3");
+                for(var k = 0; k < diseaseList.length; k ++){
+                    if($(this).text().substring(3) == diseaseList[k]){
+                        $(this).css("opacity","1");
+                    }
+
+                }
+            });
+        }
+        
+		// var titleList = [];
+		// var diseaseList = [];
+		// var numRow = 0;
+		// for (var key in json){
+		// 	var disease = json[key];
+		// 	titleList[i] = key;
+		// 	diseaseList[i] = disease;
+		// 	i++;
+		// }
+		// if(titleList.length % 2 != 0){
+		// 	numRow =  titleList.length / 2 + 1;
+		// }else{
+		// 	numRow = titleList.length / 2;
+		// }
+		// for(var j = 0; j < numRow; j++){
+		// 	var title1 = titleList[j*2];
+		// 	var disease1 = diseaseList[j*2];
+		// 	if(titleList[j*2+1] != null){
+		// 		var title2 = titleList[j*2+1];
+		// 		var disease2 = diseaseList[j*2+1];
+		// 	}
+
+		// 	$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
+		// }
 
 		
 });

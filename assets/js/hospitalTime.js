@@ -112,12 +112,13 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 		// $('.posts').append(allHospital(testList));		//input: json, default show all
 	if(window.matchMedia("(max-width:1300px)").matches){
 		resize();
+	}else{
+		$('area[title]').tooltips();
 	}
 	$('.right').mapster({
   		fillOpacity: 0, 
   		singleSelect: true
   	});
-	$('area[title]').tooltips();
 
 		
 	});
@@ -326,9 +327,23 @@ function resize() {
 
 	$('area').each(function(i,obj){
 		if(i<18){
-			$(this).attr("title", "超過5小時");
+			// $(this).attr("title", "超過5小時");
 
-			$('area[title]').tooltips();
+			// $('area[title]').tooltips();
+			$('.tooltip').each(function(i,obj){
+				var area = $('map').children();
+				var coordPosition = $(area[i]).attr("data-pos");
+			    var positionArray = coordPosition.split(',');
+
+			      var imgPos = $('.right').offset();
+			      var imgWidth = $('.right').width();
+			      var imgHeight = $('.right').height();
+			      $(this).css({
+			      	// 'position':'absolute',
+			          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
+			          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
+			      });
+			});
 			$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
 	}
 

@@ -11,8 +11,8 @@ $(document).ready(function(){
 
   //content value determine content to show in page
   // var type = "循環系統疾病";
-  // var name = sessionStorage.getItem('sickness');
-  var name = '中風';
+  var name = sessionStorage.getItem('sickness');
+  // var name = '中風';
   if(window.matchMedia("(max-width:720px)").matches){
     $('#wrapper').css("margin-right", 5+'em');
   }else{
@@ -31,7 +31,13 @@ $(document).ready(function(){
     $('#whatTitle').text('甚麼是'+name+'? (What)');
     $('#whyTitle').text('為甚麼會'+name+'? (Why)');
     $('#howTitle').text(name+'治療⽅方法? (How)');
-    $('#desc').text(json[0].Desc);
+    if(json[0].Desc != ""){
+      $('#desc').text(json[0].Desc);
+    }else{
+      var children = $('#wrapper').children();
+      $(children[0]).css("margin-bottom", "0px");
+      console.log(children[0]);
+    }
     $('#what').text(json[0].What);
     $('#why').text(json[0].Why);
     $('#how').text(json[0].How);

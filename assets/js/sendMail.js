@@ -3,6 +3,7 @@ var resizeDelay = 100;
 var testList = [];
 $(document).ready(function() {
 
+//get hospital time
 $.ajax({
 		method: "GET",
 		url: "http://www.chatbot.hk/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
@@ -17,7 +18,6 @@ $.ajax({
 		// set time as title to be displayed in tooltip
 		if(i<18){
 			var hours = 0;
-			// hours = json[i]. //something about time
 			hours = testList[i].等候時間;
 			var estimate = "";
 			if(hours > 5){	//some number 
@@ -27,22 +27,29 @@ $.ajax({
 			estimate = "大約";
 			} 
 			$(this).attr("title", estimate + hours + "小時");
-			// $(this).attr("title", "大約" + 4 + "小時");
 
 		}
 	});
+		if(window.matchMedia("(max-width:1208px)").matches){
+		resize();
+	}else{
 		$('area[title]').tooltips();
+	}
+	});
+	//======test other browser==================
+	$('area').each(function(i,obj){
+		// set time as title to be displayed in tooltip
+		if(i<18){
+			
+			$(this).attr("title", '大約 5' + "小時");
+
+		}
 	});
 
-if(window.matchMedia("(max-width:1300px)").matches){
-		resize();
-	}
-$('.right').mapster({
-  		fillOpacity: 0, 
-  		singleSelect: true
-  	});
+		$('area[title]').tooltips();
+	//=========test other browser end==========
 
-
+//===========send email===================
 	$("#sendMail").click(function(){
 		$(".error").hide();
 		var hasError = false;
@@ -103,42 +110,39 @@ $('.right').mapster({
  //=======================================================
 // Resize the map to fit within the boundaries provided
 function resize() {
-	var image =  $('img'),
-	imgWidth = image.width(),
-	imgHeight = image.height(),
-	newWidth=0,
-	newHeight=0;
-	var imgPos = $('.right').offset();
-	var imgWidth = $('.right').width();
-	var imgHeight = $('.right').height();
-	if($(window).width() < 1300){
+	if($(window).width() < 1208){
 		$('.right').attr("src","images/map-hongkong.png");
-		$('.tooltip').removeClass('active');
-		// var locations = $('map > area').slice(-3);
-		// $(locations[0]).attr("coords","414,264,516,263,537,249,539,300,550,302,558,357,513,326,515,340,483,325,457,350,436,347,438,326,418,320,408,315");
-		// $(locations[0]).attr("onclick", "showTime('select_KL.png','area1');return false;");
-		 // newWidth = $('.split').children().width();	//to make width = .split > * width
-
-	    // image.mapster('resize',newWidth,newHeight,resizeTime); 
-	    // $('.content').width( $('.split.reversed').width() / 2 );
-
+		// $('.tooltip').removeClass('active');
+		$('.tooltip').css('opacity', '0');	//tooltips can't move
 	}else{
 
 	$('area').each(function(i,obj){
 		if(i<18){
-			$(this).attr("title", "超過5小時");
+			// $(this).attr("title", "超過5小時");
 
-			$('area[title]').tooltips();
+			// $('area[title]').tooltips();
+			$('.tooltip').css('opacity','1');	//tooltips can't move
+			$('.tooltip').each(function(i,obj){
+				var area = $('map').children();
+				var coordPosition = $(area[i]).attr("data-pos");
+			    var positionArray = coordPosition.split(',');
+
+			      var imgPos = $('.right').offset();
+			      var imgWidth = $('.right').width();
+			      var imgHeight = $('.right').height();
+			      $(this).css({
+			      	// 'position':'absolute',
+			          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
+			          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
+			      });
+			});
+
 			$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
 	}
 
 		});
 		
-		
 	}
-    // newWidth = $('.split').children().width();	//to make width = .split > * width
-    // console.log(newWidth);
-
 }
 
 // Track window resizing events, but only actually call the map resize when the
@@ -175,7 +179,6 @@ checking=false;
   	var $tooltip,
   	$body = $('body'),
   	$el;
-
     // Ensure chaining works
     return this.each(function(i, el) {
 
@@ -198,7 +201,6 @@ checking=false;
       var imgPos = $('.right').offset();
       var imgWidth = $('.right').width();
       var imgHeight = $('.right').height();
-      
       $tooltip.css({
       	// 'position':'absolute',
           'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 

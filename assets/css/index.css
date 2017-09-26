@@ -3,6 +3,12 @@
 		/*margin-right: 5em;*/
 	}
 
+@media screen and (max-width: 360px){
+	#three > .inner > .split > .content > h3{
+	width: 10em;
+}
+}
+
 .inner > .split > .content > h3{
 	width: 12em;
 }
@@ -10,3 +16,4 @@
 .tooltip{
 	font-size: 12px;
 }
+
