@@ -150,7 +150,8 @@ function showRelevantDisease(body, bodyPath){
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		var i = 0;
-
+             $($('article').children().children()).css("opacity","0.3");
+             $('.add').css("opacity","0.3");
         for(var key in json){
             $('article').each(function(j, obj){     //set title opacity
             var content = $(this).children().children();
@@ -158,7 +159,6 @@ function showRelevantDisease(body, bodyPath){
             // console.log(content[0]);    //h3
             // console.log(li);
             // console.log($(li[0]).children());   //disease
-            $(content).css("opacity","0.3");
             if($(content[0]).text() == key){
                 $(content).css("opacity","1");
             }
@@ -166,7 +166,6 @@ function showRelevantDisease(body, bodyPath){
 
             $('.add').each(function(j,obj){         //set disease opacity
                 var diseaseList = json[key];
-                $(this).css("opacity","0.3");
                 for(var k = 0; k < diseaseList.length; k ++){
                     if($(this).text().substring(3) == diseaseList[k]){
                         $(this).css("opacity","1");
@@ -214,6 +213,8 @@ function showRelevantDisease(body, bodyPath){
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		var i = 0;
+            $($('article').children().children()).css("opacity","0.3");
+        $('.add').css("opacity","0.3");
         for(var key in json){
             $('article').each(function(j, obj){     //set title opacity
             var content = $(this).children().children();
@@ -221,7 +222,6 @@ function showRelevantDisease(body, bodyPath){
             // console.log(content[0]);    //h3
             // console.log(li);
             // console.log($(li[0]).children());   //disease
-            $(content).css("opacity","0.3");
             if($(content[0]).text() == key){
                 $(content).css("opacity","1");
             }
@@ -229,7 +229,6 @@ function showRelevantDisease(body, bodyPath){
 
             $('.add').each(function(j,obj){         //set disease opacity
                 var diseaseList = json[key];
-                $(this).css("opacity","0.3");
                 for(var k = 0; k < diseaseList.length; k ++){
                     if($(this).text().substring(3) == diseaseList[k]){
                         $(this).css("opacity","1");
