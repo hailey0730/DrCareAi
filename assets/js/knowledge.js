@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 		$('.spotlights article').each(function(i, obj){
 			var article = $(this).children();
-			console.log(article);		//[0] a, [1] h3, [2] p
+			// console.log(article);		//[0] a, [1] h3, [2] p
 			$(article[0]).attr("href", );
 			$('.spotlights article a img').attr("src", );	//not sure if this can access img
 			$(article[1]).text();
@@ -41,7 +41,7 @@ $(document).ready(function(){
 
 		//========without pic=========================
 		$('.other li').each(function(i, obj){
-			console.log($(this).children());	//[0] a, [1] br, [2] span
+			// console.log($(this).children());	//[0] a, [1] br, [2] span
 			var liChild = $(this).children();
 			$(liChild[0]).attr("href", );
 			$(liChild[0]).text( );
@@ -55,7 +55,7 @@ $(document).ready(function(){
 //==========================box slider===============================================
 	$.ajax({
 		method: "GET",
-		url: "http://www.chatbot.hk/DrCare.HotArticle.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+		url: "http://test.drcare.ai/DrCare.HotArticle.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
 
 	}).done(function(data){
 		var json = JSON.parse(data);
@@ -284,7 +284,6 @@ var settings = {
 										$this._switchTo($(this).data('index'), true);
 										
 										intervalId = window.setInterval(function() {
-											console.log("switch loop");
 											current++;
 
 											if (current >= slides.length)
@@ -316,7 +315,6 @@ var settings = {
 
 		// Main loop.
 			intervalId = window.setInterval(function() {
-				console.log("original loop");
 				current++;
 
 				if (current >= slides.length)
@@ -454,22 +452,8 @@ var settings = {
 
 function hotArticle(json){
 	var article = '';
-// console.log($('#banner').html());
 	for(var i = 1; i < json.length; i ++){
-		// if(i == 0){
-		// 	// article += '<article data-position="bottom right" class="visible top" style="background-image: url(&quot;';
-		// 	// article += json[i].ImageUrl ;
-		// 	// article += '&quot;); background-position: right bottom;"><div class="inner><img src="';
-		// 	// article += json[i].ImageUrl ;
-		// 	// article += '" alt=""><h2>' ;
-		// 	// article += json[i].Subject ;
-		// 	// article += '</h2><ul class="actions"><li><a class="button big" href="' ;
-		// 	// article += json[i].Url ;
-		// 	// article += '">詳情</a></li></ul></div></article>';
-		// }else {
-			// if(i==1){
 			article += '<article data-position="top right">';
-			// article += json[i].ImageUrl ;
 			article += '<div class="inner"><img src="';
 			article += json[i].ImageUrl ;
 			article += '" alt=""><h2>' ;
@@ -477,23 +461,6 @@ function hotArticle(json){
 			article += '</h2><ul class="actions"><li><a class="button big" href="' ;
 			article += json[i].Url ;
 			article += '">詳情</a></li></ul></div></article>';
-		 // }else if(i == 2){
-		// 	article += '<article data-position="right"><div class="inner"><img src="';
-		// 	article += json[i].ImageUrl ;
-		// 	article += '" alt=""><h2>' ;
-		// 	article += json[i].Subject ;
-		// 	article += '</h2><ul class="actions"><li><a class="button big" href="' ;
-		// 	article += json[i].Url ;
-		// 	article += '">詳情</a></li></ul></div></article>';
-		// }else if(i == 3){
-		// 	article += '<article data-position="center"><div class="inner"><img src="';
-		// 	article += json[i].ImageUrl ;
-		// 	article += '" alt=""><h2>' ;
-		// 	article += json[i].Subject ;
-		// 	article += '</h2><ul class="actions"><li><a class="button big" href="' ;
-		// 	article += json[i].Url ;
-		// 	article += '">詳情</a></li></ul></div></article>';
-		// }
 	}
 	return article;
 }

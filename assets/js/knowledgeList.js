@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var sickness ='';
 	$.ajax({
 		method: "GET",
-		url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "http://test.drcare.ai/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 	})
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
@@ -45,7 +45,6 @@ $(document).ready(function(){
 	});
 
     $('body').click(function(evt){      //when clicking somewhere else to deselect
-        console.log(evt.target.nodeName);
         if(evt.target.nodeName != "AREA")
         {
             // $(".list").remove();
@@ -98,7 +97,7 @@ $(document).ready(function(){
 
      $('.add').each(function(j,obj){
         $(this).css("opacity","1");
-     })
+     });
         }
     });
 
@@ -113,7 +112,6 @@ function highlight(body){
 }
 
 function noHighlight(){
-    console.log(clickCounter.counter);
     if(clickCounter.counter == false){
     $('.body').attr("src","images/BodyExport/Body.png");
 }
@@ -127,13 +125,26 @@ function showRelevantDisease(body, bodyPath){
 	// $(".list").remove();
 	if(clickCounter.part == body){
 		if(clickCounter.counter == true){
-        
-		}else{
+        $('.body').attr("src","images/BodyExport/Body.png");
+        clickCounter.counter = false;
+        $('article').each(function(j, obj){     //set title opacity
+            var content = $(this).children().children();
+            var li = $(content[1]).children();
+            // console.log(content[0]);    //h3
+            // console.log(li);
+            // console.log($(li[0]).children());   //disease
+            $(content).css("opacity","1");
+            });
+
+     $('.add').each(function(j,obj){
+        $(this).css("opacity","1");
+     });
+    	}else{
 
 			clickCounter.counter = true;
 			$.ajax({
 		method: "GET",
-		url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "http://test.drcare.ai/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 		data:{Tag: body}
 	})
 	.done(function( msg ) {
@@ -197,7 +208,7 @@ function showRelevantDisease(body, bodyPath){
 		clickCounter.part = body;
 			$.ajax({
 		method: "GET",
-		url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "http://test.drcare.ai/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 		data:{Tag: body}
 	})
 	.done(function( msg ) {
@@ -276,7 +287,6 @@ function diseaseRow(t1, t2, d1, d2){
 	}
 	
 	// row += '</ul>'
-	console.log('should add new row');
 	return row;
 }
 

@@ -7,9 +7,13 @@ $(document).ready(function() {
 $.ajax({
 		method: "GET",
 		url: "http://www.chatbot.hk/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-	})
-	.done(function( msg ) {
-		var json = JSON.parse(msg);
+		xhrFields: {
+        withCredentials: false
+    },
+    crossDomain: true,
+    headers:{},
+    success: function(msg){
+    	var json = JSON.parse(msg);
 		for(var i = 0; i < json.length; i++){
 			testList[i] = json[i];
 		}
@@ -21,10 +25,10 @@ $.ajax({
 			hours = testList[i].等候時間;
 			var estimate = "";
 			if(hours > 5){	//some number 
-			estimate = "超過";
+			estimate = ">";
 			hours = 5;
 			}else{
-			estimate = "大約";
+			estimate = "~";
 			} 
 			$(this).attr("title", estimate + hours + "小時");
 
@@ -35,18 +39,23 @@ $.ajax({
 	}else{
 		$('area[title]').tooltips();
 	}
+    },
+    error:function(){}
 	});
+	// .done(function( msg ) {
+		
+	// });
 	//======test other browser==================
-	$('area').each(function(i,obj){
-		// set time as title to be displayed in tooltip
-		if(i<18){
+	// $('area').each(function(i,obj){
+	// 	// set time as title to be displayed in tooltip
+	// 	if(i<18){
 			
-			$(this).attr("title", '大約 5' + "小時");
+	// 		$(this).attr("title", '大約 5' + "小時");
 
-		}
-	});
+	// 	}
+	// });
 
-		$('area[title]').tooltips();
+	// 	$('area[title]').tooltips();
 	//=========test other browser end==========
 
 //===========send email===================
@@ -89,8 +98,7 @@ $.ajax({
 		 $("#sendMail li.buttons").append('<img src="/images/template/loading.gif" alt="Loading" id="loading" />');
 		 // show client it is loading
 
-
-		 // $.post("/play/jqueryajaxform/sendEmail.php",
+		 // $.post("assets/js/sendEmail.php",
 		 // 	{ emailTo: emailToVal, clientName: clientName, emailFrom: emailFromVal, category: categoryVal, message: messageVal },
 		 // 	function(data){
 		 // 		$("#sendMail").slideUp("normal", function() {
@@ -112,36 +120,25 @@ $.ajax({
 function resize() {
 	if($(window).width() < 1208){
 		$('.right').attr("src","images/map-hongkong.png");
-		// $('.tooltip').removeClass('active');
-		$('.tooltip').css('opacity', '0');	//tooltips can't move
+		$('.tooltip').css('opacity', '0');	
 	}else{
+		$('.tooltip').css('opacity','1');	
+		$('.tooltip').each(function(i,obj){
+			var area = $('map').children();
+			var coordPosition = $(area[i]).attr("data-pos");
+		    var positionArray = coordPosition.split(',');
 
-	$('area').each(function(i,obj){
-		if(i<18){
-			// $(this).attr("title", "超過5小時");
-
-			// $('area[title]').tooltips();
-			$('.tooltip').css('opacity','1');	//tooltips can't move
-			$('.tooltip').each(function(i,obj){
-				var area = $('map').children();
-				var coordPosition = $(area[i]).attr("data-pos");
-			    var positionArray = coordPosition.split(',');
-
-			      var imgPos = $('.right').offset();
-			      var imgWidth = $('.right').width();
-			      var imgHeight = $('.right').height();
-			      $(this).css({
-			      	// 'position':'absolute',
-			          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
-			          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
-			      });
-			});
-
-			$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
-	}
-
+		      var imgPos = $('.right').offset();
+		      var imgWidth = $('.right').width();
+		      var imgHeight = $('.right').height();
+		      $(this).css({
+		      	// 'position':'absolute',
+		          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
+		          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
+		      });
 		});
-		
+
+		$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
 	}
 }
 

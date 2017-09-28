@@ -4,113 +4,140 @@ var resizeDelay = 100;    // time to wait before checking the window size again
                           // short or 0 times could cause problems with old browsers.
                           var clickCounter = {area:'',counter:false};
                           var hospitalStructure = {"醫院":"","地址":"","電話":"","等候時間":"","地區":""};
-                          var hopsitals = [];		//list of hospitals being show next to map
-			   			var display = [];	
-                          var testList = [];//[{"醫院":"將軍澳醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"6", "地區":"九龍"},{"醫院":"屯⾨門醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"2","地區":"新界"},{"醫院":"威爾斯親王醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"3", "地區":"港島"},{"醫院":"北大嶼山醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"4","地區":"新界"},{"醫院":"博愛醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"1","地區":"新界"},{"醫院":"將軍澳醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"5", "地區":"九龍"},{"醫院":"屯⾨門醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"2","地區":"新界"},{"醫院":"威爾斯親王醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"3", "地區":"港島"},{"醫院":"北大嶼山醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"4","地區":"新界"},{"醫院":"博愛醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"1","地區":"新界"},{"醫院":"將軍澳醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"5", "地區":"九龍"},{"醫院":"屯⾨門醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"7","地區":"新界"},{"醫院":"威爾斯親王醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"3", "地區":"港島"},{"醫院":"北大嶼山醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"4","地區":"新界"},{"醫院":"博愛醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"1","地區":"新界"},{"醫院":"將軍澳醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"8", "地區":"九龍"},{"醫院":"屯⾨門醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"2","地區":"新界"},{"醫院":"威爾斯親王醫院", "地址":"將軍澳坑⼝口寶寧⾥里里 2 號", "電話":"2208 0111", "等候時間":"3", "地區":"港島"}]		
-                          $(document).ready(function() {
+                          var hospitals = [];		//list of hospitals
+			   			var display = [];			//list of hospitals being show next to map
+ $(document).ready(function() {
 	$.ajax({
 		method: "GET",
-		url: "http://www.chatbot.hk/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "http://test.drcare.ai/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 	})
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		for(var i = 0; i < json.length; i++){
-			testList[i] = json[i];
+			hospitals[i] = json[i];
 		}
 
 // setting hospital name and area for testing purpose
 		$('.hospital').each(function(i,obj){
   		var children = $(this).children();
-       	testList[i].醫院 = children[0].innerHTML;
-       	if(testList[i].醫院 == "東區尤德夫人那打素醫院" || testList[i].醫院 == "瑪麗醫院" ||testList[i].醫院 == "律敦治醫院" ){
-       		testList[i].地區 = "港島";
+       	hospitals[i].醫院 = children[0].innerHTML;
+       	if(hospitals[i].醫院 == "東區尤德夫人那打素醫院" || hospitals[i].醫院 == "瑪麗醫院" ||hospitals[i].醫院 == "律敦治醫院" ){
+       		hospitals[i].地區 = "港島";
        	}
-       	else if(testList[i].醫院 == "明愛醫院" ||testList[i].醫院 == "廣華醫院" ||testList[i].醫院 == "伊利利沙伯醫院" ||testList[i].醫院 == "基督教聯合醫院"){
-       		testList[i].地區 = "九龍";
+       	else if(hospitals[i].醫院 == "明愛醫院" ||hospitals[i].醫院 == "廣華醫院" ||hospitals[i].醫院 == "伊利利沙伯醫院" ||hospitals[i].醫院 == "基督教聯合醫院"){
+       		hospitals[i].地區 = "九龍";
 
        	}else{
-       		testList[i].地區 = "新界";
+       		hospitals[i].地區 = "新界";
 
        	}
 
   	});
 
-// display list is shown, testList save all hospitals
-  	for(var i = 0; i< testList.length; i++){
-		display[i] = testList[i];
+// display list is shown, hospitals save all hospitals
+  	for(var i = 0; i< hospitals.length; i++){
+		display[i] = hospitals[i];
 	}
   	setBulletsDiv(display);
+
+  	$('article').each(function(i,obj){
+  		var children = $(this).children();
+  		var hours = display[i].等候時間;
+  		if(hours > 5){
+  			$(children[0]).text("等候 超過");
+  			$($(children[1]).children()).text('5');
+  		}else{
+  			$(children[0]).text("等候 大約");
+  			$($(children[1]).children()).text(hours);
+  		}
+  		// var link = display[i].	//some link
+  		// $($($(children[3]).children()).children()).attr("href", link);
+
+  	});
 	
-	$('.time').each(function(i, obj){
-		if(i>=18){
-			i -= 18;
-		}
-		var hours = 0;
-		// hours = json[i]. //something about time
-		hours = testList[i].等候時間;
-		if(hours > 5){	//some number 
-				$(this).text('5');
-			}else{
-				$(this).text(hours);
+	// $('.time').each(function(i, obj){
+	// 	if(i>=18){
+	// 		i -= 18;
+	// 	}
+	// 	var hours = 0;
+	// 	hours = display[i].等候時間;
+	// 	if(hours > 5){	//some number 
+	// 			$(this).text('5');
+	// 		}else{
+	// 			$(this).text(hours);
+	// 		} 
+	// 	});
 
-			} 
-		
-		
-		});
+	// $('.estimate').each(function(i,obj){
+	// 	if(i<18){
+	// 		var hours = 0;
+	// 	hours = display[i].等候時間;
+	// 		if(hours > 5){	//some number 
+	// 			$(this).text("等候 超過");		//either 超過 or 大約
+	// 		}else{
+	// 			$(this).text("等候 大約");		//either 超過 or 大約
+	// 		} 
+	// 	}
+	// 	});
 
-	$('.estimate').each(function(i,obj){
-		if(i<18){
-			var hours = 0;
-		// hours = json[i]. //something about time
-		hours = testList[i].等候時間;
-			if(hours > 5){	//some number 
-				$(this).text("等候 超過");		//either 超過 or 大約
-			}else{
-				$(this).text("等候 大約");		//either 超過 or 大約
+	// $('.round').each(function(i,obj){
+	// 		// var link = json[i]. //some link to nearby clinic
+	// 		// $(this).attr("href", link);
+	// 	})
 
-			} 
-		}
-		});
+	$('.aDiv').each(function(i,obj){
+		var hospital = $(this).children()[0];
+		var timeDiv = $(this).children()[1];
+		var hospitalChildren = $(hospital).children();
+		// $(hospitalChildren[0]).text();	//h3
+		// $(hospitalChildren[1]).text();	//addr
+		// $(hospitalChildren[2]).text();	//phone
+		var timeChildren = $(timeDiv).children();
+		var hours = display[i].等候時間;
+  		if(hours > 5){
+  			$(timeChildren[0]).text("超過");
+  			$($(timeChildren[1]).children()).text('5');
+  		}else{
+  			$(timeChildren[0]).text("大約");
+  			$($(timeChildren[1]).children()).text(hours);
+  		}
 
-	$('.mapEstimate').each(function(i,obj){
-		if(i<18){
-			var hours = 0;
-		// hours = json[i]. //something about time
-		hours = testList[i].等候時間;
-		var estimate = "";
-		if(hours > 5){	//some number 
-			estimate = "超過";
-			}else{
-			estimate = "大約";
-			} 
-			$(this).text(estimate);		//either 超過 or 大約
-		}
 	});
+
+	// $('.mapEstimate').each(function(i,obj){
+	// 	if(i<18){
+	// 		var hours = 0;
+	// 	hours = display[i].等候時間;
+	// 	var estimate = "";
+	// 	if(hours > 5){	//some number 
+	// 		estimate = "超過";
+	// 		}else{
+	// 		estimate = "大約";
+	// 		} 
+	// 		$(this).text(estimate);		//either 超過 or 大約
+	// 	}
+	// });
 
 	$('area').each(function(i,obj){
 		// set time as title to be displayed in tooltip
 		if(i<18){
 			var hours = 0;
 			// hours = json[i]. //something about time
-			hours = testList[i].等候時間;
+			hours = hospitals[i].等候時間;
 			var estimate = "";
 			if(hours > 5){	//some number 
-			estimate = "超過";
+			estimate = ">";
 			hours = 5;
 			}else{
-			estimate = "大約";
+			estimate = "~";
 			} 
-			$(this).attr("title", estimate + hours + "小時");
+			$(this).attr("title", estimate + hours + "小時");		
 
 		}
 	});
 
-	$('.round').each(function(i,obj){
-			// var link = json[i]. //some link to nearby clinic
-			// $(this).attr("href", link);
-		})
-		// $('.posts').append(allHospital(testList));		//input: json, default show all
-	if(window.matchMedia("(max-width:1300px)").matches){
+	
+	if(window.matchMedia("(max-width:1208px)").matches){
 		resize();
 	}else{
 		$('area[title]').tooltips();
@@ -122,6 +149,22 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 
 		
 	});
+	//testing purpose
+	// $('area').each(function(i,obj){
+	// 	if(i<18){
+	// 		$(this).attr("title", '5' + "小時");		
+	// 	}
+	// });
+	// 	$('.right').mapster({
+ //  		fillOpacity: 0, 
+ //  		singleSelect: true
+ //  	});
+		var image = $('img');
+		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
+		var newHeight = $('.posts').height();
+	    image.mapster('resize',newWidth,newHeight,resizeTime);
+		// $('area[title]').tooltips();
+
 	});
  $(window).bind('resize',onWindowResize);
 
@@ -158,8 +201,8 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 			clickCounter.counter = false;
 				//deselect area
 				$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
-				for(var i = 0; i< testList.length; i++){
-						display[i] = testList[i];
+				for(var i = 0; i< hospitals.length; i++){
+						display[i] = hospitals[i];
 				}
 				$('.posts').append(allHospital(display));
 				setBulletsDiv(display);
@@ -167,48 +210,32 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 				clickCounter.area = location;
 				clickCounter.counter = true;
 				var j = 0;
-				for(var i = 0; i< testList.length; i++){
-					if(testList[i].地區 == location){
-						display[j] = testList[i];
+				for(var i = 0; i< hospitals.length; i++){
+					if(hospitals[i].地區 == location){
+						display[j] = hospitals[i];
 						j++;
 					}
 				}
-				// $.ajax({
-	// 	method: "GET",
-	// 	url: "",
-	// })
-	// .done(function( msg ) {
-	// 	var json = JSON.parse(msg);
+				
 		$('.posts').append(allHospital(display));		//input: json
 		setBulletsDiv(display);
-		// $('.bottom').each(function(i,obj){
-		// 	var hour = json[i]. //time
-		// 	$(this).text(hour);
-		// });
+		
 			}
 
 			}else{
 				clickCounter.area = location;
 				clickCounter.counter = true;
 				var j = 0;				
-				for(var i = 0; i< testList.length; i++){
-					if(testList[i].地區 == location){
-						display[j] = testList[i];
+				for(var i = 0; i< hospitals.length; i++){
+					if(hospitals[i].地區 == location){
+						display[j] = hospitals[i];
 						j++;
 					}
 				}
-				// $.ajax({
-	// 	method: "GET",
-	// 	url: "",
-	// })
-	// .done(function( msg ) {
-	// 	var json = JSON.parse(msg);
+				
 		$('.posts').append(allHospital(display));		//input: json
 		setBulletsDiv(display);
-		// $('.bottom').each(function(i,obj){
-		// 	var hour = json[i]. //time
-		// 	$(this).text(hour);
-		// });
+		
 	}
 }
 
@@ -221,16 +248,7 @@ function allHospital(list){
 }
 
 function hospitalInfo(obj,i){
-		//doesn't work, trying to make extra big div for longer names
-	// if(obj.醫院 == "東區尤德夫人那打素醫院" || obj.醫院 == "雅麗氏何妙齡那打素醫院"){
-	// 	var bigger = {
-	// 		'width':'25em',
-	// 		'max-height': '10em',
-	// 		'max-width': '100%',
-	// 		'margin-bottom': '0.5em'
-	// 	}
-	// 	$('.posts > :nth-child('+i+')').css(bigger);
-	// }
+	
 	var hours = 0;
 	var estimate = "";
 	if(obj.等候時間 > 5){	//some number 
@@ -261,20 +279,20 @@ function reorder(hospital){
 	$('.hospitalDiv').remove();
 	var area = '';
 	display = [];
-	for(var i = 0; i < testList.length; i++){
-		if(testList[i].醫院 == hospital){
-			// var first = testList.splice(i, 1);
-			display[0] = testList[i];
+	for(var i = 0; i < hospitals.length; i++){
+		if(hospitals[i].醫院 == hospital){
+			// var first = hospitals.splice(i, 1);
+			display[0] = hospitals[i];
 			area = display[0].地區;
-			// testList.splice(0,0, first[0]);
+			// hospitals.splice(0,0, first[0]);
 			break;
 		}
 	}
 	var j = 1;
-	for(var i = 0; i < testList.length; i++){
-		if(testList[i].醫院 != hospital){
-		if(testList[i].地區 == area){
-			display[j] = testList[i];
+	for(var i = 0; i < hospitals.length; i++){
+		if(hospitals[i].醫院 != hospital){
+		if(hospitals[i].地區 == area){
+			display[j] = hospitals[i];
 			j++;
 		}
 	}
@@ -312,7 +330,7 @@ function resize() {
 	var imgPos = $('.right').offset();
 	var imgWidth = $('.right').width();
 	var imgHeight = $('.right').height();
-	if($(window).width() < 1300){
+	if($(window).width() < 1208){
 		window.location.replace('hospitalTimeMobile.html');
 		// var locations = $('map > area').slice(-3);
 		// $(locations[0]).attr("coords","414,264,516,263,537,249,539,300,550,302,558,357,513,326,515,340,483,325,457,350,436,347,438,326,418,320,408,315");
@@ -320,16 +338,15 @@ function resize() {
 		 // newWidth = $('.split').children().width();	//to make width = .split > * width
 
 	    // image.mapster('resize',newWidth,newHeight,resizeTime); 
-	    $('.left').width( $('.split').width() / 2 );
-	    $('.posts').width($('.left').width());
+	    // $('.left').width( $('.split').width() / 2 );
+	    // $('.posts').width($('.left').width());
 
 	}else{
-
+		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
+		var newHeight = $('.posts').height();
+	    image.mapster('resize',newWidth,newHeight,resizeTime);
 	$('area').each(function(i,obj){
 		if(i<18){
-			// $(this).attr("title", "超過5小時");
-
-			// $('area[title]').tooltips();
 			$('.tooltip').each(function(i,obj){
 				var area = $('map').children();
 				var coordPosition = $(area[i]).attr("data-pos");
@@ -345,6 +362,8 @@ function resize() {
 			      });
 			});
 			$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
+
+		
 	}
 
 		});
@@ -381,9 +400,6 @@ checking=false;
 }
 
 //===========tooltips======================================
-		var originalwidth = $('.right').width();
-		var originalHeight = $('.right').height();
-
 
 // IIFE to ensure safe use of $
 (function( $ ) {

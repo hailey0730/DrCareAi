@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="assets/css/hospital.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
 	<link rel="stylesheet" href="assets/css/tooltips.css" />
+	<!-- <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css" /> -->
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
@@ -25,26 +26,31 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="index.html">診所</a></li>
+				<li><a href="clinicBotPage.html">智能助手</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
-						<li><a href="hospitalTime.html">急症室等候時間</a></li>
-						<li><a href="knowledgeList.html">疾病分類</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">搜尋醫生</a></li>
-						<li>
-							<a href="#">Submenu</a>
-							<ul>
-								<li><a href="#">Option One</a></li>
-								<li><a href="#">Option Two</a></li>
-								<li><a href="#">Option Three</a></li>
-								<li><a href="#">Option Four</a></li>
-							</ul>
-						</li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">西醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">中醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">牙醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">物理治療</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">脊醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">專業治療</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">心理咨詢</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php">營養咨詢</a></li>
+						
 					</ul>
 				</li>
-				<li><a href="knowledge.html">健康生活</a></li>
-				<li><a href="searchHealthArticle.html">Post</a></li>
+				<li>
+					<a href="#" class="icon fa-angle-down">健康智識</a>
+					<ul>
+						<li><a href="knowledgeList.html">疾病</a></li>
+						<li><a href="hospitalTime.html">急症室時間</a></li>
+						<li><a href="searchHealthArticle.html">健康誌</a></li>
+						
+					</ul>
+				</li>
+				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
 				<div id="login">
 					<li><a href="login.html">登入</a></li>
 				</div>
@@ -145,7 +151,7 @@
 		</ul>
 	</article>
 	<article>
-		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>北⼤大嶼⼭山醫院</h3><ul class="actions">
+		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>北大嶼⼭山醫院</h3><ul class="actions">
 		<li><a href="#one" class="button round">附近診所</a></li>
 	</ul>
 </article>
@@ -178,7 +184,7 @@
 	</ul>
 </article>
 <article>
-	<h3 class="estimate">等候 大約</h3><h3><span class="time">0</span>小時</h3> <h3>天⽔水圍醫院(急症服務時間 早上8時⾄至下午4時)</h3><ul class="actions">
+	<h3 class="estimate">等候 大約</h3><h3><span class="time">0</span>小時</h3> <h3>天⽔水圍醫院(急症服務時間 早上8時至下午4時)</h3><ul class="actions">
 	<li><a href="#one" class="button round">附近診所</a></li>
 </ul>
 </article>
@@ -229,7 +235,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>東區尤德夫人那打素醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -247,7 +253,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>瑪麗醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -264,7 +270,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>律敦治醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -280,7 +286,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>明愛醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -298,7 +304,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>廣華醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -315,7 +321,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>伊利利沙伯醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -331,7 +337,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>基督教聯合醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -349,7 +355,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>雅麗氏何妙齡那打素醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -366,7 +372,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>北區醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -382,7 +388,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>北大嶼山醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -400,7 +406,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>博愛醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -417,7 +423,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>威爾斯親王醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -433,7 +439,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>瑪嘉烈醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -451,7 +457,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>長洲醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -468,7 +474,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>天水圍醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -484,7 +490,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>將軍澳醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -502,7 +508,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>屯門醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -519,7 +525,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a href="">
+					<a class="aDiv" href="">
 						<div class="hospital">
 							<h3>仁濟醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -559,21 +565,6 @@
 					<area data-key="area2" shape="poly" coords="420,505,382,513,389,488,361,479,364,466,342,471,337,502,360,495,358,540,370,553,387,556,404,546,420,478,356,407,398,387,432,399,469,394,481,382,547,397,572,426,577,506,551,512,518,453,521,529,490,503,467,459,447,474" href="#", onclick="showTime('select_HKisland.png','港島');return false;">
 					<area data-key="area3" shape="poly" coords="134,266,88,199,437,6,683,73,762,255,635,381,563,353,541,251,411,267,411,316,350,310,251,268,175,242,282,285,136,350,140,319,73,330,60,382,19,401,4,435,8,479,70,449,114,469,120,440,185,426,198,459,245,441,219,422,245,390,247,338,282,341,298,334,297,295" href="#", onclick="showTime('NT_selected.png','新界');return false;">
 				</map>
-				<!-- </div> -->
-
-			<!-- <section>
-			<div>
-			<div class="content">
-			<img class="right"  width="963" height="687" orgWidth="963" orgHeight="687" src="images/mao.png" alt="Planets" usemap="#planetmap">
-			</div>
-			<map name="planetmap">
-				<area data-key="area1" shape="poly" coords="523,328,640,325,659,309,666,366,677,370,687,385,690,403,690,426,685,440,669,426,662,424,636,401,630,402,640,416,604,398,601,404,599,416,584,421,576,424,569,431,560,429,555,422,547,426,538,426,537,417,545,407,543,397,537,396,534,390,528,386,523,382,517,385,515,397,503,390,514,359,510,349,506,345,512,336,519,327" href="#" onclick=""> --> <!--onmouseleave="noHighlight()"  onclick="showRelevantDisease('head')">-->
-			  <!-- <area data-key="" shape="poly" coords="140,119,156,100,212,100,220,127,221,162,141,159" href="#">
-			  <area data-key="" shape="poly" coords="137,82,117,96,116,135,110,173,101,197,94,225,80,253,90,273,107,272,122,217,131,172,137,158,156,94,229,83,245,114,242,150,260,189,271,239,273,268,265,279,250,269,240,216,229,188,222,174,219,116,214,94" href="#"> -->
-			<!-- </map>
-
-			</div>
-		</section> -->
 	</div>
 </div>
 </section>
@@ -659,7 +650,16 @@
 </footer>
 
 <!-- Scripts -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+	(function($){
+        $(window).on("load",function(){
+            $(".posts").mCustomScrollbar();
+        });
+    })(jQuery);
+</script> -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -670,10 +670,7 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/hospitalTimeMobile.js"></script>
 <script src="assets/js/jquery.imagemapster.js"></script>
-<!-- <script src="assets/js/imageMapResizer.min.js"></script>
-<script src="assets/js/imageMapResizer.js"></script> -->
-
-		<!--[if lte IE 8]--><script src="assets/js/ie/respond.min.js"></script><!--[endif]-->
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		
 	</body>
 	</html>

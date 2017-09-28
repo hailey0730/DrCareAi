@@ -1718,7 +1718,7 @@
 		a:hover {
 			text-decoration: none;
 			border-bottom-color: transparent;
-			color: #23b1ec !important;
+			/*color: #23b1ec !important;*/
 		}
 
 			a:hover strong {

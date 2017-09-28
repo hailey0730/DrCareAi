@@ -26,11 +26,32 @@
 	padding-bottom: 1em;
 }
 
+@-moz-document url-prefix() {
+	.left > .posts{
+		/*overflow-y: hidden;*/
+	}
+
+	.hospitalDiv{
+		clear: both;
+	}
+}
+
 .posts{
 	overflow-y: scroll;
 	width: 100%;
 	height: 30em;
 }
+
+/*@-moz-document url-prefix() {
+    .posts {
+    position: relative;
+    width: 400px;
+    height: 414px;
+    top: -17px;
+    padding: 20px 10px 20px 10px;
+    overflow-y: auto;
+}
+}*/
 
 .posts::-webkit-scrollbar{
 	/*display: none;*/

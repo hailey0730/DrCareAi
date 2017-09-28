@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	//content value determine content to show in page
 	var content = sessionStorage.getItem('content');
-	var moreCounter = 0;
-	console.log(content);
 
 	//set content
 	$('#title h1').text();
