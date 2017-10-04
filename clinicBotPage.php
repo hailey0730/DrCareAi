@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE HTML>
 <!--
 	Atmosphere by Pixelarity
@@ -10,6 +13,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/loginWin.css" />
 		<link rel="stylesheet" href="assets/css/noBannerBGMain.css" />
 		<link rel="stylesheet" href="assets/css/AtmosphereMain.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -22,13 +26,13 @@
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.html">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
 		</div>
 
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="clinicBotPage.html">智能助手</a></li>
+				<li><a href="clinicBotPage.php">智能助手</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
@@ -46,20 +50,34 @@
 				<li>
 					<a href="#" class="icon fa-angle-down">健康知識</a>
 					<ul>
-						<li><a href="knowledgeList.html">疾病</a></li>
-						<li><a href="hospitalTime.html">急症室時間</a></li>
-						<li><a href="searchHealthArticle.html">健康誌</a></li>
+						<li><a href="knowledgeList.php">疾病</a></li>
+						<li><a href="hospitalTime.php">急症室時間</a></li>
+						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
 				</li>
 				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
 				<div id="login">
-					<li><a href="login.html">登入</a></li>
+					<!-- <li><a href="login.html">登入</a></li> -->
+					<?php 
+				        if(!isset($_SESSION['user_id'])) {
+				            echo '
+				                <li id="loginbtn" style="cursor:pointer;">登入</li>
+				            ';
+				        }
+				        else {
+				            echo '
+				                <li id="logoutbtn" style="cursor:pointer;">登出</li>		
+							';
+				        }
+				    ?>
 				</div>
 			</ul>
 		</nav>
 
 	</header>
+
+	<div id="pageContent">
 
 				<!-- Banner -->
 					<section id="banner">
@@ -238,6 +256,8 @@
 						</div>
 					</section>
 
+				</div>
+
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
@@ -292,6 +312,7 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<!-- <script src="assets/js/atmostphereMain.js"></script> -->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/login.js"></script>
 			<script src="assets/js/clinicBotPage.js"></script>
 
 	</body>

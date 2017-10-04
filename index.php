@@ -10,6 +10,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/loginWin.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
 	<link rel="stylesheet" href="assets/css/tooltips.css" />
@@ -24,13 +25,13 @@
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.html">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
 		</div>
 
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="clinicBotPage.html">智能助手</a></li>
+				<li><a href="clinicBotPage.php">智能助手</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
@@ -48,20 +49,34 @@
 				<li>
 					<a href="#" class="icon fa-angle-down">健康知識</a>
 					<ul>
-						<li><a href="knowledgeList.html">疾病</a></li>
-						<li><a href="hospitalTime.html">急症室時間</a></li>
-						<li><a href="searchHealthArticle.html">健康誌</a></li>
+						<li><a href="knowledgeList.php">疾病</a></li>
+						<li><a href="hospitalTime.php">急症室時間</a></li>
+						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
 				</li>
 				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
 				<div id="login">
-					<li><a href="login.html">登入</a></li>
+					<!-- <li><a href="login.php">登入</a></li> -->
+					<?php 
+				        if(!isset($_SESSION['user_id'])) {
+				            echo '
+				                <li id="loginbtn" style="cursor:pointer;">登入</li>
+				            ';
+				        }
+				        else {
+				            echo '
+				                <li id="logoutbtn" style="cursor:pointer;">登出</li>		
+							';
+				        }
+				    ?>
 				</div>
 			</ul>
 		</nav>
 
 	</header>
+
+	<div id="pageContent">
 
 	<!-- Banner -->
 	<section id="banner">
@@ -96,7 +111,7 @@
 							</article>
 							<article >								
 								<span class="iconImage"><img class="iconFinddoc" src="images/icon_bubble.png"></span>
-								<a href="clinicBotPage.html"><h3>智能助手 ></h3></a>
+								<a href="clinicBotPage.php"><h3>智能助手 ></h3></a>
 								<div class="iconContent">
 									<p>內置全港最新最齊的搜尋醫生引擎，結合人工智能語音協助您迅速尋找合適的醫生！　
 									</p>
@@ -104,7 +119,7 @@
 							</article>
 							<article >								
 								<span class="iconImage"><img class="iconFinddoc" src="images/icon_info.png"></span>
-								<a href="knowledge.html"><h3>健康生活 ></h3></a>
+								<a href="knowledge.php"><h3>健康生活 ></h3></a>
 								<div class="iconContent">
 									<p>求醫時了解醫生的診斷方式和原理，並
 懂得合適的表達病情，有助獲得更理想
@@ -113,7 +128,7 @@
 							</article>
 							<article >								
 								<span class="iconImage"><img class="iconFinddoc" src="images/Post.png"></span>
-								<a href="searchHealthArticle.html"><h3>健康報導 ></h3></a>
+								<a href="searchHealthArticle.php"><h3>健康報導 ></h3></a>
 								<div class="iconContent">
 									<p>讓人心身健康是我們設計這個平台的理念，
 多一點知識多一點健康，愉快的生活由此開
@@ -159,7 +174,7 @@
 							最長等候時間顯示上限為8小時，表示急症室正處理大量等候已久的
 							病人。病況輕微的病人可考慮使用私營醫療服務</p>
 							<ul class="actions">
-								<li><a href="hospitalTime.html" class="button">查看詳情</a></li>
+								<li><a href="hospitalTime.php" class="button">查看詳情</a></li>
 							</ul>
 						</div>
 						<!-- <div class="map"> -->
@@ -245,7 +260,7 @@
 					</div>
 				</div>
 			</section>
-
+</div>
 			<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
@@ -309,7 +324,7 @@
 							<h3>Dr. Care</h3>
 							<div>
 								<ul>
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.php">Home</a></li>
 									<li>Doctors</li>
 									<li>免責聲明</li>
 									<li>Terms</li>
@@ -389,6 +404,7 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/login.js"></script>
 	<script src="assets/js/sendMail.js"></script>
 </body>
 </html>

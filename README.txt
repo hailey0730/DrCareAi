@@ -1,3 +1,10 @@
+to get data from external website
+https://github.com/request/request-promise
+https://cheerio.js.org		//for select elements in external website
+
+to use require on client side browser
+http://browserify.org/
+
 //To detect browser the user is using and make website compatible
 //download Modernizr js file
 //tutorial: http://www.hongkiat.com/blog/modernizr/

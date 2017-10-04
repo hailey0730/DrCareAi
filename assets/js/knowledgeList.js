@@ -270,7 +270,7 @@ function showRelevantDisease(body, bodyPath){
 
 function passSickness(sickness){
 	 window.sessionStorage.setItem('sickness', sickness);
-	 window.location.replace("sickness.html");
+	 window.location.replace("sickness.php");
 }
 
 function diseaseRow(t1, t2, d1, d2){

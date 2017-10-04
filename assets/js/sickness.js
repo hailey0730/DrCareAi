@@ -8,11 +8,29 @@ var resizeDelay = 100;
   var favNum = 25;
 $(document).ready(function(){
 	
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+var name = getUrlParameter('name');
+if(name == null){
   //content value determine content to show in page
   // var type = "循環系統疾病";
-  var name = sessionStorage.getItem('sickness');
+   name = sessionStorage.getItem('sickness');
   // var name = '中風';
+}
+  
   if(window.matchMedia("(max-width:720px)").matches){
     $('#wrapper').css("margin-right", 5+'em');
   }else{

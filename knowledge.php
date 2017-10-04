@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/loginWin.css" />
 		<link rel="stylesheet" href="assets/css/noBannerBGMain.css" />
 		<!-- <link rel="stylesheet" href="assets/css/hypothesis.css" /> -->
 		<link rel="stylesheet" href="assets/css/factionMain.css" />
@@ -23,13 +24,13 @@
 
 				<!-- Logo -->
 					<div class="logo">
-						<a href="index.html">Dr Care.ai </a><span> Clinicbot</span>
+						<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
 					</div>
 
 				<!-- Nav -->
 					<nav id="nav">
 			<ul>
-				<li><a href="clinicBotPage.html">智能助手</a></li>
+				<li><a href="clinicBotPage.php">智能助手</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
@@ -47,20 +48,34 @@
 				<li>
 					<a href="#" class="icon fa-angle-down">健康知識</a>
 					<ul>
-						<li><a href="knowledgeList.html">疾病</a></li>
-						<li><a href="hospitalTime.html">急症室時間</a></li>
-						<li><a href="searchHealthArticle.html">健康誌</a></li>
+						<li><a href="knowledgeList.php">疾病</a></li>
+						<li><a href="hospitalTime.php">急症室時間</a></li>
+						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
 				</li>
 				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
 				<div id="login">
-					<li><a href="login.html">登入</a></li>
+					<!-- <li><a href="login.php">登入</a></li> -->
+					<?php 
+				        if(!isset($_SESSION['user_id'])) {
+				            echo '
+				                <li id="loginbtn" style="cursor:pointer;">登入</li>
+				            ';
+				        }
+				        else {
+				            echo '
+				                <li id="logoutbtn" style="cursor:pointer;">登出</li>		
+							';
+				        }
+				    ?>
 				</div>
 			</ul>
 		</nav>
 
 			</header>
+
+			<div id="pageContent">
 
 		<!-- Wrapper -->
 			<div class="wrapper">
@@ -78,7 +93,7 @@
 									</div>
 										<h2 id="firstH2">【薯條致癌？】美研究8年年發現：每周食2次炸薯條 死亡風險高1倍</h2>
 										<ul class="actions">
-											<li id="firstLink"><a class="button big" href="content.html">詳情</a></li>
+											<li id="firstLink"><a class="button big" href="content.php">詳情</a></li>
 										</ul>
 									</div>
 								</article>
@@ -135,7 +150,7 @@
 									<p>Maecenas sagittis felis ac sagittis semper. Curabitur purus leo.</p>
 								</article>
 								<article >
-									<h3><a href="searchHealthArticle.html">健康誌</a></h3>
+									<h3><a href="searchHealthArticle.php">健康誌</a></h3>
 									<p>Auctor orci eu dolor consectetur, interdum ullamcorper ante.</p>
 								</article>
 							</section>
@@ -209,7 +224,7 @@
 					</aside>
 
 			</div>
-
+		</div>
 <!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
@@ -273,7 +288,7 @@
 							<h3>Dr. Care</h3>
 							<div>
 								<ul>
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.php">Home</a></li>
 									<li>Doctors</li>
 									<li>免責聲明</li>
 									<li>Terms</li>
@@ -301,6 +316,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/login.js"></script>
 			<script src="assets/js/knowledge.js"></script>
 			<!-- <script src="assets/js/factionMain.js"></script> -->
 

@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/loginWin.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/hospital.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
@@ -20,13 +21,13 @@
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.html">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
 		</div>
 
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="clinicBotPage.html">智能助手</a></li>
+				<li><a href="clinicBotPage.php">智能助手</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
@@ -44,36 +45,48 @@
 				<li>
 					<a href="#" class="icon fa-angle-down">健康知識</a>
 					<ul>
-						<li><a href="knowledgeList.html">疾病</a></li>
-						<li><a href="hospitalTime.html">急症室時間</a></li>
-						<li><a href="searchHealthArticle.html">健康誌</a></li>
+						<li><a href="knowledgeList.php">疾病</a></li>
+						<li><a href="hospitalTime.php">急症室時間</a></li>
+						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
 				</li>
 				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
 				<div id="login">
-					<li><a href="login.html">登入</a></li>
+					<!-- <li><a href="login.php">登入</a></li> -->
+					<?php 
+				        if(!isset($_SESSION['user_id'])) {
+				            echo '
+				                <li id="loginbtn" style="cursor:pointer;">登入</li>
+				            ';
+				        }
+				        else {
+				            echo '
+				                <li id="logoutbtn" style="cursor:pointer;">登出</li>		
+							';
+				        }
+				    ?>
 				</div>
 			</ul>
 		</nav>
 
 	</header>
-
+<div id="pageContent">
 	<!-- Banner -->
 	<section id="banner">
 		<div class="inner">
-			<h1>急症室等候時間</h1>
+			<h1 id="desktop">急症室等候時間</h1>
 		</div>
 	</section>
 
 	<!-- One -->
-	<section id="one" class="wrapper timetop">
+	<section id="Timeone" class="wrapper timetop">
 		<div class="inner">
 			<h3>急症室等候時間參考</h3>
 			<p class="black">急症室會優先診治被分流為危殆、危急和緊急的病人。　
-				最長等候時間顯示上限為8小時，表示急症室正處理理⼤大量量等候已久的病⼈人。病況輕微的病人可考慮使
+				最長等候時間顯示上限為8小時，表示急症室正處理大量等候已久的病人。病況輕微的病人可考慮使
 				用私營醫療服務</p>
-				<p class="rightBottom black">最後更新時間 2017年年9月15⽇日 上午11時30分</p>
+				<p class="rightBottom black">最後更新時間 2017年9月15日 上午11時30分</p>
 			</div>
 
 		</section>
@@ -96,7 +109,7 @@
 					</ul>
 				</article>
 				<article>
-					<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>律律敦治醫院</h3><ul class="actions">
+					<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>律敦治醫院</h3><ul class="actions">
 					<li><a href="#one" class="button round">附近診所</a></li>
 				</ul>
 			</article>
@@ -126,7 +139,7 @@
 	</ul>
 </article>
 <article>
-	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>基督教聯聯合醫院</h3><ul class="actions">
+	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>基督教聯合醫院</h3><ul class="actions">
 	<li><a href="#one" class="button round">附近診所</a></li>
 </ul>
 </article>
@@ -141,7 +154,7 @@
 	<div class="inner">
 		<div class="stats">
 			<article>
-				<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>雅麗⽒氏何妙齡那打素醫院</h3><ul class="actions">
+				<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>雅麗氏何妙齡那打素醫院</h3><ul class="actions">
 				<li><a href="#one" class="button round">附近診所</a></li>
 			</ul>
 		</article>
@@ -151,7 +164,7 @@
 		</ul>
 	</article>
 	<article>
-		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>北大嶼⼭山醫院</h3><ul class="actions">
+		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>北大嶼山醫院</h3><ul class="actions">
 		<li><a href="#one" class="button round">附近診所</a></li>
 	</ul>
 </article>
@@ -184,7 +197,7 @@
 	</ul>
 </article>
 <article>
-	<h3 class="estimate">等候 大約</h3><h3><span class="time">0</span>小時</h3> <h3>天⽔水圍醫院(急症服務時間 早上8時至下午4時)</h3><ul class="actions">
+	<h3 class="estimate">等候 大約</h3><h3><span class="time">0</span>小時</h3> <h3>天水圍醫院(急症服務時間 早上8時至下午4時)</h3><ul class="actions">
 	<li><a href="#one" class="button round">附近診所</a></li>
 </ul>
 </article>
@@ -557,18 +570,41 @@
 				</div>
 
 				<!-- <div class="map"> -->
-				<img class="right"  src="images/map-hongkong.png" alt="Planets" usemap="#planetmap">
+				<img class="right"  src="images/Mapfordesktop/Map_normal.png" alt="Planets" usemap="#planetmap">
 				<map name="planetmap">
-					
+					<!-- HK island -->
+					<area data-key="HKright" title="" data-pos="1202,820" shape="poly" coords="1163,867,1129,816,1135,784,1166,777,1186,789,1197,796,1304,802,1319,873,1198,881,1175,854" href="#" onclick="reorder('東區尤德夫人那打素醫院')"> 
+					<area data-key="HKleft" title="" data-pos="731,767" shape="poly" coords="860,901,822,847,722,830,720,756,839,757,854,802,887,814,894,843,885,867" href="#" onclick="reorder('瑪麗醫院')"> 
+					<area data-key="HKmiddle" title="" data-pos="969,849" shape="poly" coords="1006,836,986,785,1022,756,1048,772,1051,801,1039,834,1082,839,1095,911,960,911,959,846" href="#" onclick="reorder('律敦治醫院')"> 
+					<!-- kowloon -->
+					<area data-key="NTbelowMiddle" title="" data-pos="735,550" shape="poly" coords="838,529,727,532,718,603,854,611,863,579,869,593,906,545,901,516,874,499,850,506" href="#" onclick="reorder('明愛醫院')"> 
+					<area data-key="kowloonTop" title="" data-pos="945,455" shape="poly" coords="954,592,917,535,930,510,933,442,1064,445,1064,511,986,519,986,558" href="#" onclick="reorder('廣華醫院')"> 
+					<area data-key="kowloonBottom" title="" data-pos="847,669" shape="poly" coords="942,644,836,651,836,724,962,729,975,695,980,702,1018,656,1013,626,972,608" href="#" onclick="reorder('伊利利沙伯醫院')"> 
+					<area data-key="NTrightSecond" title="" data-pos="1186,472" shape="poly" coords="1185,611,1146,556,1173,517,1177,458,1308,462,1311,534,1219,539,1220,559,1206,587" href="#" onclick="reorder('基督教聯合醫院')">
+					<!-- NT -->
+					<area data-key="NTrightFourth" title="" data-pos="1030,141" shape="poly" coords="1000,274,969,220,980,190,1006,184,1010,130,1147,135,1149,203,1041,208,1030,240" href="#" onclick="reorder('雅麗氏何妙齡那打素醫院')"> 
+					<area data-key="NTTOP" title="" data-pos="705,46" shape="poly" coords="837,173,802,110,696,108,688,31,821,27,829,78,864,87,875,119,862,152" href="#" onclick="reorder('北區醫院')"> 
+					<area data-key="NTLeftBottom" title="" data-pos="14,737" shape="poly" coords="170,846,205,789,174,753,148,755,15,730,6,789,129,799" href="#" onclick="reorder('北大嶼山醫院')"> 
+					<area data-key="NTleftSecond" title="" data-pos="400,138" shape="poly" coords="526,269,488,211,390,206,390,130,522,132,531,172,556,188,563,213" href="#" onclick="reorder('博愛醫院')"> 
+					<area data-key="NTrightThird" title="" data-pos="1140,335" shape="poly" coords="1117,460,1076,401,1103,372,1121,371,1126,320,1261,325,1261,397,1154,398" href="#" onclick="reorder('威爾斯親王醫院')"> 
+					<area data-key="NTmiddle" title="" data-pos="825,354" shape="poly" coords="804,496,767,441,786,408,804,405,807,345,940,343,942,408,837,420,835,455" href="#" onclick="reorder('瑪嘉烈醫院')"> 
+					<area data-key="NTBottom" title="" data-pos="450,902" shape="poly" coords="586,1013,559,973,436,966,438,896,562,892,578,920,611,930,621,957,617,976" href="#" onclick="reorder('長洲醫院')"> 
+					<area data-key="NTbelowTop" title="" data-pos="716,202" shape="poly" coords="671,313,639,257,662,221,685,227,701,194,835,195,831,264,706,267" href="#" onclick="reorder('天水圍醫院')"> 
+					<area data-key="NTright" title="" data-pos="1320,570" shape="poly" coords="1288,692,1252,631,1290,593,1302,599,1309,558,1444,566,1438,635,1327,639" href="#" onclick="reorder('將軍澳醫院')"> 
+					<area data-key="NTleftFirst" title="" data-pos="324,290" shape="poly" coords="456,414,424,360,313,352,312,279,437,279,449,318,477,327,493,357" href="#" onclick="reorder('屯門醫院')"> 
+					<area data-key="NTleftThird" title="" data-pos="546,361" shape="poly" coords="687,482,645,432,536,425,533,350,662,350,673,390,705,395,717,419,707,451" href="#" onclick="reorder('仁濟醫院')">
+					 
 					<!-- area of map for highlight -->
-					<area data-key="area1" shape="poly" coords="414,264,516,263,537,249,539,300,550,302,558,357,513,326,515,340,483,325,457,350,436,347,438,326,418,320,408,315" href="#", onclick="showTime('select_KL.png', '九龍');return false;">
-					<area data-key="area2" shape="poly" coords="420,505,382,513,389,488,361,479,364,466,342,471,337,502,360,495,358,540,370,553,387,556,404,546,420,478,356,407,398,387,432,399,469,394,481,382,547,397,572,426,577,506,551,512,518,453,521,529,490,503,467,459,447,474" href="#", onclick="showTime('select_HKisland.png','港島');return false;">
-					<area data-key="area3" shape="poly" coords="134,266,88,199,437,6,683,73,762,255,635,381,563,353,541,251,411,267,411,316,350,310,251,268,175,242,282,285,136,350,140,319,73,330,60,382,19,401,4,435,8,479,70,449,114,469,120,440,185,426,198,459,245,441,219,422,245,390,247,338,282,341,298,334,297,295" href="#", onclick="showTime('NT_selected.png','新界');return false;">
+					<area data-key="area1" shape="poly" coords="1129,545,1167,522,1173,616,1194,624,1201,743,1120,701,997,732,892,701,900,577,932,545" href="#", onclick="showTime('Mapfordesktop/Map_highlighted_red.png', '九龍');return false;">
+					<area data-key="area2" shape="poly" coords="930,992,789,855,814,784,1076,789,1242,891,1255,1054,1112,1103,947,999,928,1052,869,1153,799,1152,785,1118,805,1035,762,1062,765,977,803,961,868,1048" href="#", onclick="showTime('Mapfordesktop/Highlighted blue.png','港島');return false;">
+					<area data-key="area3" shape="poly" coords="642,595,586,559,321,547,264,499,230,418,514,183,971,4,1238,41,1471,145,1666,387,1626,529,1375,802,1217,740,1199,612,1177,523,1123,548,937,534,901,571,898,654,667,604,666,685,637,1038,552,1084,443,881,257,973,72,1001,55,893,202,690,319,650" href="#", onclick="showTime('Mapfordesktop/Map_highlighted_green.png','新界');return false;">
 				</map>
 	</div>
+				<p class="rightBottom black">最後更新時間 2017年9月20日 下午4時30分</p>
+
 </div>
 </section>
-
+</div>
 <!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
@@ -632,7 +668,7 @@
 							<h3>Dr. Care</h3>
 							<div>
 								<ul>
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.php">Home</a></li>
 									<li>Doctors</li>
 									<li>免責聲明</li>
 									<li>Terms</li>
@@ -668,9 +704,10 @@
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/hospitalTimeMobile.js"></script>
+<script src="assets/js/login.js"></script>
+<script src="assets/js/hospitalTime.js"></script>
 <script src="assets/js/jquery.imagemapster.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<!-- [if lte IE 8]<script src="assets/js/ie/respond.min.js"></script><![endif]--> 
 		
 	</body>
 	</html>

@@ -1,3 +1,11 @@
+//testing purpose
+    var content = [{'image':'images/banner.png', 'title': 'Gravida veroeros', 'content':'Donec consectetuer ligula vulputate sem tristique cursus. Lorem nulla sed gravida non. Phasellus et ultricesnulla quis nibh. Quisque amet lorem lectus. Magna consectetuer ligula vulputate sem tristique cursus magna.'},
+    {'image':'images/Banner.png', 'title': 'Gravida veroeros', 'content':'Donec consectetuer ligula vulputate sem tristique cursus. Lorem nulla sed gravida non. Phasellus et ultricesnulla quis nibh. Quisque amet lorem lectus. Magna consectetuer ligula vulputate sem tristique cursus magna.'},
+    {'image':'images/banner.png', 'title': 'Gravida veroeros', 'content':'Donec consectetuer ligula vulputate sem tristique cursus. Lorem nulla sed gravida non. Phasellus et ultricesnulla quis nibh. Quisque amet lorem lectus. Magna consectetuer ligula vulputate sem tristique cursus magna.'},
+    {'image':'images/banner.png', 'title': 'Gravida veroeros', 'content':'Donec consectetuer ligula vulputate sem tristique cursus. Lorem nulla sed gravida non. Phasellus et ultricesnulla quis nibh. Quisque amet lorem lectus. Magna consectetuer ligula vulputate sem tristique cursus magna.'}]
+
+    var i = 0;
+
 $(document).ready(function() {
 	var win = $(window);
 
@@ -15,6 +23,7 @@ $(document).ready(function() {
 
 	// Each time the user scrolls
 	win.scroll(function() {
+
 		// End of the document reached?
 		if ($(document).height() - win.height() == win.scrollTop()) {
 			$('#loading').show();
@@ -26,12 +35,35 @@ $(document).ready(function() {
 			// 		$('#loading').hide();
 			// 	}
 			// });
+            if((content.length - i) / 3 > 1){
+                $('#main1').append(randomPost(content[i]));
+                $('#main2').append(randomPost(content[i+1]));
+                $('#main3').append(randomPost(content[i+2]));
+                $('#loading').hide();
+                i+=3;
+            }else if((content.length - i) / 3 == 1){
+                $('#main1').append(randomPost(content[i]));
+                $('#main2').append(randomPost(content[i+1]));
+                $('#main3').append(randomPost(content[i+2]));
+                $('#loading').hide();
+                $('body').append(footer());
+                i+=3;
+            }else if ((content.length - i) / 3 < 1 && (content.length - i) % 3 == 1){
+                $('#main1').append(randomPost(content[i]));
+                $('#loading').hide();
+                $('body').append(footer());
+                i+=3;
+            }else if((content.length - i) / 3 < 1 && (content.length - i) % 3 == 2){
+                $('#main1').append(randomPost(content[i]));
+                $('#main2').append(randomPost(content[i+1]));
+                $('#loading').hide();
+                $('body').append(footer());
+                i+=3;
+            }else{
+                $('#loading').hide();
+    		}
+        }
 
-			$('#main1').append(randomPost());
-			$('#main2').append(randomPost());
-			$('#main3').append(randomPost());
-            $('#loading').hide();
-		}
 	});
 
 });
@@ -65,56 +97,34 @@ $(document).ready(function() {
 // });
 
 
+
+
 //===================infinite loop post==================
-function randomPost(){
-	var content = ['<p>afsd jwe nglka fdjsao, fdjsai ds jeiw jjhsa jklds,dsa s sijf. fdshjakl  hdsfiloa hnjls nfdsiao hofgdsn pi ks knlf, gfdip snpij njd  dpnmj sa.</p>', 
-	'<p>In a luctus purus, in tempus mi. Integer vulputate tincidunt arcu quis aliquet. Maecenas sollicitudin nec nisi sit amet dictum. Curabitur sagittis nulla id sem vulputate, eget blandit nibh ullamcorper. Nam feugiat elementum pharetra. Vestibulum a purus eget mi mattis tincidunt a sed felis.</p>', 
-	'<p>Integer erat eros, vestibulum at tortor vitae, sollicitudin finibus est. Aliquam ornare, elit necfelis.</p>',
-	'<p>Nulla molestie porttitor justo vitae pharetra. Proin non convallis lacus, eget malesuada metus. Duis aliquam eu massa molestie rhoncus. Vestibulum a malesuada nulla. Morbi at libero tempus,eget interdum lectus efficitur.</p>'];
-
-	var content2 = ['<p>aflbvhjsjkhl</p>', '<p>afdhsaklhjkl</p>'];
-		// Shuffle the content
-
-    for (var i = content.length - 1; !!i; --i) {
-        var j = Math.floor(Math.random() * i);
-        var p = content[i];
-        content[i] = content[j];
-        content[j] = p;
-    }
-
-     for (var i = content2.length - 1; !!i; --i) {
-        var j = Math.floor(Math.random() * i);
-        var p = content2[i];
-        content2[i] = content2[j];
-        content2[j] = p;
-    }
-
-    var k = Math.random();
-     // Generate the post
-     if(k<0.5){
-    var post = '<li>';
+function randomPost(json){
+    // Generate the post
+    var post = '';
+    post += '<li>';
     post += '<article id="content">';
-    post += '<a href="#" class="image"><img src="images/Banner.png" alt="" />';
+    post += '<a href="#" class="image"><img src="';
+    post += json.image;
+    post += '" alt="" />';
     post += '</a>';
     post += '<div class="content">';
-    post += '<h3>Random Post!</h3>';
-    post += content.join('');
+    post += '<h3>';
+    post += json.title;
+    post += '</h3>';
+    post += json.content;
     post += '<ul class="actions"><li><a href="#" class="button">閱讀</a></li></ul></div>';
     post += '</article>';
     post += '</li>';
-}else{
-	var post = '<li>';
-    post += '<article id="content">';
-    post += '<a href="#" class="image"><img src="images/Banner.png" alt="" />';
-    post += '</a>';
-    post += '<div class="content">';
-    post += '<h3>Random Post!</h3>';
-    post += content2.join('');
-    post += '<ul class="actions"><li><a href="#" class="button">閱讀</a></li></ul></div>';
-    post += '</article>';
-    post += '</li>';
-}
 
     return post;
 
+}
+
+//===================add footer==========================
+function footer(){
+    var footer = '<!-- Footer -->            <footer id="footer">                <div class="inner">                    <div class="split style1">                        <div class="contact">                            <h2>聯繫我們</h2>                            <ul class="contact-icons">                                <li class="icon fa-home"><a href="#">217B, 5W Enterprise Place<br>Science Park, NT, HK</a></li>                                <li class="icon fa-phone"><a href="#">(852)3598-3639</a></li>                                <li class="icon fa-envelope-o"><a href="#">info@clinicbot.io</a></li>                            </ul>                        </div>                        <div class="contact">                            <h3>熱門專科醫生</h3>                            <div class="">                                <ul style="display: inline-block;">                                    <li>皮膚科</li>                                    <li>眼科</li>                                    <li>中醫</li>                                    <li>性病</li>                                    <li>婦產科</li>                                    <li>耳鼻喉科</li>                                </ul>                                <ul style="display: inline-block; position: absolute;">                                    <li>整形外科</li>                                    <li>骨科</li>                                    <li>牙科</li>                                </ul>                            </div>                        </div>                        <div class="contact">                            <h3>醫生集中大廈</h3>                            <div>                                <ul>                                    <li>旺角中心一期</li>                                    <li>亞太中心</li>                                    <li>萬邦行</li>                                    <li>南豐中心</li>                                    <li>海洋中心</li>                                    <li>新世界大廈</li>                                    <li>中建大廈</li>                                </ul>                            </div>                        </div>                        <div class="contact">                            <h3>熱門私家醫院</h3>                            <div>                                <ul>                                    <li><a href="http://www.stpaul.org.hk/internet/">聖保祿醫院</a></li>                                    <li><a href="http://www.hksh.org.hk/zh-hk/about-us.php">養和醫院</a></li>                                    <li><a href="http://www.union.org/new/cindex.php">仁安醫院</a></li>                                    <li><a href="http://www.hkbh.org.hk/chi/home.php">浸會醫院</a></li>                                    <li><a href="https://www.twah.org.hk/tc/main">港安醫院</a></li>                                    <li><a href="http://www.sth.org.hk/index.asp?lang_code=zh">聖德肋撒醫院</a></li>                                    <li><a href="http://www.evangel.org.hk/">播 道 醫 院</a></li>                                    <li><a href="http://www.canossahospital.org.hk/">嘉諾撒醫院</a></li>                                </ul>                            </div>                        </div>                        <div class="contact">                            <h3>Dr. Care</h3>                            <div>                                <ul>                                    <li><a ref="index.html">Home</a></li>                                    <li>Doctors</li>                                    <li>免責聲明</li>                                    <li>Terms</li>                                    <li>Careers</li>                                    <li>Contact</li>                                </ul>                            </div>                        </div>                    </div>                    <div class="copyright">                        <p>&copy; Asiabots. All rights reserved.</p>                        <p>免責聲明︰Dr care 盡力驗證所有提交的資料和網頁內容正確無誤。 但本公司不會負責當中的任何錯誤和錯誤而引起的責任。 如有任何資料改變，有關的醫生將負責更新個人的資料或告本公司報告。 醫生的費用、所有文章等內容僅供參考，病人應與醫生或診所的有關醫療人員確認為實。</p>                    </div>                </div>            </footer>';
+
+            return footer;
 }

@@ -4766,6 +4766,10 @@
 			color: #ffffff;
 		}
 
+		#footer h3{
+			font-size: 2rem;
+		}
+
 		#footer blockquote {
 			border-left-color: rgba(255, 255, 255, 0.25);
 		}
@@ -6733,6 +6737,7 @@
 
 	h3 {
 		font-size: 1.5rem;
+		width:7em;
 	}
 
 	h4 {

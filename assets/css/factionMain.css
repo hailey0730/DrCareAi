@@ -1712,7 +1712,8 @@
 	}
 
 		a:hover {
-			color: #509ed8 !important;
+			color: #ffffff ;
+			/*color: #509ed8 !important;*/
 			border-bottom-color: transparent;
 		}
 
