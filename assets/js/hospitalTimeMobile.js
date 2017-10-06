@@ -270,7 +270,7 @@ function resize() {
 	var imgWidth = $('.right').width();
 	var imgHeight = $('.right').height();
 	if($(window).width() >= 1208){
-		window.location.replace('hospitalTime.html');
+		window.location.replace('hospitalTime.php');
 	}else{
 		// var locations = $('map > area').slice(-3);
 		// $(locations[0]).attr("coords","414,264,516,263,537,249,539,300,550,302,558,357,513,326,515,340,483,325,457,350,436,347,438,326,418,320,408,315");

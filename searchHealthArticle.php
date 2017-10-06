@@ -10,6 +10,7 @@
 	<!-- <link rel="stylesheet" href="assets/css/hypothesis.css" /> -->
 	<link rel="stylesheet" href="assets/css/loginWin.css" />
 	<link rel="stylesheet" href="assets/css/searchHealthArticle.css" />
+	<link rel="stylesheet" href="assets/css/headerFooter.css" />
 
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -58,12 +59,15 @@
 					<?php 
 				        if(!isset($_SESSION['user_id'])) {
 				            echo '
-				                <li id="loginbtn" style="cursor:pointer;">登入</li>
+				                <li id="loginbtn" style="cursor:pointer;"><a href="" onclick="createLoginWindow();">登入</a></li>
 				            ';
 				        }
 				        else {
 				            echo '
-				                <li id="logoutbtn" style="cursor:pointer;">登出</li>		
+				                <li id="logoutbtn" style="cursor:pointer;"><a href="" onclick="$.get("Doctor/php/logout.php", {},
+                function(){
+                    window.location.reload();
+            });">登出</a></li>		
 							';
 				        }
 				    ?>

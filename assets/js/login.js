@@ -14,6 +14,21 @@ $(document).ready(function(){
         }
 
     });
+
+    // $("#loginbtn").bind("click",function(e){ 
+        
+    //         createLoginWindow();
+        
+    // });
+
+    // $("#logoutbtn").bind("click",function(e){
+
+    //         $.get("../../Doctor/php/logout.php", {},
+    //             function(){
+    //                 window.location.reload();
+    //         });
+        
+    // })
 });
 
 

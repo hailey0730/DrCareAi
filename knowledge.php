@@ -12,6 +12,7 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/loginWin.css" />
 		<link rel="stylesheet" href="assets/css/noBannerBGMain.css" />
+		<link rel="stylesheet" href="assets/css/headerFooter.css" />
 		<!-- <link rel="stylesheet" href="assets/css/hypothesis.css" /> -->
 		<link rel="stylesheet" href="assets/css/factionMain.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -60,12 +61,15 @@
 					<?php 
 				        if(!isset($_SESSION['user_id'])) {
 				            echo '
-				                <li id="loginbtn" style="cursor:pointer;">登入</li>
+				                <li id="loginbtn" style="cursor:pointer;"><a href="" onclick="createLoginWindow();">登入</a></li>
 				            ';
 				        }
 				        else {
 				            echo '
-				                <li id="logoutbtn" style="cursor:pointer;">登出</li>		
+				                <li id="logoutbtn" style="cursor:pointer;"><a href="" onclick="$.get("Doctor/php/logout.php", {},
+                function(){
+                    window.location.reload();
+            });">登出</a></li>		
 							';
 				        }
 				    ?>
@@ -316,6 +320,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
 			<script src="assets/js/login.js"></script>
 			<script src="assets/js/knowledge.js"></script>
 			<!-- <script src="assets/js/factionMain.js"></script> -->
