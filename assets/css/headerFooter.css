@@ -482,6 +482,8 @@
 
 		/* Footer */
 
+
+
 	#footer {
 		background-color: #5ac3d6;
 		color: rgba(255, 255, 255, 0.75);
@@ -495,6 +497,7 @@
 
 		#footer a {
 			color: #ffffff;
+			text-decoration: none;
 		}
 
 		#footer strong, #footer b {
@@ -503,6 +506,11 @@
 
 		#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
 			color: #ffffff;
+		}
+
+		#footer h2{
+			font-size: 3em;
+			font-weight: 100;
 		}
 
 		#footer blockquote {
@@ -663,7 +671,7 @@
 		#footer > .inner {
 			margin: 0 auto;
 			width: 80em;
-			max-width: calc(100% - 6em);
+			max-width: calc(100% - 2em);
 		}
 
 		#footer .copyright {
@@ -675,6 +683,14 @@
 			width: 100%;
 		}
 
+		#footer ul li{
+			list-style: none;
+		}
+
+		#footer .split.style1 > *:nth-child(2n-1){
+			width: 100%;
+		}
+
 		@media screen and (max-width: 1280px) {
 
 			#footer {
@@ -683,6 +699,14 @@
 
 				#footer .contact {
 					margin-right: 1.5em;
+				}
+
+				#footer .split.style1 > *:nth-child(2n-1){
+					width: 100%;
+				}
+
+				#footer .split.style1 > *:nth-child(2n){
+					width: 100%;
 				}
 
 		}

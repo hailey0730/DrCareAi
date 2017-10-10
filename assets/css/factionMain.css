@@ -2461,9 +2461,9 @@
 			}
 
 				ul.contact-icons li:before {
-					border-radius: 100%;
+					/*border-radius: 100%;
 					border: solid 1px;
-					font-size: 1em;
+					font-size: 1em;*/
 					height: 2.4em;
 					left: 0;
 					line-height: 2.4em;

@@ -360,7 +360,18 @@
 			var num3 = 98;
 			var num4 = 1580;
 
-			$(document).scroll(function(){
+			$.ajax({
+				method: "GET",
+				url: "http://test.drcare.ai/DrCare.FigureHomepage.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+			})
+			.done(function( msg ) {
+				var json = JSON.parse(msg);
+				num1 = json.NumOfDoctor;
+				num2 = json.NumOfHealthArticle;
+				num3 = json.NumOfKnowledge;
+				num4 = json.NumOfArticles;
+
+				$(document).scroll(function(){
 				// console.log($(this).scrollTop());
 				var hT = $('#two').offset().top,
 			       hH = $('#two').outerHeight(),
@@ -396,6 +407,10 @@
 				}
 
 			});
+			});
+
+
+			
 		});
 
 	</script>

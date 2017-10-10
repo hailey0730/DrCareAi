@@ -448,6 +448,18 @@ var settings = {
 })(jQuery);
 	});
 
+var loginout = $($('#navPanel').children()).children().last();
+	console.log($(loginout).text());
+	console.log(loginout);
+	if($(loginout).text() == '登入'){
+		$(loginout).attr("id","loginbtn");
+		$(loginout).attr("onclick","createLoginWindow();");
+	}else{
+		$(loginout).attr("id","logoutbtn");
+		$(loginout).attr("onclick","$.get('Doctor/php/logout.php', {},                function(){                    window.location.reload();});");		
+	}
+		$(loginout).attr('style', 'cursor:pointer');
+
 });
 
 function hotArticle(json){
