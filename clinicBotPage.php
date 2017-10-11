@@ -33,7 +33,7 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="clinicBotPage.php">智能助手</a></li>
+				<li><a href="clinicBotPage.php">隨行醫生</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
@@ -49,15 +49,16 @@
 					</ul>
 				</li>
 				<li>
-					<a href="#" class="icon fa-angle-down">健康知識</a>
+					<a href="#" class="icon fa-angle-down">健康資訊</a>
 					<ul>
-						<li><a href="knowledgeList.php">疾病</a></li>
+						<li><a href="knowledge.php">健康總覽</a></li>
+						<li><a href="knowledgeList.php">疾病知識</a></li>
 						<li><a href="hospitalTime.php">急症室時間</a></li>
 						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
 				</li>
-				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
+				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
 				<div id="login">
 					<!-- <li><a href="login.html">登入</a></li> -->
 					<?php 
@@ -192,7 +193,7 @@
 							</section>
 						</div>
 						<div>
-						<span class="image"><img src="images/Landing page/Phone image.png" alt=""></span>
+						<span class="image"><img src="images/New image for phone.png" alt=""></span>
 						</div>
 					</section>
 
@@ -262,23 +263,16 @@
 
 				</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<!-- <div class="inner">
-							<ul class="contact">
-								<li class="icon fa-home">
-									<strong>Address</strong>
-									1234 Fictional Avenue<br>Nashville, TN 00000
-								</li>
-								<li class="icon fa-phone">
-									<strong>Phone</strong>
-									(000) 000-0000
-								</li>
-								<li class="icon fa-envelope">
-									<strong>Email</strong>
-									information@untitled.tld
-								</li>
-							</ul>
+				<div class="purple">
+				<div class="inner">
+					<div class="split mystyle">
+							<div class="white">
+								<h2>聯繫我們</h2>
+								<div class="btmImg">
+								<img src="images/smiley-female-doctor-with-clipboard-and-stethoscope_23-2147657762.png">
+							</div>
+							</div>
+							<div class="bottomBlue">
 							<form action="#" method="post">
 								<h4>服務查詢</h4>
 								<div class="field half first">
@@ -294,17 +288,26 @@
 									<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
 								</div>
 								<ul class="actions">
-									<li><input value="Send Message" class="button big" type="submit"></li>
+									<li><input value="Send Message" class="button big btmWhite" type="submit"></li>
 								</ul>
 							</form>
-						</div> -->
+						</div>
+						</div>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+
+
 						<div class="inner">
 					<div class="split style1">
 						<div class="contact">
 							<h2>聯繫我們</h2>
 							<ul class="contact-icons">
-								<li class="icon fa-home"><a href="#">217B, 5W Enterprise Place<br>Science Park, NT, HK</a></li>
-								<li class="icon fa-phone"><a href="#">(852)3598-3639</a></li>
+								<li class="icon fa-home">217B, 5W Enterprise Place<br>Science Park, NT, HK</li>
+								<li class="icon fa-phone">(852)3598-3639</li>
 								<li class="icon fa-envelope-o"><a href="#">info@clinicbot.io</a></li>
 							</ul>
 						</div>
@@ -359,12 +362,12 @@
 							<h3>Dr. Care</h3>
 							<div>
 								<ul>
-									<li><a href="index.php">Home</a></li>
-									<li>Doctors</li>
+									<!-- <li><a href="index.php">Home</a></li> -->
+									<li><a href="http://m.me/2076696632356020">隨行醫生</a></li>
+									<li><a href="http://test.drcare.ai/Doctor/findoc.php">醫生</a></li>
+									<li><a href="knowledge.php"> 健康資訊</a></li>
+									<li><a href="searchHealthArticle.php">文章報導</a></li>
 									<li>免責聲明</li>
-									<li>Terms</li>
-									<li>Careers</li>
-									<li>Contact</li>
 								</ul>
 							</div>
 						</div>
@@ -389,6 +392,7 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<!-- <script src="assets/js/atmostphereMain.js"></script> -->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/navBar.js"></script>
 			<script src="assets/js/login.js"></script>
 
 	</body>

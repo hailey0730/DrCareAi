@@ -2118,7 +2118,7 @@
 			}
 
 				form .field.half.first {
-					margin-right: 3%;
+					margin-right: 0;
 				}
 
 		@media screen and (max-width: 980px) {
@@ -2304,7 +2304,7 @@
 	input[type="email"],
 	select,
 	textarea {
-		background: rgba(99, 116, 133, 0.075);
+		background: rgba(99, 116, 133, 0.27);
 		border-color: transparent;
 	}
 
@@ -3730,6 +3730,7 @@
 			.wrapper.style2 .timeline > section {
 				border-color: #bbb;
 			}
+			}
 
 				.wrapper.style2 .timeline > section:before {
 					background-color: #bbb;
@@ -4195,12 +4196,67 @@
 
 		}
 
-	/*
-		Atmosphere by Pixelarity
-		pixelarity.com | hello@pixelarity.com
-		License: pixelarity.com/license
-	*/
+	.purple{
+		background-color: rgba(105,14,105,0.85);
+	}
 
+	.white{
+		background-color: white;
+		margin-left: 10em !important;
+		padding:5em 2em;
+		height: 35em;
+	}
+
+	.white > h2{
+		color: #5dc9dd;
+		text-align: center;
+		font-weight: 100;
+		font-size: 2.5em;
+	}
+
+	.white > .btmImg > img{
+		max-width: 100%;
+	}
+
+	.btmImg{
+		max-width: 50%;
+		margin: 0 auto;
+	}
+
+	.bottomBlue{
+		background-color: rgba(25,204,245,0.94);
+		margin-left: 0 !important;
+		padding: 2em 5em ;
+		margin-right: 5em;
+		height: 35em;
+	}
+
+	.bottomBlue > form > h4{
+		color: white;
+	}
+
+	input[type="submit"], input[type="reset"], input[type="button"], button, .button.big.btmwhite {
+	    background-color: transparent;
+	    box-shadow: inset 0 0 0 1px #ffffff;
+	    color: #ffffff !important;
+	    font-size: 1.5em;
+	}
+
+	@media screen and (max-width: 980px){
+		.bottomBlue{
+			height: 40em;
+			margin-top: 0 !important;
+		}
+		.white{
+			margin-left: 0 !important;
+		}
+	}
+
+.split.mystyle{
+	margin-bottom: 0em;
+	padding-top: 8em;
+	padding-bottom: 5em;
+}
 
 
 		@font-face {

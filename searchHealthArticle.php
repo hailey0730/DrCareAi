@@ -29,31 +29,32 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="clinicBotPage.php">智能助手</a></li>
+				<li><a href="clinicBotPage.php">隨行醫生</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">西醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">中醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">牙醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">物理治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">脊醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">專業治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">心理咨詢</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php">營養咨詢</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=牙醫">牙醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=脊醫">脊醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=心理咨詢">心理咨詢</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=營養咨詢">營養咨詢</a></li>
 						
 					</ul>
 				</li>
 				<li>
-					<a href="#" class="icon fa-angle-down">健康知識</a>
+					<a href="#" class="icon fa-angle-down">健康資訊</a>
 					<ul>
-						<li><a href="knowledgeList.php">疾病</a></li>
+						<li><a href="knowledge.php">健康總覽</a></li>
+						<li><a href="knowledgeList.php">疾病知識</a></li>
 						<li><a href="hospitalTime.php">急症室時間</a></li>
 						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
 				</li>
-				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
+				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
 				<div id="login">
 					<!-- <li><a href="login.php">登入</a></li> -->
 					<?php 
@@ -98,79 +99,79 @@
 		<section id="one" class="main">
 					<ul class="tabs">
 						<li>
-							<h3>Lorem</h3>
+							<h3>疾病專題</h3>
 							<div class="spotlight">
 								<ul>
 									<li>
-										<a href=""> <h4>中文輸入測試</h4></a>
-										<p>中風</p>
+										<a class="category"> <h4>醫學新發現</h4></a>
+										<p>醫療科技日新月異﹐一些以前我們不了解的疾病憑著研究人員的努力。我們終於可以揭開它的面紗。</p>
 									</li>
 									<li>
-										<a href=""> <h4>中文輸入測試</h4></a>
-										<p>Praesent dapibus, neque id cursus fauci quam erat volutpat nam dui mitin.</p>
+										<a class="category"> <h4>疾病病理</h4></a>
+										<p>現代人因為生活壓力大而患上許多不同種類的都市疾病。患者在接受治療前如果能知道這些都市疾病的成因的話，對治療非常有幫助。</p>
 									</li>
 								</ul>
 								<span class="image"><img src="images/square.jpg" alt="" /></span>
 								<ul>
 									<li>
-										<a href=""><h4>中文輸入測試</h4></a>
-										<p>頭痛</p>
+										<a class="category"><h4>治療新技術</h4></a>
+										<p>許多疾病都被判定為無法治療，但是隨著技術的發展，一些新的醫療方式和治療方法都推陳出新。以前一些無法治療的疾病，現在可能都有解決方法。</p>
 									</li>
 									<li>
-										<a href=""><h4>中文輸入測試</h4></a>
-										<p>Donec nec justo eget felis facilisis ferme Aenean dignissim pellen.</p>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<h3>Adipsicing</h3>
-							<div class="spotlight">
-								<ul>
-									<li>
-										<a href=""><h4>Erat aliquam</h4></a>
-										<p>Praesent dapibus, neque id cursus fauci quam erat volutpat nam dui mitin.</p>
-									</li>
-									<li>
-										<a href=""><h4>Neque veroeros</h4></a>
-										<p>Sed adipiscing ornare risus. Morbi lorem lentesque egestas sem consequat.</p>
-									</li>
-								</ul>
-								<span class="image"><img src="images/Rectangle33Copy.png" alt="" /></span>
-								<ul>
-									<li>
-										<a href=""><h4>Quis portitor</h4></a>
-										<p>Donec nec justo eget felis facilisis ferme Aenean dignissim pellen.</p>
-									</li>
-									<li>
-										<a href=""><h4>Magna accumsan</h4></a>
-										<p>Lorem in sem quis dui placerat ornare tra sed etiam veroeros consequat.</p>
+										<a class="category"><h4>預防疾病</h4></a>
+										<p>預防勝於治療，生活上一些無形的不良習慣都會在隨時隨地影響著你的健康。培養一些正確的預防習慣能令你遠離疾病。</p>
 									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
-							<h3>Magna </h3>
+							<h3>健康飲食</h3>
 							<div class="spotlight">
 								<ul>
 									<li>
-										<a href=""><h4>Neque veroeros</h4></a>
-										<p>Sed adipiscing ornare risus. Morbi lorem lentesque egestas sem consequat.</p>
+										<a class="category"><h4>醫學膳食</h4></a>
+										<p>很多水果和蔬菜除了有特別的營養價值之外，還對治療某一些疾病特別有幫助。不同的疾病可以配搭進食不同的蔬果。</p>
 									</li>
 									<li>
-										<a href=""><h4>Quis portitor</h4></a>
-										<p>Donec nec justo eget felis facilisis ferme Aenean dignissim pellen.</p>
+										<a class="category"><h4>營養食譜</h4></a>
+										<p>想要保持身體健康，只有運動是不足夠的。配合日常生活的一些健康食譜能讓事情事半功倍。</p>
 									</li>
 								</ul>
 								<span class="image"><img src="images/Rectangle33Copy.png" alt="" /></span>
 								<ul>
 									<li>
-										<a href=""><h4>Magna accumsan</h4></a>
-										<p>Lorem in sem quis dui placerat ornare tra sed etiam veroeros consequat.</p>
+										<a class="category"><h4>啱飲湯水</h4></a>
+										<p>不少的健康湯水在中醫的角度中是極具營養價值。湯水不但是母親的心意，更能在日常中助你保持身體健康。</p>
 									</li>
 									<li>
-										<a href=""><h4>Erat aliquam</h4></a>
-										<p>Praesent dapibus, neque id cursus fauci quam erat volutpat nam dui mitin.</p>
+										<a class="category"><h4>保健養生</h4></a>
+										<p>想要長壽就要懂得養生。日常很多養成的習慣和生活方式都是長壽的秘密。</p>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<h3>身心健康 </h3>
+							<div class="spotlight">
+								<ul>
+									<li>
+										<a class="category"><h4>生活小貼士</h4></a>
+										<p>很多的慢性疾病除了選擇進行治療外，一些日常的生活習慣和方式都能夠有助擺脫這些慢性疾病的困擾。</p>
+									</li>
+									<li>
+										<a class="category"><h4>精神健康</h4></a>
+										<p>精神疾病經常困擾都市人。超時工作、沉重工作壓力令不少人的精神都過度緊張。有什麼精神疾病是我們可以多加留意的呢?</p>
+									</li>
+								</ul>
+								<span class="image"><img src="images/Rectangle33Copy.png" alt="" /></span>
+								<ul>
+									<li>
+										<a class="category"><h4>日常鍛鍊</h4></a>
+										<p>運動能令我們的身體保持活力，比很多的口服藥品更容易令我們有一個健康的體魄。</p>
+									</li>
+									<li>
+										<a class="category"><h4>健康活動</h4></a>
+										<p>香港有不少有關於跑步或爬山等等的健康活動都會在周末舉辦。你也可以帶同你的家人一同參與。</p>
 									</li>
 								</ul>
 							</div>
@@ -284,6 +285,7 @@
 		<script src="assets/js/main.js"></script>
 		<!-- <script src="assets/js/artyom.window.js"></script> -->
 		<script src="assets/js/login.js"></script>
+		<script src="assets/js/navBar.js"></script>
 		<script src="assets/js/speech.js"></script>
 		<!-- hypothesis scripts -->
 		<!-- <script src="assets/js/hypothesis.jquery.selectorr.min.js"></script> -->

@@ -6132,13 +6132,17 @@
 		color: #3b3b3b;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	/*h1, h2, h3, h4, h5, h6 {
 		color: #5dc9dd;
 		font-family: 'PingFang';
 
+	}*/
+
+	.category{
+		cursor: pointer;
 	}
 
-	#three > header > h2, h3, p{
+	#three > header > h2, h3, .content > p{
 		color: black;
 	}
 

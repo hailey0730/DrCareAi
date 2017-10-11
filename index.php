@@ -32,7 +32,7 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="clinicBotPage.php">智能助手</a></li>
+				<li><a href="clinicBotPage.php">隨行醫生</a></li>
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
@@ -48,15 +48,16 @@
 					</ul>
 				</li>
 				<li>
-					<a href="#" class="icon fa-angle-down">健康知識</a>
+					<a href="#" class="icon fa-angle-down">健康資訊</a>
 					<ul>
-						<li><a href="knowledgeList.php">疾病</a></li>
+						<li><a href="knowledge.php">健康總覽</a></li>
+						<li><a href="knowledgeList.php">疾病知識</a></li>
 						<li><a href="hospitalTime.php">急症室時間</a></li>
 						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
 				</li>
-				<li><a href="http://test.drcare.ai/doctor/healthArticle.php">健康報導</a></li>
+				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
 				<div id="login">
 					<!-- <li><a href="login.php">登入</a></li> -->
 					<?php 
@@ -115,7 +116,7 @@
 							</article>
 							<article >								
 								<span class="iconImage"><img class="iconFinddoc" src="images/icon_bubble.png"></span>
-								<a href="clinicBotPage.php"><h3>智能助手 ></h3></a>
+								<a href="clinicBotPage.php"><h3>隨行醫生 ></h3></a>
 								<div class="iconContent">
 									<p>內置全港最新最齊的搜尋醫生引擎，結合人工智能語音協助您迅速尋找合適的醫生！　
 									</p>
@@ -272,9 +273,9 @@
 						<div class="contact">
 							<h2>聯繫我們</h2>
 							<ul class="contact-icons">
-								<li class="icon fa-home"><a href="#">217B, 5W Enterprise Place<br>Science Park, NT, HK</a></li>
-								<li class="icon fa-phone"><a href="#">(852)3598-3639</a></li>
-								<li class="icon fa-envelope-o"><a href="#">info@clinicbot.io</a></li>
+								<li class="icon fa-home">217B, 5W Enterprise Place<br>Science Park, NT, HK</li>
+								<li class="icon fa-phone">(852)3598-3639</li>
+								<li class="icon fa-envelope-o"><a href="mailto:info@clinicbot.io">info@clinicbot.io</a></li>
 							</ul>
 						</div>
 						<div class="contact">
@@ -328,12 +329,12 @@
 							<h3>Dr. Care</h3>
 							<div>
 								<ul>
-									<li><a href="index.php">Home</a></li>
-									<li>Doctors</li>
+									<!-- <li><a href="index.php">Home</a></li> -->
+									<li><a href="http://m.me/2076696632356020">隨行醫生</a></li>
+									<li><a href="http://test.drcare.ai/Doctor/findoc.php">醫生</a></li>
+									<li><a href="knowledge.php"> 健康資訊</a></li>
+									<li><a href="searchHealthArticle.php">文章報導</a></li>
 									<li>免責聲明</li>
-									<li>Terms</li>
-									<li>Careers</li>
-									<li>Contact</li>
 								</ul>
 							</div>
 						</div>
