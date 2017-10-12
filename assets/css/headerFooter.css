@@ -1,5 +1,10 @@
 @import url(font-awesome.min.css);
 
+body {
+		background: #fff;
+		overflow-x: hidden;
+	}
+
 /* Header */
 
 	#header {
@@ -158,7 +163,8 @@
 					}
 
 					#login{
-						background-color: #ffffff;
+						background-color: #5dc9dd;
+						/*background-color: #ffffff;*/
 						color: #5dc9dd;
 						border-radius: 5px;
 						margin-left: 2.25em;
@@ -513,6 +519,11 @@
 			font-weight: 100;
 		}
 
+		#footer h3{
+			font-size: 1.5em;
+			width:7em;
+		}
+
 		#footer blockquote {
 			border-left-color: rgba(255, 255, 255, 0.25);
 		}
@@ -668,6 +679,12 @@
 			color: #ffffff;
 		}
 
+		#footer ul.contact-icons li{
+			min-height:2.4em;
+			padding-left:3.5em;
+			margin-bottom: 1.5em;
+		}
+
 		#footer > .inner {
 			margin: 0 auto;
 			width: 80em;
@@ -683,12 +700,16 @@
 			width: 100%;
 		}
 
+		#footer .copyright p{
+			color: white;
+		}
+
 		#footer ul li{
 			list-style: none;
 		}
 
 		#footer .split.style1 > *:nth-child(2n-1){
-			width: 100%;
+			/*width: 100%;*/
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -698,17 +719,27 @@
 			}
 
 				#footer .contact {
-					margin-right: 1.5em;
+					/*margin-right: 1.5em;*/
 				}
 
 				#footer .split.style1 > *:nth-child(2n-1){
-					width: 100%;
+					/*width: 100%;*/
 				}
 
 				#footer .split.style1 > *:nth-child(2n){
-					width: 100%;
+					/*width: 100%;*/
 				}
 
+		}
+
+		@media screen and (max-width: 1068px){
+			#footer > .inner > .split{
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				margin-left: 0;
+			}
 		}
 
 		@media screen and (max-width: 736px) {

@@ -34,12 +34,12 @@
 					<ul>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=牙醫">牙醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=脊醫">脊醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=心理咨詢">心理咨詢</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=營養咨詢">營養咨詢</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li>
 						
 					</ul>
 				</li>
@@ -56,7 +56,7 @@
 				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
 				<div id="login">
 					<!-- <li><a href="login.php">登入</a></li> -->
-					<?php 
+					<!-- <?php 
 				        if(!isset($_SESSION['user_id'])) {
 				            echo '
 				                <li id="loginbtn" style="cursor:pointer;"><a href="" onclick="createLoginWindow();">登入</a></li>
@@ -70,7 +70,7 @@
             });">登出</a></li>		
 							';
 				        }
-				    ?>
+				    ?> -->
 				</div>
 			</ul>
 		</nav>
@@ -641,7 +641,7 @@
 									<li><a href="http://www.hkbh.org.hk/chi/home.php">浸會醫院</a></li>
 									<li><a href="https://www.twah.org.hk/tc/main">港安醫院</a></li>
 									<li><a href="http://www.sth.org.hk/index.asp?lang_code=zh">聖德肋撒醫院</a></li>
-									<li><a href="http://www.evangel.org.hk/">播 道 醫 院</a></li>
+									<li><a href="http://www.evangel.org.hk/">播道醫院</a></li>
 									<li><a href="http://www.canossahospital.org.hk/">嘉諾撒醫院</a></li>
 								</ul>
 							</div>
@@ -655,7 +655,7 @@
 									<li><a href="http://test.drcare.ai/Doctor/findoc.php">醫生</a></li>
 									<li><a href="knowledge.php"> 健康資訊</a></li>
 									<li><a href="searchHealthArticle.php">文章報導</a></li>
-									<li>免責聲明</li>
+									<li><a href="disclaimer.php">免責聲明</li>
 								</ul>
 							</div>
 						</div>

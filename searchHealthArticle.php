@@ -35,12 +35,12 @@
 					<ul>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=牙醫">牙醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=脊醫">脊醫</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>
 						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=心理咨詢">心理咨詢</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=營養咨詢">營養咨詢</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>
+						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li>
 						
 					</ul>
 				</li>
@@ -57,7 +57,7 @@
 				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
 				<div id="login">
 					<!-- <li><a href="login.php">登入</a></li> -->
-					<?php 
+					<!-- <?php 
 				        if(!isset($_SESSION['user_id'])) {
 				            echo '
 				                <li id="loginbtn" style="cursor:pointer;"><a href="" onclick="createLoginWindow();">登入</a></li>
@@ -71,7 +71,7 @@
             });">登出</a></li>		
 							';
 				        }
-				    ?>
+				    ?> -->
 				</div>
 			</ul>
 		</nav>
@@ -88,7 +88,8 @@
 				<h2 style="margin-bottom: 0;">搜尋健康誌</h2>
 			<form id="searchForm">
 				<input type="text" id="text-area">
-				<span><img class="fa-microphone" src="images/mic.png" onclick="startDictation(event)"></span>
+				<span class="fa fa-search"></span>
+				<!-- <span><img class="fa-microphone" src="images/mic.png" onclick="startDictation(event)"></span> -->
 			</form>
 			</header>
 
@@ -111,7 +112,7 @@
 										<p>現代人因為生活壓力大而患上許多不同種類的都市疾病。患者在接受治療前如果能知道這些都市疾病的成因的話，對治療非常有幫助。</p>
 									</li>
 								</ul>
-								<span class="image"><img src="images/square.jpg" alt="" /></span>
+								<span class="image"><img src="images/medical-563427_960_720.png" alt="" /></span>
 								<ul>
 									<li>
 										<a class="category"><h4>治療新技術</h4></a>
@@ -137,7 +138,7 @@
 										<p>想要保持身體健康，只有運動是不足夠的。配合日常生活的一些健康食譜能讓事情事半功倍。</p>
 									</li>
 								</ul>
-								<span class="image"><img src="images/Rectangle33Copy.png" alt="" /></span>
+								<span class="image"><img src="images/cherries-422468_960_720.png" alt="" /></span>
 								<ul>
 									<li>
 										<a class="category"><h4>啱飲湯水</h4></a>
@@ -163,7 +164,7 @@
 										<p>精神疾病經常困擾都市人。超時工作、沉重工作壓力令不少人的精神都過度緊張。有什麼精神疾病是我們可以多加留意的呢?</p>
 									</li>
 								</ul>
-								<span class="image"><img src="images/Rectangle33Copy.png" alt="" /></span>
+								<span class="image"><img src="images/running-573762_960_720.png" alt="" /></span>
 								<ul>
 									<li>
 										<a class="category"><h4>日常鍛鍊</h4></a>

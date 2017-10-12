@@ -393,7 +393,7 @@ var settings = {
 			});
 
 		// Menu.
-			$('<a href="#navPanel" class="navPanelToggle button">Menu</a>')
+			$('<a href="#navPanel" class="navPanelToggle button">選單</a>')
 				.appendTo($header);
 
 			$(	'<div id="navPanel">' +
