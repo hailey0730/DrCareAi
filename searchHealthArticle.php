@@ -188,7 +188,7 @@
 					<div class="inner">
 						<ul class="posts">
 							<div id="main1">
-								<li>
+								<!-- <li>
 									<article id="content">
 										<a href="#" class="image"><img src="images/square.jpg" alt="" /></a>
 										<div class="content">
@@ -211,10 +211,10 @@
 											</ul>
 										</div>
 									</article>
-								</li>
+								</li> -->
 							</div>
 							<div id="main2">
-								<li>
+								<!-- <li>
 									<article id="content">
 										<a href="#" class="image"><img src="images/square.jpg" alt="" /></a>
 										<div class="content">
@@ -237,10 +237,10 @@
 											</ul>
 										</div>
 									</article>
-								</li>
+								</li> -->
 							</div>
 							<div id="main3">
-								<li>
+								<!-- <li>
 									<article id="content">
 										<a href="#" class="image"><img src="images/square.jpg" alt="" /></a>
 										<div class="content">
@@ -263,7 +263,7 @@
 											</ul>
 										</div>
 									</article>
-								</li>
+								</li> -->
 							</div>
 						</ul>
 					</div>

@@ -95,6 +95,13 @@
 				</div>
 			</section>
 
+			<section>
+				<div class="inner">
+					<h3>相關專科</h3>
+					<a class="relatedoc" href=""><p style="color: #5dc9dd; font-size: 1.5em;">醫生</p></a>
+				</div>
+			</section>
+
 			<section id="moreEssay" class="main">
 			<div class="content">
 			<h3 style="margin:0;">相關文章</h3>
@@ -103,37 +110,37 @@
 				<div class="posts">
 					<div class="articleDiv">
 						<article>
-							<div class="content">
+							<!-- <div class="content">
 							<a href="#" class="image main">
 							<div>
 							<img class="contentImage" src="images/Rectangle33.png" alt="" data-position="center" />
 							</div>
 								<p class="imageTitle">如何診斷過度活躍障礙和自閉症</p>
 								</a>
-							</div>
+							</div> -->
 						</article>
 					</div>
 					<div class="articleDiv">
 						<article>
-							<div class="content">
+							<!-- <div class="content">
 							<a href="#" class="image main">
 							<div>
 								<img class="contentImage" src="images/Rectangle33Copy.png" alt="" data-position="center" />
 								</div>
 								<p class="imageTitle">過度活躍障礙兒童的特徵</p>
 								</a>
-							</div>
+							</div> -->
 						</article>
 					</div>
 					<div class="articleDiv">
 						<article>
-							<div class="content">
+							<!-- <div class="content">
 							<a href="#" class="image main">
 							<div>
 								<img class="contentImage" src="images/Rectangle33Copy 2.png" alt="" data-position="center" /></div>
 								<p class="imageTitle">自閉症兒童的特徵</p>
 								</a>
-							</div>
+							</div> -->
 						</article>
 					</div>
 				</div>

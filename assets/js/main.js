@@ -204,24 +204,24 @@
 
 })(jQuery);
 
-$(document).ready(function(){ 
+// $(document).ready(function(){ 
 
-	var loginout = $($('#navPanel').children()).children().last();
-	console.log($(loginout).text());
-	console.log(loginout);
-	if($(loginout).text() == '登入'){
-		$(loginout).attr("id","loginbtn");
-		$(loginout).attr("onclick","createLoginWindow();");
-	}else{
-		$(loginout).attr("id","logoutbtn");
-		$(loginout).attr("onclick","$.get('Doctor/php/logout.php', {},                function(){                    window.location.reload();});");		
-	}
-		$(loginout).attr('style', 'cursor:pointer');
-	// $(loginout).removeAttr("href");
+// 	var loginout = $($('#navPanel').children()).children().last();
+// 	console.log($(loginout).text());
+// 	console.log(loginout);
+// 	if($(loginout).text() == '登入'){
+// 		$(loginout).attr("id","loginbtn");
+// 		$(loginout).attr("onclick","createLoginWindow();");
+// 	}else{
+// 		$(loginout).attr("id","logoutbtn");
+// 		$(loginout).attr("onclick","$.get('Doctor/php/logout.php', {},                function(){                    window.location.reload();});");		
+// 	}
+// 		$(loginout).attr('style', 'cursor:pointer');
+// 	// $(loginout).removeAttr("href");
 
-	// var div = $($('#nav').children()).children().last();
-	// $($(div).children()).children().removeAttr("href");
-	// $($(div).children()).children().remove();
+// 	// var div = $($('#nav').children()).children().last();
+// 	// $($(div).children()).children().removeAttr("href");
+// 	// $($(div).children()).children().remove();
 
 
-});
+// });

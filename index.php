@@ -89,7 +89,8 @@
 			<h1>優質醫療服務平台</h1>
 			<h2>給予你和家人的健康</h2>
 			<ul class="actions">
-				<li><a href="#one" class="button wide scrolly">免費註冊</a></li>
+				<li><a href="#one" class="button wide scrolly">開始使用</a></li>
+				<!-- <li><a href="#one" class="button wide scrolly">免費註冊</a></li> -->
 			</ul>
 		</div>
 	</section>
