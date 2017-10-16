@@ -57,13 +57,23 @@ $(document).ready(function() {
 
     });
 
-    $('#text-area').onwebkitspeechchange = function(e){ //doesnt work
-        console.log($(this).value);
-    }
+   
 
-	$('#text-area').keyup(function(e){
+   	$('#text-area').keyup(function(e){
 			$('#searchWord').text('相關 "'+$(this).val()+'" 文章有：');
 	});
+
+    $.ajax({
+        method:"GET",
+        url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vQSTO2ofsD9tFlsOfQmyVcCa9IFYkgJ4YFBRWTfuM-P1QT31yEiOq3Jsa-0ZuOsyWMrwkYSTt98O3FT/pub?gid=0&single=true&output=csv",
+    }).done(function(string){
+        console.log(string);
+        var data = [];
+        $.each(string.split('","').slice(0,-1),function(i,item){
+            data[i] = item;
+        });
+        console.log(data);
+    });
 
     $('#searchForm').submit(function(e){        //prevent page refreshing when enter is pressed
         e.preventDefault();
@@ -77,52 +87,88 @@ $(document).ready(function() {
             scrollTop:$('#three').offset().top}, 'slow');
         });
 
-	// Each time the user scrolls
-	win.scroll(function() {
+    if(window.matchMedia("(max-width:980px)").matches){
+        // Each time the user scrolls
+        win.scroll(function() {
 
-		// End of the document reached?
-		if ($(document).height() - win.height() == win.scrollTop()) {
-            if(!filterClicked){
-			$('#loading').show();
-			// $.ajax({
-			// 	url: 'get-post.php',
-			// 	dataType: 'html',
-			// 	success: function(html) {
-			// 		$('#posts').append(html);
-			// 		$('#loading').hide();
-			// 	}
-			// });
-            if((articles.length - i) / 3 > 1){
-                $('#main1').append(randomPost(articles[i]));
-                $('#main2').append(randomPost(articles[i+1]));
-                $('#main3').append(randomPost(articles[i+2]));
-                $('#loading').hide();
-                i+=3;
-            }else if((articles.length - i) / 3 == 1){
-                $('#main1').append(randomPost(articles[i]));
-                $('#main2').append(randomPost(articles[i+1]));
-                $('#main3').append(randomPost(articles[i+2]));
-                $('#loading').hide();
-                $('body').append(footer());
-                i+=3;
-            }else if ((articles.length - i) / 3 < 1 && (articles.length - i) % 3 == 1){
-                $('#main1').append(randomPost(articles[i]));
-                $('#loading').hide();
-                $('body').append(footer());
-                i+=3;
-            }else if((articles.length - i) / 3 < 1 && (articles.length - i) % 3 == 2){
-                $('#main1').append(randomPost(articles[i]));
-                $('#main2').append(randomPost(articles[i+1]));
-                $('#loading').hide();
-                $('body').append(footer());
-                i+=3;
-            }else{
-                $('#loading').hide();
-    		}
+            // End of the document reached?
+            if ($(document).height() - win.height() == win.scrollTop()) {
+                if(!filterClicked){
+                $('#loading').show();
+                // $.ajax({
+                //  url: 'get-post.php',
+                //  dataType: 'html',
+                //  success: function(html) {
+                //      $('#posts').append(html);
+                //      $('#loading').hide();
+                //  }
+                // });
+                if(i < articles.length){
+                    $('#main1').append(randomPost(articles[i]));
+                    $('#loading').hide();
+                    i++;
+                }else if (i == articles.length){
+                    $('#loading').hide();
+                    $('body').append(footer());
+                    i++;
+                }else{
+                    $('#loading').hide();
+                }
+            }
         }
+
+        });
+    }else{
+        // Each time the user scrolls
+    win.scroll(function() {
+
+        // End of the document reached?
+        if ($(document).height() - win.height() == win.scrollTop()) {
+            if(!filterClicked){
+                $('#loading').show();
+                // $.ajax({
+                //  url: 'get-post.php',
+                //  dataType: 'html',
+                //  success: function(html) {
+                //      $('#posts').append(html);
+                //      $('#loading').hide();
+                //  }
+                // });
+                if((articles.length - i) / 3 > 1){
+                    $('#main1').append(randomPost(articles[i]));
+                    $('#main2').append(randomPost(articles[i+1]));
+                    $('#main3').append(randomPost(articles[i+2]));
+                    $('#loading').hide();
+                    i+=3;
+                }else if((articles.length - i) / 3 == 1){
+                    $('#main1').append(randomPost(articles[i]));
+                    $('#main2').append(randomPost(articles[i+1]));
+                    $('#main3').append(randomPost(articles[i+2]));
+                    $('#loading').hide();
+                    $('body').append(footer());
+                    i+=3;
+                }else if ((articles.length - i) / 3 < 1 && (articles.length - i) % 3 == 1){
+                    $('#main1').append(randomPost(articles[i]));
+                    $('#loading').hide();
+                    $('body').append(footer());
+                    i+=3;
+                }else if((articles.length - i) / 3 < 1 && (articles.length - i) % 3 == 2){
+                    $('#main1').append(randomPost(articles[i]));
+                    $('#main2').append(randomPost(articles[i+1]));
+                    $('#loading').hide();
+                    $('body').append(footer());
+                    i+=3;
+                }else{
+                    $('#loading').hide();
+                }
+            }
+        }
+
+        });
+
     }
 
-	});
+	
 
 });
 
@@ -166,16 +212,16 @@ function filterArt(subCat){
     var k = 0;
     filter = [];
     for(var i = 0; i < articles.length; i ++){
-    console.log(subCat);
-    console.log(articles[i].subcategory);
+    // console.log(subCat);
+    // console.log(articles[i].subcategory);
 
         if(articles[i].subcategory == subCat){
             filter[k] = articles[i];
-            console.log(filter[k]);
+            // console.log(filter[k]);
             k++;
         }
     }
-    console.log(filter);
+    // console.log(filter);
 
     var y = 0
 while(y < filter.length){
@@ -211,7 +257,7 @@ while(y < filter.length){
 
 //===================infinite loop post==================
 function randomPost(json){
-    console.log(json);
+    // console.log(json);
 
     // Generate the post
     var post = '';
@@ -239,7 +285,7 @@ function randomPost(json){
 
 //===================add footer==========================
 function footer(){
-    var footer = '<!-- Footer -->            <footer id="footer">                <div class="inner">                    <div class="split style1">                        <div class="contact">                            <h2>聯繫我們</h2>                            <ul class="contact-icons">                                <li class="icon fa-home">217B, 5W Enterprise Place<br>Science Park, NT, HK</li>                                <li class="icon fa-phone">(852)3598-3639</li>                                <li class="icon fa-envelope-o"><a href="#">info@clinicbot.io</a></li>                            </ul>                        </div>                        <div class="contact">                            <h3>熱門專科醫生</h3>                            <div class="">                                <ul style="display: inline-block;">                                    <li>皮膚科</li>                                    <li>眼科</li>                                    <li>中醫</li>                                    <li>性病</li>                                    <li>婦產科</li>                                    <li>耳鼻喉科</li>                                </ul>                                <ul style="display: inline-block; position: absolute;">                                    <li>整形外科</li>                                    <li>骨科</li>                                    <li>牙科</li>                                </ul>                            </div>                        </div>                        <div class="contact">                            <h3>醫生集中大廈</h3>                            <div>                                <ul>                                    <li>旺角中心一期</li>                                    <li>亞太中心</li>                                    <li>萬邦行</li>                                    <li>南豐中心</li>                                    <li>海洋中心</li>                                    <li>新世界大廈</li>                                    <li>中建大廈</li>                                </ul>                            </div>                        </div>                        <div class="contact">                            <h3>熱門私家醫院</h3>                            <div>                                <ul>                                    <li><a href="http://www.stpaul.org.hk/internet/">聖保祿醫院</a></li>                                    <li><a href="http://www.hksh.org.hk/zh-hk/about-us.php">養和醫院</a></li>                                    <li><a href="http://www.union.org/new/cindex.php">仁安醫院</a></li>                                    <li><a href="http://www.hkbh.org.hk/chi/home.php">浸會醫院</a></li>                                    <li><a href="https://www.twah.org.hk/tc/main">港安醫院</a></li>                                    <li><a href="http://www.sth.org.hk/index.asp?lang_code=zh">聖德肋撒醫院</a></li>                                    <li>=<a href"http://www.evangel.org.hk/">播道醫院</a></li>                                    <li><a href="http://www.canossahospital.org.hk/">嘉諾撒醫院</a></li>                                </ul>                            </div>                        </div>                        <div class="contact">                            <h3>Dr. Care</h3>                            <div>                                <ul>                                    <!-- <li><a href="index.php">Home</a></li> -->                                    <li><a href="http://m.me/2076696632356020">隨行醫生</a></li>                                    <li><a href="http://test.drcare.ai/Doctor/findoc.php">醫生</a></li>                                    <li><a href="knowledge.php"> 健康資訊</a></li>                                    <li><a href="searchHealthArticle.php">文章報導</a></li>                                    <li><a href="disclaimer.php">免責聲明</li>                                </ul>                            </div>                        </div>                    </div>                    <div class="copyright">                        <p>&copy; Asiabots. All rights reserved.</p>                        <p>免責聲明︰Dr care 盡力驗證所有提交的資料和網頁內容正確無誤。 但本公司不會負責當中的任何錯誤和錯誤而引起的責任。 如有任何資料改變，有關的醫生將負責更新個人的資料或告本公司報告。 醫生的費用、所有文章等內容僅供參考，病人應與醫生或診所的有關醫療人員確認為實。</p>                    </div>                </div>            </footer>';
+    var footer = '<footer id="footer">              <div class="inner">                 <div class="split style1">                      <div class="contact">                           <h2>聯繫我們</h2>                           <ul class="contact-icons">                              <li class="icon fa-home">217B, 5W Enterprise Place<br>Science Park, NT, HK</li>                             <li class="icon fa-phone">(852)3598-3639</li>                               <li class="icon fa-envelope-o"><a href="mailto:info@clinicbot.io">info@clinicbot.io</a></li>                            </ul>                       </div>                      <div class="contact">                           <h3>熱門專科醫生</h3>                         <div class="">                              <ul style="display: inline-block;">                                 <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=皮膚及性病科">皮膚科</a></li>                                                           <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=眼科">眼科</a></li>                                                                    <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>                                                                                   <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=皮膚及性病科">性病</a></li>                                                            <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=婦產科">婦產科</a></li>                                                              <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=耳鼻喉科">耳鼻喉科</a></li>                                </ul>                               <ul style="display: inline-block; position: absolute;">                                                     <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=整形外科">整形外科</a></li>                                                            <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=骨科">骨科</a></li>                                                                    <li><a href="http://test.drcare.ai/Doctor/findoc.php?category=牙科">牙科</a></li>                               </ul>                           </div>                      </div>                      <div class="contact">                           <h3>醫生集中大廈</h3>                         <div>                               <ul>                                    <li>旺角中心一期</li>                                 <li>亞太中心</li>                                                                                       <li>萬邦行</li>                                    <li>南豐中心</li>                                                                                               <li>海洋中心</li>                                   <li>新世界大廈</li>                                                                                          <li>中建大廈</li>                               </ul>                           </div>                      </div>                      <div class="contact">                           <h3>熱門私家醫院</h3>                         <div>                               <ul>                                    <li><a href="http://www.stpaul.org.hk/internet/">聖保祿醫院</a></li>                                                                                             <li><a href="http://www.hksh.org.hk/zh-hk/about-us.php">養和醫院</a></li>                                                                                       <li><a href="http://www.union.org/new/cindex.php">仁安醫院</a></li>                                                                                             <li><a href="http://www.hkbh.org.hk/chi/home.php">浸會醫院</a></li>                                                                                             <li><a href="https://www.twah.org.hk/tc/main">港安醫院</a></li>                                                                                                 <li><a href="http://www.sth.org.hk/index.asp?lang_code=zh">聖德肋撒醫院</a></li>                                                                                  <li><a href="http://www.evangel.org.hk/">播道醫院</a></li>                                                                                                      <li><a href="http://www.canossahospital.org.hk/">嘉諾撒醫院</a></li>                             </ul>                           </div>                      </div>                      <div class="contact">                           <h3>Dr. Care</h3>                           <div>                               <ul>                                    <!-- <li><a href="index.php">Home</a></li> -->                                                  <li><a href="http://m.me/2076696632356020">隨行醫生</a></li>                                    <li><a href="http://test.drcare.ai/Doctor/findoc.php">醫生</a></li>               <li><a href="knowledge.php"> 健康資訊</a></li>                                  <li><a href="searchHealthArticle.php">文章報導</a></li>                                 <li><a href="disclaimer.php">免責聲明</li>                              </ul>                           </div>                      </div>                  </div>                  <div class="copyright">                     <p>&copy; Asiabots. All rights reserved.</p>                        <p>免責聲明︰Dr care 會盡力驗證所有提交的資料和網頁內容正確無誤。 但本公司不會負責當中的任何錯誤和錯誤而引起的責任。 如有任何資料改變，有關的醫生將負責更新個人的資料或告本公司報告。 醫生的費用、所有文章等內容僅供參考，病人應與醫生或診所的有關醫療人員確認為實。</p>                   </div>              </div>          </footer>';
 
             return footer;
 }

@@ -30,7 +30,7 @@
 		</div>
 
 		<!-- Nav -->
-		<nav id="nav">
+		<!-- <nav id="nav">
 			<ul>
 				<li><a href="clinicBotPage.php">隨行醫生</a></li>
 				<li>
@@ -57,8 +57,8 @@
 						
 					</ul>
 				</li>
-				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
-				<div id="login">
+ -->				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
+				<!-- <div id="login"> -->
 					<!-- <li><a href="login.php">登入</a></li> -->
 					<!-- <?php 
 				        if(!isset($_SESSION['user_id'])) {
@@ -75,11 +75,11 @@
 							';
 				        }
 				    ?> -->
-				</div>
+				<!-- </div>
 			</ul>
-		</nav>
+		</nav>-->
 
-	</header>
+	</header> 
 
 	<div id="pageContent">
 
@@ -268,7 +268,7 @@
 			</section>
 </div>
 			<!-- Footer -->
-			<footer id="footer">
+			<!-- <footer id="footer">
 				<div class="inner">
 					<div class="split style1">
 						<div class="contact">
@@ -330,8 +330,8 @@
 							<h3>Dr. Care</h3>
 							<div>
 								<ul>
-									<!-- <li><a href="index.php">Home</a></li> -->
-									<li><a href="http://m.me/2076696632356020">隨行醫生</a></li>
+									<! <li><a href="index.php">Home</a></li> -->
+									<!--<li><a href="http://m.me/2076696632356020">隨行醫生</a></li>
 									<li><a href="http://test.drcare.ai/Doctor/findoc.php">醫生</a></li>
 									<li><a href="knowledge.php"> 健康資訊</a></li>
 									<li><a href="searchHealthArticle.php">文章報導</a></li>
@@ -345,7 +345,7 @@
 						<p>免責聲明︰Dr care 會盡力驗證所有提交的資料和網頁內容正確無誤。 但本公司不會負責當中的任何錯誤和錯誤而引起的責任。 如有任何資料改變，有關的醫生將負責更新個人的資料或告本公司報告。 醫生的費用、所有文章等內容僅供參考，病人應與醫生或診所的有關醫療人員確認為實。</p>
 					</div>
 				</div>
-			</footer>
+			</footer> -->
 
 			<!-- Scripts -->
 			<!-- <script src="http://code.jquery.com/jquery-1.7.0.min.js"></script> -->
@@ -426,6 +426,7 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/login.js"></script>
+	<script src="assets/js/footer.js"></script>
 	<script src="assets/js/sendMail.js"></script>
 </body>
 </html>

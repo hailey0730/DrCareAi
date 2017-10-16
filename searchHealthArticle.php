@@ -27,7 +27,7 @@
 		</div>
 
 		<!-- Nav -->
-		<nav id="nav">
+		<!-- <nav id="nav">
 			<ul>
 				<li><a href="clinicBotPage.php">隨行醫生</a></li>
 				<li>
@@ -53,9 +53,9 @@
 						<li><a href="searchHealthArticle.php">健康誌</a></li>
 						
 					</ul>
-				</li>
+				</li> -->
 				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
-				<div id="login">
+				<!-- <div id="login"> -->
 					<!-- <li><a href="login.php">登入</a></li> -->
 					<!-- <?php 
 				        if(!isset($_SESSION['user_id'])) {
@@ -72,9 +72,9 @@
 							';
 				        }
 				    ?> -->
-				</div>
+				<!-- </div>
 			</ul>
-		</nav>
+		</nav> -->
 
 	</header>
 
@@ -188,6 +188,7 @@
 					<div class="inner">
 						<ul class="posts">
 							<div id="main1">
+								
 								<!-- <li>
 									<article id="content">
 										<a href="#" class="image"><img src="images/square.jpg" alt="" /></a>
@@ -286,7 +287,6 @@
 		<script src="assets/js/main.js"></script>
 		<!-- <script src="assets/js/artyom.window.js"></script> -->
 		<script src="assets/js/login.js"></script>
-		<script src="assets/js/navBar.js"></script>
 		<script src="assets/js/speech.js"></script>
 		<!-- hypothesis scripts -->
 		<!-- <script src="assets/js/hypothesis.jquery.selectorr.min.js"></script> -->

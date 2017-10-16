@@ -1,3 +1,8 @@
+Note for this web site: knowledge has its own main, so navBar doesnt work for it
+need its own header
+
+When change header and footer: main.js, footer.js, knowledge.php(header), infiniteLoop.js
+
 to get data from external website
 https://github.com/request/request-promise
 https://cheerio.js.org		//for select elements in external website
