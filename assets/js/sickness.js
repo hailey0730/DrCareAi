@@ -8,6 +8,7 @@ var resizeDelay = 100;
   var favNum = 25;
 $(document).ready(function(){
 	
+  //E.g.  http://test.drcare.ai/sickness.php?name=厭食症
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -62,7 +63,13 @@ if(name == null){
     $('#how').text(json[0].How);
     // console.log(json[0].ImageUrl);
     if(json[0].ImageUrl != null){
-      $('#contentBanner').attr("src", json[0].ImageUrl);
+      // $('#contentBanner').attr("src", json[0].ImageUrl);
+      var imgurl = 'url(';
+      imgurl += json[0].ImageUrl;
+      imgurl += ')';
+      $('#banner').css('background-image', imgurl);
+      $('#banner').css('background-size', 'cover');
+
     }
     var docCat = '(';
     docCat += json[0].RelatedDoctor;

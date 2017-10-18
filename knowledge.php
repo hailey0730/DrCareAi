@@ -35,14 +35,14 @@
 				<li>
 					<a href="#" class="icon fa-angle-down">醫生</a>
 					<ul>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>
-						<li><a href="http://test.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>
+						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li>
 						
 					</ul>
 				</li>
