@@ -1,9 +1,5 @@
 @import url(font-awesome.min.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
-body {
-		background: #fff;
-		overflow-x: hidden;
-	}
 
 /* Header */
 
@@ -760,10 +756,3 @@ body {
 				}
 
 		}
-
-		@font-face {
-    font-family: 'PingFang'; /*a name to be used later*/
-    src:url('PingFang-HK-Light/PingFang-HK-Light.ttf'); /*URL to font*/
-    /*src: url('http://www.fonts101.com/search/PingFang-HK-Light.ttf'); /*URL to font*/*/
-
-}

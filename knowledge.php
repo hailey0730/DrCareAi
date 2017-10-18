@@ -13,7 +13,6 @@
 		<link rel="stylesheet" href="assets/css/loginWin.css" />
 		<link rel="stylesheet" href="assets/css/noBannerBGMain.css" />
 		<link rel="stylesheet" href="assets/css/headerFooter.css" />
-		<!-- <link rel="stylesheet" href="assets/css/hypothesis.css" /> -->
 		<link rel="stylesheet" href="assets/css/factionMain.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -57,7 +56,7 @@
 					</ul>
 				</li>
 				<!-- <li><a href="http://test.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->
-				<div id="login">
+				<!-- <div id="login"> -->
 					<!-- <li><a href="login.php">登入</a></li> -->
 					<!-- <?php 
 				        if(!isset($_SESSION['user_id'])) {
@@ -74,7 +73,7 @@
 							';
 				        }
 				    ?> -->
-				</div>
+				<!-- </div> -->
 			</ul>
 		</nav>
 
@@ -247,7 +246,5 @@
 			<script src="assets/js/login.js"></script>
 			<script src="assets/js/footer.js"></script>
 			<script src="assets/js/knowledge.js"></script>
-			<!-- <script src="assets/js/factionMain.js"></script> -->
-
 	</body>
 </html>

@@ -9,30 +9,13 @@ var resizeDelay = 100;    // time to wait before checking the window size again
  $(document).ready(function() {
 	$.ajax({
 		method: "GET",
-		url: "http://test.drcare.ai/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 	})
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		for(var i = 0; i < json.length; i++){
 			hospitals[i] = json[i];
 		}
-
-// setting hospital name and area for testing purpose
-		$('.hospital').each(function(i,obj){
-  		var children = $(this).children();
-       	hospitals[i].醫院 = children[0].innerHTML;
-       	if(hospitals[i].醫院 == "東區尤德夫人那打素醫院" || hospitals[i].醫院 == "瑪麗醫院" ||hospitals[i].醫院 == "律敦治醫院" ){
-       		hospitals[i].地區 = "港島";
-       	}
-       	else if(hospitals[i].醫院 == "明愛醫院" ||hospitals[i].醫院 == "廣華醫院" ||hospitals[i].醫院 == "伊利利沙伯醫院" ||hospitals[i].醫院 == "基督教聯合醫院"){
-       		hospitals[i].地區 = "九龍";
-
-       	}else{
-       		hospitals[i].地區 = "新界";
-
-       	}
-
-  	});
 
 // display list is shown, hospitals save all hospitals
   	for(var i = 0; i< hospitals.length; i++){
@@ -43,94 +26,39 @@ var resizeDelay = 100;    // time to wait before checking the window size again
   	$('article').each(function(i,obj){
   		var children = $(this).children();
   		var hours = display[i].等候時間;
-  		if(hours > 5){
-  			$(children[0]).text("等候 超過");
-  			$($(children[1]).children()).text('5');
-  		}else{
-  			$(children[0]).text("等候 大約");
+  		
+  			$(children[0]).text("等候 大約");			//should be from dB too 
   			$($(children[1]).children()).text(hours);
-  		}
-  		// var link = display[i].	//some link
+  		
+  		// var link = display[i].	//some link to clinic close by
   		// $($($(children[3]).children()).children()).attr("href", link);
 
   	});
 	
-	// $('.time').each(function(i, obj){
-	// 	if(i>=18){
-	// 		i -= 18;
-	// 	}
-	// 	var hours = 0;
-	// 	hours = display[i].等候時間;
-	// 	if(hours > 5){	//some number 
-	// 			$(this).text('5');
-	// 		}else{
-	// 			$(this).text(hours);
-	// 		} 
-	// 	});
-
-	// $('.estimate').each(function(i,obj){
-	// 	if(i<18){
-	// 		var hours = 0;
-	// 	hours = display[i].等候時間;
-	// 		if(hours > 5){	//some number 
-	// 			$(this).text("等候 超過");		//either 超過 or 大約
-	// 		}else{
-	// 			$(this).text("等候 大約");		//either 超過 or 大約
-	// 		} 
-	// 	}
-	// 	});
-
-	// $('.round').each(function(i,obj){
-	// 		// var link = json[i]. //some link to nearby clinic
-	// 		// $(this).attr("href", link);
-	// 	})
 
 	$('.aDiv').each(function(i,obj){
 		var hospital = $(this).children()[0];
 		var timeDiv = $(this).children()[1];
 		var hospitalChildren = $(hospital).children();
-		// $(hospitalChildren[0]).text();	//h3
-		// $(hospitalChildren[1]).text();	//addr
-		// $(hospitalChildren[2]).text();	//phone
+		$(hospitalChildren[0]).text(display[i].醫院);	//h3
+		$(hospitalChildren[1]).text(display[i].地址);	//addr
+		$(hospitalChildren[2]).text(display[i].電話);	//phone
 		var timeChildren = $(timeDiv).children();
 		var hours = display[i].等候時間;
-  		if(hours > 5){
-  			$(timeChildren[0]).text("超過");
-  			$($(timeChildren[1]).children()).text('5');
-  		}else{
+  		
   			$(timeChildren[0]).text("大約");
   			$($(timeChildren[1]).children()).text(hours);
-  		}
+  		
 
 	});
-
-	// $('.mapEstimate').each(function(i,obj){
-	// 	if(i<18){
-	// 		var hours = 0;
-	// 	hours = display[i].等候時間;
-	// 	var estimate = "";
-	// 	if(hours > 5){	//some number 
-	// 		estimate = "超過";
-	// 		}else{
-	// 		estimate = "大約";
-	// 		} 
-	// 		$(this).text(estimate);		//either 超過 or 大約
-	// 	}
-	// });
 
 	$('area').each(function(i,obj){
 		// set time as title to be displayed in tooltip
 		if(i<18){
 			var hours = 0;
-			// hours = json[i]. //something about time
 			hours = hospitals[i].等候時間;
-			var estimate = "";
-			if(hours > 5){	//some number 
-			estimate = ">";
-			hours = 5;
-			}else{
-			estimate = "~";
-			} 
+			var estimate = "~";
+			
 			$(this).attr("title", estimate + hours + "小時");		
 
 		}
@@ -142,28 +70,17 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 	}else{
 		$('area[title]').tooltips();
 	}
+
 	$('.right').mapster({
   		fillOpacity: 0, 
   		singleSelect: true
   	});
-
 		
 	});
-	//testing purpose
-	// $('area').each(function(i,obj){
-	// 	if(i<18){
-	// 		$(this).attr("title", '5' + "小時");		
-	// 	}
-	// });
-	// 	$('.right').mapster({
- //  		fillOpacity: 0, 
- //  		singleSelect: true
- //  	});
-		var image = $('img');
+	var image = $('img');
 		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
 		var newHeight = $('.posts').height();
 	    image.mapster('resize',newWidth,newHeight,resizeTime);
-		// $('area[title]').tooltips();
 
 	});
  $(window).bind('resize',onWindowResize);
@@ -249,15 +166,9 @@ function allHospital(list){
 
 function hospitalInfo(obj,i){
 	
-	var hours = 0;
-	var estimate = "";
-	if(obj.等候時間 > 5){	//some number 
-		estimate = "超過";
-		hours = '5';
-		}else{
-		estimate = "大約";
-		hours = obj.等候時間;
-		} 
+	var	estimate = "等候 大約";
+	var	hours = obj.等候時間;
+	
 		
 		var hospital = '<div class="hospitalDiv"><div class="bulletsDiv"><p>" " </p></div><a href=""><div class="hospital"><h3>';
 		hospital +=  obj.醫院;	//hospital name
@@ -332,15 +243,7 @@ function resize() {
 	var imgHeight = $('.right').height();
 	if($(window).width() < 1208){
 		window.location.replace('hospitalTimeMobile.php');
-		// var locations = $('map > area').slice(-3);
-		// $(locations[0]).attr("coords","414,264,516,263,537,249,539,300,550,302,558,357,513,326,515,340,483,325,457,350,436,347,438,326,418,320,408,315");
-		// $(locations[0]).attr("onclick", "showTime('select_KL.png','area1');return false;");
-		 // newWidth = $('.split').children().width();	//to make width = .split > * width
-
-	    // image.mapster('resize',newWidth,newHeight,resizeTime); 
-	    // $('.left').width( $('.split').width() / 2 );
-	    // $('.posts').width($('.left').width());
-
+		
 	}else{
 		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
 		var newHeight = $('.posts').height();
@@ -370,9 +273,7 @@ function resize() {
 		
 		
 	}
-    // newWidth = $('.split').children().width();	//to make width = .split > * width
-    // console.log(newWidth);
-
+   
 }
 
 // Track window resizing events, but only actually call the map resize when the

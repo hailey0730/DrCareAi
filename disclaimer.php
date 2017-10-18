@@ -54,10 +54,8 @@ Asiabots Limited可在任何時候全權決定終止、暫停或撤回Dr Care.ai
 			<!-- Footer -->
 			
 			<!-- Scripts -->
-			<!-- <script src="http://code.jquery.com/jquery-1.7.0.min.js"></script> -->
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script> -->
-			<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

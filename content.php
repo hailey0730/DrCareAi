@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="assets/css/noBannerBGMain.css" />
 	<link rel="stylesheet" href="assets/css/headerFooter.css" />
 	<link rel="stylesheet" href="assets/css/hypothesis.css" />
-	<link rel="stylesheet" href="assets/css/sickness.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
@@ -71,25 +70,12 @@
 					</div>
 					<div class="articleDiv">
 						<article>
-							<!-- <div class="content">
-							<a href="#" class="image main">
-							<div>
-								<img class="contentImage" src="images/Rectangle33Copy.png" alt="" data-position="center" />
-								</div>
-								<p class="imageTitle">過度活躍障礙兒童的特徵</p>
-								</a>
-							</div> -->
+							
 						</article>
 					</div>
 					<div class="articleDiv">
 						<article>
-							<!-- <div class="content">
-							<a href="#" class="image main">
-							<div>
-								<img class="contentImage" src="images/Rectangle33Copy 2.png" alt="" data-position="center" /></div>
-								<p class="imageTitle">自閉症兒童的特徵</p>
-								</a>
-							</div> -->
+							
 						</article>
 					</div>
 				</div>

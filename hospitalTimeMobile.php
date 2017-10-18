@@ -92,12 +92,12 @@
 		</ul>
 	</article>
 	<article>
-		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>伊利利沙伯醫院</h3><ul class="actions">
+		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>伊利沙伯醫院</h3><ul class="actions">
 		<li><a href="#one" class="button round">附近診所</a></li>
 	</ul>
 </article>
 <article>
-	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>基督教聯聯合醫院</h3><ul class="actions">
+	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>基督教聯合醫院</h3><ul class="actions">
 	<li><a href="#one" class="button round">附近診所</a></li>
 </ul>
 </article>
@@ -182,11 +182,7 @@
 		<li><a href="#one" class="button round">附近診所</a></li>
 	</ul>
 </article>
-<!-- <article>
-	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>天⽔水圍醫院(急症服務時間 早上8時⾄至下午4時)</h3><ul class="actions">
-	<li><a href="#one" class="button round">附近診所</a></li>
-</ul>
-</article> -->
+
 </div>
 </div>
 </section>
@@ -294,7 +290,7 @@
 					</div>
 					<a class="aDiv" href="">
 						<div class="hospital">
-							<h3>伊利利沙伯醫院</h3>
+							<h3>伊利沙伯醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
 							<p>電話: 2208 0111</p>
 						</div>
@@ -310,7 +306,7 @@
 					</div>
 					<a class="aDiv" href="">
 						<div class="hospital">
-							<h3>基督教聯合醫院</h3>
+							<h3>基督教聯合醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
 							<p>電話: 2208 0111</p>
 						</div>
@@ -508,22 +504,7 @@
 						</div>
 					</a>
 				</div>
-				<!-- <div class="hospitalDiv">
-					<div class="bulletsDiv">
-						<p>'' </p>
-					</div>
-					<a href="">
-						<div class="hospital">
-							<h3>威爾斯親王醫院</h3>
-							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
-							<p>電話: 2208 0111</p>
-						</div>
-						<div class="timeDiv">
-						<p class="mapEstimate">超過</p>
-							<h3><span class="time bottom">0</span>小時</h3>
-						</div>
-					</a>
-				</div> -->
+				
 				</div>
 				</div>
 
@@ -544,16 +525,7 @@
 			
 
 <!-- Scripts -->
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript">
-	(function($){
-        $(window).on("load",function(){
-            $(".posts").mCustomScrollbar();
-        });
-    })(jQuery);
-</script> -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>

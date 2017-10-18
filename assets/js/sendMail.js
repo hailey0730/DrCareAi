@@ -6,14 +6,10 @@ $(document).ready(function() {
 //get hospital time
 $.ajax({
 		method: "GET",
-		url: "http://www.chatbot.hk/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-		xhrFields: {
-        withCredentials: false
-    },
-    crossDomain: true,
-    headers:{},
-    success: function(msg){
-    	var json = JSON.parse(msg);
+		url: "DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		
+	}).done(function( msg ) {
+		var json = JSON.parse(msg);
 		for(var i = 0; i < json.length; i++){
 			testList[i] = json[i];
 		}
@@ -23,13 +19,7 @@ $.ajax({
 		if(i<18){
 			var hours = 0;
 			hours = testList[i].等候時間;
-			var estimate = "";
-			if(hours > 5){	//some number 
-			estimate = ">";
-			hours = 5;
-			}else{
-			estimate = "~";
-			} 
+			var estimate = "~";
 			$(this).attr("title", estimate + hours + "小時");
 
 		}
@@ -39,24 +29,8 @@ $.ajax({
 	}else{
 		$('area[title]').tooltips();
 	}
-    },
-    error:function(){}
 	});
-	// .done(function( msg ) {
-		
-	// });
-	//======test other browser==================
-	// $('area').each(function(i,obj){
-	// 	// set time as title to be displayed in tooltip
-	// 	if(i<18){
-			
-	// 		$(this).attr("title", '大約 5' + "小時");
-
-	// 	}
-	// });
-
-	// 	$('area[title]').tooltips();
-	//=========test other browser end==========
+	
 
 //===========send email===================
 	$("#sendMail").click(function(){

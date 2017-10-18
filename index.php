@@ -348,8 +348,6 @@
 			</footer> -->
 
 			<!-- Scripts -->
-			<!-- <script src="http://code.jquery.com/jquery-1.7.0.min.js"></script> -->
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script> -->
 			<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.animateNumber.min.js"></script>
@@ -364,7 +362,7 @@
 
 			$.ajax({
 				method: "GET",
-				url: "http://test.drcare.ai/DrCare.FigureHomepage.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+				url: "DrCare.FigureHomepage.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 			})
 			.done(function( msg ) {
 				var json = JSON.parse(msg);

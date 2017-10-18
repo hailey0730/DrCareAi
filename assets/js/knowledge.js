@@ -55,7 +55,7 @@ $(document).ready(function(){
 //==========================box slider===============================================
 	$.ajax({
 		method: "GET",
-		url: "http://test.drcare.ai/DrCare.HotArticle.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+		url: "DrCare.HotArticle.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
 
 	}).done(function(data){
 		var json = JSON.parse(data);
@@ -64,11 +64,7 @@ $(document).ready(function(){
 		$('#firstLink a').attr("href", json[0].Url);
 		$('#banner').append(hotArticle(json));
 			
-/*
-	Faction by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
-*/
+//==============update box slider=====================================================
 
 var settings = {
 
@@ -448,17 +444,18 @@ var settings = {
 })(jQuery);
 	});
 
-var loginout = $($('#navPanel').children()).children().last();
-	console.log($(loginout).text());
-	console.log(loginout);
-	if($(loginout).text() == '登入'){
-		$(loginout).attr("id","loginbtn");
-		$(loginout).attr("onclick","createLoginWindow();");
-	}else{
-		$(loginout).attr("id","logoutbtn");
-		$(loginout).attr("onclick","$.get('Doctor/php/logout.php', {},                function(){                    window.location.reload();});");		
-	}
-		$(loginout).attr('style', 'cursor:pointer');
+//==============set login / logout function when there is nav bar=================================
+// var loginout = $($('#navPanel').children()).children().last();
+// 	console.log($(loginout).text());
+// 	console.log(loginout);
+// 	if($(loginout).text() == '登入'){
+// 		$(loginout).attr("id","loginbtn");
+// 		$(loginout).attr("onclick","createLoginWindow();");
+// 	}else{
+// 		$(loginout).attr("id","logoutbtn");
+// 		$(loginout).attr("onclick","$.get('Doctor/php/logout.php', {},                function(){                    window.location.reload();});");		
+// 	}
+// 		$(loginout).attr('style', 'cursor:pointer');
 
 });
 

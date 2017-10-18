@@ -61,9 +61,7 @@
 										</div>
 									</header>
 									<p>可以一次過搵到唔同地區有咩醫生同知道診所噶開放時間真係好方便，節省左我唔少時間，唔洗成日撲黎撲去睇下附近噶診所有冇開門。</p>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul> -->
+									
 								</article>
 								<article>
 									<header class="major">
@@ -74,9 +72,7 @@
 										</div>
 									</header>
 									<p>隨行醫生呢個聊天機械人的客戶服務系統真係好方便!只要用聲音問佢咩地區有咩專科醫生就得。我婆婆同公公唔識打字都識用。</p>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul> -->
+									
 								</article>
 								<article>
 									<header class="major">
@@ -87,9 +83,7 @@
 										</div>
 									</header>
 									<p>上一次女兒晚上發燒，我急住要找公立醫院去看病，我馬上用隨行醫生去看看附近不同公立醫院急症室的輪侯時間。結果查到每一間公立醫院都要等很久，我就用隨行醫生去找附近最近的私家醫生。隨行醫生滿好用的，最重要就是方便和快，它都能夠滿足。</p>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul> -->
+									
 								</article>
 							</section>
 						</div>
@@ -155,7 +149,6 @@
 						<div class="inner">
 							<header class="major">
 								<h2 style="color: #5dc9dd;">媒體報道</h2 style="color: #5dc9dd;">
-								<!-- <h2>Aliquam tincidunt mauris eu risus</h2> -->
 							</header>
 							<section class="timeline">
 								<section>

@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var sickness ='';
 	$.ajax({
 		method: "GET",
-		url: "http://test.drcare.ai/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 	})
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
@@ -144,7 +144,7 @@ function showRelevantDisease(body, bodyPath){
 			clickCounter.counter = true;
 			$.ajax({
 		method: "GET",
-		url: "http://test.drcare.ai/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 		data:{Tag: body}
 	})
 	.done(function( msg ) {
@@ -207,7 +207,7 @@ function showRelevantDisease(body, bodyPath){
 		clickCounter.part = body;
 			$.ajax({
 		method: "GET",
-		url: "http://test.drcare.ai/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 		data:{Tag: body}
 	})
 	.done(function( msg ) {

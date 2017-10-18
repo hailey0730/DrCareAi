@@ -210,7 +210,7 @@ $(document).ready(function(){
 });
 
 // $(document).ready(function(){ 
-
+//==============set login / logout function when there is nav bar=================================
 // 	var loginout = $($('#navPanel').children()).children().last();
 // 	console.log($(loginout).text());
 // 	console.log(loginout);
@@ -222,11 +222,7 @@ $(document).ready(function(){
 // 		$(loginout).attr("onclick","$.get('Doctor/php/logout.php', {},                function(){                    window.location.reload();});");		
 // 	}
 // 		$(loginout).attr('style', 'cursor:pointer');
-// 	// $(loginout).removeAttr("href");
 
-// 	// var div = $($('#nav').children()).children().last();
-// 	// $($(div).children()).children().removeAttr("href");
-// 	// $($(div).children()).children().remove();
 
 
 // });

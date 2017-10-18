@@ -173,6 +173,8 @@ var x = 0;
 
             //show filter articles
             $('#searchWord').text('相關 "'+$(h4[0]).text()+'" 文章有：');
+             $('html,body').animate({        //move to article session when enter is pressed
+                    scrollTop:$('#three').offset().top}, 'slow');
         }
 
         });

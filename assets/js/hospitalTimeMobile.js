@@ -10,151 +10,60 @@ $(document).ready(function() {
 
 	$.ajax({
 		method: "GET",
-		url: "http://test.drcare.ai/DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+		url: "DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
 	})
 	.done(function( msg ) {
 		var json = JSON.parse(msg);
 		for(var i = 0; i < json.length; i++){
 			hospitals[i] = json[i];
 		}
-		$('.hospital').each(function(i,obj){
-      		var children = $(this).children();
-           	hospitals[i].醫院 = children[0].innerHTML;
-           	if(hospitals[i].醫院 == "東區尤德夫人那打素醫院" || hospitals[i].醫院 == "瑪麗醫院" ||hospitals[i].醫院 == "律敦治醫院" ){
-           		hospitals[i].地區 = "港島";
-           	}
-           	else if(hospitals[i].醫院 == "明愛醫院" ||hospitals[i].醫院 == "廣華醫院" ||hospitals[i].醫院 == "伊利利沙伯醫院" ||hospitals[i].醫院 == "基督教聯合醫院"){
-           		hospitals[i].地區 = "九龍";
-
-           	}else{
-           		hospitals[i].地區 = "新界";
-
-           	}
-
-      	});
+		
       	for(var i = 0; i< hospitals.length; i++){
 			display[i] = hospitals[i];
 		}
       	setBulletsDiv(display);
 
 
-$('article').each(function(i,obj){
+	$('article').each(function(i,obj){
   		var children = $(this).children();
   		var hours = display[i].等候時間;
-  		if(hours > 5){
-  			$(children[0]).text("等候 超過");
-  			$($(children[1]).children()).text('5');
-  		}else{
-  			$(children[0]).text("等候 大約");
+  		
+  			$(children[0]).text("等候 大約");			//should be from dB too 
   			$($(children[1]).children()).text(hours);
-  		}
-// $('.time').each(function(i, obj){
-// 		if(i>=18){
-// 			i -= 18;
-// 		}
-// 		var hours = 0;
-// 		// hours = json[i]. //something about time
-// 		hours = hospitals[i].等候時間;
-// 		if(hours > 5){	//some number 
-// 				$(this).text('5');
-// 			}else{
-// 				$(this).text(hours);
+  		
+  		// var link = display[i].	//some link to clinic close by
+  		// $($($(children[3]).children()).children()).attr("href", link);
 
-// 			} 
-// 		});
-
-// 	$('.estimate').each(function(i,obj){
-// 		if(i<18){
-// 			var hours = 0;
-// 		// hours = json[i]. //something about time
-// 		hours = hospitals[i].等候時間;
-// 			if(hours > 5){	//some number 
-// 				$(this).text('等候 超過');
-// 			}else{
-// 				$(this).text('等候 大約');
-
-// 			} 
-// 		}
-
-// 		});
+  	});
 
 $('.aDiv').each(function(i,obj){
 		var hospital = $(this).children()[0];
 		var timeDiv = $(this).children()[1];
 		var hospitalChildren = $(hospital).children();
-		// $(hospitalChildren[0]).text();	//h3
-		// $(hospitalChildren[1]).text();	//addr
-		// $(hospitalChildren[2]).text();	//phone
+		$(hospitalChildren[0]).text(display[i].醫院);	//h3
+		$(hospitalChildren[1]).text(display[i].地址);	//addr
+		$(hospitalChildren[2]).text(display[i].電話);	//phone
 		var timeChildren = $(timeDiv).children();
 		var hours = display[i].等候時間;
-  		if(hours > 5){
-  			$(timeChildren[0]).text("超過");
-  			$($(timeChildren[1]).children()).text('5');
-  		}else{
-  			$(timeChildren[0]).text("大約");
-  			$($(timeChildren[1]).children()).text(hours);
-  		}
+  		$(timeChildren[0]).text("大約");
+  		$($(timeChildren[1]).children()).text(hours);
 
 	});
 
-// 	$('.mapEstimate').each(function(i,obj){
-// 		if(i<18){
 
-// 		var hours = 0;
-// 		// hours = json[i]. //something about time
-// 		hours = hospitals[i].等候時間;
-// 		var estimate = "";
-// 		if(hours > 5){	//some number 
-// 			estimate = "超過";
-// 			}else{
-// 			estimate = "大約";
-// 			} 
-// 			$(this).text(estimate);		//either 超過 or 大約
-// }
-// 	});
-
-	$('area').each(function(i,obj){
-		// set time as title to be displayed in tooltip
-		if(i<18){
-			var hours = 0;
-			// hours = json[i]. //something about time
-			hours = hospitals[i].等候時間;
-			var estimate = "";
-			if(hours > 5){	//some number 
-			estimate = "超過";
-			hours = 5;
-			}else{
-			estimate = "大約";
-			} 
-			$(this).attr("title", estimate + hours + "小時");
-
-		}
-	});
-
-	// $('.round').each(function(i,obj){
-	// 		// var link = json[i]. //some link to nearby clinic
-	// 		// $(this).attr("href", link);
-	// 	})
-		// $('.posts').append(allHospital(hospitals));		//input: json, default show all
-	
 	$('.right').mapster({
   		fillOpacity: 0, 
   		singleSelect: true
   	});
 		
 	});
-//testing purpose
-	// $('.right').mapster({
- //  		fillOpacity: 0, 
- //  		singleSelect: true
- //  	});
+
 	var image = $('img');
 		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
 		var newHeight = $('.posts').height();
 	    image.mapster('resize',newWidth,newHeight,resizeTime);
 });
-});
- $(window).bind('resize',onWindowResize);
+$(window).bind('resize',onWindowResize);
 
 //==================set bulletsDIv color===========================
  function setBulletsDiv(list){
@@ -236,12 +145,8 @@ function allHospital(list){
 
 function hospitalInfo(obj){
 
-	var estimate = "";
-	if(obj.等候時間 > 5){	//some number 
-		estimate = "超過";
-		}else{
-		estimate = "大約";
-		} 
+	var	estimate = "等候 大約";
+	var	hours = obj.等候時間;
 	
 	var hospital = '<div class="hospitalDiv"><div class="bulletsDiv"><p>" " </p></div><a href=""><div class="hospital"><h3>';
 		hospital +=  obj.醫院;	//hospital name
@@ -252,7 +157,7 @@ function hospitalInfo(obj){
 		hospital += '</p></div><div class="timeDiv"><p class="mapEstimate">';
 		hospital +=  estimate;
 		hospital += '</p><h3><span class="time bottom">';
-		hospital +=  obj.等候時間;	//hour
+		hospital +=  hours;	//hour
 		hospital += '</span>小時</h3></div></a></div>';
 
 		return hospital;
@@ -272,19 +177,11 @@ function resize() {
 	if($(window).width() >= 1208){
 		window.location.replace('hospitalTime.php');
 	}else{
-		// var locations = $('map > area').slice(-3);
-		// $(locations[0]).attr("coords","414,264,516,263,537,249,539,300,550,302,558,357,513,326,515,340,483,325,457,350,436,347,438,326,418,320,408,315");
-		// $(locations[0]).attr("onclick", "showTime('select_KL.png','area1');return false;");
 		var image = $('img');
 		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
-		// var newHeight = $('.posts').height();
 	    image.mapster('resize',newWidth,newHeight,resizeTime);
 	    $('.left').width( $('.split').width() / 2 );
 	    $('.posts').width($('.left').width());
-
-	
-    // newWidth = $('.split').children().width();	//to make width = .split > * width
-    // console.log(newWidth);
 }
 
 }
@@ -312,9 +209,3 @@ window.setTimeout(function() {
 checking=false;
 },resizeDelay );
 }
-
-// $(window).on( 'resize', function () {
-//     $('.left').width( $('.split').width() / 2 );
-//     $('.posts').width($('.left').width());
-
-// }).resize();

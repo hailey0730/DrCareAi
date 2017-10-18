@@ -92,12 +92,12 @@
 		</ul>
 	</article>
 	<article>
-		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>伊利利沙伯醫院</h3><ul class="actions">
+		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>伊利沙伯醫院</h3><ul class="actions">
 		<li><a href="#one" class="button round">附近診所</a></li>
 	</ul>
 </article>
 <article>
-	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>基督教聯合醫院</h3><ul class="actions">
+	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>基督教聯合醫院</h3><ul class="actions">
 	<li><a href="#one" class="button round">附近診所</a></li>
 </ul>
 </article>
@@ -182,11 +182,6 @@
 		<li><a href="#one" class="button round">附近診所</a></li>
 	</ul>
 </article>
-<!-- <article>
-	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>天⽔水圍醫院(急症服務時間 早上8時⾄至下午4時)</h3><ul class="actions">
-	<li><a href="#one" class="button round">附近診所</a></li>
-</ul>
-</article> -->
 </div>
 </div>
 </section>
@@ -294,7 +289,7 @@
 					</div>
 					<a class="aDiv" href="">
 						<div class="hospital">
-							<h3>伊利利沙伯醫院</h3>
+							<h3>伊利沙伯醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
 							<p>電話: 2208 0111</p>
 						</div>
@@ -310,7 +305,7 @@
 					</div>
 					<a class="aDiv" href="">
 						<div class="hospital">
-							<h3>基督教聯合醫院</h3>
+							<h3>基督教聯合醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
 							<p>電話: 2208 0111</p>
 						</div>
@@ -508,22 +503,6 @@
 						</div>
 					</a>
 				</div>
-				<!-- <div class="hospitalDiv">
-					<div class="bulletsDiv">
-						<p>'' </p>
-					</div>
-					<a href="">
-						<div class="hospital">
-							<h3>威爾斯親王醫院</h3>
-							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
-							<p>電話: 2208 0111</p>
-						</div>
-						<div class="timeDiv">
-						<p class="mapEstimate">超過</p>
-							<h3><span class="time bottom">0</span>小時</h3>
-						</div>
-					</a>
-				</div> -->
 				</div>
 				</div>
 
@@ -537,8 +516,8 @@
 					<!-- kowloon -->
 					<area data-key="NTbelowMiddle" title="" data-pos="735,550" shape="poly" coords="838,529,727,532,718,603,854,611,863,579,869,593,906,545,901,516,874,499,850,506" href="#" onclick="reorder('明愛醫院')"> 
 					<area data-key="kowloonTop" title="" data-pos="945,455" shape="poly" coords="954,592,917,535,930,510,933,442,1064,445,1064,511,986,519,986,558" href="#" onclick="reorder('廣華醫院')"> 
-					<area data-key="kowloonBottom" title="" data-pos="847,669" shape="poly" coords="942,644,836,651,836,724,962,729,975,695,980,702,1018,656,1013,626,972,608" href="#" onclick="reorder('伊利利沙伯醫院')"> 
-					<area data-key="NTrightSecond" title="" data-pos="1186,472" shape="poly" coords="1185,611,1146,556,1173,517,1177,458,1308,462,1311,534,1219,539,1220,559,1206,587" href="#" onclick="reorder('基督教聯合醫院')">
+					<area data-key="kowloonBottom" title="" data-pos="847,669" shape="poly" coords="942,644,836,651,836,724,962,729,975,695,980,702,1018,656,1013,626,972,608" href="#" onclick="reorder('伊利沙伯醫院')"> 
+					<area data-key="NTrightSecond" title="" data-pos="1186,472" shape="poly" coords="1185,611,1146,556,1173,517,1177,458,1308,462,1311,534,1219,539,1220,559,1206,587" href="#" onclick="reorder('基督教聯合醫院')">
 					<!-- NT -->
 					<area data-key="NTrightFourth" title="" data-pos="1030,141" shape="poly" coords="1000,274,969,220,980,190,1006,184,1010,130,1147,135,1149,203,1041,208,1030,240" href="#" onclick="reorder('雅麗氏何妙齡那打素醫院')"> 
 					<area data-key="NTTOP" title="" data-pos="705,46" shape="poly" coords="837,173,802,110,696,108,688,31,821,27,829,78,864,87,875,119,862,152" href="#" onclick="reorder('北區醫院')"> 
@@ -567,16 +546,7 @@
 		
 
 <!-- Scripts -->
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript">
-	(function($){
-        $(window).on("load",function(){
-            $(".posts").mCustomScrollbar();
-        });
-    })(jQuery);
-</script> -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>

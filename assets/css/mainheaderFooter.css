@@ -1,9 +1,5 @@
 @import url(font-awesome.min.css);
 
-body {
-		background: #fff;
-		overflow-x: hidden;
-	}
 /* Header */
 
 	#header {
@@ -163,8 +159,7 @@ body {
 
 					#login{
 						opacity: 0;
-						background-color: #ffffff;
-						/*background-color: #5dc9dd;*/
+						background-color: #5dc9dd;
 						color: #ffffff;
 						border-radius: 5px;
 						margin-left: 2.25em;
@@ -743,9 +738,3 @@ body {
 				}
 
 		}
-
-		@font-face {
-    font-family: 'PingFang'; /*a name to be used later*/
-    src:url('PingFang-HK-Light/PingFang-HK-Light.ttf');/* format('truetype'); /*format('embedded-opentype'); /*URL to font*/
-
-}

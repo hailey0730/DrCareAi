@@ -1407,11 +1407,7 @@
 
 	}
 
-	body {
-		background: #ffffff;
-	}
-
-		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
+	body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
 			-ms-animation: none !important;
@@ -4252,6 +4248,6 @@
 @font-face {
     font-family: 'PingFang'; /*a name to be used later*/
     src:url('PingFang-HK-Light/PingFang-HK-Light.ttf'); /*URL to font*/
-    /*src: url('http://www.fonts101.com/search/PingFang-HK-Light.ttf'); /*URL to font*/*/
+    /*src: url('http://www.fonts101.com/search/PingFang-HK-Light.ttf'); /*URL to font*/
 
 }

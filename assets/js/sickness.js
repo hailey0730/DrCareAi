@@ -41,7 +41,7 @@ if(name == null){
   //set content of this page
   $.ajax({
   method: "GET",
-  url: "http://test.drcare.ai/DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+  url: "DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
   data: { Name:  name}
 })
   .done(function( msg ) {
