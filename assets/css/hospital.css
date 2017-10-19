@@ -179,14 +179,14 @@ a > div > h3{
 
 
 .split > * {
-			margin-left: 5em !important;
+			/*margin-left: 5em !important;*/
 			width: 60%;
 			-ms-flex: 1 1 auto;
 		}
 
 @media screen and (max-width: 1355px) {
 	.split > * {
-			margin-left: 5em !important;
+			/*margin-left: 5em !important;*/
 			width: 43%;
 			-ms-flex: 1 1 auto;
 		}

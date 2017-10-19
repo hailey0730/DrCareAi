@@ -6,8 +6,6 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<!-- <link rel="stylesheet" href="assets/css/noBannerBGMain.css" /> -->
-	<!-- <link rel="stylesheet" href="assets/css/hypothesis.css" /> -->
 	<link rel="stylesheet" href="assets/css/loginWin.css" />
 	<link rel="stylesheet" href="assets/css/searchHealthArticle.css" />
 	<link rel="stylesheet" href="assets/css/headerFooter.css" />
@@ -153,18 +151,7 @@
 										</div>
 									</article>
 								</li>
-								<li>
-									<article id="content">
-									<a href="#" class="image"><img src="images/square.jpg" alt="" /></a>
-										<div class="content">
-											<h3>Amet euismod</h3>
-											<p>Sed ligula vulputate et amet tristique cursus. Lorem nulla sed gravida non magna sed feugiat consequat.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">閱讀</a></li>
-											</ul>
-										</div>
-									</article>
-								</li> -->
+								 -->
 							</div>
 							<div id="main2">
 								<!-- <li>
@@ -179,18 +166,7 @@
 										</div>
 									</article>
 								</li>
-								<li>
-									<article id="content">
-										<a href="#" class="image"><img src="images/square.jpg" alt="" /></a>
-										<div class="content">
-											<h3>Gravida veroeros</h3>
-											<p>Phasellus ultrices sed nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Lorem nulla sed gravida non.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">閱讀</a></li>
-											</ul>
-										</div>
-									</article>
-								</li> -->
+								 -->
 							</div>
 							<div id="main3">
 								<!-- <li>
@@ -205,18 +181,7 @@
 										</div>
 									</article>
 								</li>
-								<li>
-									<article id="content">
-										<a href="#" class="image"><img src="images/square.jpg" alt="" /></a>
-										<div class="content">
-											<h3>Ipsum volutpat</h3>
-											<p>Donec consectetuer ligula vulputate sem tristique cursus. Lorem nulla sed gravida non. Phasellus et ultricesnulla quis nibh. Quisque amet lorem lectus. Magna consectetuer ligula vulputate sem tristique cursus magna.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">閱讀</a></li>
-											</ul>
-										</div>
-									</article>
-								</li> -->
+								 -->
 							</div>
 						</ul>
 					</div>
@@ -239,11 +204,7 @@
 		<script src="assets/js/main.js"></script>
 		<!-- <script src="assets/js/artyom.window.js"></script> -->
 		<script src="assets/js/login.js"></script>
-		<script src="assets/js/speech.js"></script>
-		<!-- hypothesis scripts -->
-		<!-- <script src="assets/js/hypothesis.jquery.selectorr.min.js"></script> -->
-		<!-- <script src="assets/js/hypothesis.util.js"></script> -->
-		<!-- <script src="assets/js/hypothesis.main.js"></script> -->
+		<!-- <script src="assets/js/speech.js"></script> -->
 
 	</body>
 	</html>

@@ -3048,7 +3048,7 @@
 	ul {
 		list-style: disc;
 		margin: 0 0 2em 0;
-		padding-left: 1em;
+		/*padding-left: 1em;*/
 	}
 
 		ul li {
@@ -6030,7 +6030,7 @@
 
 	h3 {
 		font-size: 1.3rem;
-		font-weight: bold;
+		font-weight: 400;
 		/*width:7em;*/
 	}
 

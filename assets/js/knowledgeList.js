@@ -51,41 +51,6 @@ $(document).ready(function(){
             $('.body').attr("src","images/BodyExport/Body.png");
             clickCounter.counter = false;
 
-    //         $.ajax({
-    //     method: "GET",
-    //     url: "http://www.chatbot.hk/DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-    // })
-    // .done(function( msg ) {
-    //     var json = JSON.parse(msg);
-    //     var i = 0;
-    //     var titleList = [];
-    //     var diseaseList = [];
-    //     var numRow = 0;
-    //     for (var key in json){
-    //         var disease = json[key];
-    //         titleList[i] = key;
-    //         diseaseList[i] = disease;
-    //         i++;
-    //     }
-    //     if(titleList.length % 2 != 0){
-    //         numRow =  titleList.length / 2 + 1;
-    //     }else{
-    //         numRow = titleList.length / 2;
-    //     }
-    //     for(var j = 0; j < numRow; j++){
-    //         var title1 = titleList[j*2];
-    //         var disease1 = diseaseList[j*2];
-    //         if(titleList[j*2+1] != null){
-    //             var title2 = titleList[j*2+1];
-    //             var disease2 = diseaseList[j*2+1];
-    //         }
-
-    //         $('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-    //     }
-
-        
-    //     });
-
      $('article').each(function(j, obj){     //set title opacity
             var content = $(this).children().children();
             var li = $(content[1]).children();
@@ -174,31 +139,7 @@ function showRelevantDisease(body, bodyPath){
                 }
             });
         }
-		// var titleList = [];
-		// var diseaseList = [];
-		// var numRow = 0;
-		// for (var key in json){
-		// 	var disease = json[key];
-		// 	titleList[i] = key;
-		// 	diseaseList[i] = disease;
-		// 	i++;
-		// }
-		// if(titleList.length % 2 != 0){
-		// 	numRow =  titleList.length / 2 + 1;
-		// }else{
-		// 	numRow = titleList.length / 2;
-		// }
-		// for(var j = 0; j < numRow; j++){
-		// 	var title1 = titleList[j*2];
-		// 	var disease1 = diseaseList[j*2];
-		// 	if(titleList[j*2+1] != null){
-		// 		var title2 = titleList[j*2+1];
-		// 		var disease2 = diseaseList[j*2+1];
-		// 	}
-
-		// 	$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-		// }
-
+		
 		
 });
 		}

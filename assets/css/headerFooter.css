@@ -679,7 +679,7 @@
 
 		#footer ul.contact-icons li{
 			min-height:2.4em;
-			padding-left:3.5em;
+			padding-left:2.25em;
 			margin-bottom: 1.5em;
 		}
 
@@ -717,7 +717,7 @@
 			}
 
 				#footer .contact {
-					/*margin-right: 1.5em;*/
+					margin-right: 1.5em;
 				}
 
 				#footer .split.style1 > *:nth-child(2n-1){

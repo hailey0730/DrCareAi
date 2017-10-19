@@ -67,7 +67,7 @@
 
 	<section id="moreEssay" class="main">
 		<div class="inner">
-			<h3 id="black">相關醫生 </h3> <h3 id="blue">（xxx科醫生）</h3>
+			<h3 id="black">相關醫生 </h3> <h3 id="blue"></h3>
 		</div>
 		<div class="inner">
 			<div class="posts">

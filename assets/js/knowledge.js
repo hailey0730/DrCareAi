@@ -17,22 +17,32 @@ $(document).ready(function(){
 			var article = $(this).children();
 			// console.log(article);		//[0] a, [1] h3, [2] p
 			$(article[0]).attr("href", );
-			$('.spotlights article a img').attr("src", );	//not sure if this can access img
+			$($(article[0]).children()[0]).attr("src", );	
+			// console.log($($(article[0]).children()[0]));
 			$(article[1]).text();
-			$('.spotlights article h3 a').attr("href", );	//not sure if this can access a
+			$($(article[1]).children()[0]).attr("href", );	
 			$(article[2]).text();
 
 		});
 
 	// });
 
-//=========================update articles with date display=========================
+//=========================update articles on sidebar=========================
 	// $.ajax({
 	// 	method: "GET",
 	// 	url: ""
 
 	// }).done(function(data){
 		// var json = JSON.parse(data);
+
+		//===========blurb===========================
+		var blurb = $('.sidebar').children()[0];
+		$($(blurb).children()[0]).text();
+		$($(blurb).children()[1]).text();
+		var actions = $(blurb).children()[2];
+		$($($(actions).children()[0]).children()[0]).attr('href', '');
+
+		//=========featured posts====================
 		$('.featured-posts article a img').attr("src", );
 		$('.featured-posts article header span').text();
 		$('.featured-posts article header h3').text();
