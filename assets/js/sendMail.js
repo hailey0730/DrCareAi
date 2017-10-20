@@ -4,32 +4,7 @@ var testList = [];
 $(document).ready(function() {
 
 //get hospital time
-$.ajax({
-		method: "GET",
-		url: "DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-		
-	}).done(function( msg ) {
-		var json = JSON.parse(msg);
-		for(var i = 0; i < json.length; i++){
-			testList[i] = json[i];
-		}
-
-		$('area').each(function(i,obj){
-		// set time as title to be displayed in tooltip
-		if(i<18){
-			var hours = 0;
-			hours = testList[i].等候時間;
-			var estimate = "~";
-			$(this).attr("title", estimate + hours + "小時");
-
-		}
-	});
-		if(window.matchMedia("(max-width:1208px)").matches){
-		resize();
-	}else{
-		$('area[title]').tooltips();
-	}
-	});
+loadMapTime();
 	
 
 //===========send email===================
@@ -89,6 +64,34 @@ $.ajax({
 });
 
  $(window).bind('resize',onWindowResize);
+
+ //================load map time==========================
+ function loadMapTime(){
+ 	$.getJSON('php/loadMapTime.php',
+ 		function(json){
+ 			// console.log(json);
+			for(var i = 0; i < json.length; i++){
+				testList[i] = json[i];
+			}
+
+			$('area').each(function(i,obj){
+			// set time as title to be displayed in tooltip
+			if(i<18){
+				var hours = 0;
+				hours = testList[i].等候時間;
+				var estimate = "~";
+				$(this).attr("title", estimate + hours + "小時");
+
+			}
+		});
+			if(window.matchMedia("(max-width:1208px)").matches){
+			resize();
+		}else{
+			$('area[title]').tooltips();
+		}
+
+	});
+ }
 
  //=======================================================
 // Resize the map to fit within the boundaries provided

@@ -8,23 +8,81 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 			   			var display = [];	
 $(document).ready(function() {
 
-	$.ajax({
-		method: "GET",
-		url: "DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-	})
-	.done(function( msg ) {
-		var json = JSON.parse(msg);
+// 	$.ajax({
+// 		method: "GET",
+// 		url: "DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+// 	})
+// 	.done(function( msg ) {
+// 		var json = JSON.parse(msg);
+// 		for(var i = 0; i < json.length; i++){
+// 			hospitals[i] = json[i];
+// 		}
+		
+//       	for(var i = 0; i< hospitals.length; i++){
+// 			display[i] = hospitals[i];
+// 		}
+//       	setBulletsDiv(display);
+
+
+// 	$('article').each(function(i,obj){
+//   		var children = $(this).children();
+//   		var hours = display[i].等候時間;
+  		
+//   			$(children[0]).text("等候 大約");			//should be from dB too 
+//   			$($(children[1]).children()).text(hours);
+  		
+//   		// var link = display[i].	//some link to clinic close by
+//   		// $($($(children[3]).children()).children()).attr("href", link);
+
+//   	});
+
+// $('.aDiv').each(function(i,obj){
+// 		var hospital = $(this).children()[0];
+// 		var timeDiv = $(this).children()[1];
+// 		var hospitalChildren = $(hospital).children();
+// 		$(hospitalChildren[0]).text(display[i].醫院);	//h3
+// 		$(hospitalChildren[1]).text(display[i].地址);	//addr
+// 		$(hospitalChildren[2]).text(display[i].電話);	//phone
+// 		var timeChildren = $(timeDiv).children();
+// 		var hours = display[i].等候時間;
+//   		$(timeChildren[0]).text("大約");
+//   		$($(timeChildren[1]).children()).text(hours);
+
+// 	});
+
+
+// 	$('.right').mapster({
+//   		fillOpacity: 0, 
+//   		singleSelect: true
+//   	});
+		
+// 	});
+
+loadMapTime();
+
+	var image = $('img');
+		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
+		var newHeight = $('.posts').height();
+	    image.mapster('resize',newWidth,newHeight,resizeTime);
+});
+$(window).bind('resize',onWindowResize);
+
+ //=================load map time==================================
+ function loadMapTime(){
+ 	$.getJSON('php/loadMapTime.php',
+ 		function(json){
+
 		for(var i = 0; i < json.length; i++){
 			hospitals[i] = json[i];
 		}
-		
-      	for(var i = 0; i< hospitals.length; i++){
-			display[i] = hospitals[i];
-		}
-      	setBulletsDiv(display);
 
+// display list is shown, hospitals save all hospitals
+  	for(var i = 0; i< hospitals.length; i++){
+		display[i] = hospitals[i];
+	}
+  	setBulletsDiv(display);
 
-	$('article').each(function(i,obj){
+  	$('article').each(function(i,obj){
   		var children = $(this).children();
   		var hours = display[i].等候時間;
   		
@@ -35,8 +93,9 @@ $(document).ready(function() {
   		// $($($(children[3]).children()).children()).attr("href", link);
 
   	});
+	
 
-$('.aDiv').each(function(i,obj){
+	$('.aDiv').each(function(i,obj){
 		var hospital = $(this).children()[0];
 		var timeDiv = $(this).children()[1];
 		var hospitalChildren = $(hospital).children();
@@ -45,11 +104,31 @@ $('.aDiv').each(function(i,obj){
 		$(hospitalChildren[2]).text(display[i].電話);	//phone
 		var timeChildren = $(timeDiv).children();
 		var hours = display[i].等候時間;
-  		$(timeChildren[0]).text("大約");
-  		$($(timeChildren[1]).children()).text(hours);
+  		
+  			$(timeChildren[0]).text("大約");
+  			$($(timeChildren[1]).children()).text(hours);
+  		
 
 	});
 
+	$('area').each(function(i,obj){
+		// set time as title to be displayed in tooltip
+		if(i<18){
+			var hours = 0;
+			hours = hospitals[i].等候時間;
+			var estimate = "~";
+			
+			$(this).attr("title", estimate + hours + "小時");		
+
+		}
+	});
+
+	
+	if(window.matchMedia("(max-width:1208px)").matches){
+		resize();
+	}else{
+		$('area[title]').tooltips();
+	}
 
 	$('.right').mapster({
   		fillOpacity: 0, 
@@ -57,13 +136,8 @@ $('.aDiv').each(function(i,obj){
   	});
 		
 	});
-
-	var image = $('img');
-		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
-		var newHeight = $('.posts').height();
-	    image.mapster('resize',newWidth,newHeight,resizeTime);
-});
-$(window).bind('resize',onWindowResize);
+ 		
+ }
 
 //==================set bulletsDIv color===========================
  function setBulletsDiv(list){

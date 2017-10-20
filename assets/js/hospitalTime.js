@@ -7,12 +7,22 @@ var resizeDelay = 100;    // time to wait before checking the window size again
                           var hospitals = [];		//list of hospitals
 			   			var display = [];			//list of hospitals being show next to map
  $(document).ready(function() {
-	$.ajax({
-		method: "GET",
-		url: "DrCare.ANEWaitingTime.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-	})
-	.done(function( msg ) {
-		var json = JSON.parse(msg);
+
+loadMapTime();
+
+	var image = $('img');
+		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
+		var newHeight = $('.posts').height();
+	    image.mapster('resize',newWidth,newHeight,resizeTime);
+
+	});
+ $(window).bind('resize',onWindowResize);
+
+ //=================load map time==================================
+ function loadMapTime(){
+ 	$.getJSON('php/loadMapTime.php',
+ 		function(json){
+
 		for(var i = 0; i < json.length; i++){
 			hospitals[i] = json[i];
 		}
@@ -77,13 +87,8 @@ var resizeDelay = 100;    // time to wait before checking the window size again
   	});
 		
 	});
-	var image = $('img');
-		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
-		var newHeight = $('.posts').height();
-	    image.mapster('resize',newWidth,newHeight,resizeTime);
-
-	});
- $(window).bind('resize',onWindowResize);
+ 		
+ }
 
 //==================set bulletsDIv color===========================
  function setBulletsDiv(list){
