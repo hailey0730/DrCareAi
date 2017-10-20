@@ -201,7 +201,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>東區尤德夫人那打素醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -219,7 +219,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>瑪麗醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -236,7 +236,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>律敦治醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -252,7 +252,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>明愛醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -270,7 +270,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>廣華醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -287,7 +287,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>伊利沙伯醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -303,7 +303,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>基督教聯合醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -321,7 +321,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>雅麗氏何妙齡那打素醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -338,7 +338,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>北區醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -354,7 +354,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>北大嶼山醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -372,7 +372,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>博愛醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -389,7 +389,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>威爾斯親王醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -405,7 +405,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>瑪嘉烈醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -423,7 +423,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>長洲醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -440,7 +440,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>天水圍醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -456,7 +456,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>將軍澳醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -474,7 +474,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>屯門醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>
@@ -491,7 +491,7 @@
 					<div class="bulletsDiv">
 						<p>'' </p>
 					</div>
-					<a class="aDiv" href="">
+					<a class="aDiv">
 						<div class="hospital">
 							<h3>仁濟醫院</h3>
 							<p>地址: 將軍澳坑⼝口寶寧⾥里里 2 號</p>

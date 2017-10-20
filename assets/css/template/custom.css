@@ -233,7 +233,7 @@
 	.post > .Content {
 		width: calc(100% - 2em);
 		padding: .5em 1em;
-		height: 400px;
+		height: 550px;
 	}
 
 		.Content > div.image.featured {

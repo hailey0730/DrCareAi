@@ -548,6 +548,7 @@
 
 	textarea {
 		padding: 0.75em 1em;
+		resize: none;
 	}
 
 	input[type="checkbox"],
@@ -2420,7 +2421,7 @@
 		background-color: white;
 		margin-left: 10em !important;
 		padding:5em 2em;
-		height: 35em;
+		height: 38em;
 	}
 
 	.white > h2{
@@ -2444,7 +2445,7 @@
 		margin-left: 0 !important;
 		padding: 2em 5em ;
 		margin-right: 5em;
-		height: 35em;
+		height: 38em;
 	}
 
 	.bottomBlue > form > h4{

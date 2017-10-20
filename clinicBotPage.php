@@ -207,9 +207,8 @@
 						</div>
 					</section>
 
-				</div>
 
-				<div class="purple">
+					<div class="purple">
 				<div class="inner">
 					<div class="split mystyle">
 							<div class="white">
@@ -231,16 +230,19 @@
 								</div>
 								<div class="field">
 									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+									<textarea name="message" id="message" rows="6" placeholder="Message" value=""></textarea>
 								</div>
 								<ul class="actions">
-									<li><input value="Send Message" class="button big btmWhite" type="submit"></li>
+									<li><input id="sendMail" value="Send Message" class="button big btmWhite" type="submit" onsubmit="return false"></li>
 								</ul>
 							</form>
 						</div>
 						</div>
 						</div>
 					</div>
+				</div>
+
+				
 
 				<!-- Footer -->
 					
@@ -260,6 +262,7 @@
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/footer.js"></script>
 			<script src="assets/js/login.js"></script>
+			<script src="assets/js/clinicBotPage.js"></script>
 
 	</body>
 </html>

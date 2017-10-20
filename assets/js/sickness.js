@@ -1,13 +1,14 @@
 var resizeTime = 100;     // total duration of the resize effect, 0 is instant
 var resizeDelay = 100;  
   var moreCounter = 3;
-  var clicked = false;
+  var nextPage = 2;
   var liked = false;
   var faved = false;
   var likeNum = 30;
   var favNum = 25;
   var listOfDoc = [];
-  
+  var docNum = 0;
+  var doctorType = '';
 $(document).ready(function(){
 	
   //E.g.  http://www.drcare.ai/sickness.php?name=厭食症
@@ -67,52 +68,32 @@ if(name == null){
       imgurl += ')';
       $('#banner').css('background-image', imgurl);
       $('#banner').css('background-size', 'cover');
+      $('#banner').css('background-position', 'center');
 
     }
-
+    doctorType = json[0].RelatedDoctor;
 //show relatedDoctor
     var docCat = '(';
-        docCat += json[0].RelatedDoctor;
+        docCat += doctorType;
         docCat += '醫生）'
         $('#blue').text(docCat);
 
-     $.ajax({
-      method: "GET",
-      url: "",
-      data: //pass in relatedDoctor
-    })
-      .done(function( data ) {
-        var json = JSON.parse(data);
-        for(var i = 0; i < json.length; i ++){
-          listOfDoc[i] = json[i];  
-        }
-        $('.nameTag').each(function(i,obj){
-          $($(this).children()[0]).text();   //doctor name
-          $($(this).children()[2]).text();   //doctor type
-        });
-
-        $('.address').each(function(i,obj){
-          $($(this).children()[0]).text();   //address area
-          $($(this).children()[1]).text();    //address
-        });
-
-        $('.contentSickness').each(function(i,obj){
-          var a = $(this).children()[1];
-          $(a).attr('href', '');    //set link to doctor
-        })
-        
-      });
+   loadDocFromDB({
+    curPage: 1,
+    type: doctorType,   //SubCategory
+    specialist: ''      //Category
+  });
 
   });
 
     $(".more").click(function(){
 
-        if (clicked == false){
-        
-       clicked = true;
-        $('.posts').append(moreDoc(listOfDoc));
-      }
-       
+        loadDocFromDB({
+          curPage: nextPage,
+          type: doctorType,   //SubCategory
+          specialist: ''      //Category
+        });
+       nextPage++;
     });
 
   $(".fa-thumbs-o-up").text(likeNum);
@@ -122,6 +103,58 @@ if(name == null){
 
  $(window).bind('resize',onWindowResize);
 
+ // load doc from DB
+function loadDocFromDB(conf) {
+  var docsNumPerPage = 3;
+ 
+  if(conf.name == undefined) {
+    conf.name = "";
+  }
+  // conf.curPage;
+  // conf.specialist;
+  // conf.area;
+  // conf.type;
+  // conf.keyword;
+  $.getJSON("php/loadDoc.php",
+    {curPage: conf.curPage,
+    perPage: docsNumPerPage,
+    Category: conf.specialist,
+    SubCategory: conf.type},
+    function(json){
+     // console.log(json);
+
+     docNum = json.pop();
+        for(var i = 0; i < json[0].length; i ++){
+          listOfDoc[i] = json[0][i];   //{ID, Name, FullName, Sex, PhotoUrl, Category, SubCategory, Region, Address_ch, Address_en, Phone, Email, Language, Certification, Latitude_X, Longitude_Y, Map, Service, Remarks, Opentime, CreateDateTime:{date, timezone_type, timezone}, Ref_url, Clinicbot, NumOfArticle, RowNum}
+        }
+        $('.nameTag').each(function(i,obj){
+          $($(this).children()[0]).text(listOfDoc[i].Name);   //doctor name
+          $($(this).children()[2]).text(conf.type);   //doctor type
+        });
+
+        $('.address').each(function(i,obj){
+          $($(this).children()[0]).text(listOfDoc[i].Region);   //address area
+          $($(this).children()[1]).text(listOfDoc[i].Address_ch);    //address
+        });
+
+
+        $('.contentSickness').each(function(i,obj){
+          var docLink = 'Doctor/docPage.php?Name=';
+          docLink += listOfDoc[i].Name;
+          docLink += '&ID=';
+          docLink += listOfDoc[i].ID;
+          var a = $(this).children()[1];
+          $(a).attr('href', docLink);    //set link to doctor
+        });
+      
+  }).fail(function(d, textStatus, error){
+    console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+  });
+
+}
+// end
+
+//===========to load more doctors=========================================
  function moreDoc(list){
   var doc = '';
    //testing

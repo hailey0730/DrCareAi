@@ -38,7 +38,7 @@
 				<h2 style="margin-bottom: 0;">搜尋健康誌</h2>
 			<form id="searchForm">
 				<input type="text" id="text-area">
-				<span class="fa fa-search"></span>
+				<span class="fa fa-search" style="cursor: pointer;" onclick="$('#searchForm').submit();"></span>
 				<!-- <span><img class="fa-microphone" src="images/mic.png" onclick="startDictation(event)"></span> -->
 			</form>
 			</header>

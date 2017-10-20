@@ -107,7 +107,7 @@
 					<div class="features">
 						<article >
 							<span class="iconImage"><img class="iconFinddoc" src="images/icon_finddoc.png"></span>
-							<a href="http://test.drcare.ai/Doctor/findoc.php"><h3>醫生 ></h3></a>
+							<a href="http://www.drcare.ai/Doctor/findoc.php"><h3>醫生 ></h3></a>
 							<div class="iconContent">
 								<p>我們明白生病時找附近診所的迫切性 , 所
 以我們更合理地按各診所按地區﹑專科分
