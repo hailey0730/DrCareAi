@@ -33,7 +33,11 @@ $(document).ready(function() {
 	link += '&SubCategory=';
 	link += articleContent.SubCategory;
 	$('#title a').attr("href", link);	//link to other articles with same tags
-	$('#titleImg').attr("src", articleContent.ImageUrl);	
+
+	var imgurl= 'images/健康認文章圖片-20171012T090814Z-001/健康認文章圖片/';
+	imgurl += articleContent.ImageUrl;
+
+	$('#titleImg').attr("src", imgurl);	
 	$('#content').html(articleContent.Content);
 
 	var docKind = articleContent.RelatedDoctorCat;
@@ -88,10 +92,12 @@ function passArticle(article){
 }
 
 function otherArt(article){
+	var imgurl= 'images/健康認文章圖片-20171012T090814Z-001/健康認文章圖片/';
+	imgurl += article.ImageUrl;
 	var innerHtml = '<div class="content"><a onclick=passArticle("';
 	innerHtml += article.ID;
 	innerHtml += '") class="image main" style="cursor:pointer;">							<div>							<img class="contentImage" src="';
-	innerHtml += article.ImageUrl;
+	innerHtml += imgurl;
 	innerHtml += '" alt="" data-position="center" />							</div>								<p class="imageTitle">';
 	innerHtml += article.Title;
 	innerHtml += '</p>								</a>							</div>';

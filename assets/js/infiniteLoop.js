@@ -382,13 +382,14 @@ while(y < list.length){
 //===================infinite loop post==================
 function randomPost(json){
     // console.log(json);
-
+    var imgurl= 'images/健康認文章圖片-20171012T090814Z-001/健康認文章圖片/';
+    imgurl += json.ImageUrl;
     // Generate the post
     var post = '';
     post += '<li>';
     post += '<article id="content">';
     post += '<a class="image"><img src="';
-    post += json.ImageUrl;
+    post += imgurl;
     post += '" alt="" />';
     post += '</a>';
     post += '<div class="content">';

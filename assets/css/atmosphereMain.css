@@ -448,7 +448,10 @@
 	}
 
 		form .field {
-			margin-bottom: 1.5em;
+			margin-bottom: 0em;
+			margin-top: 1em;
+			/*margin-bottom: 1.5em;*/
+			vertical-align: top;
 		}
 
 			form .field.half {
@@ -2448,8 +2451,9 @@
 		height: 38em;
 	}
 
-	.bottomBlue > form > h4{
+	.bottomBlue h2, .bottomBlue h4, .bottomBlue input, .bottomBlue span{
 		color: white;
+		font-weight: 100;
 	}
 
 	input[type="submit"], input[type="reset"], input[type="button"], button, .button.big.btmwhite {

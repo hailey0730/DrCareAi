@@ -219,21 +219,21 @@
 							</div>
 							<div class="bottomBlue">
 							<form action="#" method="post">
-								<h4>服務查詢</h4>
+								<h2>服務查詢</h2>
 								<div class="field half first">
-									<label for="name">Name</label>
-									<input name="name" id="name" type="text" placeholder="Name">
+									<!-- <label for="name">名稱</label> -->
+									<input name="name" id="name" type="text" placeholder="名稱">
 								</div>
 								<div class="field half">
-									<label for="email">Email</label>
-									<input name="email" id="email" type="email" placeholder="Email">
+									<!-- <label for="email">電郵</label> -->
+									<input name="email" id="email" type="email" placeholder="電郵">
 								</div>
 								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="6" placeholder="Message" value=""></textarea>
+									<!-- <label for="message">信息</label> -->
+									<textarea name="message" id="message" rows="6" placeholder="信息" value=""></textarea>
 								</div>
 								<ul class="actions">
-									<li><input id="sendMail" value="Send Message" class="button big btmWhite" type="submit" onsubmit="return false"></li>
+									<li><input id="sendMail" value="發送" class="button big btmWhite" type="submit" onsubmit="return false"></li>
 								</ul>
 							</form>
 						</div>
