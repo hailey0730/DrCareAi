@@ -1,19 +1,13 @@
-var resizeTime = 100;     // total duration of the resize effect, 0 is instant
-var resizeDelay = 100;   
-var testList = [];
 $(document).ready(function() {
-
-//get hospital time
-loadMapTime();
-	
 
 //===========send email===================
 	$("#sendMail").click(function(){
 		$(".error").hide();
+		event.preventDefault();
 		var hasError = false;
-		// var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
+		// // var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
 
-		var emailToVal = "info@clinicbot.io";
+		var email = "info@clinicbot.io";
 
 		var clientName = $('#clientName').val();
 		if(clientName == ''){
@@ -30,185 +24,62 @@ loadMapTime();
 			hasError = true;
 		}
 
-		var categoryVal = $("#category").val();
-		if(categoryVal == '') {
-			$("#category").after('<span class="error">請填上類別。</span>');
-			hasError = true;
+		var subject = $("#category").val();
+		if(subject == null) {
+			// $("#category").after('<span class="error">請填上類別。</span>');
+			// hasError = true;
+			subject = 'ClinicbotPage';
 		}
 
-		var messageVal = $("#message").val();
-		if(messageVal == '') {
+		var emailBody = $("#message").val();
+		if(emailBody == '') {
 			$("#message").after('<span class="error">請填上您的信息。</span>');
 			hasError = true;
 		}
+		// console.log(clientName);
+		// console.log(emailFromVal);
+		// console.log(subject);
+		// console.log(emailBody);
+		// if(hasError == false) {
+		// 			$(this).hide();
+		 
+		//  $.post("php/sendEmail.php",
+		//  	{clientName: clientName, emailFrom: emailFromVal, category: subject, message: emailBody },
+		//  	function(data){
+		//  		$("#sendMail").slideUp("normal", function() {
 
-		if(hasError == false) {
-					$(this).hide();
-		 // $("#sendMail li.buttons").append('<img src="/images/template/loading.gif" alt="Loading" id="loading" />');
-		 // // show client it is loading
+		//  			$("#sendMail").before('<h1>謝謝</h1><p>您的電郵已成功發送。</p>');
+		//  			// $("#sendMail").before('<h1>Success</h1><p>Your email was sent.</p>');
+		//  		});
+		//  	}
+		//  	); 
+		// } 
 
-		 $.post("php/sendEmail.php",
-		 	{ emailTo: emailToVal, clientName: clientName, emailFrom: emailFromVal, category: categoryVal, message: messageVal },
-		 	function(data){
-		 		$("#sendMail").slideUp("normal", function() {
+		// return false;
 
-		 			$("#sendMail").before('<h1>謝謝</h1><p>您的電郵已成功發送。</p>');
-		 			// $("#sendMail").before('<h1>Success</h1><p>Your email was sent.</p>');
-		 		});
-		 	}
-		 	); 
-		} 
+		if(hasError == false){
+		    window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody + '	來自:' + clientName + ' 先生/小姐';
 
+			$(window).blur(function() {
+		        // The browser apparently responded, so stop the timeout.
+		        clearTimeout(t);
+		      });
+
+		      t = setTimeout(function() {
+		        // The browser did not respond after 500ms, so open an alternative URL.
+		        var altLink = 'https://mail.google.com/mail/?view=cm&fs=1&to=info@clinicbot.io&su=';
+		        altLink += subject;
+		        altLink += '&body=';
+		        altLink += emailBody;
+		        altLink += '%20%20%20來自:%20';
+		        altLink += clientName;
+		        altLink += '%20先生/小姐';
+		         document.location.href = altLink;
+		      }, 500);
+
+		    $(this).hide();
+		    $("#sendMail").before('<h1>謝謝</h1><p>您的電郵已成功發送。</p>');
+		}
 		return false;
 		});
 });
-
- $(window).bind('resize',onWindowResize);
-
- //================load map time==========================
- function loadMapTime(){
- 	$.getJSON('php/loadMapTime.php',
- 		function(json){
- 			// console.log(json);
-			for(var i = 0; i < json.length; i++){
-				testList[i] = json[i];
-			}
-
-			$('area').each(function(i,obj){
-			// set time as title to be displayed in tooltip
-			if(i<18){
-				var hours = 0;
-				hours = testList[i].等候時間;
-				var estimate = "~";
-				$(this).attr("title", estimate + hours + "小時");
-
-			}
-		});
-			if(window.matchMedia("(max-width:1208px)").matches){
-			resize();
-		}else{
-			$('area[title]').tooltips();
-		}
-
-	});
- }
-
- //=======================================================
-// Resize the map to fit within the boundaries provided
-function resize() {
-	if($(window).width() < 1208){
-		$('.right').attr("src","images/map-hongkong.png");
-		$('.tooltip').css('opacity', '0');	
-	}else{
-		$('.tooltip').css('opacity','1');	
-		$('.tooltip').each(function(i,obj){
-			var area = $('map').children();
-			var coordPosition = $(area[i]).attr("data-pos");
-		    var positionArray = coordPosition.split(',');
-
-		      var imgPos = $('.right').offset();
-		      var imgWidth = $('.right').width();
-		      var imgHeight = $('.right').height();
-		      $(this).css({
-		      	// 'position':'absolute',
-		          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
-		          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
-		      });
-		});
-
-		$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
-	}
-}
-
-// Track window resizing events, but only actually call the map resize when the
-// window isn't being resized any more
-
-function onWindowResize() {
-// console.log($('.posts').css("width"));
-var curWidth = $(window).width(),
-curHeight = $(window).height(),
-checking=false;
-if (checking) {
-	return;
-}
-checking = true;
-window.setTimeout(function() {
-	var newWidth = $(window).width(),
-	newHeight = $(window).height();
-	if (newWidth === curWidth &&
-		newHeight === curHeight) {
-		resize(newWidth,newHeight);
-
-}
-checking=false;
-},resizeDelay );
-}
-
-//=======map time================
-// IIFE to ensure safe use of $
-(function( $ ) {
-
-  // Create plugin
-  $.fn.tooltips = function(el) {
-
-  	var $tooltip,
-  	$body = $('body'),
-  	$el;
-    // Ensure chaining works
-    return this.each(function(i, el) {
-
-      $el = $(el).attr("data-tooltip", i);  //area
-      if($el.attr("data-key") != "area1" || $el.attr("data-key") != "area2" || $el.attr("data-key") != "area3"){
-
-      // Make DIV and append to page 
-      var $tooltip = $('<div class="tooltip" data-tooltip="' + i + '">' + $el.attr('title') + '<div class="arrow"></div></div>').appendTo("body");
-
-      // Position right away, so first appearance is smooth
-      // var linkPosition = $el.position();
-      // var coordPosition = $el.attr("alt");
-      var coordPosition = $el.attr("data-pos");
-      var positionArray = coordPosition.split(',');
-
-      // var positionArray = coordPosition.split(',').map(function(i){
-      // 	return parseInt(i);
-      // });
-      
-      var imgPos = $('.right').offset();
-      var imgWidth = $('.right').width();
-      var imgHeight = $('.right').height();
-      $tooltip.css({
-      	// 'position':'absolute',
-          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
-          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
-      });
-
-      $el
-      // Get rid of yellow box popup
-      .removeAttr("title")
-
-      // always show
-
-      $el = $(this);
-
-      $tooltip = $('div[data-tooltip=' + $el.data('tooltip') + ']');
-
-        // Reposition tooltip, in case of page movement e.g. screen resize                        
-        // var linkPosition = $el.position();
-
-        $tooltip.css({
-          // 'position':'absolute',
-          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
-          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
-      });
-
-        // Adding class handles animation through CSS
-        $tooltip.addClass("active");
-    }
-
-});
-
-
-}
-
-})(jQuery);
-//==================================
