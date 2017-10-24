@@ -3,40 +3,7 @@ var titleList = [];
 var diseaseList = [];
 $(document).ready(function(){
 	var sickness ='';
-	$.ajax({
-		method: "GET",
-		url: "DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-	})
-	.done(function( msg ) {
-		var json = JSON.parse(msg);
-		var i = 0;
-		titleList = [];
-		diseaseList = [];
-		var numRow = 0;
-		for (var key in json){
-			var disease = json[key];
-			titleList[i] = key;
-			diseaseList[i] = disease;
-			i++;
-		}
-		if(titleList.length % 2 != 0){
-			numRow =  titleList.length / 2 + 1;
-		}else{
-			numRow = titleList.length / 2;
-		}
-		for(var j = 0; j < numRow; j++){
-			var title1 = titleList[j*2];
-			var disease1 = diseaseList[j*2];
-			if(titleList[j*2+1] != null){
-				var title2 = titleList[j*2+1];
-				var disease2 = diseaseList[j*2+1];
-			}
-
-			$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-		}
-
-		
-});
+loadList();
 
 	$('.content img').mapster({
 		fillOpacity: 0, 
@@ -67,6 +34,69 @@ $(document).ready(function(){
     });
 
 });
+
+function loadList(){
+    $.getJSON("php/loadSicknessList.php",
+        function(json){
+            var i = 0;
+        titleList = [];
+        diseaseList = [];
+        var numRow = 0;
+        for (var key in json){
+            var disease = json[key];
+            titleList[i] = key;
+            diseaseList[i] = disease;
+            i++;
+        }
+        if(titleList.length % 2 != 0){
+            numRow =  titleList.length / 2 + 1;
+        }else{
+            numRow = titleList.length / 2;
+        }
+        for(var j = 0; j < numRow; j++){
+            var title1 = titleList[j*2];
+            var disease1 = diseaseList[j*2];
+            if(titleList[j*2+1] != null){
+                var title2 = titleList[j*2+1];
+                var disease2 = diseaseList[j*2+1];
+            }
+
+            $('.posts').append(diseaseRow(title1, title2, disease1, disease2));
+        }
+    });
+}
+
+function loadFilteredList(conf){
+    $.getJSON("php/loadSicknessList.php",
+        {Tag:conf.Tag},
+        function(json){
+                var i = 0;
+             $($('article').children().children()).css("opacity","0.3");
+             $('.add').css("opacity","0.3");
+        for(var key in json){
+            $('article').each(function(j, obj){     //set title opacity
+            var content = $(this).children().children();
+            var li = $(content[1]).children();
+            // console.log(content[0]);    //h3
+            // console.log(li);
+            // console.log($(li[0]).children());   //disease
+            if($(content[0]).text() == key){
+                $(content).css("opacity","1");
+            }
+            });
+
+            $('.add').each(function(j,obj){         //set disease opacity
+                var diseaseList = json[key];
+                for(var k = 0; k < diseaseList.length; k ++){
+                    if($(this).text().substring(3) == diseaseList[k]){
+                        $(this).css("opacity","1");
+                    }
+
+                }
+            });
+        }
+    });
+}
 
 function highlight(body){
     if(clickCounter.counter == false){
@@ -107,105 +137,18 @@ function showRelevantDisease(body, bodyPath){
     	}else{
 
 			clickCounter.counter = true;
-			$.ajax({
-		method: "GET",
-		url: "DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-		data:{Tag: body}
-	})
-	.done(function( msg ) {
-		var json = JSON.parse(msg);
-		var i = 0;
-             $($('article').children().children()).css("opacity","0.3");
-             $('.add').css("opacity","0.3");
-        for(var key in json){
-            $('article').each(function(j, obj){     //set title opacity
-            var content = $(this).children().children();
-            var li = $(content[1]).children();
-            // console.log(content[0]);    //h3
-            // console.log(li);
-            // console.log($(li[0]).children());   //disease
-            if($(content[0]).text() == key){
-                $(content).css("opacity","1");
-            }
-            });
 
-            $('.add').each(function(j,obj){         //set disease opacity
-                var diseaseList = json[key];
-                for(var k = 0; k < diseaseList.length; k ++){
-                    if($(this).text().substring(3) == diseaseList[k]){
-                        $(this).css("opacity","1");
-                    }
-
-                }
+            loadFilteredList({
+                Tag: body
             });
-        }
-		
-		
-});
 		}
 	}else{
 		clickCounter.counter = true;
 		clickCounter.part = body;
-			$.ajax({
-		method: "GET",
-		url: "DrCare.DiseaseType.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-		data:{Tag: body}
-	})
-	.done(function( msg ) {
-		var json = JSON.parse(msg);
-		var i = 0;
-            $($('article').children().children()).css("opacity","0.3");
-        $('.add').css("opacity","0.3");
-        for(var key in json){
-            $('article').each(function(j, obj){     //set title opacity
-            var content = $(this).children().children();
-            var li = $(content[1]).children();
-            // console.log(content[0]);    //h3
-            // console.log(li);
-            // console.log($(li[0]).children());   //disease
-            if($(content[0]).text() == key){
-                $(content).css("opacity","1");
-            }
-            });
 
-            $('.add').each(function(j,obj){         //set disease opacity
-                var diseaseList = json[key];
-                for(var k = 0; k < diseaseList.length; k ++){
-                    if($(this).text().substring(3) == diseaseList[k]){
-                        $(this).css("opacity","1");
-                    }
-
-                }
-            });
-        }
-        
-		// var titleList = [];
-		// var diseaseList = [];
-		// var numRow = 0;
-		// for (var key in json){
-		// 	var disease = json[key];
-		// 	titleList[i] = key;
-		// 	diseaseList[i] = disease;
-		// 	i++;
-		// }
-		// if(titleList.length % 2 != 0){
-		// 	numRow =  titleList.length / 2 + 1;
-		// }else{
-		// 	numRow = titleList.length / 2;
-		// }
-		// for(var j = 0; j < numRow; j++){
-		// 	var title1 = titleList[j*2];
-		// 	var disease1 = diseaseList[j*2];
-		// 	if(titleList[j*2+1] != null){
-		// 		var title2 = titleList[j*2+1];
-		// 		var disease2 = diseaseList[j*2+1];
-		// 	}
-
-		// 	$('.posts').append(diseaseRow(title1, title2, disease1, disease2));
-		// }
-
-		
-});
+        loadFilteredList({
+            Tag: body
+        });
 	}
 }
 

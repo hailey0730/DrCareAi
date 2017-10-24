@@ -905,7 +905,7 @@
 		.image.main {
 			display: block;
 			margin: 0 0 3rem 0;
-			width: 50%;
+			/*width: 50%;*/
 		}
 
 			.image.main img {
@@ -913,7 +913,7 @@
 			}
 
 			#titleImg{
-				width: 100%;
+				width: 50%;
 			}
 
 			@media screen and (max-width: 736px) {

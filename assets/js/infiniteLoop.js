@@ -5,6 +5,9 @@
 
     var filterClicked = false;
 
+    var cat = '';
+    var subcat = '';
+
 $(document).ready(function() {
 	var win = $(window);
 
@@ -24,201 +27,20 @@ $(document).ready(function() {
     }
 };
 
-var cat = getUrlParameter('Category');
-var subcat = getUrlParameter('SubCategory');
+cat = getUrlParameter('Category');
+subcat = getUrlParameter('SubCategory');
 
 if(subcat == null){
-    $.ajax({
-        method:"GET",
-        url:"DrCare.ArticleHealth.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-    }).done(function(data){
-        var json = JSON.parse(data);
-        for(var i = 0; i < json.length; i ++){
-            articles[i] = json[i];
-        }
 
+loadAllContent({
+    SubCategory:''
+});
 
-    $('.category').bind("click", function(event){
-        $('.category').each(function(i, obj){
-         var h4 = $(this).children();
-        $(h4[0]).css('color', '#000000');
-
-        });
-        var thish4 = $(this).children();
-        $(thish4[0]).css('color', '#5dc9dd');
-        filterClicked = true;
-        //show filter articles
-        $('#searchWord').text('相關 "'+$(thish4[0]).text()+'" 文章有：');
-        filterArt($(thish4[0]).text());
-        $('html,body').animate({        //move to article session when enter is pressed
-            scrollTop:$('#three').offset().top}, 'slow');
-
-    });
-
-   
-
-   	$('#text-area').keyup(function(e){
-			$('#searchWord').text('相關 "'+$(this).val()+'" 文章有：');
-
-	});
-
-   
-
-    $('#searchForm').submit(function(e){        //prevent page refreshing when enter is pressed
-        e.preventDefault();
-        $('.category').each(function(i, obj){
-         var h4 = $(this).children();
-        $(h4).css('color', '#000000');
-
-        });
-        //show filter articles
-        var input = $(this).children();
-        // console.log($(input[0]).val());     //input value
-           // pass search key words to get filter list
-            $.ajax({
-                method:"GET",
-                url:"",
-                data: { searchKeyWord  :  $('#text-area').val()}   //filter by search key word
-            }).done(function(data){
-                var json = JSON.parse(data);
-                filter = [];
-                for(var i = 0; i < json.length; i ++){
-                    filter[i] = json[i];
-                }
-
-                filterClicked = true;
-                $('article').remove();
-                appendArticles(filter);
-                $('html,body').animate({        //move to article session when enter is pressed
-                    scrollTop:$('#three').offset().top}, 'slow');
-            });
-        
-        });
-
-}); //end of ajax
 }else{
-     $.ajax({
-        method:"GET",
-        url:"DrCare.ArticleHealth.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-        data: { SubCategory  :  subcat}     //suppose to return filtered articles
-    }).done(function(data){
-        var json = JSON.parse(data);
-        for(var i = 0; i < json.length; i ++){
-            articles[i] = json[i];
-        }
 
-// switch to the right panel with filter selected
-var x = 0;
-        $('.title').each(function(i,obj){
-            $(this).removeClass('active');
-            if($(this).text() == cat){
-                $(this).addClass('active');
-                x = i;
-            }
-        });
-
-        $('.panel').each(function(i,obj){
-            $(this).removeClass('active');
-            $(this).css('display','none');
-            if(i == x){
-                $(this).addClass('active');
-                $(this).css('display','');
-            }
-        });
-    
-        $('.category').each(function(i, obj){
-         var h4 = $(this).children();
-        $(h4[0]).css('color', '#000000');
-        if($(h4[0]).text() == subcat){
-            $(h4[0]).css('color', '#5dc9dd');
-            filterClicked = true;
-            appendArticles(articles);
-
-            //show filter articles
-            $('#searchWord').text('相關 "'+$(h4[0]).text()+'" 文章有：');
-             $('html,body').animate({        //move to article session when enter is pressed
-                    scrollTop:$('#three').offset().top}, 'slow');
-        }
-
-        });
-        
-
-//===============================================
-
-    $('.category').bind("click", function(event){
-        $('.category').each(function(i, obj){
-         var h4 = $(this).children();
-        $(h4[0]).css('color', '#000000');
-
-        });
-        var thish4 = $(this).children();
-        $(thish4[0]).css('color', '#5dc9dd');
-        subcat = $(thish4[0]).text();
-        filterClicked = true;
-        //show filter articles
-        $('#searchWord').text('相關 "'+$(thish4[0]).text()+'" 文章有：');
-
-          $.ajax({
-                method:"GET",
-                url:"DrCare.ArticleHealth.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-                data: { SubCategory  :  subcat}     //suppose to return filtered articles
-            }).done(function(data){
-                var json = JSON.parse(data);
-                $('article').remove();
-                articles = [];
-                for(var i = 0; i < json.length; i ++){
-                    articles[i] = json[i];
-                }
-
-                appendArticles(articles);
-
-        $('html,body').animate({        //move to article session when enter is pressed
-            scrollTop:$('#three').offset().top}, 'slow');
+    loadAllContent({
+        SubCategory: subcat
     });
-
-    });
-
-   
-
-    $('#text-area').keyup(function(e){
-            $('#searchWord').text('相關 "'+$(this).val()+'" 文章有：');
-
-    });
-
-   
-
-    $('#searchForm').submit(function(e){        //prevent page refreshing when enter is pressed
-        e.preventDefault();
-        $('.category').each(function(i, obj){
-         var h4 = $(this).children();
-        $(h4).css('color', '#000000');
-
-        });
-        //show filter articles
-        var input = $(this).children();
-        // console.log($(input[0]).val());     //input value
-           // pass search key words to get filter list
-            $.ajax({
-                method:"GET",
-                url:"",
-                data: { searchKeyWord  :  $('#text-area').val()}   //filter by search key word
-            }).done(function(data){
-                var json = JSON.parse(data);
-                filter = [];
-                for(var i = 0; i < json.length; i ++){
-                    filter[i] = json[i];
-                }
-
-                filterClicked = true;
-                $('article').remove();
-                appendArticles(filter);
-                $('html,body').animate({        //move to article session when enter is pressed
-                    scrollTop:$('#three').offset().top}, 'slow');
-            });
-        
-        });
-
-}); //end of ajax
 
 }
 var i = 0;
@@ -294,6 +116,135 @@ var i = 0;
 
 });
 
+function loadAllContent(conf){
+    $.getJSON("php/loadArticleContent.php",
+        {SubCategory:conf.SubCategory},
+        function(json){
+             for(var i = 0; i < json.length; i ++){
+            articles[i] = json[i];
+        }
+
+        if(conf.SubCategory != ''){
+            // switch to the right panel with filter selected
+var x = 0;
+        $('.title').each(function(i,obj){
+            $(this).removeClass('active');
+            if($(this).text() == cat){
+                $(this).addClass('active');
+                x = i;
+            }
+        });
+
+        $('.panel').each(function(i,obj){
+            $(this).removeClass('active');
+            $(this).css('display','none');
+            if(i == x){
+                $(this).addClass('active');
+                $(this).css('display','');
+            }
+        });
+    
+        $('.category').each(function(i, obj){
+         var h4 = $(this).children();
+        $(h4[0]).css('color', '#000000');
+        if($(h4[0]).text() == subcat){
+            $(h4[0]).css('color', '#5dc9dd');
+            filterClicked = true;
+            appendArticles(articles);
+
+            //show filter articles
+            $('#searchWord').text('相關 "'+$(h4[0]).text()+'" 文章有：');
+             $('html,body').animate({        //move to article session when enter is pressed
+                    scrollTop:$('#three').offset().top}, 'slow');
+        }
+
+        });
+        }
+
+//===============================================
+
+    $('.category').bind("click", function(event){
+        $('.category').each(function(i, obj){
+         var h4 = $(this).children();
+        $(h4[0]).css('color', '#000000');
+
+        });
+        var thish4 = $(this).children();
+        $(thish4[0]).css('color', '#5dc9dd');
+        subcat = $(thish4[0]).text();
+        filterClicked = true;
+        //show filter articles
+        $('#searchWord').text('相關 "'+$(thish4[0]).text()+'" 文章有：');
+
+    loadSubcatArticle({
+        SubCategory:subcat
+    });
+
+    });
+
+
+    $('#text-area').keyup(function(e){
+            $('#searchWord').text('相關 "'+$(this).val()+'" 文章有：');
+
+    });
+
+   
+
+    $('#searchForm').submit(function(e){        //prevent page refreshing when enter is pressed
+        e.preventDefault();
+        $('.category').each(function(i, obj){
+         var h4 = $(this).children();
+        $(h4).css('color', '#000000');
+
+        });
+        //show filter articles
+        var input = $(this).children();
+        // console.log($(input[0]).val());     //input value
+           // pass search key words to get filter list
+            $.ajax({
+                method:"GET",
+                url:"",
+                data: { searchKeyWord  :  $('#text-area').val()}   //filter by search key word
+            }).done(function(data){
+                var json = JSON.parse(data);
+                filter = [];
+                for(var i = 0; i < json.length; i ++){
+                    filter[i] = json[i];
+                }
+
+                filterClicked = true;
+                $('article').remove();
+                appendArticles(filter);
+                $('html,body').animate({        //move to article session when enter is pressed
+                    scrollTop:$('#three').offset().top}, 'slow');
+            });
+        
+        });
+
+}); 
+
+
+}
+
+
+function loadSubcatArticle(conf){
+    $.getJSON("php/loadArticleContent.php",
+        {SubCategory: conf.SubCategory},
+        function (json){
+
+             $('article').remove();
+                articles = [];
+                for(var i = 0; i < json.length; i ++){
+                    articles[i] = json[i];
+                }
+
+                appendArticles(articles);
+
+        $('html,body').animate({        //move to article session when enter is pressed
+            scrollTop:$('#three').offset().top}, 'slow');
+        });
+}
+
 //==============speech to text search=====================
 // $.getScript("artyom.window.js",function(){  // Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https.
 //     var settings = {
@@ -322,28 +273,6 @@ var i = 0;
 // }
 // });
 
-
-
-//===================filter Article======================
-function filterArt(subCat){
-    $('article').remove();
-    var k = 0;
-    filter = [];
-    for(var i = 0; i < articles.length; i ++){
-    // console.log(subCat);
-    // console.log(articles[i].subcategory);
-
-        if(articles[i].SubCategory == subCat){
-            filter[k] = articles[i];
-            // console.log(filter[k]);
-            k++;
-        }
-    }
-    // console.log(filter);
-
-   appendArticles(filter);
-
-}
 
 //===================append articles=====================
 function appendArticles(list){
@@ -416,7 +345,7 @@ function passArticle(article){
 
 //===================add footer==========================
 function footer(){
-    var footer = '<footer id="footer">              <div class="inner">                 <div class="split style1">                      <div class="contact">                           <h2>聯繫我們</h2>                           <ul class="contact-icons">                              <li class="icon fa-home">217B, 5W Enterprise Place<br>Science Park, NT, HK</li>                             <li class="icon fa-phone">(852)3598-3639</li>                               <li class="icon fa-envelope-o"><a href="mailto:info@clinicbot.io">info@clinicbot.io</a></li>                            </ul>                       </div>                      <div class="contact">                           <h3>熱門專科醫生</h3>                         <div class="">                              <ul style="display: inline-block;">                                 <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=皮膚及性病科">皮膚科</a></li>                                                           <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=眼科">眼科</a></li>                                                                    <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>                                                                                   <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=皮膚及性病科">性病</a></li>                                                            <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=婦產科">婦產科</a></li>                                                              <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=耳鼻喉科">耳鼻喉科</a></li>                                </ul>                               <ul style="display: inline-block; position: absolute;">                                                     <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=整形外科">整形外科</a></li>                                                            <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=骨科">骨科</a></li>                                                                    <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=牙科">牙科</a></li>                               </ul>                           </div>                      </div>                      <div class="contact">                           <h3>醫生集中大廈</h3>                         <div>                               <ul>                                    <li>旺角中心一期</li>                                 <li>亞太中心</li>                                                                                       <li>萬邦行</li>                                    <li>南豐中心</li>                                                                                               <li>海洋中心</li>                                   <li>新世界大廈</li>                                                                                          <li>中建大廈</li>                               </ul>                           </div>                      </div>                      <div class="contact">                           <h3>熱門私家醫院</h3>                         <div>                               <ul>                                    <li><a href="http://www.stpaul.org.hk/internet/">聖保祿醫院</a></li>                                                                                             <li><a href="http://www.hksh.org.hk/zh-hk/about-us.php">養和醫院</a></li>                                                                                       <li><a href="http://www.union.org/new/cindex.php">仁安醫院</a></li>                                                                                             <li><a href="http://www.hkbh.org.hk/chi/home.php">浸會醫院</a></li>                                                                                             <li><a href="https://www.twah.org.hk/tc/main">港安醫院</a></li>                                                                                                 <li><a href="http://www.sth.org.hk/index.asp?lang_code=zh">聖德肋撒醫院</a></li>                                                                                  <li><a href="http://www.evangel.org.hk/">播道醫院</a></li>                                                                                                      <li><a href="http://www.canossahospital.org.hk/">嘉諾撒醫院</a></li>                             </ul>                           </div>                      </div>                      <div class="contact">                           <h3>Dr. Care</h3>                           <div>                               <ul>                                    <!-- <li><a href="index.php">Home</a></li> -->                                                  <li><a href="http://m.me/2076696632356020">隨行醫生</a></li>                                    <li><a href="http://www.drcare.ai/Doctor/findoc.php">醫生</a></li>               <li><a href="knowledge.php"> 健康資訊</a></li>                                  <li><a href="searchHealthArticle.php">文章報導</a></li>                                 <li><a href="disclaimer.php">免責聲明</li>                              </ul>                           </div>                      </div>                  </div>                  <div class="copyright">                     <p>&copy; Asiabots. All rights reserved.</p>                        <p>免責聲明︰Dr care 會盡力驗證所有提交的資料和網頁內容正確無誤。 但本公司不會負責當中的任何錯誤和錯誤而引起的責任。 如有任何資料改變，有關的醫生將負責更新個人的資料或告本公司報告。 醫生的費用、所有文章等內容僅供參考，病人應與醫生或診所的有關醫療人員確認為實。</p>                   </div>              </div>          </footer>';
+    var footer = '<footer id="footer">              <div class="inner">                 <div class="split style1">                      <div class="contact">                           <h2>聯繫我們</h2>                           <ul class="contact-icons">                              <li class="icon fa-home">217B, 5W Enterprise Place<br>Science Park, NT, HK</li>                             <li class="icon fa-phone">(852)3598-3639</li>                               <li class="icon fa-envelope-o"><a href="http://www.drcare.ai/index.php#five">info@clinicbot.io</a></li>                            </ul>                       </div>                      <div class="contact">                           <h3>熱門專科醫生</h3>                         <div class="">                              <ul style="display: inline-block;">                                 <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=皮膚及性病科">皮膚科</a></li>                                                           <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=眼科">眼科</a></li>                                                                    <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>                                                                                   <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=皮膚及性病科">性病</a></li>                                                            <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=婦產科">婦產科</a></li>                                                              <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=耳鼻喉科">耳鼻喉科</a></li>                                </ul>                               <ul style="display: inline-block; position: absolute;">                                                     <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=整形外科">整形外科</a></li>                                                            <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫&subcategory=骨科">骨科</a></li>                                                                    <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=牙科">牙科</a></li>                               </ul>                           </div>                      </div>                      <div class="contact">                           <h3>醫生集中大廈</h3>                         <div>                               <ul>                                    <li>旺角中心一期</li>                                 <li>亞太中心</li>                                                                                       <li>萬邦行</li>                                    <li>南豐中心</li>                                                                                               <li>海洋中心</li>                                   <li>新世界大廈</li>                                                                                          <li>中建大廈</li>                               </ul>                           </div>                      </div>                      <div class="contact">                           <h3>熱門私家醫院</h3>                         <div>                               <ul>                                    <li><a href="http://www.stpaul.org.hk/internet/">聖保祿醫院</a></li>                                                                                             <li><a href="http://www.hksh.org.hk/zh-hk/about-us.php">養和醫院</a></li>                                                                                       <li><a href="http://www.union.org/new/cindex.php">仁安醫院</a></li>                                                                                             <li><a href="http://www.hkbh.org.hk/chi/home.php">浸會醫院</a></li>                                                                                             <li><a href="https://www.twah.org.hk/tc/main">港安醫院</a></li>                                                                                                 <li><a href="http://www.sth.org.hk/index.asp?lang_code=zh">聖德肋撒醫院</a></li>                                                                                  <li><a href="http://www.evangel.org.hk/">播道醫院</a></li>                                                                                                      <li><a href="http://www.canossahospital.org.hk/">嘉諾撒醫院</a></li>                             </ul>                           </div>                      </div>                      <div class="contact">                           <h3>Dr. Care</h3>                           <div>                               <ul>                                    <!-- <li><a href="index.php">Home</a></li> -->                                                  <li><a href="http://m.me/2076696632356020">隨行醫生</a></li>                                    <li><a href="http://www.drcare.ai/Doctor/findoc.php">醫生</a></li>               <li><a href="knowledge.php"> 健康資訊</a></li>                                  <li><a href="searchHealthArticle.php">文章報導</a></li>                                 <li><a href="disclaimer.php">免責聲明</li>                              </ul>                           </div>                      </div>                  </div>                  <div class="copyright">                     <p>&copy; Asiabots. All rights reserved.</p>                        <p>免責聲明︰Dr care 會盡力驗證所有提交的資料和網頁內容正確無誤。 但本公司不會負責當中的任何錯誤和錯誤而引起的責任。 如有任何資料改變，有關的醫生將負責更新個人的資料或告本公司報告。 醫生的費用、所有文章等內容僅供參考，病人應與醫生或診所的有關醫療人員確認為實。</p>                   </div>              </div>          </footer>';
 
             return footer;
 }

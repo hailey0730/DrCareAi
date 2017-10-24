@@ -173,7 +173,7 @@
 			</ul>
 		</article>
 		<article>
-			<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>屯⾨門醫院</h3><ul class="actions">
+			<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>屯門醫院</h3><ul class="actions">
 			<li><a href="#one" class="button round">附近診所</a></li>
 		</ul>
 	</article>

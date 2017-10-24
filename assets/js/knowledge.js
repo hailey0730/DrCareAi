@@ -63,16 +63,18 @@ $(document).ready(function(){
 	// });
 
 //==========================box slider===============================================
-	$.ajax({
-		method: "GET",
-		url: "DrCare.HotArticle.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+loadBoxSlider();
 
-	}).done(function(data){
-		var json = JSON.parse(data);
-		$('#firstSlide img').attr("src", json[0].ImageUrl);
-		$('#firstH2').text(json[0].Subject);
-		$('#firstLink a').attr("href", json[0].Url);
-		$('#banner').append(hotArticle(json));
+
+});
+
+function loadBoxSlider(){
+	$.getJSON("php/loadBoxSlider.php",
+		function(json){
+			$('#firstSlide img').attr("src", json[0].ImageUrl);
+			$('#firstH2').text(json[0].Subject);
+			$('#firstLink a').attr("href", json[0].Url);
+			$('#banner').append(hotArticle(json));
 			
 //==============update box slider=====================================================
 
@@ -452,7 +454,8 @@ var settings = {
 	});
 
 })(jQuery);
-	});
+});
+}
 
 //==============set login / logout function when there is nav bar=================================
 // var loginout = $($('#navPanel').children()).children().last();
@@ -467,7 +470,7 @@ var settings = {
 // 	}
 // 		$(loginout).attr('style', 'cursor:pointer');
 
-});
+
 
 function hotArticle(json){
 	var article = '';

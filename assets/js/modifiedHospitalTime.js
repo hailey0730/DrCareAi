@@ -69,7 +69,7 @@ loadMapTime();
 			hours = hospitals[i].等候時間;
 			// var estimate = "~";
 			
-			$(this).attr("title", hours + "小時");		
+			$(this).attr("title", estimate + hours + "小時");		
 
 		}
 	});
@@ -303,7 +303,7 @@ function resize() {
 				hours = hospitals[i].等候時間;
 				// var estimate = "~";
 				
-				$(this).attr("title", hours + "小時");		
+				$(this).attr("title", estimate + hours + "小時");		
 
 				}
 			});

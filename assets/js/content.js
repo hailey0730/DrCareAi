@@ -13,14 +13,18 @@ $(document).ready(function() {
   }
 	var articleContent = {'ID':'', 'CreateDateTime':'', 'Category':'','SubCategory':'', 'Title':'', 'Content':'', 'ImageUrl':'', 'RelatedDoctorCat':''};		
 
-	$.ajax({
-        method:"GET",
-        url:"DrCare.ArticleHealth.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-        data: { ArticleID :  articleID}		
-    }).done(function(data){
-        var json = JSON.parse(data);
+loadContent({
+	ArticleID: articleID
+});
+
+});
+
+function loadContent(conf){
+	$.getJSON("php/loadArticleContent.php",
+		{ArticleID: conf.ArticleID},
+		function(json){
+			articleContent = json[0];
 	
-	articleContent = json[0];
 
 	//set content
 	$('#title h1').text(articleContent.Title);
@@ -47,13 +51,18 @@ $(document).ready(function() {
 	docLink += articleContent.RelatedDoctorCat;
 	$('.relatedoc').attr('href', docLink);
 
-$.ajax({
-        method:"GET",
-        url:"DrCare.ArticleHealth.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-        data: { SubCategory :  articleContent.SubCategory}		//suppose to return the exact article
-    }).done(function(data){
-    	var json = JSON.parse(data);
-    	for(var i = 0; i < json.length; i ++){
+	loadRelatedArticles({
+	SubCategory: articleContent.SubCategory
+});
+});
+}
+
+function loadRelatedArticles(conf){
+	$.getJSON("php/loadArticleContent.php",
+		{ArticleID: '',
+		SubCategory:conf.SubCategory},
+		function(json){
+			for(var i = 0; i < json.length; i ++){
     		relatedArt[i] = json[i];
     	}
 
@@ -78,13 +87,9 @@ var display = [];
 		}
 	});
 
-	 });
 
-});
-
-
-
-});
+		});
+}
 
 function passArticle(article){
      window.sessionStorage.setItem('articleContent', article);

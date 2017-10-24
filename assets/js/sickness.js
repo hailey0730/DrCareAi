@@ -85,6 +85,15 @@ if(name == null){
   });
 
   });
+  // loadContent({
+  //   Name: name
+  // });
+
+  // loadDocFromDB({
+  //   curPage: 1,
+  //   type: doctorType,   //SubCategory
+  //   specialist: ''      //Category
+  // });
 
     $(".more").click(function(){
 
@@ -102,6 +111,52 @@ if(name == null){
 });
 
  $(window).bind('resize',onWindowResize);
+
+ //=============load content ====================
+ function loadContent(conf){
+  console.log('in loadContent');
+  $.getJSON("php/loadSicknessContent.php",
+    {Name:conf.Name},
+    function(json){
+      console.log(json);
+    $('#title').text(name);
+    $('#whatTitle').text('甚麼是'+name+'? (What)');
+    $('#whyTitle').text('為甚麼會'+name+'? (Why)');
+    $('#howTitle').text(name+'治療⽅方法? (How)');
+    if(json[0].Desc != ""){
+      $('#desc').text(json[0].Desc);
+    }else{
+      var children = $('#wrapper').children();
+      $(children[0]).css("margin-bottom", "0px");
+    }
+    $('#what').text(json[0].What);
+    $('#why').text(json[0].Why);
+    $('#how').text(json[0].How);
+    if(json[0].ImageUrl != null){
+      // $('#contentBanner').attr("src", json[0].ImageUrl);
+      var imgurl = 'url(';
+      imgurl += json[0].ImageUrl;
+      imgurl += ')';
+      $('#banner').css('background-image', imgurl);
+      $('#banner').css('background-size', 'cover');
+      $('#banner').css('background-position', 'center');
+
+    }
+    doctorType = json[0].RelatedDoctor;
+//show relatedDoctor
+    var docCat = '(';
+        docCat += doctorType;
+        docCat += '醫生）'
+        $('#blue').text(docCat);
+
+  //  loadDocFromDB({
+  //   curPage: 1,
+  //   type: doctorType,   //SubCategory
+  //   specialist: ''      //Category
+  // });
+
+    });
+ }
 
  // load doc from DB
 function loadDocFromDB(conf) {
