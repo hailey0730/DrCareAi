@@ -66,9 +66,32 @@ if(name == null){
       var imgurl = 'url(';
       imgurl += json[0].ImageUrl;
       imgurl += ')';
-      $('#banner').css('background-image', imgurl);
-      $('#banner').css('background-size', 'cover');
-      $('#banner').css('background-position', 'center');
+      // var css = {'background-image': imgurl,
+      //             'background-size': 'cover',
+      //             'background-position': 'center'};
+      // // $('#banner').css('background-position', 'top');
+      // $('#banner').css(css);
+     
+      // if( /iPhone|iPad/i.test(navigator.userAgent) ) {
+      //   alert('using ipad');
+        var css = {'background-image': imgurl,
+                    'background-attachment':'scroll',
+                    'display':'-moz-flex',
+                    'display':'-webkit-flex',
+                    'display':'-ms-flex',
+                    'display':'flex',
+                    '-moz-align-items':'center',
+                    '-webkit-align-items':'center',
+                    '-ms-align-items':'center',
+                    'align-items':'center',
+                    'background-size': 'cover',
+                    'background-repeat': 'no-repeat',
+                    'background-position': 'center',
+                    'width':'100%'
+                    };
+        $('#banner').css(css);
+        
+      // }
 
     }
     doctorType = json[0].RelatedDoctor;
