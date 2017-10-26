@@ -46,7 +46,7 @@
 					<!-- Wrapper -->
 					<div id="wrapper">
 						<div class="inner-content">
-						<div class="split">
+						<div class="split knowledgeList">
 						<section>
 							<ul class="posts">
 								<!-- list of diseases append here -->

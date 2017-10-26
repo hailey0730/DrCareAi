@@ -5,54 +5,68 @@ $(document).ready(function(){
 
 	window.sessionStorage.setItem('content', value);	
 
-//=========================update article on sidebar=============================
-	loadSideBar();
-	loadSideBarOther();
+//=========================update article without button=============================
+	// $.ajax({
+	// 	method: "GET",
+	// 	url: ""
+
+	// }).done(function(data){
+		// var json = JSON.parse(data);
+
+		$('.spotlights article').each(function(i, obj){
+			var article = $(this).children();
+			// console.log(article);		//[0] a, [1] h3, [2] p
+			$(article[0]).attr("href", );
+			$($(article[0]).children()[0]).attr("src", );	
+			// console.log($($(article[0]).children()[0]));
+			$(article[1]).text();
+			$($(article[1]).children()[0]).attr("href", );	
+			$(article[2]).text();
+
+		});
+
+	// });
+
+//=========================update articles on sidebar=========================
+	// $.ajax({
+	// 	method: "GET",
+	// 	url: ""
+
+	// }).done(function(data){
+		// var json = JSON.parse(data);
+
+		//===========blurb===========================
+		var blurb = $('.sidebar').children()[0];
+		$($(blurb).children()[0]).text();
+		$($(blurb).children()[1]).text();
+		var actions = $(blurb).children()[2];
+		$($($(actions).children()[0]).children()[0]).attr('href', '');
+
+		//=========featured posts====================
+		$('.featured-posts article a img').attr("src", );
+		$('.featured-posts article header span').text();
+		$('.featured-posts article header h3').text();
+		$('.featured-posts article p').text();
+		$('.featured-posts article ul li a').attr("href", );
+
+		//========without pic=========================
+		$('.other li').each(function(i, obj){
+			// console.log($(this).children());	//[0] a, [1] br, [2] span
+			var liChild = $(this).children();
+			$(liChild[0]).attr("href", );
+			$(liChild[0]).text( );
+			$(liChild[2]).text( );
+
+
+		});
+
+	// });
+
 //==========================box slider===============================================
 loadBoxSlider();
 
 
 });
-
-function loadSideBar(){
-	$('.sidebar').empty();
-	$.getJSON("php/loadSideBar.php",
-		function(json){
-			var sidebar = '';
-			for(var i = 0; i < json.length; i ++){
-				sidebar += '<section class="featured-posts"><h2>';
-				sidebar += ;
-				sidebar += '</h2>	<article>	<a class="image fit"><img src="'
-				sidebar += ;
-				sidebar += '" alt=""></a>	<header> <h3><a>';
-				sidebar += ;
-				sidebar += '</a></h3>	</header>	<p>';
-				sidebar += ;
-				sidebar += '</p>	<ul class="actions">	<li><a href="';
-				sidebar += ;
-				sidebar += '" class="button big">詳情</a></li>		</ul>	</article>	</section>';
-			}
-			$('.sidebar').append(sidebar);
-		});
-}
-
-function loadSideBarOther(){
-	$.getJSON("php/loadSideBarOther.php",
-		function(json){
-			var other = '<section>	<h2>其他文章</h2>		<ul class="other">';
-			for(var i = 0; i < json.length; i++){
-				other += '<li>		<a href="';
-				other += ;
-				other += '">';
-				other += ;
-				other += '</a><br>	<span class="date">';
-				other += ;
-				other += '</span>	</li>';
-			}
-			other += '</ul>		</section>';
-			$('.sidebar').append(other);
-		})
-}
 
 function loadBoxSlider(){
 	$.getJSON("php/loadBoxSlider.php",

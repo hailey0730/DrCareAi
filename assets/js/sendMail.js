@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var hasError = false;
 		// // var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
 
-		var email = "info@clinicbot.io";
+		var email = "info@aisabots.com";
 
 		var clientName = $('#clientName').val();
 		if(clientName == ''){
@@ -74,7 +74,8 @@ $(document).ready(function() {
 		        altLink += '%20%20%20來自:%20';
 		        altLink += clientName;
 		        altLink += '%20先生/小姐';
-		         document.location.href = altLink;
+		         // document.location.href = altLink;
+		         window.open(altLink, '_blank');
 		      }, 500);
 
 		    $(this).hide();

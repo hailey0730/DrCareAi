@@ -160,7 +160,7 @@
 							</section>
 
 						<!-- Spotlights -->
-							<section class="spotlights alt">
+							<!-- <section class="spotlights alt">
 								<article>
 									<a href="#" class="image fit"><img src="images/banner4.png" alt=""></a>
 									<h3><a href="#">尋醫攻略</a></h3>
@@ -174,7 +174,7 @@
 									
 								</article>
 								
-							</section>
+							</section> -->
 
 					</section>
 

@@ -308,6 +308,7 @@
 	.wrapper > .inner > #title > h1{
 		color: black;
 		margin-bottom: 0;
+		font-weight: 400;
 	}
 
 	.wrapper > .inner > #title > p{
@@ -908,17 +909,22 @@
 			/*width: 50%;*/
 		}
 
+		.image.topImg{
+			display: block;
+			margin: 0 0 3rem 0;
+			width: 70%;
+		}
+
 			.image.main img {
 				width: 100%;
-			}
-
-			#titleImg{
-				width: 50%;
 			}
 
 			@media screen and (max-width: 736px) {
 
 				.image.main {
+					margin: 0 0 2rem 0;
+				}
+				.image.topImg{
 					margin: 0 0 2rem 0;
 				}
 
@@ -2117,7 +2123,7 @@
 				border: none;
 			}
 
-			header p{
+			header a{
 				color: #5dc9dd;
 				font-size: 1.5em;
 			}

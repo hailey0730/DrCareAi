@@ -85,6 +85,7 @@
 
 #test{
 	color: black;
+	font-weight: 400;
 }
 
 #test > a{
@@ -95,4 +96,13 @@ h3{
 	font-size: 2rem;
 	width:7em;
 	color:#525252;
+}
+
+@media screen and (max-width: 980px){
+	.split.knowledgeList{
+		-moz-flex-direction:column-reverse;
+		-webkit-flex-direction:column-reverse;
+		-ms-flex-direction:column-reverse;
+		flex-direction: column-reverse;
+	}
 }

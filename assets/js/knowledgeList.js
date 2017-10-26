@@ -1,6 +1,7 @@
 var clickCounter = {part:'',counter:false};
 var titleList = [];
 var diseaseList = [];
+var scrolled = false;
 $(document).ready(function(){
 	var sickness ='';
 loadList();
@@ -30,6 +31,10 @@ loadList();
      $('.add').each(function(j,obj){
         $(this).css("opacity","1");
      });
+
+     scrolled = false;
+     $('html,body').animate({        //move to article session when enter is pressed
+                    scrollTop:$('#top').offset().top}, 'slow');
         }
     });
 
@@ -82,7 +87,13 @@ function loadFilteredList(conf){
             // console.log($(li[0]).children());   //disease
             if($(content[0]).text() == key){
                 $(content).css("opacity","1");
+                if(!scrolled){
+                    $('html,body').animate({        //move to article session when enter is pressed
+                        scrollTop:$(this).offset().top}, 'slow');
+                    scrolled = true;
+                }
             }
+
             });
 
             $('.add').each(function(j,obj){         //set disease opacity
@@ -116,12 +127,16 @@ function showRelevantDisease(body, bodyPath){
     var img = "images/BodyExport/";
     img += bodyPath;
     $('.body').attr("src", img);
-
+    scrolled = false;
 	// $(".list").remove();
 	if(clickCounter.part == body){
 		if(clickCounter.counter == true){
         $('.body').attr("src","images/BodyExport/Body.png");
         clickCounter.counter = false;
+        scrolled = false;
+         $('html,body').animate({        //move to article session when enter is pressed
+                        scrollTop:$('#top').offset().top}, 'slow');
+        
         $('article').each(function(j, obj){     //set title opacity
             var content = $(this).children().children();
             var li = $(content[1]).children();

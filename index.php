@@ -125,16 +125,23 @@
 							</article>
 							<article >								
 								<span class="iconImage"><img class="iconFinddoc" src="images/icon_info.png"></span>
+								<a href="hospitalTime.php"><h3>急症室時間 ></h3></a>
+								<div class="iconContent">
+									<p>隨行醫生根據地圖來分類顯示不同地區公立醫院的輪侯時間及地址，助你隨時隨地掌握公立醫院的最新訊息。</p>
+								</div>
+							</article>
+							<!-- <article >								
+								<span class="iconImage"><img class="iconFinddoc" src="images/icon_info.png"></span>
 								<a href="knowledge.php"><h3>健康生活 ></h3></a>
 								<div class="iconContent">
 									<p>求醫時了解醫生的診斷方式和原理，並
 懂得合適的表達病情，有助獲得更理想
 的診斷。　</p>
 								</div>
-							</article>
+							</article> -->
 							<article >								
 								<span class="iconImage"><img class="iconFinddoc" src="images/Post.png"></span>
-								<a href="searchHealthArticle.php"><h3>健康報導 ></h3></a>
+								<a href="searchHealthArticle.php"><h3>健康誌 ></h3></a>
 								<div class="iconContent">
 									<p>讓人心身健康是我們設計這個平台的理念，
 多一點知識多一點健康，愉快的生活由此開
@@ -250,8 +257,11 @@
 									</div>
 									<div class="field">
 										<select name="category" id="category">
-											<option>類別</option>
-											<option value=""></option>
+											<option disabled selected>類別</option>
+											<option value="用戶查詢">用戶查詢</option>
+											<option value="醫生查詢">醫生查詢</option>
+											<option value="合作機會">合作機會</option>
+											<option value="傳媒查詢">傳媒查詢</option>
 										</select>
 									</div>
 									<div class="field">

@@ -3,9 +3,27 @@
 var relatedArt = [];
 
 $(document).ready(function() {
-	//content value determine content to show in page
-	var articleID = sessionStorage.getItem('articleContent');
 
+//E.g.  http://www.drcare.ai/content.php?ArticleID=1
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+var articleID = getUrlParameter('ArticleID');
+if(articleID == null){
+	//content value determine content to show in page
+	articleID = sessionStorage.getItem('articleContent');
+}
   if(window.matchMedia("(max-width:720px)").matches){
     $('#content').css("margin-right", 5+'em');
   }else{
@@ -31,7 +49,7 @@ function loadContent(conf){
 	var subTitle = articleContent.Category;
 	subTitle += ' | ';
 	subTitle += articleContent.SubCategory;
-	$('#title p').text(subTitle);
+	$('#title a').text(subTitle);
 	var link = 'searchHealthArticle.php?Category=';
 	link += articleContent.Category;
 	link += '&SubCategory=';
@@ -46,7 +64,7 @@ function loadContent(conf){
 
 	var docKind = articleContent.RelatedDoctorCat;
 	docKind += '醫生';
-	$('.relatedoc p').text(docKind);
+	$('.relatedoc').text(docKind);
 	var docLink = 'http://www.drcare.ai/Doctor/findoc.php?subcategory=';
 	docLink += articleContent.RelatedDoctorCat;
 	$('.relatedoc').attr('href', docLink);

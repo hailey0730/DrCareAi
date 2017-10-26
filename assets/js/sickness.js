@@ -51,7 +51,7 @@ if(name == null){
     $('#title').text(name);
     $('#whatTitle').text('甚麼是'+name+'? (What)');
     $('#whyTitle').text('為甚麼會'+name+'? (Why)');
-    $('#howTitle').text(name+'治療⽅方法? (How)');
+    $('#howTitle').text(name+'治療方法? (How)');
     if(json[0].Desc != ""){
       $('#desc').text(json[0].Desc);
     }else{
@@ -62,37 +62,12 @@ if(name == null){
     $('#why').text(json[0].Why);
     $('#how').text(json[0].How);
     if(json[0].ImageUrl != null){
-      // $('#contentBanner').attr("src", json[0].ImageUrl);
       var imgurl = 'url(';
       imgurl += json[0].ImageUrl;
       imgurl += ')';
-      // var css = {'background-image': imgurl,
-      //             'background-size': 'cover',
-      //             'background-position': 'center'};
-      // // $('#banner').css('background-position', 'top');
-      // $('#banner').css(css);
-     
-      // if( /iPhone|iPad/i.test(navigator.userAgent) ) {
-      //   alert('using ipad');
-        var css = {'background-image': imgurl,
-                    'background-attachment':'scroll',
-                    'display':'-moz-flex',
-                    'display':'-webkit-flex',
-                    'display':'-ms-flex',
-                    'display':'flex',
-                    '-moz-align-items':'center',
-                    '-webkit-align-items':'center',
-                    '-ms-align-items':'center',
-                    'align-items':'center',
-                    'background-size': 'cover',
-                    'background-repeat': 'no-repeat',
-                    'background-position': 'center',
-                    'width':'100%'
-                    };
+      
+        var css = {'background-image': imgurl};
         $('#banner').css(css);
-        
-      // }
-
     }
     doctorType = json[0].RelatedDoctor;
 //show relatedDoctor

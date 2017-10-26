@@ -40,7 +40,7 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<p>Clinicbot</p>
+							<!-- <p>Clinicbot</p> -->
 							<h1>隨行醫生 一鍵即用</h1>
 							<ul class="actions">
 								<li><a href="#three" class="button big special scrolly">立即使用</a></li>

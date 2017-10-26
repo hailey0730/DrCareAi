@@ -547,6 +547,12 @@ a > div > h3{
 			}
 		}
 
+		@media screen and (max-width: 980px){
+			.stats > article{
+				padding: 1em 3em;
+			}
+		}
+
 		.posts > div > article {
 			background-color: #ffffff;
 			margin: 0 0 3rem 0;

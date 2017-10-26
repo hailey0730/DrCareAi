@@ -8,7 +8,15 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 			   			var display = [];			//list of hospitals being show next to map
  $(document).ready(function() {
 
-loadMapTime();
+ 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ 		$('.right').attr('src','images/map-hongkong.png');
+ 		$('map').remove();
+ 		$('.split').append(smallVerMap());
+ 		loadMapTime();
+ 	}else{
+		loadMapTime();
+ 	}
+
 
 	var image = $('img');
 		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
@@ -58,10 +66,12 @@ loadMapTime();
   		
   			$(timeChildren[0]).text("大約");
   			$($(timeChildren[1]).children()).text(hours);
-  		
 
 	});
 
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	
+}else{
 	$('area').each(function(i,obj){
 		// set time as title to be displayed in tooltip
 		if(i<18){
@@ -80,6 +90,7 @@ loadMapTime();
 	}else{
 		$('area[title]').tooltips();
 	}
+}
 
 	$('.right').mapster({
   		fillOpacity: 0, 

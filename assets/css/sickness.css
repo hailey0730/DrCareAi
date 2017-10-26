@@ -1,6 +1,19 @@
 #banner{
 	background-color: #ffffff;
 	padding: 6.5em 0 0 0; 
+	background-attachment:scroll;
+    display:-moz-flex;
+    display:-webkit-flex;
+    display:-ms-flex;
+    display:flex;
+    -moz-align-items:center;
+    -webkit-align-items:center;
+    -ms-align-items:center;
+    align-items:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width:100%;
 }
 
 /*article content*/
@@ -37,7 +50,8 @@
 }
 
 .contentSickness{
-	background-color: rgba(187, 190, 193, 0.19);
+	background-color: rgb(252,252,252);
+	/*background-color: rgba(187, 190, 193, 0.19);*/
 	padding: 0 1.5rem 0 0;
 	max-height: 8em;
 }
@@ -74,7 +88,8 @@
 
 .nameTag span {
 	/*margin-left: 10px;*/
-	color: #bbbec1;
+	color: #888;
+	/*color: #bbbec1;*/
 }
 
 .nameTag > p{

@@ -32,19 +32,19 @@
 				<div class="inner">
 					<header id="title">
 						<h1></h1>
-						<a href=""><p></p></a>
+						<a href=""></a>
 					</header>
-					<a class="image main"><div><img id="titleImg" src="" alt="" /></div></a>
+					<a class="image topImg"><div><img id="titleImg" src="" alt="" /></div></a>
 					<div id="content">
 					<p></p>
 						</div>
 				</div>
 			</section>
 
-			<section class="wrapper">
+			<section class="wrapper" style="margin-bottom: 2em;">
 				<div class="inner">
 					<h3>相關專科</h3>
-					<a class="relatedoc" href=""><p style="color: #5dc9dd; font-size: 1.5em;">醫生</p></a>
+					<a class="relatedoc" href="" style="color: #5dc9dd; font-size: 1.5em;">醫生</a>
 				</div>
 			</section>
 

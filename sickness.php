@@ -126,7 +126,7 @@
 		</div>
 	</section>
 
-	<section id="relatedEssay" class="main">
+	<!-- <section id="relatedEssay" class="main">
 		<div class="articles">
 			<article class="post">
 				<header>
@@ -160,7 +160,7 @@
 					</div>
 				</article>
 
-			</section>
+			</section> -->
 
 		</div>
 
