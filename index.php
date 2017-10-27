@@ -435,6 +435,8 @@
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/login.js"></script>
 	<script src="assets/js/footer.js"></script>
+<script src="assets/js/footerFunction.js"></script>
+<script src="assets/js/sendEmailFunction.js"></script>
 	<script src="assets/js/index.js"></script>
 	<script src="assets/js/sendMail.js"></script>
 </body>

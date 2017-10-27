@@ -75,7 +75,9 @@
 		<script src="assets/js/util.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="assets/js/main.js"></script>
+		<script src="assets/js/sendEmailFunction.js"></script>
 		<script src="assets/js/searchHealthInfo.js"></script>
+		<script src="assets/js/footerFunction.js"></script>
 		<!-- <script src="assets/js/artyom.window.js"></script> -->
 		<script src="assets/js/login.js"></script>
 		<!-- <script src="assets/js/speech.js"></script> -->

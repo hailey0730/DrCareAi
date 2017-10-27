@@ -557,6 +557,8 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/login.js"></script>
 <script src="assets/js/footer.js"></script>
+<script src="assets/js/footerFunction.js"></script>
+<script src="assets/js/sendEmailFunction.js"></script>
 <script src="assets/js/hospitalTime.js"></script>
 <script src="assets/js/jquery.imagemapster.js"></script>
 <!-- [if lte IE 8]<script src="assets/js/ie/respond.min.js"></script><![endif]--> 

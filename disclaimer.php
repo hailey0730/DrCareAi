@@ -66,6 +66,8 @@ Asiabots Limited可在任何時候全權決定終止、暫停或撤回Dr Care.ai
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/login.js"></script>
 	<script src="assets/js/footer.js"></script>
+<script src="assets/js/footerFunction.js"></script>
+<script src="assets/js/sendEmailFunction.js"></script>
 
 </body>
 </html>
