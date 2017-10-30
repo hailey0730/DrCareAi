@@ -192,6 +192,9 @@
 </div>
 		<!-- Scripts -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+		<script src="assets/js/infiniteLoop.js"></script>
+		
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.dropotron.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -203,7 +206,6 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/sendEmailFunction.js"></script>
 		<script src="assets/js/footerFunction.js"></script>
-		<script src="assets/js/infiniteLoop.js"></script>
 		<!-- <script src="assets/js/artyom.window.js"></script> -->
 		<script src="assets/js/login.js"></script>
 		<!-- <script src="assets/js/speech.js"></script> -->

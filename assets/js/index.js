@@ -23,7 +23,6 @@ loadMapTime();
 			if(i<18){
 				var hours = 0;
 				hours = testList[i].等候時間;
-				// var estimate = "~";
 				$(this).attr("title", hours + "小時");
 
 			}
@@ -62,30 +61,6 @@ function resize() {
 
 		$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
 	}
-}
-
-// Track window resizing events, but only actually call the map resize when the
-// window isn't being resized any more
-
-function onWindowResize() {
-// console.log($('.posts').css("width"));
-var curWidth = $(window).width(),
-curHeight = $(window).height(),
-checking=false;
-if (checking) {
-	return;
-}
-checking = true;
-window.setTimeout(function() {
-	var newWidth = $(window).width(),
-	newHeight = $(window).height();
-	if (newWidth === curWidth &&
-		newHeight === curHeight) {
-		resize(newWidth,newHeight);
-
-}
-checking=false;
-},resizeDelay );
 }
 
 //=======map time================

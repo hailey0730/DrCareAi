@@ -8,14 +8,12 @@ loadList();
 
 	$('.content img').mapster({
 		fillOpacity: 0, 
-	    // stroke: true, 
 	    singleSelect: true
 	});
 
     $('body').click(function(evt){      //when clicking somewhere else to deselect
         if(evt.target.nodeName != "AREA")
         {
-            // $(".list").remove();
             $('.body').attr("src","images/BodyExport/Body.png");
             clickCounter.counter = false;
 
@@ -33,7 +31,7 @@ loadList();
      });
 
      scrolled = false;
-     $('html,body').animate({        //move to article session when enter is pressed
+     $('html,body').animate({        
                     scrollTop:$('#top').offset().top}, 'slow');
         }
     });
@@ -82,13 +80,11 @@ function loadFilteredList(conf){
             $('article').each(function(j, obj){     //set title opacity
             var content = $(this).children().children();
             var li = $(content[1]).children();
-            // console.log(content[0]);    //h3
-            // console.log(li);
-            // console.log($(li[0]).children());   //disease
+           
             if($(content[0]).text() == key){
                 $(content).css("opacity","1");
                 if(!scrolled){
-                    $('html,body').animate({        //move to article session when enter is pressed
+                    $('html,body').animate({        
                         scrollTop:$(this).offset().top}, 'slow');
                     scrolled = true;
                 }
@@ -128,35 +124,24 @@ function showRelevantDisease(body, bodyPath){
     img += bodyPath;
     $('.body').attr("src", img);
     scrolled = false;
-	// $(".list").remove();
-	if(clickCounter.part == body){
-		if(clickCounter.counter == true){
+	if(clickCounter.part == body && clickCounter.counter == true){
         $('.body').attr("src","images/BodyExport/Body.png");
         clickCounter.counter = false;
         scrolled = false;
-         $('html,body').animate({        //move to article session when enter is pressed
+         $('html,body').animate({        
                         scrollTop:$('#top').offset().top}, 'slow');
         
         $('article').each(function(j, obj){     //set title opacity
             var content = $(this).children().children();
             var li = $(content[1]).children();
-            // console.log(content[0]);    //h3
-            // console.log(li);
-            // console.log($(li[0]).children());   //disease
+            
             $(content).css("opacity","1");
             });
 
      $('.add').each(function(j,obj){
         $(this).css("opacity","1");
      });
-    	}else{
-
-			clickCounter.counter = true;
-
-            loadFilteredList({
-                Tag: body
-            });
-		}
+    	
 	}else{
 		clickCounter.counter = true;
 		clickCounter.part = body;
@@ -176,7 +161,6 @@ function diseaseRow(t1, t2, d1, d2){
 	var column1 = diseaseColumn(t1, d1);
 	var column2 = '';
 	var column3 = '';
-	// var row = '<ul class="posts">';
 	var row = '';
 	row += column1;
 	if(t2 != null){
@@ -184,7 +168,6 @@ function diseaseRow(t1, t2, d1, d2){
 	row += column2;
 	}
 	
-	// row += '</ul>'
 	return row;
 }
 

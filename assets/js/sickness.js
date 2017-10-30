@@ -87,12 +87,6 @@ if(name == null){
   //   Name: name
   // });
 
-  // loadDocFromDB({
-  //   curPage: 1,
-  //   type: doctorType,   //SubCategory
-  //   specialist: ''      //Category
-  // });
-
     $(".more").click(function(){
 
         loadDocFromDB({
@@ -136,9 +130,6 @@ if(name == null){
       imgurl += json[0].ImageUrl;
       imgurl += ')';
       $('#banner').css('background-image', imgurl);
-      $('#banner').css('background-size', 'cover');
-      $('#banner').css('background-position', 'center');
-
     }
     doctorType = json[0].RelatedDoctor;
 //show relatedDoctor
@@ -147,11 +138,11 @@ if(name == null){
         docCat += '醫生）'
         $('#blue').text(docCat);
 
-  //  loadDocFromDB({
-  //   curPage: 1,
-  //   type: doctorType,   //SubCategory
-  //   specialist: ''      //Category
-  // });
+   loadDocFromDB({
+    curPage: 1,
+    type: doctorType,   //SubCategory
+    specialist: ''      //Category
+  });
 
     });
  }
@@ -163,11 +154,7 @@ function loadDocFromDB(conf) {
   if(conf.name == undefined) {
     conf.name = "";
   }
-  // conf.curPage;
-  // conf.specialist;
-  // conf.area;
-  // conf.type;
-  // conf.keyword;
+ 
   $.getJSON("php/loadDoc.php",
     {curPage: conf.curPage,
     perPage: docsNumPerPage,
@@ -206,32 +193,6 @@ function loadDocFromDB(conf) {
 
 }
 // end
-
-//===========to load more doctors=========================================
- function moreDoc(list){
-  var doc = '';
-   //testing
-        var name = "錢德光";
-        var category = "兒科";
-        var location = "沙田";
-        var address = "香港香港";
-for(var i = 0; i < 6; i ++){
-   moreCounter ++;
-        doc += '<div class="contentSickness"><div class="bulletsDiv"><p>';
-        doc += moreCounter;
-        doc +='</p></div><a href=""><div id="nameTag" class="nameTag"><h3>';
-        doc += name;    //list[moreCounter-1].name
-        doc += '</h3><span>醫生</span><p>';
-        doc += category;  //list[moreCounter-1].category
-        doc += '</p></div><div id="address1" class="address"><h3>';
-        doc +- location;  //list[moreCounter].location
-        doc += '</h3><p>';
-        doc += address;   //list[moreCounter-1].address
-        doc += '</p></div></a></div>';
-      }
-
-        return doc;
-}
 
  function addFavourite(){
       //add to favourite and send info back
@@ -274,27 +235,3 @@ for(var i = 0; i < 6; i ++){
   }
 
 }
-
-// Track window resizing events, but only actually call the map resize when the
-// window isn't being resized any more
-
-function onWindowResize() {
-var curWidth = $(window).width(),
-curHeight = $(window).height(),
-checking=false;
-if (checking) {
-  return;
-}
-checking = true;
-window.setTimeout(function() {
-  var newWidth = $(window).width(),
-  newHeight = $(window).height();
-  if (newWidth === curWidth &&
-    newHeight === curHeight) {
-    resize(newWidth,newHeight);
-
-}
-checking=false;
-},resizeDelay );
-}
-

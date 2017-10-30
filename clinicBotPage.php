@@ -258,14 +258,12 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<!-- <script src="assets/js/atmostphereMain.js"></script> -->
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/footer.js"></script>
 <script src="assets/js/footerFunction.js"></script>
 <script src="assets/js/sendEmailFunction.js"></script>
 			<script src="assets/js/login.js"></script>
 			<script src="assets/js/sendMail.js"></script>
-			<!-- <script src="assets/js/clinicBotPage.js"></script> -->
 
 	</body>
 </html>

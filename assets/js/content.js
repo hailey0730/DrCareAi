@@ -1,3 +1,5 @@
+var resizeTime = 100;     // total duration of the resize effect, 0 is instant
+var resizeDelay = 100;  
 // var article = {'ID':'', 'CreateDateTime':'', 'Category':'','SubCategory':'', 'Title':'', 'Content':'', 'ImageUrl':'', 'RelatedDoctorCat':''};
 
 var relatedArt = [];
@@ -19,6 +21,7 @@ $(document).ready(function() {
         }
     }
 };
+
 var articleID = getUrlParameter('ArticleID');
 if(articleID == null){
 	//content value determine content to show in page
@@ -36,6 +39,19 @@ loadContent({
 });
 
 });
+
+$(window).bind('resize',onWindowResize);
+
+function resize(newWidth,newHeight) {
+  if(newWidth > 720){
+
+    $('#content').css("margin-right", newWidth * 1/3 + 'px');
+  }else{
+    $('#content').css("margin-right", 5+'em');
+
+  }
+
+}
 
 function loadContent(conf){
 	$.getJSON("php/loadArticleContent.php",

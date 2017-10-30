@@ -26,8 +26,6 @@ $(document).ready(function() {
 
 		var subject = $("#category").val();
 		if(subject == null) {
-			// $("#category").after('<span class="error">請填上類別。</span>');
-			// hasError = true;
 			subject = 'ClinicbotPage';
 		}
 
@@ -36,10 +34,6 @@ $(document).ready(function() {
 			$("#message").after('<span class="error">請填上您的信息。</span>');
 			hasError = true;
 		}
-		// console.log(clientName);
-		// console.log(emailFromVal);
-		// console.log(subject);
-		// console.log(emailBody);
 		// if(hasError == false) {
 		// 			$(this).hide();
 		 
@@ -54,8 +48,6 @@ $(document).ready(function() {
 		//  	}
 		//  	); 
 		// } 
-
-		// return false;
 
 		if(hasError == false){
 		    window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody + '	來自:' + clientName + ' 先生/小姐';
@@ -75,7 +67,7 @@ $(document).ready(function() {
 		        altLink += clientName;
 		        altLink += '%20先生/小姐';
 		         // document.location.href = altLink;
-		         window.open(altLink, '_blank');
+		         window.open(altLink, '_blank');	// open link on new tab
 		      }, 500);
 
 		    $(this).hide();

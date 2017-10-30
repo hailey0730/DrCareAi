@@ -182,6 +182,7 @@
 			<script src="assets/js/footer.js"></script>
 <script src="assets/js/footerFunction.js"></script>
 <script src="assets/js/sendEmailFunction.js"></script>
+<script src="assets/js/onWindowResizeFunction.js"></script>
 			<script src="assets/js/sickness.js"></script>
 
 
