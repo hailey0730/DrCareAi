@@ -1,3 +1,16 @@
+<?php
+	header("Content-Type:text/html;charset=utf-8");
+	$articleID = $_SESSION['articleContent'];
+	echo $articleContent;
+	$url = "http://www.chatbot.hk/DrCare.ArticleHealth.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513";
+
+	$url = $url."&ArticleID=".urlencode($articleID);
+	$json = file_get_contents($url);
+	$results = json_decode($json, true);
+	$description = json_encode($results['Title']);
+
+?>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -5,6 +18,11 @@
 	<title>DrCare.ai</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta property="og:url"           content="http://www.drcare.ai/content.php?ArticleID=<?php echo $articleID; ?>" />
+	  <meta property="og:type"          content="website" />
+	  <meta property="og:title"         content="DrCare.ai" />
+	  <meta property="og:description"   content=" <?php echo $description; ?> " />
+	  <meta property="og:image"         content="http://www.drcare.ai/images/健康認文章圖片-20171012T090814Z-001/健康認文章圖片/" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="assets/css/loginWin.css" />
 	<link rel="stylesheet" href="assets/css/noBannerBGMain.css" />
@@ -14,6 +32,14 @@
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
 <body id="top">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<!-- Header -->
 	<header id="header" class="alt">
@@ -33,6 +59,7 @@
 					<header id="title">
 						<h1></h1>
 						<a href=""></a>
+						
 					</header>
 					<a class="image topImg"><div><img id="titleImg" src="" alt="" /></div></a>
 					<div id="content">

@@ -68,7 +68,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
         }
         }else{
              // End of the document reached?
-        if ($(document).height() - win.height() == win.scrollTop()) {
+        if ($(document).height() - win.height() - 500 < win.scrollTop()) {
+        // if ($(document).height() - win.height() == win.scrollTop()) {
             if(!filterClicked){
                 $('#loading').show();
 
@@ -307,7 +308,8 @@ function randomPost(json){
 
 //===================onclick function===================
 function passArticle(article){
-     window.sessionStorage.setItem('articleContent', article);
-     window.location.replace("content.php");
+    var link = "content.php?ArticleID=" + article;
+     // window.sessionStorage.setItem('articleContent', article);
+     window.location.replace(link);
 }
 

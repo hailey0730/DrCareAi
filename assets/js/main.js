@@ -5,6 +5,7 @@
 */
 
 $(document).ready(function(){
+	$('#header').append(gtag());
 	$('#header').append(makeNav());
 
 (function($) {
@@ -226,6 +227,13 @@ $(document).ready(function(){
 
 
 // });
+
+//adding this can know how many people browse the website and how they find us
+function gtag(){
+	var gtag =  '<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-108981317-1"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date());  gtag("config", "UA-108981317-1");</script>';
+
+return gtag;
+}
 
 // <li><a href="http://www.drcare.ai/knowledge.php">健康總覽</a></li>
 function makeNav(){

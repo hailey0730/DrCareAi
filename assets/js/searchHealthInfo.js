@@ -1,6 +1,6 @@
 
     var articles = [];
-
+    var scrollIndex = 0;
 $(document).ready(function() {
     $('#searchWord').hide();
     $('#text-area').keyup(function(e){
@@ -13,48 +13,56 @@ $(document).ready(function() {
         $('.articles').empty();
         $('#footer').remove();
        $('#searchWord').text('相關 "'+$('#text-area').val()+'" 文章有：');
+       scrollIndex = 0;
         //show filter articles
            // pass search key words to get filter list
             loadArticles({
                 keyword: $('#text-area').val()
             });
         
-        });
-});
 
-function loadArticles(conf){
-    
-    var i = 0;
-    var win = $(window);
-    $.getJSON("Doctor/php/getArticle.php",
-        {KeyPhase: conf.keyword},
-        function(json){
-            articles = [];
-            for(i in json){
-                articles[i] = json[i];
-            }
-            $('#searchWord').show();
-            $(".articles").css("display", "inline");
-            var html = articlesHTML(articles[0]);
-            $(".articles").append(html);
-            $('html,body').animate({        //move to article session when enter is pressed
-            scrollTop:$('#three').offset().top}, 'slow');
-            i = 1;
-            win.scroll(function() {
+         var win = $(window);
+
+         win.scroll(function() {
 
         // End of the document reached?
         if ($(document).height() - win.height() - 500 < win.scrollTop()) {
-            if(i < articles.length){
-                var html = articlesHTML(articles[i]);
+            if(scrollIndex < articles.length){
+                var html = articlesHTML(articles[scrollIndex]);
                 $(".articles").append(html);
-                i ++;
-            }else if(i == articles.length){
+                scrollIndex ++;
+            }else if(scrollIndex == articles.length){
                 $('body').append(footer());
-                i++;
+                scrollIndex++;
             }
         }
 
         });
+
+        });
+
+
+});
+
+function loadArticles(conf){
+    
+    $.getJSON("Doctor/php/getArticle.php",
+        {KeyPhase: conf.keyword},
+        function(json){
+            articles = [];
+            for(var j = 0; j < json.length; j ++){
+                articles[j] = json[j];
+            }
+            
+            $('#searchWord').show();
+            $(".articles").css("display", "inline");
+            var html = articlesHTML(articles[scrollIndex]);
+            scrollIndex ++;
+            $(".articles").append(html);
+            $('html,body').animate({        //move to article session when enter is pressed
+            scrollTop:$('#three').offset().top}, 'slow');
+            
+       
         });
 }
 
@@ -145,9 +153,14 @@ function articlesHTML(articles){
                 '<p>' + tag + '</p>' +
             '</div>' +
             '<div class="meta">' +
-                '<time class="published" datetime="' + time + '">' + time + '</time>' +
-                '<a href="#" class="author doctor"><span class="name">' + author + '</span><img src="' + authorPic + '" alt="" /></a>' +
-                '<a href="#" class="author"><span class="name">' + media + '</span><img src="' + mediaPic + '" alt="" /></a>' +
+                '<time class="published" datetime="' + time + '">' + time + '</time>';
+                
+                for(var i = 0; i < author.length; i ++) {
+                    returnHTML += '<a href="' + 'http://www.drcare.ai/Doctor/docPage.php?Name=' + author[i] + '&ID=' + //doctor ID
+                    + '" class="author doctor"><span class="name">' + author[i] + '</span><img src="' + authorPic[i] + '" alt="" /></a>';
+                }
+
+    returnHTML += '<a href="#" class="author"><span class="name">' + media + '</span><img src="' + mediaPic + '" alt="" /></a>' +
             '</div>' +
         '</header>' +
         '<div class="Content">' +
