@@ -151,58 +151,7 @@
 								<h2 style="color: #5dc9dd;">媒體報道</h2 style="color: #5dc9dd;">
 							</header>
 							<section class="timeline">
-								<section>
-									<header>
-										<p>09.29.17</p>
-										<h4>創·新勢力: AI變全天候看護 分析病徵 定時提食藥</h4>
-									</header>
-									<span class="imageBottom"><img src="images/news1.jpg" alt=""></span>
-									<div class="content">
-										<p>人工智能(AI)發展迅速，聊天機械人除了能做簡單客服工作,還可以提供更多功能。香港初創公司Asiabots將聊天機械人運用於醫療服務上，讓診所能透過聊天App為病人提供24小時的預約及問地址服務，未來更計劃推出網站，透過分析病人提供的病徵，建議由哪個專科跟進。</p>
-										<ul class="actions">
-											<li><a href="http://chi.clinicbot.hk/blog/ai-4db88e0c-1b6f-4806-b90b-197837a0cbe0" class="button">閱讀</a></li>
-										</ul>
-									</div>
-								</section>
-								<section>
-									<header>
-										<p>09.19.17</p>
-										<h4>A.I.大熱　專家雲集談應用</h4>
-									</header>
-									<span class="imageBottom"><img src="images/news2.jpg" alt=""></span>
-									<div class="content">
-										<p>機械人與人工智能(A.I.)的結合，能令機器變得有智慧，具學習能力，因應不同情況思考並提供實際解決方案。近年A.I.已逐漸應用於各行各業，例如工業自動化、運輸及醫療範疇等。香港科技園公司年度旗艦活動《亞太創新峰會2017》(AIS)系列：機械人技術論壇，匯聚全球多位頂尖學者、工程專家及商界領袖，共同探討機械人技術、人工智能及相關未來應用等議題。</p>
-										<ul class="actions">
-											<li><a href="http://chi.clinicbot.hk/blog/a-i" class="button">閱讀</a></li>
-										</ul>
-									</div>
-								</section>
-								<section>
-									<header>
-										<p>08.28.17</p>
-										<h4>醫療機械人如醫生助理</h4>
-									</header>
-									<span class="imageBottom"><img src="images/news3.jpg" alt=""></span>
-									<div class="content">
-										<p>開發人工智能的初創「Asiabots」聯合創辦人岑潮輝及黃梓豪，斥逾一百萬元研究了醫療機械人（Clinicbot）一年後，近日已在五家醫療診所推出，病人毋須親自抵達或致電診所，已可透過機械人預約求診、解答病人問題、提示服藥、簡單醫療病症查詢，更可配對醫生等。</p>
-										<ul class="actions">
-											<li><a href="http://chi.clinicbot.hk/blog/7d3282c5a1a" class="button">閱讀</a></li>
-										</ul>
-									</div>
-								</section>
-								<section>
-									<header>
-										<p>08.24.17</p>
-										<h4>AI“問症” 增效率減醫療壓力</h4>
-									</header>
-									<span class="imageBottom"><img src="images/news4.jpg" alt=""></span>
-									<div class="content">
-										<p>人工智能(AI)現時多應用於客服方面，本港初創公司Asiabots將AI結合醫療用途，提供“一條龍”服務。系統只需諮詢求診者症狀、健康情況，便可為病人推薦相關專科醫生，提供預約服務，並將病人症狀及基本情況傳給相應醫生，大大提升應診效率！創辦人説，因應人口老化，未來香港對醫療的需求會有所增長，期望人工智能系統可緩和本港醫療壓力。</p>
-										<ul class="actions">
-											<li><a href="http://chi.clinicbot.hk/blog/ai" class="button">閱讀</a></li>
-										</ul>
-									</div>
-								</section>
+								<!-- list of news articles append here -->
 							</section>
 						</div>
 					</section>
@@ -264,6 +213,7 @@
 <script src="assets/js/sendEmailFunction.js"></script>
 			<script src="assets/js/login.js"></script>
 			<script src="assets/js/sendMail.js"></script>
+			<script src="assets/js/clinicBotPage.js"></script>
 
 	</body>
 </html>
