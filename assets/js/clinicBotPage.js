@@ -12,7 +12,7 @@ function loadNewsArticles(){
 				+ data[i].Title + '</h4></header><span class="imageBottom"><img src="images/'
 				+ data[i].Image + '" alt=""></span><div class="content"><p>'
 				+ data[i].Content + '</p><ul class="actions"><li><a href="'
-				+ data[i].Link + '" class="button">閱讀</a></li></ul></div></section>';
+				+ data[i].Link + '" class="button" target="_blank">閱讀</a></li></ul></div></section>';
 			}
 
 			$('.timeline').append(newsHTML);

@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>DrCare.ai</title>
+	<title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
+	<meta name="description" content="隨行醫生首創人工智能問症以及首個醫療CHATBOT聊天對話機械人。只要輸入喉嚨痛、頭痛、咳等病徵便能查詢到相關的疾病，例如提供自閉症、糖尿病、肺炎、乳癌、子宮頸癌等疾病的詳細解釋;還提供全港醫生資料，如中醫、西醫、婦產科、精神科、骨科、眼科、牙科、皮膚科等專科醫生資料;提供醫療券、流感疫苗、hiv身體檢查、急症室時間等醫療訊息。">
+	<meta name="keywords" content="醫生網,醫生,醫院,中醫,西醫,診所,急症室 ,整形外科,婦產科,醫療券,流感疫苗,流感疫苗副作用,頭痛,咳,喉嚨痛,抑鬱症,焦慮症,糖尿病,肺炎,中風,子宮頸癌,自閉症,大腸癌,乳癌">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -41,9 +43,8 @@
 	<section id="Timeone" class="wrapper timetop">
 		<div class="inner">
 			<h3>急症室等候時間參考</h3>
-			<p class="black">急症室會優先診治被分流為危殆、危急和緊急的病人。　
-				最長等候時間顯示上限為8小時，表示急症室正處理大量等候已久的病人。病況輕微的病人可考慮使
-				用私營醫療服務</p>
+			<p class="black">「急症室時間」助你隨時隨地掌握公立醫院的最新輪侯時間，輪侯時間會每小時更新一次。</p>
+			<p class="black">急症室會優先診治被分流為危殆、危急和緊急的病人。最長等候時間顯示上限為8小時，表示急症室正處理大量等候已久的病人。病況輕微的病人可考慮使用私營醫療服務</p>
 				<p class="rightBottom black">最後更新時間 2017年9月15日 上午11時30分</p>
 			</div>
 

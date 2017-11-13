@@ -6,9 +6,17 @@
 -->
 <html>
 <head>
-	<title>DrCare.ai</title>
+	<!-- <title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
+	<meta name="description" content="隨行醫生首創人工智能問症以及首個醫療CHATBOT聊天對話機械人。只要輸入喉嚨痛、頭痛、咳等病徵便能查詢到相關的疾病，例如提供自閉症、糖尿病、肺炎、乳癌、子宮頸癌等疾病的詳細解釋;還提供全港醫生資料，如中醫、西醫、婦產科、精神科、骨科、眼科、牙科、皮膚科等專科醫生資料;提供醫療券、流感疫苗、hiv身體檢查、急症室時間等醫療訊息。">
+	<meta name="keywords" content="醫生網,醫生,醫院,中醫,西醫,診所,急症室 ,整形外科,婦產科,醫療券,流感疫苗,流感疫苗副作用,頭痛,咳,喉嚨痛,抑鬱症,焦慮症,糖尿病,肺炎,中風,子宮頸癌,自閉症,大腸癌,乳癌"> -->
+	<title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
+	<meta name="description" content="隨行醫生首創人工智能問症以及首個醫療CHATBOT聊天對話機械人。只要輸入喉嚨痛、頭痛、咳等病徵便能查詢到相關的疾病，例如提供自閉症、糖尿病、肺炎、乳癌、子宮頸癌等疾病的詳細解釋;還提供全港醫生資料，如中醫、西醫、婦產科、精神科、骨科、眼科、牙科、皮膚科等專科醫生資料;提供醫療券、流感疫苗、hiv身體檢查、急症室時間等醫療訊息。">
+	<meta name="keywords" content="醫生網,醫生,醫院,中醫,西醫,診所,急症室 ,整形外科,婦產科,醫療券,流感疫苗,流感疫苗副作用,頭痛,咳,喉嚨痛,抑鬱症,焦慮症,糖尿病,肺炎,中風,子宮頸癌,自閉症,大腸癌,乳癌">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<link rel="icon" href="">	<!-- icon show on web tab -->
+
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="assets/css/loginWin.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -89,7 +97,7 @@
 			<h1>優質醫療服務平台</h1>
 			<h2>給予你和家人的健康</h2>
 			<ul class="actions">
-				<li><a href="#one" class="button wide scrolly">開始使用</a></li>
+				<li><a href="http://m.me/drcare.ai" class="button wide scrolly">開始使用</a></li>
 				<!-- <li><a href="#one" class="button wide scrolly">免費註冊</a></li> -->
 			</ul>
 		</div>
@@ -109,10 +117,7 @@
 							<span class="iconImage"><img class="iconFinddoc" src="images/icon_finddoc.png"></span>
 							<a href="http://www.drcare.ai/Doctor/findoc.php"><h3>醫生 ></h3></a>
 							<div class="iconContent">
-								<p>我們明白生病時找附近診所的迫切性 , 所
-以我們更合理地按各診所按地區﹑專科分
-類 ,  更附有詳細的電話地址以及醫護人員
-資料。</p>
+								<p>生病的時候，我們都迫切地想要找到適合自己的醫生。所以在「找醫生」中，我們更人性化地按診所地區和疾病的門類來分類不同的醫生，更附有詳細的醫療資訊，方便用戶尋找醫生。</p>
 								</div>
 							</article>
 							<article >								
@@ -130,22 +135,12 @@
 									<p>隨行醫生根據地圖來分類顯示不同地區公立醫院的輪侯時間及地址，助你隨時隨地掌握公立醫院的最新訊息。</p>
 								</div>
 							</article>
-							<!-- <article >								
-								<span class="iconImage"><img class="iconFinddoc" src="images/icon_info.png"></span>
-								<a href="knowledge.php"><h3>健康生活 ></h3></a>
-								<div class="iconContent">
-									<p>求醫時了解醫生的診斷方式和原理，並
-懂得合適的表達病情，有助獲得更理想
-的診斷。　</p>
-								</div>
-							</article> -->
 							<article >								
 								<span class="iconImage"><img class="iconFinddoc" src="images/Post.png"></span>
 								<a href="searchHealthArticle.php"><h3>健康誌 ></h3></a>
 								<div class="iconContent">
 									<p>讓人心身健康是我們設計這個平台的理念，
-多一點知識多一點健康，愉快的生活由此開
-始。
+									多一點知識多一點健康，愉快的生活由此開始。
 									</p>
 								</div>
 							</article>
@@ -183,9 +178,8 @@
 			<div class="split reversed">
 					<div class="content">
 						<h3>實時急症室等候時間參考</h3>
-						<p>急症室會優先診治被分流為危殆、危急和緊急的病人。　
-							最長等候時間顯示上限為8小時，表示急症室正處理大量等候已久的
-							病人。病況輕微的病人可考慮使用私營醫療服務</p>
+						<p>「急症室時間」助你隨時隨地掌握公立醫院的最新輪侯時間，輪侯時間會每小時更新一次。</p>
+						<p>急症室會優先診治被分流為危殆、危急和緊急的病人。最長等候時間顯示上限為8小時，表示急症室正處理大量等候已久的病人。病況輕微的病人可考慮使用私營醫療服務</p>
 							<ul class="actions">
 								<li><a href="hospitalTime.php" class="button">查看詳情</a></li>
 							</ul>
@@ -249,6 +243,7 @@
 							<div class="ratings">
 								<form action="php/sendEmail.php" method="post">
 									<h2>給我們留言</h2>
+									<p>香港的人均壽命是全球最高,優質的醫療服務以及醫療機構專業人員的付出功不可沒。我們亦希望出一分力為香港的醫療服務作出貢獻。同時我們希望不斷進步，你們提供的每一個意見或任何認為能夠有利民眾的創新服務,對我們都非常重要，我們亦願意全力配合，期待你的留言。</p>
 									<div class="field half first">
 										<input name="name" id="clientName" placeholder="名稱" type="text"/>
 									</div>

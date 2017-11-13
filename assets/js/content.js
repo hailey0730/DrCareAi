@@ -60,7 +60,9 @@ function loadContent(conf){
 			articleContent = json[0];
 	
 	//set ArticleID in link in share button
-	var fbShareBtn = '<div class="fb-share-button" 						    data-href="http://www.drcare.ai/content.php?ArticleID=' + articleContent.ID +'"  data-layout="button_count" style="display: inline-block; margin-left: 2em;">						  </div>'
+	var fbShareBtn = '<div class="fb-like" data-href="http://www.drcare.ai/content.php?ArticleID='
+	+ articleContent.ID + '" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>';
+	
 	$('#title').append(fbShareBtn);
 
 

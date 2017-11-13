@@ -903,7 +903,7 @@
 			@media screen and (max-width: 480px) {
 
 				ul.actions {
-					margin: 0 0 2em 0;
+					margin: 1em 0 2em 0;
 				}
 
 					ul.actions li {
@@ -1455,6 +1455,7 @@
 	.wrapper {
 		padding: 6em 0 4em 0 ;
 		position: relative;
+		margin-bottom: 0.5em;
 	}
 
 		.wrapper:before, .wrapper:after {
@@ -1996,6 +1997,7 @@
 				padding: 4em 0 2em 0 ;
 				display: flex;
 				flex-direction: column-reverse;
+				margin-bottom: 0;
 			}
 
 			div span.image{
@@ -2361,6 +2363,7 @@
 			#banner {
 				background-attachment: scroll;
 				padding: 16em 3em;
+				margin-bottom: 0.5em;
 			}
 
 		}
@@ -2387,6 +2390,13 @@
 					font-size: 1.25em;
 				}
 
+		}
+
+		@media screen and (max-width: 480px){
+			#banner h1{
+				width:5em;
+				margin: 0.5em auto;
+			}
 		}
 
 		@media screen and (max-width: 360px) {
@@ -2478,6 +2488,12 @@
 	margin-bottom: 0em;
 	padding-top: 8em;
 	padding-bottom: 5em;
+}
+
+@media screen and (max-width: 1280px){
+	#footer .contact {
+	     margin-right: 0em; 
+	}
 }
 
 @font-face {

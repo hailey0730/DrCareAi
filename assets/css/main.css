@@ -1459,8 +1459,8 @@
 	}
 
 	p {
-		margin: 0 0 2em 0;
-		color: #bbbec1;
+		margin: 0 0 1em 0;
+		color: #637485;
 		font-family: 'Noto Sans TC', sans-serif; /*'PingFang';*/
 	}
 
@@ -2721,7 +2721,7 @@
 		}
 
 		form > .actions {
-			margin-top: 3em;
+			margin-top: 2em;
 		}
 
 		@media screen and (max-width: 980px) {
