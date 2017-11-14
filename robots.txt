@@ -2,6 +2,13 @@ User-agent: *
 
 Disallow: /
 
-User-agent: Mediapartners-Google
-
+User-agent: Googlebot
 Allow: /
+User-agent: Slurp
+Allow: /
+User-Agent: bingbot
+Allow: /
+User-agent: msnbot
+Disallow: 
+User-agent: Baiduspider
+Disallow: 

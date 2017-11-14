@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
+	<meta name="description" content="隨行醫生首創人工智能問症以及首個醫療CHATBOT聊天對話機械人。只要輸入喉嚨痛、頭痛、咳等病徵便能查詢到相關的疾病，例如提供自閉症、糖尿病、肺炎、乳癌、子宮頸癌等疾病的詳細解釋;還提供全港醫生資料，如中醫、西醫、婦產科、精神科、骨科、眼科、牙科、皮膚科等專科醫生資料;提供醫療券、流感疫苗、hiv身體檢查、急症室時間等醫療訊息。">
+	<meta name="keywords" content="醫生網,醫生,醫院,中醫,西醫,診所,急症室 ,整形外科,婦產科,醫療券,流感疫苗,流感疫苗副作用,頭痛,咳,喉嚨痛,抑鬱症,焦慮症,糖尿病,肺炎,中風,子宮頸癌,自閉症,大腸癌,乳癌">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/loginWin.css" />
+	<!-- <link rel="stylesheet" href="assets/css/searchHealthInfo.css" />		 might need to change another css--> 
+	<link rel="stylesheet" href="assets/css/searchVaccine.css" />		<!-- might need to change another css-->
+	<link rel="stylesheet" href="assets/css/headerFooter.css" />
+	<!-- <link rel="stylesheet" href="Doctor/css/docPage.css" />
+	<link rel="stylesheet" href="Doctor/templates/px-hypothesis-html/blue/assets/css/main.css" />
+	<link rel="stylesheet" href="Doctor/templates/px-hypothesis-html/blue/assets/css/custom.css" /> -->
+
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body id="top">
+
+
+	<!-- Header -->
+	<header id="header" class="alt">
+
+		<!-- Logo -->
+		<div class="logo">
+			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
+		</div>
+
+		<!-- Nav -->
+		
+
+	</header>
+
+	<div id="pageContent">
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Banner -->
+		<section id="banner">
+			<header class="accent1 main">
+				<p style="margin-bottom: 0; color: black;">疫苗資助計劃	免費疫苗	你抵打</p>
+				<h2 style="margin-bottom: 0;">搜尋疫苗</h2>
+			<form id="searchForm">
+				<!-- <input type="text" id="text-area">
+				<span class="fa fa-search" style="cursor: pointer;" onclick="$('#searchForm').submit();"></span> -->
+				
+
+				<!-- search by type -->
+				<select class="filter" id="area">
+					<option value="" selected="">全部地區</option>
+				</select>
+
+				<!-- search by type of people -->
+				<p>你是以下的高危人士嗎?(非必填)</p>
+				<div class="checkbox">
+				<input type="checkbox" name="people" id="pregnant" value="pregnant">孕婦
+				<input type="checkbox" name="people" id="children" value="children">兒童
+				<input type="checkbox" name="people" id="elderly" value="elderly">長者
+				</div>
+
+				<!-- search by type -->
+				<!-- <select class="filter" id="type">
+					<option value="" selected="">全部疫苗</option>
+				</select> -->
+
+				<!-- search by tags -->
+				<!-- <input id="searchInput" type="text" placeholder="輸入地址"></input> -->
+				<!-- <img src="img/search.png" class="searchIcon" onclick="passToURL()"> -->
+				<span class="fa fa-search" style="cursor: pointer;" onclick="$('#searchForm').submit();"></span>
+					</form>
+					</header>
+
+				</section>
+		
+				<!-- Section -->
+				<section id="three" class="main alt">
+					<header>
+						<h2 id="searchWord">提供疫苗的診所有：</h2>
+					</header>
+					<div class="inner">
+							<div class="articles">
+
+								<table id="vaccineTable">
+									<thead>
+										<tr class="tableHeader">
+											<!-- header append here -->
+											<!-- <th>疫苗提供者</th>
+											<th>地址和電話號碼</th>
+											<th>季節性流感疫苗(SIV)(孕婦)</th>
+											<th>季節性流感疫苗(SIV)(兒童)</th>
+											<th>季節性流感疫苗(SIV)(長者)</th>
+											<th>肺炎球菌疫苗(23vPPV)(長者)</th>
+											<th>肺炎球菌疫苗(PCV13)(長者)</th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<!-- content to be append -->
+										<!-- <tr class="tableContent">
+											<td>
+												<div>
+													<p>韋予力醫生醫務所</p>
+													<p>BALLANTINE, ALISTAIR NIGEL STUART</p>
+												</div>
+											</td>
+											<td>
+												<div>
+													<p>香港中環中環德輔道中19號環球大廈10樓1006-07室</p>
+													<p>25213302</p>
+												</div>
+											</td>
+											<td>90</td>
+											<td>90</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr class="tableContent">
+											<td>
+												<div>
+													<p>韋予力醫生醫務所</p>
+													<p>BALLANTINE, ALISTAIR NIGEL STUART</p>
+												</div>
+											</td>
+											<td>
+												<div>
+													<p>香港中環中環德輔道中19號環球大廈10樓1006-07室</p>
+													<p>25213302</p>
+												</div>
+											</td>
+											<td>90</td>
+											<td>90</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr> -->
+									</tbody>
+								</table>
+
+							</div>
+					</div>
+					<!-- <p id="loading">Loading</p> -->
+				</div>
+			</section>
+
+</div>
+		<!-- Scripts -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.selectorr.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/sendEmailFunction.js"></script>
+		<script src="assets/js/searchVaccine.js"></script>
+		<script src="assets/js/footerFunction.js"></script>
+		<!-- <script src="assets/js/artyom.window.js"></script> -->
+		<script src="assets/js/login.js"></script>
+		<!-- <script src="assets/js/speech.js"></script> -->
+
+	</body>
+	</html>

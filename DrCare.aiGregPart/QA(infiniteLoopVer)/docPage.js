@@ -360,8 +360,12 @@ function formatingArticleHTML(article) {
 			'</div>' +
 			'<div class="meta">' +
 				'<time class="published" datetime="' + time + '">' + time + '</time>' +
-				'<a href="#" class="author"><span class="name">' + author + '</span><img src="' + authorPic + '" alt="" /></a>' +
-				'<a href="#" class="author"><span class="name">' + media + '</span><img src="' + mediaPic + '" alt="" /></a>' +
+				'<a href="#" class="author"><span class="name">' + author 
+				// + '</span><img src="' + authorPic + '" alt="" />'
+				+'</a>' +
+				'<a href="#" class="author"><span class="name">' + media 
+				// + '</span><img src="' + mediaPic + '" alt="" />'
+				+'</a>' +
 			'</div>' +
 		'</header>' +
 		'<div class="Content">' +

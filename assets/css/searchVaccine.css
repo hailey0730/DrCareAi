@@ -1,3 +1,18 @@
+.filter{
+	width:30%;
+	margin: 0 auto;
+}
+
+.checkbox{
+	margin: 20px auto;
+	position: relative;
+}
+
+#banner  p{
+	color:white;
+	margin: 1em auto;
+}
+
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,300italic,400italic");
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
@@ -2776,7 +2791,6 @@
 		resize: vertical;
 	}
 
-	input[type="checkbox"],
 	input[type="radio"] {
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -2790,7 +2804,6 @@
 		z-index: -1;
 	}
 
-		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
 			cursor: pointer;
@@ -2802,7 +2815,6 @@
 			position: relative;
 		}
 
-			input[type="checkbox"] + label:before,
 			input[type="radio"] + label:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
@@ -2812,7 +2824,6 @@
 				text-transform: none !important;
 			}
 
-			input[type="checkbox"] + label:before,
 			input[type="radio"] + label:before {
 				border-radius: 4px;
 				border: solid 1px;
@@ -2827,14 +2838,10 @@
 				width: 2.1em;
 			}
 
-		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
 			content: '\f00c';
 		}
 
-	input[type="checkbox"] + label:before {
-		border-radius: 4px;
-	}
 
 	input[type="radio"] + label:before {
 		border-radius: 100%;
@@ -5998,7 +6005,7 @@
 
 	p {
 		margin: 0 0 2rem 0;
-		color: #bbbec1;
+		/*color: #bbbec1;*/
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -7015,6 +7022,7 @@
 		table tbody tr:nth-child(2n + 1) {
 			background-color: rgba(144, 144, 144, 0.075);
 		}
+
 
 	table thead {
 		border-bottom-color: #eeeeee;
@@ -9070,7 +9078,7 @@
 		position: relative;
 		width: 100%;
 		margin-bottom: 20px;
-		display: none;
+		/*display: none;*/
 	}
 
 	.post{
