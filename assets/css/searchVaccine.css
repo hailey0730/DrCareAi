@@ -1,5 +1,5 @@
 .filter{
-	width:30%;
+	width:28%;
 	margin: 0 auto;
 }
 
@@ -11,6 +11,45 @@
 #banner  p{
 	color:white;
 	margin: 1em auto;
+}
+
+header img{
+	display: inline-block; 
+	width:20%;
+	vertical-align: middle;
+}
+
+#header-fixed{
+	position: fixed;
+    top: 10em; display:none;
+    background-color:white;
+}
+
+.floatThead-container {
+    border-top: none;
+    border-bottom: none;
+    background-color: #fff;
+}
+
+.float{
+	padding-top: 6em;
+}
+
+.hidable{
+	cursor: pointer;
+}
+
+/*table{
+	table-layout: fixed;
+}
+
+table td:first-child{
+	width:14%;
+	/*width:5em;*/
+/*}*/
+
+table th:first-child, table td:first-child{
+	padding: 0.75em 0.2em;
 }
 
 @import url(font-awesome.min.css);
@@ -2730,10 +2769,10 @@
 	input[type="email"],
 	select,
 	textarea {
-		-moz-appearance: none;
+		/*-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
-		appearance: none;
+		appearance: none;*/
 		border-radius: 4px;
 		border: solid 1px;
 		color: inherit;
@@ -2917,14 +2956,14 @@
 		color: #ffffff;
 	}
 
-	input[type="checkbox"]:checked+span { 
+	/*input[type="checkbox"]:checked+span { 
 		font-weight: bold;
-	}
+	}*/
 
-	input[type="checkbox"]+span { 
+	/*input[type="checkbox"]+span { 
 		color: white;
 		font-size: 1.35em;
-	}
+	}*/
 
 	input[type="checkbox"]:focus + label:before,
 	input[type="radio"]:focus + label:before {
@@ -3389,7 +3428,8 @@
 		}
 
 		table td {
-			padding: 0.75em 0.75em;
+			padding: 0.75em 0.2em;
+			/*padding: 0.75em 0.75em;*/
 		}
 
 		table th {
@@ -4250,7 +4290,7 @@
 		@media screen and (max-width: 480px) {
 
 			#banner {
-				padding: 4em 0 1em 0 ;
+				padding: 5em 0 1em 0 ;
 			}
 			form > .fa-microphone{
 				right: 17%;
@@ -6145,6 +6185,7 @@
 
 	a {
 		color: #5dc9dd;
+		/*cursor: pointer;*/
 	}
 
 	strong, b {
@@ -6408,10 +6449,10 @@
 	input[type="email"],
 	select,
 	textarea {
-		-moz-appearance: none;
+		/*-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
-		appearance: none;
+		appearance: none;*/
 		border-radius: 0.5rem;
 		border: none;
 		border: solid 1px;
@@ -6473,6 +6514,20 @@
 
 	textarea {
 		padding: 0.75rem 1rem;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		display: block;
+		float: left;
+		margin-right: -2em;
+		opacity: 0;
+		width: 1em;
+		z-index: -1;
 	}
 
 		input[type="checkbox"] + label,
@@ -6573,7 +6628,7 @@
 
 	input[type="checkbox"] + label,
 	input[type="radio"] + label {
-		color: #3b3b3b;
+		color: white;
 	}
 
 		input[type="checkbox"] + label:before,
@@ -6989,10 +7044,6 @@
 			border: solid 1px;
 			border-left: 0;
 			border-right: 0;
-		}
-
-		table td {
-			padding: 0.75rem 0.75rem;
 		}
 
 		table thead {

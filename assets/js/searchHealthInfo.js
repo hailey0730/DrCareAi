@@ -38,7 +38,7 @@ $(document).ready(function() {
         }
 
         });
-
+         
         });
 
 
@@ -153,14 +153,9 @@ function articlesHTML(articles){
                 '<p>' + tag + '</p>' +
             '</div>' +
             '<div class="meta">' +
-                '<time class="published" datetime="' + time + '">' + time + '</time>';
-                
-                for(var i = 0; i < author.length; i ++) {
-                    returnHTML += '<a href="' + 'http://www.drcare.ai/Doctor/docPage.php?Name=' + author[i] + '&ID=' + //doctor ID
-                    + '" class="author doctor"><span class="name">' + author[i] + '</span><img src="' + authorPic[i] + '" alt="" /></a>';
-                }
-
-    returnHTML += '<a href="#" class="author"><span class="name">' + media + '</span><img src="' + mediaPic + '" alt="" /></a>' +
+                '<time class="published" datetime="' + time + '">' + time + '</time>' +
+                '<a href="#" class="author doctor"><span class="name">' + author + '醫生</span><img src="' + authorPic + '" alt="" /></a>' +
+                '<a href="#" class="author"><span class="name">' + media + '</span><img src="' + mediaPic + '" alt="" /></a>' +
             '</div>' +
         '</header>' +
         '<div class="Content">' +

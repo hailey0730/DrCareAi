@@ -7,6 +7,10 @@
 	<meta name="keywords" content="醫生網,醫生,醫院,中醫,西醫,診所,急症室 ,整形外科,婦產科,醫療券,流感疫苗,流感疫苗副作用,頭痛,咳,喉嚨痛,抑鬱症,焦慮症,糖尿病,肺炎,中風,子宮頸癌,自閉症,大腸癌,乳癌">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- below is added for click to call safari and blackberry -->
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="assets/css/loginWin.css" />
 	<!-- <link rel="stylesheet" href="assets/css/searchHealthInfo.css" />		 might need to change another css--> 
@@ -41,8 +45,9 @@
 		<!-- Banner -->
 		<section id="banner">
 			<header class="accent1 main">
-				<p style="margin-bottom: 0; color: black;">疫苗資助計劃	免費疫苗	你抵打</p>
-				<h2 style="margin-bottom: 0;">搜尋疫苗</h2>
+				<h2 style="margin-bottom: 0;">疫苗資助計劃</h2>
+				<img src="images/Injection_Needle2.png">
+				<h2 style="margin-bottom: 0;display: inline-block;">搜尋疫苗</h2>
 			<form id="searchForm">
 				<!-- <input type="text" id="text-area">
 				<span class="fa fa-search" style="cursor: pointer;" onclick="$('#searchForm').submit();"></span> -->
@@ -50,15 +55,15 @@
 
 				<!-- search by type -->
 				<select class="filter" id="area">
-					<option value="" selected="">全部地區</option>
+					<option value="" selected="">全部地區 </option>
 				</select>
-
+				<!-- <span class="fa fa-arrow-down"></span> -->
 				<!-- search by type of people -->
-				<p>你是以下的高危人士嗎?(非必填)</p>
+				<p>你是以下的高危人士嗎?</p>
 				<div class="checkbox">
-				<input type="checkbox" name="people" id="pregnant" value="pregnant"><span>孕婦</span>
-				<input type="checkbox" name="people" id="children" value="children"><span>兒童</span>
-				<input type="checkbox" name="people" id="elderly" value="elderly"><span>長者</span>
+				<input type="checkbox" name="people" id="pregnant" value="pregnant" checked="true"><label for="pregnant">孕婦</label >
+				<input type="checkbox" name="people" id="children" value="children" checked="true"><label for="children">兒童</label >
+				<input type="checkbox" name="people" id="elderly" value="elderly" checked="true"><label for="elderly">長者</label >
 				</div>
 
 				<!-- search by type -->
@@ -69,10 +74,33 @@
 				<!-- search by tags -->
 				<!-- <input id="searchInput" type="text" placeholder="輸入地址"></input> -->
 				<!-- <img src="img/search.png" class="searchIcon" onclick="passToURL()"> -->
-				<span class="fa fa-search" style="cursor: pointer;" onclick="$('#searchForm').submit();"></span>
+				<span class="fa fa-search" style="cursor: pointer;" onclick="$('#searchForm').submit();">搜尋</span>
 					</form>
 					</header>
+				</section>
 
+				<section id="two" class="main alt">
+
+					<div class="inner">
+						<h2>疫苗資助計劃</h2>
+						<p>2017/18年度「疫苗資助計劃」已於2017年10月18日開始。合資格的香港居民包括孕婦、65歲或以上長者、年齡介乎6個月至未滿12歲兒童、智障人士及領取傷殘津貼人士，到已登記參與計劃的私家醫生診所接種疫苗，可獲得政府每劑季節性流感疫苗港幣$190的資助。在本港，流感一般於一月至三月和七、八月較為流行。由於身體需約兩星期才能產生抗體來預防季節性流感病毒，為保障個人健康應盡早接種疫苗。</p>
+
+						<p>65歲或以上的合資格長者亦可到已登記參與計劃的私家醫生診所接種肺炎球菌疫苗(全年適用)。每劑二十三價肺炎球菌多醣疫苗(二十三價疫苗資助額是港幣190元。每劑十三價肺炎球菌結合疫苗(十三價疫苗)資助額是港幣730元。</p>
+						<a href="http://www.chp.gov.hk/tc/view_content/46199.html" target="_blank">(詳情)</a>
+					</div>
+
+					<div class="inner" style="font-size: 10pt;">
+						<p>注意事項</p>
+
+						<li>本網頁所列收費是指有關診所經扣除政府資助後所收取的每針疫苗接種費用。</li>
+						<li>流感疫苗收費欄是指使用四價流感疫苗時的收費。</li>
+						<li>每位合資格有高風險情況的長者在「疫苗資助計劃」下接種PCV13，醫生可獲 $730 的政府資助。香港只有一款PCV13註冊供應，而供應該疫苗的公司同意以淨價每劑 $660 向醫生提供用於「疫苗資助計劃」下。</li>
+						<li>如收費欄顯示「不適用」，表示服務提供者不為此群組提供資助的疫苗接種。</li>
+						<li>我們建議你選擇前往任何一間診所接種疫苗前，請先向該診所查詢有關疫苗接種服務及收費詳情。</li>
+						<li>本網頁所提供的資料只作一般參考用途。</li>
+
+						<p>* 資料由衛生署提供</p>
+					</div>
 				</section>
 		
 				<!-- Section -->
@@ -83,7 +111,9 @@
 					<div class="inner">
 							<div class="articles">
 
-								<table id="vaccineTable">
+								<!-- <table id="header-fixed"></table> -->
+
+								<table class="vaccineTable">
 									<thead>
 										<tr class="tableHeader">
 											<!-- header append here -->
@@ -162,6 +192,23 @@
 		<script src="assets/js/footerFunction.js"></script>
 		<!-- <script src="assets/js/artyom.window.js"></script> -->
 		<script src="assets/js/login.js"></script>
+		<script src="assets/js/jquery.floatThead.js"></script>
+		<!-- <script type="text/javascript">
+			$(document).ready(function(){
+				 var win = $(window);
+
+		         win.scroll(function() {
+
+			        // End of the document reached?
+			        if ($(document).height() - win.height() - 500 < win.scrollTop()) {
+			        	var $table = $('.vaccineTable');
+						$table.floatThead();
+			        }
+			    });
+				
+				
+			});
+		</script> -->
 		<!-- <script src="assets/js/speech.js"></script> -->
 
 	</body>

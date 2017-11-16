@@ -1,0 +1,14 @@
+.content{
+	width: 45%;
+	margin:1em auto;
+}
+
+.content > img{
+	width: 100%;
+}
+
+@media screen and (max-width: 780px){
+	section > .content{
+		width: 100%;
+	}
+}

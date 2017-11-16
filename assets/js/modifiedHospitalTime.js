@@ -8,34 +8,7 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 			   			var display = [];			//list of hospitals being show next to map
  $(document).ready(function() {
 
- 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
- 		$('.right').attr('src','images/map-hongkong.png');
- 		$('map').remove();
- 		$('.split').append(smallVerMap());
- 		loadMapTime();
- 	}else{
-		loadMapTime();
- 	}
-
-// deselect when clicking outside map
- 	$("body").click(function(evt){
- 		if(evt.target.nodeName != "AREA"){
- 			$('.hospitalDiv').remove();
- 			clickCounter.counter = false;
-				//deselect area
-				if($(window).width() < 1208){
-					$('.right').attr("src", "images/map-hongkong.png");
-				}else{
-					$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
-				}
-				for(var i = 0; i< hospitals.length; i++){
-						display[i] = hospitals[i];
-				}
-				$('.posts').append(allHospital(display));
-				setBulletsDiv(display);
- 		}
- 	});
-// =====================================
+loadMapTime();
 
 	var image = $('img');
 		var newWidth = $('.split').width() / 2;	//to make width = .split > * width
@@ -60,12 +33,6 @@ var resizeDelay = 100;    // time to wait before checking the window size again
 	}
   	setBulletsDiv(display);
 
-// set last update time
-var updateTime = '最後更新時間 ';
-updateTime += hospitals[0].LastUpdateTime;
-	$('.rightBottom').text(updateTime);
-
-// set time for all hospitals in the table
   	$('article').each(function(i,obj){
   		var children = $(this).children();
   		var hours = display[i].等候時間;
@@ -78,7 +45,7 @@ updateTime += hospitals[0].LastUpdateTime;
 
   	});
 	
-// set hospitals info next to map
+
 	$('.aDiv').each(function(i,obj){
 		var hospital = $(this).children()[0];
 		var timeDiv = $(this).children()[1];
@@ -91,18 +58,18 @@ updateTime += hospitals[0].LastUpdateTime;
   		
   			$(timeChildren[0]).text("大約");
   			$($(timeChildren[1]).children()).text(hours);
+  		
 
 	});
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	
-}else{
 	$('area').each(function(i,obj){
-		// set time as title to be displayed in tooltip on map
+		// set time as title to be displayed in tooltip
 		if(i<18){
 			var hours = 0;
 			hours = hospitals[i].等候時間;
-			$(this).attr("title", hours + "小時");		
+			var estimate = "~";
+			
+			$(this).attr("title", estimate + hours + "小時");		
 
 		}
 	});
@@ -113,7 +80,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 	}else{
 		$('area[title]').tooltips();
 	}
-}
 
 	$('.right').mapster({
   		fillOpacity: 0, 
@@ -146,13 +112,14 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 //=================show time next to map===========================
+
 	function showTime(img, location){		//input: location
 		var imgSrc = 'images/';
 		$('.right').attr("src", imgSrc + img);
 		$('.hospitalDiv').remove();
 		display = [];
-		if(clickCounter.counter == true && clickCounter.area == location){
-			
+		if(clickCounter.counter == true){
+			if(clickCounter.area == location){
 			clickCounter.counter = false;
 				//deselect area
 				if($(window).width() < 1208){
@@ -163,7 +130,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 				for(var i = 0; i< hospitals.length; i++){
 						display[i] = hospitals[i];
 				}
-				
+				$('.posts').append(allHospital(display));
+				setBulletsDiv(display);
 			}else{
 				clickCounter.area = location;
 				clickCounter.counter = true;
@@ -175,9 +143,26 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 					}
 				}
 				
-			}
-			$('.posts').append(allHospital(display));		//input: json
+		$('.posts').append(allHospital(display));		//input: json
 		setBulletsDiv(display);
+		
+			}
+
+			}else{
+				clickCounter.area = location;
+				clickCounter.counter = true;
+				var j = 0;				
+				for(var i = 0; i< hospitals.length; i++){
+					if(hospitals[i].地區 == location){
+						display[j] = hospitals[i];
+						j++;
+					}
+				}
+				
+		$('.posts').append(allHospital(display));		//input: json
+		setBulletsDiv(display);
+		
+	}
 }
 
 function allHospital(list){
@@ -188,13 +173,13 @@ function allHospital(list){
 	return allHospital;
 }
 
-//hospital time next to map
 function hospitalInfo(obj,i){
 	
 	var	estimate = "等候 大約";
 	var	hours = obj.等候時間;
+	
 		
-		var hospital = '<div class="hospitalDiv"><div class="bulletsDiv"><p>" " </p></div><div class="aDiv" ><div class="hospital"><h3>';
+		var hospital = '<div class="hospitalDiv"><div class="bulletsDiv"><p>" " </p></div><a ><div class="hospital"><h3>';
 		hospital +=  obj.醫院;	//hospital name
 		hospital += '</h3><p><span style="font-weight:bold">地址:</span>';
 		hospital +=  obj.地址;	//hospital address
@@ -204,7 +189,7 @@ function hospitalInfo(obj,i){
 		hospital +=  estimate;
 		hospital += '</p><h3><span class="time bottom">';
 		hospital +=  hours;	//hour
-		hospital += '</span>小時</h3></div></div></div>';
+		hospital += '</span>小時</h3></div></a></div>';
 	
 		return hospital;
 	}
@@ -275,8 +260,10 @@ function resize() {
 			$('.right').attr('src') == 'images/Mapfordesktop/Highlighted blue.png' ){
 			
 			$('.tooltip').remove();
+			// $('.mapster_wrap_0').remove();
 			$('map').remove();
 			$('.right').attr('src','images/map-hongkong.png');
+			// $('.split').append('<img class="right"  src="images/map-hongkong.png" alt="Planets" usemap="#planetmap">');
 			
 			$('.split').append(smallVerMap());
 
@@ -297,9 +284,10 @@ function resize() {
 			$('.right').attr('src') == 'images/select_KL.png' ||
 			$('.right').attr('src') == 'images/select_HKisland.png' ||
 			$('.right').attr('src') == 'images/NT_selected.png' ){
-
+			// $('.mapster_wrap_0').remove();
 			$('map').remove();
 			$('.right').attr('src','images/Mapfordesktop/Map_normal.png');
+			// $('.split').append('<img class="right"  src="images/Mapfordesktop/Map_normal.png" alt="Planets" usemap="#planetmap">');
 			
 			$('.split').append(bigVerMap());
 
@@ -313,9 +301,9 @@ function resize() {
 			if(i<18){
 				var hours = 0;
 				hours = hospitals[i].等候時間;
-				// var estimate = "~";
+				var estimate = "~";
 				
-				$(this).attr("title", hours + "小時");		
+				$(this).attr("title", estimate + hours + "小時");		
 
 				}
 			});
@@ -353,7 +341,7 @@ var movingTooltips = function(){
 			      });
 			  }
 			});
-			// $('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
+			$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
 
 		
 	}
@@ -431,6 +419,30 @@ function bigVerMap(){
 	bigMap += ');return false;">				</map>';
 
 	return bigMap;
+}
+
+// Track window resizing events, but only actually call the map resize when the
+// window isn't being resized any more
+
+function onWindowResize() {
+// console.log($('.posts').css("width"));
+var curWidth = $(window).width(),
+curHeight = $(window).height(),
+checking=false;
+if (checking) {
+	return;
+}
+checking = true;
+window.setTimeout(function() {
+	var newWidth = $(window).width(),
+	newHeight = $(window).height();
+	if (newWidth === curWidth &&
+		newHeight === curHeight) {
+		resize(newWidth,newHeight);
+
+}
+checking=false;
+},resizeDelay );
 }
 
 //===========tooltips======================================
