@@ -17,6 +17,11 @@ $(document).ready(function() {
         var json = JSON.parse(data);
         loadSelectOptions(json);
     });
+
+     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        var detail = '<p>季節性流感疫苗SIV(包括 孕婦-W, 兒童-C, 長者-E), 肺炎球菌疫苗(23vPPV)(只包括長者-E23), 肺炎球菌疫苗(PCV13)(只包括長者-E13)</p>';
+        $('#three header').append(detail);
+    }
     
 
     $('#searchForm').submit(function(e){       
@@ -90,8 +95,8 @@ $(document).ready(function() {
             // $(".articles").css("display", "inline");
 
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                    var detail = '<p>季節性流感疫苗SIV(包括 孕婦-W, 兒童-C, 長者-E), 肺炎球菌疫苗(23vPPV)(只包括長者-E23), 肺炎球菌疫苗(PCV13)(只包括長者-E13)</p>';
-                    $('#three header').append(detail);
+                    // var detail = '<p>季節性流感疫苗SIV(包括 孕婦-W, 兒童-C, 長者-E), 肺炎球菌疫苗(23vPPV)(只包括長者-E23), 肺炎球菌疫苗(PCV13)(只包括長者-E13)</p>';
+                    // $('#three header').append(detail);
                     var header = headerhtmlMobile(wVal, cVal, eVal);
                     // $('td:first').css('width', '5em');
 
