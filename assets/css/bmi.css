@@ -1,0 +1,23 @@
+h1{
+	font-size: 2.5rem;
+}
+
+h2{
+	font-size: 2rem;
+}
+
+.content{
+	margin:1em;
+}
+
+input[type="submit"], input[type="reset"], input[type="button"], button, .button{
+	width:250px;
+}
+
+.bigPic{
+	width:100%;
+}
+
+/*@media screen and (max-width: 640px){
+	
+}*/
