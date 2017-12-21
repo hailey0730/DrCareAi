@@ -1355,6 +1355,7 @@
 		display: flex;
 		border-left: solid 1px;
 		position: relative;
+		/*display:-webkit-box;*/		/*break opera*/
 	}
 
 		.timeline > section:before {

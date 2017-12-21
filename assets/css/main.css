@@ -1689,6 +1689,7 @@
 		display: flex;
 		margin-left: -6em;
 		margin-bottom: 2em;
+		/*display:-webkit-box;*/		/*break other browser*/
 	}
 
 		.split > * {
@@ -1834,6 +1835,7 @@
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
+		/*display:-webkit-box;*/		/* breaks opera */
 	}
 
 		.features > article {
@@ -2001,6 +2003,7 @@
 		display: -ms-flex;
 		display: flex;
 		margin: 0 0 2em 0;
+		/*display: -webkit-inline-box;*/		/*break opera*/
 	}
 
 		.stats > article {
@@ -2264,6 +2267,7 @@
 		background-color: #5ac3d6;
 		color: rgba(255, 255, 255, 0.75);
 		text-align: center;
+		/*display: -webkit-box;		/* break other */
 	}
 
 		.quotes input, .quotes select, .quotes textarea {

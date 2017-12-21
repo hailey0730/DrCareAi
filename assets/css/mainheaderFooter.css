@@ -146,6 +146,7 @@
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
+				display:-webkit-box;		/*added for safari*/
 			}
 
 				#header > nav > ul > li {
