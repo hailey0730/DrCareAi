@@ -2,11 +2,7 @@
     session_start();
 ?>
 <!DOCTYPE HTML>
-<!--
-	Atmosphere by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
+
 <html>
 	<head>
 		<!-- Google Tag Manager -->
@@ -16,6 +12,25 @@
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-53DZWFV');</script>
 		<!-- End Google Tag Manager -->
+
+		<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '395026040845787',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 		
 		<meta name="msvalidate.01" content="CD1840962D6DC4062F95CA285294B1B2" />
 		<title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
@@ -36,12 +51,18 @@
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53DZWFV"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
+
+		<div
+		  class="fb-customerchat"
+		  page_id="2076696632356020"
+		  ref="drcare.ai">
+		</div>
 		<!-- Header -->
 	<header id="header" class="alt">
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a>
 		</div>
 
 		<!-- Nav -->
@@ -111,7 +132,7 @@
 							<ul class="features">
 								<li>
 									<span ><img src="images/Landing page/Group 4.png"></span>
-									<h3>找醫生</h3>
+									<h3>找醫生/專業治療師</h3>
 									<p>隨行醫生有全港最齊全的醫療數據庫為你尋找最近的診所和最適合你的醫生。</p>
 								</li>
 								<li>
@@ -144,7 +165,7 @@
 								<article>
 									
 									<div class="content">
-										<p>你的健康問題不容忽視。我們致力為你尋找最適合你的醫生，確保你能以最快的時間從一個問題中就找到所有最齊全最實用的醫生及診所資料。</p>
+										<p>你的健康問題不容忽視。我們致力為你尋找最適合你的醫生/專業治療師，確保你能以最快的時間從一個問題中就找到所有最齊全最實用的醫生及診所資料。</p>
 										<p>馬上登入FB Messenger，搜索隨行醫生即可立即使用。
 </p>
 										<ul class="actions">
@@ -204,6 +225,7 @@
 						</div>
 						</div>
 					</div>
+
 				</div>
 
 				

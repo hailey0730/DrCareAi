@@ -37,7 +37,7 @@
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a>
 		</div>
 
 		<!-- Nav -->

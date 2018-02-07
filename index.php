@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Telemetry by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
+
 <html>
 <head>
 		<!-- Google Tag Manager -->
@@ -13,11 +9,25 @@
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-53DZWFV');</script>
 		<!-- End Google Tag Manager -->
+		<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '395026040845787',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
 
-		
-	<!-- <title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
-	<meta name="description" content="隨行醫生首創人工智能問症以及首個醫療CHATBOT聊天對話機械人。只要輸入喉嚨痛、頭痛、咳等病徵便能查詢到相關的疾病，例如提供自閉症、糖尿病、肺炎、乳癌、子宮頸癌等疾病的詳細解釋;還提供全港醫生資料，如中醫、西醫、婦產科、精神科、骨科、眼科、牙科、皮膚科等專科醫生資料;提供醫療券、流感疫苗、hiv身體檢查、急症室時間等醫療訊息。">
-	<meta name="keywords" content="醫生網,醫生,醫院,中醫,西醫,診所,急症室 ,整形外科,婦產科,醫療券,流感疫苗,流感疫苗副作用,頭痛,咳,喉嚨痛,抑鬱症,焦慮症,糖尿病,肺炎,中風,子宮頸癌,自閉症,大腸癌,乳癌"> -->
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  
 		<meta name="msvalidate.01" content="CD1840962D6DC4062F95CA285294B1B2" />
 	<title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
 	<meta name="description" content="隨行醫生首創人工智能問症以及首個醫療CHATBOT聊天對話機械人。只要輸入喉嚨痛、頭痛、咳等病徵便能查詢到相關的疾病，例如提供自閉症、糖尿病、肺炎、乳癌、子宮頸癌等疾病的詳細解釋;還提供全港醫生資料，如中醫、西醫、婦產科、精神科、骨科、眼科、牙科、皮膚科等專科醫生資料;提供醫療券、流感疫苗、hiv身體檢查、急症室時間等醫療訊息。">
@@ -28,7 +38,7 @@
 	<link rel="icon" href="">	<!-- icon show on web tab -->
 
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<link rel="stylesheet" href="assets/css/loginWin.css" />
+	<!-- <link rel="stylesheet" href="assets/css/loginWin.css" /> -->
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/mainheaderFooter.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
@@ -42,12 +52,17 @@
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53DZWFV"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
+		<div
+  class="fb-customerchat"
+  page_id="2076696632356020"
+  ref="drcare.ai">
+</div>
 	<!-- Header -->
 	<header id="header" class="alt">
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a>
 		</div>
 
 		<!-- Nav -->
@@ -128,7 +143,7 @@
 					<div class="features">
 						<article >
 							<span class="iconImage"><img class="iconFinddoc" src="images/icon_finddoc.png"></span>
-							<a href="http://www.drcare.ai/Doctor/findoc.php"><h3>醫生 ></h3></a>
+							<a href="http://www.drcare.ai/Doctor/findoc.php"><h3>醫生/專業治療 ></h3></a>
 							<div class="iconContent">
 								<p>生病的時候，我們都迫切地想要找到適合自己的醫生。所以在「找醫生」中，我們更人性化地按診所地區和疾病的門類來分類不同的醫生，更附有詳細的醫療資訊，方便用戶尋找醫生。</p>
 								</div>
@@ -170,7 +185,7 @@
 			<div class="inner">
 				<div class="stats">
 					<article>
-						<h3>聯繫</h3><h3><span id="animateNum1">0</span></h3> <h3>名醫生</h3>
+						<h3>聯繫</h3><h3><span id="animateNum1">0</span></h3> <h3>名醫生/專業治療師</h3>
 					</article>
 					<article>
 						<h3>閱讀</h3><h3><span id="animateNum2">0</span></h3> <h3>健康文章</h3>
@@ -285,88 +300,9 @@
 				</div>
 			</section>
 </div>
-			<!-- Footer -->
-			<!-- <footer id="footer">
-				<div class="inner">
-					<div class="split style1">
-						<div class="contact">
-							<h2>聯繫我們</h2>
-							<ul class="contact-icons">
-								<li class="icon fa-home">217B, 5W Enterprise Place<br>Science Park, NT, HK</li>
-								<li class="icon fa-phone">(852)3598-3639</li>
-								<li class="icon fa-envelope-o"><a href="mailto:info@clinicbot.io">info@clinicbot.io</a></li>
-							</ul>
-						</div>
-						<div class="contact">
-							<h3>熱門專科醫生</h3>
-							<div class="">
-								<ul style="display: inline-block;">
-									<li>皮膚科</li>
-									<li>眼科</li>
-									<li>中醫</li>
-									<li>性病</li>
-									<li>婦產科</li>
-									<li>耳鼻喉科</li>
-								</ul>
-								<ul style="display: inline-block; position: absolute;">
-									<li>整形外科</li>
-									<li>骨科</li>
-									<li>牙科</li>
-								</ul>
-							</div>
-						</div>
-						<div class="contact">
-							<h3>醫生集中大廈</h3>
-							<div>
-								<ul>
-									<li>旺角中心一期</li>
-									<li>亞太中心</li>
-									<li>萬邦行</li>
-									<li>南豐中心</li>
-									<li>海洋中心</li>
-									<li>新世界大廈</li>
-									<li>中建大廈</li>
-								</ul>
-							</div>
-						</div>
-						<div class="contact">
-							<h3>熱門私家醫院</h3>
-							<div>
-								<ul>
-									<li><a href="http://www.stpaul.org.hk/internet/">聖保祿醫院</a></li>
-									<li><a href="http://www.hksh.org.hk/zh-hk/about-us.php">養和醫院</a></li>
-									<li><a href="http://www.union.org/new/cindex.php">仁安醫院</a></li>
-									<li><a href="http://www.hkbh.org.hk/chi/home.php">浸會醫院</a></li>
-									<li><a href="https://www.twah.org.hk/tc/main">港安醫院</a></li>
-									<li><a href="http://www.sth.org.hk/index.asp?lang_code=zh">聖德肋撒醫院</a></li>
-									<li><a href="http://www.evangel.org.hk/">播道醫院</a></li>
-									<li><a href="http://www.canossahospital.org.hk/">嘉諾撒醫院</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="contact">
-							<h3>Dr. Care</h3>
-							<div>
-								<ul>
-									<! <li><a href="index.php">Home</a></li> -->
-									<!--<li><a href="http://m.me/2076696632356020">隨行醫生</a></li>
-									<li><a href="http://test.drcare.ai/Doctor/findoc.php">醫生</a></li>
-									<li><a href="knowledge.php"> 健康資訊</a></li>
-									<li><a href="searchHealthArticle.php">文章報導</a></li>
-									<li><a href="disclaimer.php">免責聲明</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="copyright">
-						<p>&copy; Asiabots. All rights reserved.</p>
-						<p>免責聲明︰Dr care 會盡力驗證所有提交的資料和網頁內容正確無誤。 但本公司不會負責當中的任何錯誤和錯誤而引起的責任。 如有任何資料改變，有關的醫生將負責更新個人的資料或告本公司報告。 醫生的費用、所有文章等內容僅供參考，病人應與醫生或診所的有關醫療人員確認為實。</p>
-					</div>
-				</div>
-			</footer> -->
-
 			<!-- Scripts -->
-			<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+			<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
+			<script src ='https://code.jquery.com/jquery-1.12.4.min.js'></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.animateNumber.min.js"></script>
 			<script>
@@ -441,7 +377,7 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/login.js"></script>
+	<!-- <script src="assets/js/login.js"></script> -->
 	<script src="assets/js/footer.js"></script>
 <script src="assets/js/footerFunction.js"></script>
 <script src="assets/js/sendEmailFunction.js"></script>

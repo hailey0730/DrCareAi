@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Telemetry by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
+
 <html>
 <head>
 		<!-- Google Tag Manager -->
@@ -13,6 +9,25 @@
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-53DZWFV');</script>
 		<!-- End Google Tag Manager -->
+
+		<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '395026040845787',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 		
 		<meta name="msvalidate.01" content="CD1840962D6DC4062F95CA285294B1B2" />
@@ -38,7 +53,7 @@
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a>
 		</div>
 
 		<!-- Nav -->
@@ -65,6 +80,11 @@ Asiabots Limited可在任何時候全權決定終止、暫停或撤回Dr Care.ai
 </p>
 	</div>
 </section>
+<div
+  class="fb-customerchat"
+  page_id="2076696632356020"
+  ref="drcare.ai">
+</div>
 	</div>
 			<!-- Footer -->
 			

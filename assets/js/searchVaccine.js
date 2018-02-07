@@ -22,9 +22,12 @@ $(document).ready(function() {
         var detail = '<p>季節性流感疫苗SIV(包括 孕婦-W, 兒童-C, 長者-E), 肺炎球菌疫苗(23vPPV)(只包括長者-E23), 肺炎球菌疫苗(PCV13)(只包括長者-E13)</p>';
         $('#three header').append(detail);
     }
+
+    initLoad();
     
 
-    $('#searchForm').submit(function(e){       
+    // $('#searchForm').submit(function(e){       
+    $('.filter').change(function(e){       
         e.preventDefault();
         console.log("search");
         console.log($('#area').val());
@@ -84,6 +87,57 @@ $(document).ready(function() {
 
 
 });
+
+function initLoad(){
+    $('.tableHeader').empty();
+    $('.tableContent').remove();
+    $('#footer').remove();
+   scrollIndex = 0;
+    $table.floatThead('destroy');
+
+    wVal = "Y";
+    cVal = "Y"; 
+    eVal = "Y";
+
+        var url = "http://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"+ "&Women=" + wVal + "&Children=" + cVal
+            + "&Elder=" + eVal;;
+
+        $.get(url, function(data){
+            var json  = JSON.parse(data);
+            loadVaccine(json);
+            
+        });
+    
+
+    var win = $(window);
+     win.scroll(function() {
+        
+        //hT+hH-wH is better for browser but not for mobile
+        if($(this).scrollTop() > (hT+hH-wH + 700)){
+            
+            $table.floatThead();
+            $('.floatThead-container').addClass('float');
+        }else{
+            $('.floatThead-container').removeClass('float');
+
+        }
+
+    // End of the document reached?
+    if ($(document).height() - win.height() - 500 < win.scrollTop()) {
+        
+        if(scrollIndex < articles.length){
+           
+            var html = articlesHTML(articles[scrollIndex], wVal, cVal, eVal);
+            $("tbody").append(html);
+            scrollIndex ++;
+        }else if(scrollIndex == articles.length){
+            $('body').append(footer());
+            scrollIndex++;
+        }
+    }
+
+    });
+}
 
     function loadVaccine(json){
             articles = [];
@@ -175,8 +229,9 @@ function articlesHTML(articles, w,c,e){
     // console.log(articles);   //DEBUG
    var returnHTML = "",
         
-    returnHTML = "<tr class='tableContent'><td><div><p>" + articles.Name + "</p><p>" + articles.Doctor
-    + "</p><div></td><td><div><p>" + articles.Address + "</p><a href='tel:852" + articles.Phone  + "' data-rel='external'>" + articles.Phone + "</a>"
+    returnHTML = "<tr class='tableContent'><td><div><a href='http://www.drcare.ai/Doctor/docPage.php?Name=" 
+    + articles.Doctor + "&ID=" + articles.DoctorID + "'>" + "<u><p>" + articles.Name + "</p><p>" + articles.Doctor
+    + "</p></a><div></td><td><div><p>" + articles.Address + "</p></u><a href='tel:852" + articles.Phone  + "' data-rel='external'><u>" + articles.Phone + "</u></a>"
     + "</div></td>";
 
     if(w == "Y"){

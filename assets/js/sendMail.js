@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var hasError = false;
 		// // var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
 
-		var email = "info@aisabots.com";
+		var email = "info@asiabots.com";
 
 		var clientName = $('#clientName').val();
 		if(clientName == ''){

@@ -10,6 +10,25 @@
 		})(window,document,'script','dataLayer','GTM-53DZWFV');</script>
 		<!-- End Google Tag Manager -->
 
+		<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '395026040845787',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 		
 		<meta name="msvalidate.01" content="CD1840962D6DC4062F95CA285294B1B2" />
 	<title>Dr. care 隨行醫生 - 香港最大醫療諮詢網站：中西醫生名單、急症室時間、人工智能問症、流感疫苗、及疾病與健康資訊。</title>
@@ -33,13 +52,17 @@
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53DZWFV"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
-
+		<div
+		  class="fb-customerchat"
+		  page_id="2076696632356020"
+		  ref="drcare.ai">
+		</div>
 	<!-- Header -->
 	<header id="header" class="alt">
 
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.php">Dr Care.ai </a><span> Clinicbot</span>
+			<a href="index.php">Dr Care.ai </a>
 		</div>
 
 		<!-- Nav -->
@@ -76,6 +99,7 @@
 					</div>
 					<!-- <p id="loading">Loading</p> -->
 				</div>
+				
 			</section>
 
 </div>

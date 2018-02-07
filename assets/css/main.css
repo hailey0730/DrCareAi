@@ -2267,7 +2267,7 @@
 		background-color: #5ac3d6;
 		color: rgba(255, 255, 255, 0.75);
 		text-align: center;
-		/*display: -webkit-box;		/* break other */
+		/*display: -webkit-box;	*/	/* break other */
 	}
 
 		.quotes input, .quotes select, .quotes textarea {

@@ -9,6 +9,6 @@ Allow: /
 User-Agent: bingbot
 Allow: /
 User-agent: msnbot
-Disallow: 
+Allow: /
 User-agent: Baiduspider
-Disallow: 
+Allow: /

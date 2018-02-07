@@ -43,21 +43,25 @@ function resize() {
 		$('.right').attr("src","images/map-hongkong.png");
 		$('.tooltip').css('opacity', '0');	
 	}else{
-		$('.tooltip').css('opacity','1');	
-		$('.tooltip').each(function(i,obj){
-			var area = $('map').children();
-			var coordPosition = $(area[i]).attr("data-pos");
-		    var positionArray = coordPosition.split(',');
+    if($(".tooltip").html()==null){
+      $('area[title]').tooltips();
+    }else{
+  		$('.tooltip').css('opacity','1');	
+  		$('.tooltip').each(function(i,obj){
+  			var area = $('map').children();
+  			var coordPosition = $(area[i]).attr("data-pos");
+  		    var positionArray = coordPosition.split(',');
 
-		      var imgPos = $('.right').offset();
-		      var imgWidth = $('.right').width();
-		      var imgHeight = $('.right').height();
-		      $(this).css({
-		      	// 'position':'absolute',
-		          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
-		          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
-		      });
-		});
+  		      var imgPos = $('.right').offset();
+  		      var imgWidth = $('.right').width();
+  		      var imgHeight = $('.right').height();
+  		      $(this).css({
+  		      	// 'position':'absolute',
+  		          'left':  imgPos.left + parseInt(positionArray[0]) * (imgWidth/1672) + 'px', 
+  		          'top': imgPos.top + parseInt(positionArray[1]) * (imgHeight/1156) + 'px'
+  		      });
+  		});
+    }
 
 		$('.right').attr("src", "images/Mapfordesktop/Map_normal.png");
 	}

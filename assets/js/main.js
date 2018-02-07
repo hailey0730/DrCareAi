@@ -5,7 +5,6 @@
 */
 
 $(document).ready(function(){
-	$('#header').append(gtag());
 	$('#header').append(makeNav());
 
 (function($) {
@@ -355,18 +354,13 @@ function urlBase64ToUint8Array(base64String) {
 
 // ====================== html to append to the content ===============================
 
-function gtag(){
-	var gtag =  '<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-108981317-1"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date());  gtag("config", "UA-108981317-1");</script>';
-
-return gtag;
-}
-
 // <li><a href="http://www.drcare.ai/knowledge.php">健康總覽</a></li>
 function makeNav(){
 	var nav = '';
-	nav += '<nav id="nav">			<ul>				<li><a href="http://www.drcare.ai/clinicBotPage.php">隨行醫生</a></li>				<li>												<a href="#" class="icon fa-angle-down">醫生</a>					<ul>		<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>																				<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>																				<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>																				<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>																		<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>																			  <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>																			<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>																		<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li>											</ul>				</li>		<li><a href="http://www.drcare.ai/searchVaccine.html">流感疫苗</a></li>				<li>																<a href="#" class="icon fa-angle-down">健康資訊</a>					<ul>		<li><a href="http://www.drcare.ai/searchHealthArticle.php">健康誌</a></li>								<li><a href="http://www.drcare.ai/knowledgeList.php">疾病知識</a></li>										<li><a href="http://www.drcare.ai/hospitalTime.php">急症室時間</a></li>			<li><a href="http://www.drcare.ai/BMI.html">BMI知多啲</a></li>														</ul>				</li>	</div>			</ul>		</nav>';
+	nav += '<nav id="nav">			<ul>				<li><a href="http://www.drcare.ai/clinicBotPage.php">隨行醫生</a></li>				<li>												<a href="#" class="icon fa-angle-down">醫生</a>					<ul>		<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>																																								<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>			</ul>				</li>	<li><a href="#" class="icon fa-angle-down">專業治療</a><ul><li><a href="http://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li><li><a href="http://www.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>							<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>							  <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>			<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li> </ul>		<li><a href="http://www.drcare.ai/searchVaccine.html">流感疫苗</a></li>				<li>																<a href="#" class="icon fa-angle-down">健康資訊</a>					<ul>		<li><a href="http://www.drcare.ai/searchHealthArticle.php">健康誌</a></li>								<li><a href="http://www.drcare.ai/knowledgeList.php">疾病知識</a></li>										<li><a href="http://www.drcare.ai/hospitalTime.php">急症室時間</a></li>			<li><a href="http://www.drcare.ai/BMI.html">BMI知多啲</a></li>														</ul>				</li>	</div>			</ul>		</nav>';
 	return nav;
 }
+
 
 function makeNavWithLoginout(){
 	var nav = '';
