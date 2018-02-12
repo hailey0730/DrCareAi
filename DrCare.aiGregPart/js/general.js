@@ -1,31 +1,31 @@
 $(document).ready(function(){ 
 	
-    // $(document).bind("click",function(e){ 
-    //     var target = $(e.target); 
+    $(document).bind("click",function(e){ 
+        var target = $(e.target); 
        
-    //     if(target.closest("#homePage").length == 1){ 
-    //         window.location.href = "../../index.php";
-    //     }
-    //     if(target.closest("#findoc").length == 1){ 
-    //         window.location.href = "findoc.php";
-    //     }
-    //     if(target.closest("#article").length == 1){ 
-    //         window.location.href = "healthArticle.php";
-    //     }
-    //     if(target.closest("#login").length == 1){ 
-    //         createLoginWindow();
-    //     }
-    //     if(target.closest("#logout").length == 1){ 
-    //         $.get("php/logout.php", {},
-    //             function(){
-    //                 window.location.reload();
-    //         });
-    //     }
-    //     if(target.closest("#myDoc").length == 1){ 
-    //         window.location.href = "myDoc.php";
-    //     }
+        if(target.closest("#homePage").length == 1){ 
+            window.location.href = "index.php";
+        }
+        if(target.closest("#findoc").length == 1){ 
+            window.location.href = "findoc.php";
+        }
+        if(target.closest("#article").length == 1){ 
+            window.location.href = "healthArticle.php";
+        }
+        if(target.closest("#login").length == 1){ 
+            createLoginWindow();
+        }
+        if(target.closest("#logout").length == 1){ 
+            $.get("php/logout.php", {},
+                function(){
+                    window.location.reload();
+            });
+        }
+        if(target.closest("#myDoc").length == 1){ 
+            window.location.href = "myDoc.php";
+        }
 
-    // });
+    });
 
 	// Home
     $("#navbarTop").find("#menuBtn").unbind("click").click(function(){

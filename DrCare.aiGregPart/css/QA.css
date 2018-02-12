@@ -1,0 +1,68 @@
+.total{
+	text-align:center;
+
+}
+
+.title{
+	font-weight: bold;
+}
+
+.grey{
+	color: rgba(0, 0, 0, 0.42);
+	display: inline;
+}
+
+.blue{
+	color: #5dc9dd;
+	display: inline;
+}
+
+.tabDiv{
+	cursor: pointer;
+	display: inline-block;
+	margin:0 1em;
+}
+
+.inactive{
+	display: none;
+}
+
+.profilePic{
+	width:5em;
+	margin: 0 2em;
+	float: left;
+	clear: both;
+}
+
+.questionDiv{
+	margin: 1em;
+	padding-bottom: 1.5em;
+    border: .5px solid rgba(10, 10, 10, 0.22);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+@media screen and (max-width: 736px){
+	.QAContent > .answerDiv{
+		margin: 1em;
+	}
+}
+
+.answerDiv{
+	margin:1em 1em 1em 15em;
+	padding-bottom: 3em;
+    border: .5px solid rgba(10, 10, 10, 0.22);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.messageImg{
+	vertical-align: middle;
+	width:2em;
+}
+
+img{
+	max-width: 100%;
+}

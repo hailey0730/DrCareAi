@@ -1,0 +1,31 @@
+#wrapper > .main > .tabs {
+	max-width: 100%;
+}
+
+#wrapper > .main > .tabs > .titles:before {
+	height: 4rem;
+	width: 50%;
+}
+
+#wrapper > .main > .tabs > .titles > .title {
+	height: 3rem;
+	line-height: 3rem;
+	border: .5px solid #CCC;
+}
+
+#wrapper > .main > .tabs > .titles > .title.active {
+	border-bottom: none;
+	/*box-shadow: none;*/
+}
+
+#wrapper > .main > .tabs > .panels {
+	border: .5px solid #CCC;
+	border-top: none;
+	padding-top:1em;
+}
+
+#wrapper > .main > .tabs > .panels > .panel {
+	padding: 0;
+	height: 300px;
+	overflow: auto;
+}

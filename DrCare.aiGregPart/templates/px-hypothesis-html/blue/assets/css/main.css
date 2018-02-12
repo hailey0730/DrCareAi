@@ -1,0 +1,1388 @@
+/*
+	Hypothesis by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+/* Wrapper */
+
+	.inner {
+		margin: 0 auto;
+		width: 68rem;
+		max-width: calc(100% - 6rem);
+	}
+
+	@-moz-keyframes tab-title {
+		0% {
+			-moz-transform: translateY(0.325rem);
+			-webkit-transform: translateY(0.325rem);
+			-ms-transform: translateY(0.325rem);
+			transform: translateY(0.325rem);
+		}
+
+		100% {
+			-moz-transform: translateY(1px);
+			-webkit-transform: translateY(1px);
+			-ms-transform: translateY(1px);
+			transform: translateY(1px);
+		}
+	}
+
+	@-webkit-keyframes tab-title {
+		0% {
+			-moz-transform: translateY(0.325rem);
+			-webkit-transform: translateY(0.325rem);
+			-ms-transform: translateY(0.325rem);
+			transform: translateY(0.325rem);
+		}
+
+		100% {
+			-moz-transform: translateY(1px);
+			-webkit-transform: translateY(1px);
+			-ms-transform: translateY(1px);
+			transform: translateY(1px);
+		}
+	}
+
+	@-ms-keyframes tab-title {
+		0% {
+			-moz-transform: translateY(0.325rem);
+			-webkit-transform: translateY(0.325rem);
+			-ms-transform: translateY(0.325rem);
+			transform: translateY(0.325rem);
+		}
+
+		100% {
+			-moz-transform: translateY(1px);
+			-webkit-transform: translateY(1px);
+			-ms-transform: translateY(1px);
+			transform: translateY(1px);
+		}
+	}
+
+	@keyframes tab-title {
+		0% {
+			-moz-transform: translateY(0.325rem);
+			-webkit-transform: translateY(0.325rem);
+			-ms-transform: translateY(0.325rem);
+			transform: translateY(0.325rem);
+		}
+
+		100% {
+			-moz-transform: translateY(1px);
+			-webkit-transform: translateY(1px);
+			-ms-transform: translateY(1px);
+			transform: translateY(1px);
+		}
+	}
+
+	#wrapper > .main {
+		background-color: #ffffff;
+	}
+
+		#wrapper > .main > header {
+			padding: 6rem 0 4rem 0 ;
+			text-align: center;
+			cursor: default;
+		}
+
+			#wrapper > .main > header > * {
+				width: 42.5rem;
+				max-width: calc(100% - 6rem);
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#wrapper > .main > header > :last-child {
+				margin-bottom: 2rem;
+			}
+
+			#wrapper > .main > header.accent1 {
+				background-color: #23b1ec;
+				color: rgba(255, 255, 255, 0.75);
+			}
+
+				#wrapper > .main > header.accent1 input, #wrapper > .main > header.accent1 select, #wrapper > .main > header.accent1 textarea {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent1 a {
+					color: #23b1ec;
+				}
+
+				#wrapper > .main > header.accent1 strong, #wrapper > .main > header.accent1 b {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent1 h1, #wrapper > .main > header.accent1 h2, #wrapper > .main > header.accent1 h3, #wrapper > .main > header.accent1 h4, #wrapper > .main > header.accent1 h5, #wrapper > .main > header.accent1 h6 {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent1 blockquote {
+					border-left-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 code {
+					background: rgba(255, 255, 255, 0.075);
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 hr {
+					border-bottom-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 .box {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 input[type="submit"],
+				#wrapper > .main > header.accent1 input[type="reset"],
+				#wrapper > .main > header.accent1 input[type="button"],
+				#wrapper > .main > header.accent1 button,
+				#wrapper > .main > header.accent1 .button {
+					background-color: transparent;
+					box-shadow: inset 0 0 0 3px #ffffff;
+					color: #ffffff !important;
+				}
+
+					#wrapper > .main > header.accent1 input[type="submit"]:hover,
+					#wrapper > .main > header.accent1 input[type="reset"]:hover,
+					#wrapper > .main > header.accent1 input[type="button"]:hover,
+					#wrapper > .main > header.accent1 button:hover,
+					#wrapper > .main > header.accent1 .button:hover {
+						background-color: rgba(255, 255, 255, 0.1);
+					}
+
+						#wrapper > .main > header.accent1 input[type="submit"]:hover:active,
+						#wrapper > .main > header.accent1 input[type="reset"]:hover:active,
+						#wrapper > .main > header.accent1 input[type="button"]:hover:active,
+						#wrapper > .main > header.accent1 button:hover:active,
+						#wrapper > .main > header.accent1 .button:hover:active {
+							background-color: rgba(255, 255, 255, 0.25);
+						}
+
+					#wrapper > .main > header.accent1 input[type="submit"].special,
+					#wrapper > .main > header.accent1 input[type="reset"].special,
+					#wrapper > .main > header.accent1 input[type="button"].special,
+					#wrapper > .main > header.accent1 button.special,
+					#wrapper > .main > header.accent1 .button.special {
+						background-color: #ffffff;
+						box-shadow: none;
+						color: #23b1ec !important;
+					}
+
+						#wrapper > .main > header.accent1 input[type="submit"].special:hover,
+						#wrapper > .main > header.accent1 input[type="reset"].special:hover,
+						#wrapper > .main > header.accent1 input[type="button"].special:hover,
+						#wrapper > .main > header.accent1 button.special:hover,
+						#wrapper > .main > header.accent1 .button.special:hover {
+							background-color: rgba(255, 255, 255, 0.9);
+						}
+
+						#wrapper > .main > header.accent1 input[type="submit"].special:active,
+						#wrapper > .main > header.accent1 input[type="reset"].special:active,
+						#wrapper > .main > header.accent1 input[type="button"].special:active,
+						#wrapper > .main > header.accent1 button.special:active,
+						#wrapper > .main > header.accent1 .button.special:active {
+							background-color: rgba(255, 255, 255, 0.75);
+						}
+
+				#wrapper > .main > header.accent1 label {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent1 input[type="text"],
+				#wrapper > .main > header.accent1 input[type="password"],
+				#wrapper > .main > header.accent1 input[type="email"],
+				#wrapper > .main > header.accent1 select,
+				#wrapper > .main > header.accent1 textarea {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+					#wrapper > .main > header.accent1 input[type="text"]:focus,
+					#wrapper > .main > header.accent1 input[type="password"]:focus,
+					#wrapper > .main > header.accent1 input[type="email"]:focus,
+					#wrapper > .main > header.accent1 select:focus,
+					#wrapper > .main > header.accent1 textarea:focus {
+						border-color: #ffffff;
+						box-shadow: inset 0 0 0 1px #ffffff;
+					}
+
+				#wrapper > .main > header.accent1 .select-wrapper:before {
+					color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 input[type="checkbox"] + label,
+				#wrapper > .main > header.accent1 input[type="radio"] + label {
+					color: rgba(255, 255, 255, 0.75);
+				}
+
+					#wrapper > .main > header.accent1 input[type="checkbox"] + label:before,
+					#wrapper > .main > header.accent1 input[type="radio"] + label:before {
+						border-color: rgba(255, 255, 255, 0.25);
+					}
+
+				#wrapper > .main > header.accent1 input[type="checkbox"]:checked + label:before,
+				#wrapper > .main > header.accent1 input[type="radio"]:checked + label:before {
+					background-color: #ffffff;
+					border-color: #ffffff;
+					color: #23b1ec;
+				}
+
+				#wrapper > .main > header.accent1 input[type="checkbox"]:focus + label:before,
+				#wrapper > .main > header.accent1 input[type="radio"]:focus + label:before {
+					border-color: #ffffff;
+					box-shadow: 0 0 0 1px #ffffff;
+				}
+
+				#wrapper > .main > header.accent1 ::-webkit-input-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent1 :-moz-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent1 ::-moz-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent1 :-ms-input-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent1 .formerize-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent1 .icon.major:before {
+					box-shadow: inset 0 0 0 3px #ffffff;
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent1 ul.alt li {
+					border-top-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 table tbody tr {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+					#wrapper > .main > header.accent1 table tbody tr:nth-child(2n + 1) {
+						background-color: rgba(255, 255, 255, 0.075);
+					}
+
+				#wrapper > .main > header.accent1 table th {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent1 table thead {
+					border-bottom-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 table tfoot {
+					border-top-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 table.alt tbody tr td {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent1 + .inner {
+					padding-top: 6rem;
+				}
+
+				#wrapper > .main > header.accent1 + .tabs > .titles {
+					background-color: #23b1ec;
+				}
+
+					#wrapper > .main > header.accent1 + .tabs > .titles:before {
+						background-color: #23b1ec;
+					}
+
+					#wrapper > .main > header.accent1 + .tabs > .titles > .title {
+						color: #ffffff;
+					}
+
+						#wrapper > .main > header.accent1 + .tabs > .titles > .title.active {
+							color: #23b1ec;
+							background-color: #ffffff;
+							box-shadow: none;
+						}
+
+			#wrapper > .main > header.accent2 {
+				background-color: #80bb2d;
+				color: rgba(255, 255, 255, 0.75);
+			}
+
+				#wrapper > .main > header.accent2 input, #wrapper > .main > header.accent2 select, #wrapper > .main > header.accent2 textarea {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent2 a {
+					color: #23b1ec;
+				}
+
+				#wrapper > .main > header.accent2 strong, #wrapper > .main > header.accent2 b {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent2 h1, #wrapper > .main > header.accent2 h2, #wrapper > .main > header.accent2 h3, #wrapper > .main > header.accent2 h4, #wrapper > .main > header.accent2 h5, #wrapper > .main > header.accent2 h6 {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent2 blockquote {
+					border-left-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 code {
+					background: rgba(255, 255, 255, 0.075);
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 hr {
+					border-bottom-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 .box {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 input[type="submit"],
+				#wrapper > .main > header.accent2 input[type="reset"],
+				#wrapper > .main > header.accent2 input[type="button"],
+				#wrapper > .main > header.accent2 button,
+				#wrapper > .main > header.accent2 .button {
+					background-color: transparent;
+					box-shadow: inset 0 0 0 3px #ffffff;
+					color: #ffffff !important;
+				}
+
+					#wrapper > .main > header.accent2 input[type="submit"]:hover,
+					#wrapper > .main > header.accent2 input[type="reset"]:hover,
+					#wrapper > .main > header.accent2 input[type="button"]:hover,
+					#wrapper > .main > header.accent2 button:hover,
+					#wrapper > .main > header.accent2 .button:hover {
+						background-color: rgba(255, 255, 255, 0.1);
+					}
+
+						#wrapper > .main > header.accent2 input[type="submit"]:hover:active,
+						#wrapper > .main > header.accent2 input[type="reset"]:hover:active,
+						#wrapper > .main > header.accent2 input[type="button"]:hover:active,
+						#wrapper > .main > header.accent2 button:hover:active,
+						#wrapper > .main > header.accent2 .button:hover:active {
+							background-color: rgba(255, 255, 255, 0.25);
+						}
+
+					#wrapper > .main > header.accent2 input[type="submit"].special,
+					#wrapper > .main > header.accent2 input[type="reset"].special,
+					#wrapper > .main > header.accent2 input[type="button"].special,
+					#wrapper > .main > header.accent2 button.special,
+					#wrapper > .main > header.accent2 .button.special {
+						background-color: #ffffff;
+						box-shadow: none;
+						color: #80bb2d !important;
+					}
+
+						#wrapper > .main > header.accent2 input[type="submit"].special:hover,
+						#wrapper > .main > header.accent2 input[type="reset"].special:hover,
+						#wrapper > .main > header.accent2 input[type="button"].special:hover,
+						#wrapper > .main > header.accent2 button.special:hover,
+						#wrapper > .main > header.accent2 .button.special:hover {
+							background-color: rgba(255, 255, 255, 0.9);
+						}
+
+						#wrapper > .main > header.accent2 input[type="submit"].special:active,
+						#wrapper > .main > header.accent2 input[type="reset"].special:active,
+						#wrapper > .main > header.accent2 input[type="button"].special:active,
+						#wrapper > .main > header.accent2 button.special:active,
+						#wrapper > .main > header.accent2 .button.special:active {
+							background-color: rgba(255, 255, 255, 0.75);
+						}
+
+				#wrapper > .main > header.accent2 label {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent2 input[type="text"],
+				#wrapper > .main > header.accent2 input[type="password"],
+				#wrapper > .main > header.accent2 input[type="email"],
+				#wrapper > .main > header.accent2 select,
+				#wrapper > .main > header.accent2 textarea {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+					#wrapper > .main > header.accent2 input[type="text"]:focus,
+					#wrapper > .main > header.accent2 input[type="password"]:focus,
+					#wrapper > .main > header.accent2 input[type="email"]:focus,
+					#wrapper > .main > header.accent2 select:focus,
+					#wrapper > .main > header.accent2 textarea:focus {
+						border-color: #ffffff;
+						box-shadow: inset 0 0 0 1px #ffffff;
+					}
+
+				#wrapper > .main > header.accent2 .select-wrapper:before {
+					color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 input[type="checkbox"] + label,
+				#wrapper > .main > header.accent2 input[type="radio"] + label {
+					color: rgba(255, 255, 255, 0.75);
+				}
+
+					#wrapper > .main > header.accent2 input[type="checkbox"] + label:before,
+					#wrapper > .main > header.accent2 input[type="radio"] + label:before {
+						border-color: rgba(255, 255, 255, 0.25);
+					}
+
+				#wrapper > .main > header.accent2 input[type="checkbox"]:checked + label:before,
+				#wrapper > .main > header.accent2 input[type="radio"]:checked + label:before {
+					background-color: #ffffff;
+					border-color: #ffffff;
+					color: #80bb2d;
+				}
+
+				#wrapper > .main > header.accent2 input[type="checkbox"]:focus + label:before,
+				#wrapper > .main > header.accent2 input[type="radio"]:focus + label:before {
+					border-color: #ffffff;
+					box-shadow: 0 0 0 1px #ffffff;
+				}
+
+				#wrapper > .main > header.accent2 ::-webkit-input-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent2 :-moz-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent2 ::-moz-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent2 :-ms-input-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent2 .formerize-placeholder {
+					color: rgba(255, 255, 255, 0.5) !important;
+				}
+
+				#wrapper > .main > header.accent2 .icon.major:before {
+					box-shadow: inset 0 0 0 3px #ffffff;
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent2 ul.alt li {
+					border-top-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 table tbody tr {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+					#wrapper > .main > header.accent2 table tbody tr:nth-child(2n + 1) {
+						background-color: rgba(255, 255, 255, 0.075);
+					}
+
+				#wrapper > .main > header.accent2 table th {
+					color: #ffffff;
+				}
+
+				#wrapper > .main > header.accent2 table thead {
+					border-bottom-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 table tfoot {
+					border-top-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 table.alt tbody tr td {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+				#wrapper > .main > header.accent2 + .inner {
+					padding-top: 6rem;
+				}
+
+				#wrapper > .main > header.accent2 + .tabs > .titles:before {
+					background-color: #80bb2d;
+				}
+
+				#wrapper > .main > header.accent2 + .tabs > .titles > .title {
+					color: #ffffff;
+				}
+
+					#wrapper > .main > header.accent2 + .tabs > .titles > .title.active {
+						color: #80bb2d;
+						background-color: #ffffff;
+						box-shadow: none;
+					}
+
+		#wrapper > .main > .inner {
+			padding: 0rem 0 4rem 0 ;
+		}
+
+			#wrapper > .main > .inner > .image.main:last-child {
+				margin-bottom: -4rem;
+			}
+
+			#wrapper > .main > .inner > .content {
+				padding: 3rem 3rem 1rem 3rem ;
+				background-color: #ffffff;
+			}
+
+				#wrapper > .main > .inner > .content > .image.main:first-child {
+					margin-top: -3rem;
+					margin-left: -3rem;
+					width: calc(100% + 6rem);
+				}
+
+			#wrapper > .main > .inner.alt {
+				padding: 3rem 0 !important;
+			}
+
+		#wrapper > .main > .tabs {
+			/*width: 68rem;*/
+			margin: -1.95rem auto 0 auto;
+			max-width: calc(100% - 6rem);
+		}
+
+			#wrapper > .main > .tabs > .titles {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+				#wrapper > .main > .tabs > .titles:before {
+					content: '';
+					display: block;
+					left: 0;
+					width: 100%;
+					height: 5.5rem;
+					position: absolute;
+					z-index: 0;
+				}
+
+				#wrapper > .main > .tabs > .titles > .title {
+					-moz-transition-property: color, background-color, box-shadow;
+					-webkit-transition-property: color, background-color, box-shadow;
+					-ms-transition-property: color, background-color, box-shadow;
+					transition-property: color, background-color, box-shadow;
+					-moz-transition-duration: 0.2s;
+					-webkit-transition-duration: 0.2s;
+					-ms-transition-duration: 0.2s;
+					transition-duration: 0.2s;
+					-moz-flex-grow: 1;
+					-webkit-flex-grow: 1;
+					-ms-flex-grow: 1;
+					flex-grow: 1;
+					-moz-flex-shrink: 1;
+					-webkit-flex-shrink: 1;
+					-ms-flex-shrink: 1;
+					flex-shrink: 1;
+					padding: 0;
+					width: 100%;
+					text-align: center;
+					height: 5.5rem;
+					line-height: 5.5rem;
+					font-weight: 400;
+					font-size: 1.35rem;
+					position: relative;
+					z-index: 1;
+					background: #EEE;
+				}
+
+					#wrapper > .main > .tabs > .titles > .title.active {
+						/*box-shadow: 0 3px 0 0 #23b1ec;*/
+						background: white;
+						-moz-animation: tab-title 0.5s ease forwards;
+						-webkit-animation: tab-title 0.5s ease forwards;
+						-ms-animation: tab-title 0.5s ease forwards;
+						animation: tab-title 0.5s ease forwards;
+					}
+
+			#wrapper > .main > .tabs > .panels > .panel {
+				padding: 6rem 0 4rem 0 ;
+				-moz-transition: opacity 0.2s ease-in-out;
+				-webkit-transition: opacity 0.2s ease-in-out;
+				-ms-transition: opacity 0.2s ease-in-out;
+				transition: opacity 0.2s ease-in-out;
+				opacity: 0;
+			}
+
+				#wrapper > .main > .tabs > .panels > .panel.active {
+					opacity: 1;
+				}
+
+		#wrapper > .main.accent1 {
+			background-color: #23b1ec;
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+			#wrapper > .main.accent1 input, #wrapper > .main.accent1 select, #wrapper > .main.accent1 textarea {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent1 a {
+				color: #23b1ec;
+			}
+
+			#wrapper > .main.accent1 strong, #wrapper > .main.accent1 b {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent1 h1, #wrapper > .main.accent1 h2, #wrapper > .main.accent1 h3, #wrapper > .main.accent1 h4, #wrapper > .main.accent1 h5, #wrapper > .main.accent1 h6 {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent1 blockquote {
+				border-left-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 code {
+				background: rgba(255, 255, 255, 0.075);
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 hr {
+				border-bottom-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 .box {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 input[type="submit"],
+			#wrapper > .main.accent1 input[type="reset"],
+			#wrapper > .main.accent1 input[type="button"],
+			#wrapper > .main.accent1 button,
+			#wrapper > .main.accent1 .button {
+				background-color: transparent;
+				box-shadow: inset 0 0 0 3px #ffffff;
+				color: #ffffff !important;
+			}
+
+				#wrapper > .main.accent1 input[type="submit"]:hover,
+				#wrapper > .main.accent1 input[type="reset"]:hover,
+				#wrapper > .main.accent1 input[type="button"]:hover,
+				#wrapper > .main.accent1 button:hover,
+				#wrapper > .main.accent1 .button:hover {
+					background-color: rgba(255, 255, 255, 0.1);
+				}
+
+					#wrapper > .main.accent1 input[type="submit"]:hover:active,
+					#wrapper > .main.accent1 input[type="reset"]:hover:active,
+					#wrapper > .main.accent1 input[type="button"]:hover:active,
+					#wrapper > .main.accent1 button:hover:active,
+					#wrapper > .main.accent1 .button:hover:active {
+						background-color: rgba(255, 255, 255, 0.25);
+					}
+
+				#wrapper > .main.accent1 input[type="submit"].special,
+				#wrapper > .main.accent1 input[type="reset"].special,
+				#wrapper > .main.accent1 input[type="button"].special,
+				#wrapper > .main.accent1 button.special,
+				#wrapper > .main.accent1 .button.special {
+					background-color: #ffffff;
+					box-shadow: none;
+					color: #23b1ec !important;
+				}
+
+					#wrapper > .main.accent1 input[type="submit"].special:hover,
+					#wrapper > .main.accent1 input[type="reset"].special:hover,
+					#wrapper > .main.accent1 input[type="button"].special:hover,
+					#wrapper > .main.accent1 button.special:hover,
+					#wrapper > .main.accent1 .button.special:hover {
+						background-color: rgba(255, 255, 255, 0.9);
+					}
+
+					#wrapper > .main.accent1 input[type="submit"].special:active,
+					#wrapper > .main.accent1 input[type="reset"].special:active,
+					#wrapper > .main.accent1 input[type="button"].special:active,
+					#wrapper > .main.accent1 button.special:active,
+					#wrapper > .main.accent1 .button.special:active {
+						background-color: rgba(255, 255, 255, 0.75);
+					}
+
+			#wrapper > .main.accent1 label {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent1 input[type="text"],
+			#wrapper > .main.accent1 input[type="password"],
+			#wrapper > .main.accent1 input[type="email"],
+			#wrapper > .main.accent1 select,
+			#wrapper > .main.accent1 textarea {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+				#wrapper > .main.accent1 input[type="text"]:focus,
+				#wrapper > .main.accent1 input[type="password"]:focus,
+				#wrapper > .main.accent1 input[type="email"]:focus,
+				#wrapper > .main.accent1 select:focus,
+				#wrapper > .main.accent1 textarea:focus {
+					border-color: #ffffff;
+					box-shadow: inset 0 0 0 1px #ffffff;
+				}
+
+			#wrapper > .main.accent1 .select-wrapper:before {
+				color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 input[type="checkbox"] + label,
+			#wrapper > .main.accent1 input[type="radio"] + label {
+				color: rgba(255, 255, 255, 0.75);
+			}
+
+				#wrapper > .main.accent1 input[type="checkbox"] + label:before,
+				#wrapper > .main.accent1 input[type="radio"] + label:before {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+			#wrapper > .main.accent1 input[type="checkbox"]:checked + label:before,
+			#wrapper > .main.accent1 input[type="radio"]:checked + label:before {
+				background-color: #ffffff;
+				border-color: #ffffff;
+				color: #23b1ec;
+			}
+
+			#wrapper > .main.accent1 input[type="checkbox"]:focus + label:before,
+			#wrapper > .main.accent1 input[type="radio"]:focus + label:before {
+				border-color: #ffffff;
+				box-shadow: 0 0 0 1px #ffffff;
+			}
+
+			#wrapper > .main.accent1 ::-webkit-input-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent1 :-moz-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent1 ::-moz-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent1 :-ms-input-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent1 .formerize-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent1 .icon.major:before {
+				box-shadow: inset 0 0 0 3px #ffffff;
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent1 ul.alt li {
+				border-top-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 table tbody tr {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+				#wrapper > .main.accent1 table tbody tr:nth-child(2n + 1) {
+					background-color: rgba(255, 255, 255, 0.075);
+				}
+
+			#wrapper > .main.accent1 table th {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent1 table thead {
+				border-bottom-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 table tfoot {
+				border-top-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 table.alt tbody tr td {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent1 > .tabs > .titles > .title.active {
+				box-shadow: 0 3px 0 0 #ffffff;
+			}
+
+		#wrapper > .main.accent2 {
+			background-color: #80bb2d;
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+			#wrapper > .main.accent2 input, #wrapper > .main.accent2 select, #wrapper > .main.accent2 textarea {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent2 a {
+				color: #23b1ec;
+			}
+
+			#wrapper > .main.accent2 strong, #wrapper > .main.accent2 b {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent2 h1, #wrapper > .main.accent2 h2, #wrapper > .main.accent2 h3, #wrapper > .main.accent2 h4, #wrapper > .main.accent2 h5, #wrapper > .main.accent2 h6 {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent2 blockquote {
+				border-left-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 code {
+				background: rgba(255, 255, 255, 0.075);
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 hr {
+				border-bottom-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 .box {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 input[type="submit"],
+			#wrapper > .main.accent2 input[type="reset"],
+			#wrapper > .main.accent2 input[type="button"],
+			#wrapper > .main.accent2 button,
+			#wrapper > .main.accent2 .button {
+				background-color: transparent;
+				box-shadow: inset 0 0 0 3px #ffffff;
+				color: #ffffff !important;
+			}
+
+				#wrapper > .main.accent2 input[type="submit"]:hover,
+				#wrapper > .main.accent2 input[type="reset"]:hover,
+				#wrapper > .main.accent2 input[type="button"]:hover,
+				#wrapper > .main.accent2 button:hover,
+				#wrapper > .main.accent2 .button:hover {
+					background-color: rgba(255, 255, 255, 0.1);
+				}
+
+					#wrapper > .main.accent2 input[type="submit"]:hover:active,
+					#wrapper > .main.accent2 input[type="reset"]:hover:active,
+					#wrapper > .main.accent2 input[type="button"]:hover:active,
+					#wrapper > .main.accent2 button:hover:active,
+					#wrapper > .main.accent2 .button:hover:active {
+						background-color: rgba(255, 255, 255, 0.25);
+					}
+
+				#wrapper > .main.accent2 input[type="submit"].special,
+				#wrapper > .main.accent2 input[type="reset"].special,
+				#wrapper > .main.accent2 input[type="button"].special,
+				#wrapper > .main.accent2 button.special,
+				#wrapper > .main.accent2 .button.special {
+					background-color: #ffffff;
+					box-shadow: none;
+					color: #80bb2d !important;
+				}
+
+					#wrapper > .main.accent2 input[type="submit"].special:hover,
+					#wrapper > .main.accent2 input[type="reset"].special:hover,
+					#wrapper > .main.accent2 input[type="button"].special:hover,
+					#wrapper > .main.accent2 button.special:hover,
+					#wrapper > .main.accent2 .button.special:hover {
+						background-color: rgba(255, 255, 255, 0.9);
+					}
+
+					#wrapper > .main.accent2 input[type="submit"].special:active,
+					#wrapper > .main.accent2 input[type="reset"].special:active,
+					#wrapper > .main.accent2 input[type="button"].special:active,
+					#wrapper > .main.accent2 button.special:active,
+					#wrapper > .main.accent2 .button.special:active {
+						background-color: rgba(255, 255, 255, 0.75);
+					}
+
+			#wrapper > .main.accent2 label {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent2 input[type="text"],
+			#wrapper > .main.accent2 input[type="password"],
+			#wrapper > .main.accent2 input[type="email"],
+			#wrapper > .main.accent2 select,
+			#wrapper > .main.accent2 textarea {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+				#wrapper > .main.accent2 input[type="text"]:focus,
+				#wrapper > .main.accent2 input[type="password"]:focus,
+				#wrapper > .main.accent2 input[type="email"]:focus,
+				#wrapper > .main.accent2 select:focus,
+				#wrapper > .main.accent2 textarea:focus {
+					border-color: #ffffff;
+					box-shadow: inset 0 0 0 1px #ffffff;
+				}
+
+			#wrapper > .main.accent2 .select-wrapper:before {
+				color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 input[type="checkbox"] + label,
+			#wrapper > .main.accent2 input[type="radio"] + label {
+				color: rgba(255, 255, 255, 0.75);
+			}
+
+				#wrapper > .main.accent2 input[type="checkbox"] + label:before,
+				#wrapper > .main.accent2 input[type="radio"] + label:before {
+					border-color: rgba(255, 255, 255, 0.25);
+				}
+
+			#wrapper > .main.accent2 input[type="checkbox"]:checked + label:before,
+			#wrapper > .main.accent2 input[type="radio"]:checked + label:before {
+				background-color: #ffffff;
+				border-color: #ffffff;
+				color: #80bb2d;
+			}
+
+			#wrapper > .main.accent2 input[type="checkbox"]:focus + label:before,
+			#wrapper > .main.accent2 input[type="radio"]:focus + label:before {
+				border-color: #ffffff;
+				box-shadow: 0 0 0 1px #ffffff;
+			}
+
+			#wrapper > .main.accent2 ::-webkit-input-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent2 :-moz-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent2 ::-moz-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent2 :-ms-input-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent2 .formerize-placeholder {
+				color: rgba(255, 255, 255, 0.5) !important;
+			}
+
+			#wrapper > .main.accent2 .icon.major:before {
+				box-shadow: inset 0 0 0 3px #ffffff;
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent2 ul.alt li {
+				border-top-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 table tbody tr {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+				#wrapper > .main.accent2 table tbody tr:nth-child(2n + 1) {
+					background-color: rgba(255, 255, 255, 0.075);
+				}
+
+			#wrapper > .main.accent2 table th {
+				color: #ffffff;
+			}
+
+			#wrapper > .main.accent2 table thead {
+				border-bottom-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 table tfoot {
+				border-top-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 table.alt tbody tr td {
+				border-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#wrapper > .main.accent2 > .tabs > .titles > .title.active {
+				box-shadow: 0 3px 0 0 #ffffff;
+			}
+
+		#wrapper > .main.alt {
+			background-color: #f7f7f7;
+		}
+
+	@media screen and (max-width: 1280px) {
+
+		.inner {
+			max-width: calc(100% - 4rem);
+		}
+
+		#wrapper > .main > header {
+			padding: 4rem 0 2rem 0 ;
+		}
+
+			#wrapper > .main > header > * {
+				max-width: calc(100% - 4rem);
+			}
+
+			#wrapper > .main > header.accent1 + .inner {
+				padding-top: 4rem;
+			}
+
+			#wrapper > .main > header.accent2 + .inner {
+				padding-top: 4rem;
+			}
+
+			#wrapper > .main > header.alt {
+				background-color: #f7f7f7;
+			}
+
+		#wrapper > .main > .inner {
+			padding: 0rem 0 2rem 0 ;
+		}
+
+			#wrapper > .main > .inner > .image.main:last-child {
+				margin-bottom: -2rem;
+			}
+
+			#wrapper > .main > .inner > .content {
+				padding: 2rem 2rem 0.1rem 2rem ;
+			}
+
+				#wrapper > .main > .inner > .content > .image.main:first-child {
+					margin-top: -2rem;
+					margin-left: -2rem;
+					width: calc(100% + 4rem);
+				}
+
+			#wrapper > .main > .inner.alt {
+				padding: 2rem 0 !important;
+			}
+
+		#wrapper > .main > .tabs {
+			margin: -1.3rem auto 0 auto;
+			max-width: calc(100% - 4rem);
+		}
+
+			#wrapper > .main > .tabs > .panels > .panel {
+				padding: 4rem 0 2rem 0 ;
+			}
+
+	}
+
+	@media screen and (max-width: 980px) {
+
+		.inner {
+			max-width: calc(100% - 4rem);
+		}
+
+		#wrapper > .main > header {
+			padding: 4rem 0 2rem 0 ;
+		}
+
+			#wrapper > .main > header > * {
+				max-width: calc(100% - 4rem);
+			}
+
+			#wrapper > .main > header.accent1 + .inner {
+				padding-top: 4rem;
+			}
+
+			#wrapper > .main > header.accent2 + .inner {
+				padding-top: 4rem;
+			}
+
+			#wrapper > .main > header.alt {
+				background-color: #f7f7f7;
+			}
+
+		#wrapper > .main > .inner {
+			padding: 0rem 0 2rem 0 ;
+		}
+
+			#wrapper > .main > .inner > .image.main:last-child {
+				margin-bottom: -2rem;
+			}
+
+			#wrapper > .main > .inner > .content {
+				padding: 2rem 2rem 0.1rem 2rem ;
+			}
+
+				#wrapper > .main > .inner > .content > .image.main:first-child {
+					margin-top: -2rem;
+					margin-left: -2rem;
+					width: calc(100% + 4rem);
+				}
+
+			#wrapper > .main > .inner.alt {
+				padding: 2rem 0 !important;
+			}
+
+		#wrapper > .main > .tabs {
+			margin: -1.3rem auto 0 auto;
+			max-width: calc(100% - 4rem);
+		}
+
+			#wrapper > .main > .tabs > .titles:before {
+				height: 4.125rem;
+			}
+
+			#wrapper > .main > .tabs > .titles > .title {
+				height: 4.125rem;
+				line-height: 4.125rem;
+				font-size: 1.25rem;
+			}
+
+			#wrapper > .main > .tabs > .panels > .panel {
+				padding: 4rem 0 2rem 0 ;
+			}
+
+	}
+
+	@media screen and (max-width: 736px) {
+
+		.inner {
+			max-width: calc(100% - 3rem);
+		}
+
+		#wrapper > .main > header {
+			padding: 3rem 0 1rem 0 ;
+		}
+
+			#wrapper > .main > header > * {
+				max-width: calc(100% - 3rem);
+			}
+
+			#wrapper > .main > header.accent1 + .inner {
+				padding-top: 3rem;
+			}
+
+			#wrapper > .main > header.accent2 + .inner {
+				padding-top: 3rem;
+			}
+
+			#wrapper > .main > header.alt {
+				background-color: #f7f7f7;
+			}
+
+		#wrapper > .main > .inner {
+			padding: 0rem 0 1rem 0 ;
+		}
+
+			#wrapper > .main > .inner > .image.main:last-child {
+				margin-bottom: -1rem;
+			}
+
+			#wrapper > .main > .inner > .content {
+				padding: 1.5rem 1.5rem 0.1rem 1.5rem ;
+			}
+
+				#wrapper > .main > .inner > .content > .image.main:first-child {
+					margin-top: -1.5rem;
+					margin-left: -1.5rem;
+					width: calc(100% + 3rem);
+				}
+
+			#wrapper > .main > .inner.alt {
+				padding: 1.5rem 0 !important;
+			}
+
+		#wrapper > .main > .tabs {
+			margin: -0.9375rem auto 0 auto;
+			max-width: calc(100% - 3rem);
+		}
+
+			#wrapper > .main > .tabs > .titles:before {
+				height: 3.4375rem;
+			}
+
+			#wrapper > .main > .tabs > .titles > .title {
+				height: 3.4375rem;
+				line-height: 3.4375rem;
+				font-size: 1rem;
+				letter-spacing: 0;
+			}
+
+				#wrapper > .main > .tabs > .titles > .title .extra {
+					display: none;
+				}
+
+			#wrapper > .main > .tabs > .panels > .panel {
+				padding: 3rem 0 1rem 0 ;
+			}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		#wrapper > .main > .tabs > .titles {
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+		}
+
+			#wrapper > .main > .tabs > .titles > .title {
+				-moz-flex-grow: 0;
+				-webkit-flex-grow: 0;
+				-ms-flex-grow: 0;
+				flex-grow: 0;
+				-moz-flex-shrink: 0;
+				-ms-flex-shrink: 0;
+				padding: 0;
+			}
+
+	}
+
+/* Nav Panel */
+
+	#wrapper {
+		-moz-transition: opacity 0.5s ease;
+		-webkit-transition: opacity 0.5s ease;
+		-ms-transition: opacity 0.5s ease;
+		transition: opacity 0.5s ease;
+	}
+
+	#navPanel {
+		-moz-transform: translateX(100%);
+		-webkit-transform: translateX(100%);
+		-ms-transform: translateX(100%);
+		transform: translateX(100%);
+		-moz-transition: -moz-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
+		-webkit-transition: -webkit-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
+		-ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
+		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
+		-webkit-overflow-scrolling: touch;
+		/*background: #23b1ec;*/
+		box-shadow: none;
+		color: rgba(255, 255, 255, 0.75);
+		height: 100%;
+		max-width: 80%;
+		overflow-y: auto;
+		position: fixed;
+		right: 0;
+		top: 0;
+		visibility: hidden;
+		width: 20em;
+		z-index: 10002;
+	}
+
+		#navPanel nav {
+			padding: 3em 2em;
+		}
+
+		#navPanel .link {
+			-moz-transition: color 0.2s;
+			-webkit-transition: color 0.2s;
+			-ms-transition: color 0.2s;
+			transition: color 0.2s;
+			border-top: solid 1px rgba(255, 255, 255, 0.25);
+			border-bottom: 0;
+			color: inherit !important;
+			display: block;
+			padding: 0.75em 0;
+			text-decoration: none;
+		}
+
+			#navPanel .link:first-child {
+				border-top: 0;
+			}
+
+			#navPanel .link.depth-0 {
+				color: #ffffff !important;
+				font-weight: 400;
+			}
+
+			#navPanel .link:active, #navPanel .link:focus, #navPanel .link:hover {
+				color: #ffffff !important;
+			}
+
+			#navPanel .link .indent-1 {
+				display: inline-block;
+				width: 1.25em;
+			}
+
+			#navPanel .link .indent-2 {
+				display: inline-block;
+				width: 2.5em;
+			}
+
+		#navPanel .close {
+			text-decoration: none;
+			-moz-transition: color 0.2s ease-in-out;
+			-webkit-transition: color 0.2s ease-in-out;
+			-ms-transition: color 0.2s ease-in-out;
+			transition: color 0.2s ease-in-out;
+			-webkit-tap-highlight-color: transparent;
+			border: 0;
+			color: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+			display: block;
+			height: 3.25em;
+			line-height: 3.25em;
+			padding-right: 1.25em;
+			position: absolute;
+			right: 0;
+			text-align: right;
+			top: 0;
+			vertical-align: middle;
+			width: 7em;
+		}
+
+			#navPanel .close:before {
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				font-family: FontAwesome;
+				font-style: normal;
+				font-weight: normal;
+				text-transform: none !important;
+			}
+
+			#navPanel .close:before {
+				content: '\f00d';
+				font-size: 1.25em;
+			}
+
+			#navPanel .close:hover {
+				color: #ffffff !important;
+			}
+
+			@media screen and (max-width: 736px) {
+
+				#navPanel .close {
+					height: 4em;
+					line-height: 4em;
+				}
+
+			}
+
+		@media screen and (max-width: 736px) {
+
+			#navPanel nav {
+				padding: 2.5em 1.75em;
+			}
+
+		}
+
+	body.is-navPanel-visible #wrapper {
+		-moz-pointer-events: none;
+		-webkit-pointer-events: none;
+		-ms-pointer-events: none;
+		pointer-events: none;
+		cursor: default;
+		opacity: 0.25;
+	}
+
+	body.is-navPanel-visible #navPanel {
+		-moz-transform: translateX(0);
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+		visibility: visible;
+	}

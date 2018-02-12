@@ -112,13 +112,70 @@ $(document).ready(function(){ // Jquery, click the address and relocate the map
 		else {
 			updateSearchText(1);
 		}
+
+		// change title of page by param
+		changePageTitle("",initialCategory,initialSubCategory);
 		
 		
 	});
 
 	//updatetest in loadFileter.php
 
+
+	var scrollIndex = 0;
+	//load more sickness knowledge articles on scroll
+	var win = $(window);
+
+         win.scroll(function() {
+
+        // End of the document reached?
+        if ($(document).height() - win.height() - 400 < win.scrollTop()) {
+           
+    		if(scrollIndex < articles.length){
+        		var html = formatingArticleHTML(articles[scrollIndex1]);
+                $(".sickArticles").append(html);
+                scrollIndex ++;
+            }else if(scrollIndex == articles.length){
+            	if(!hasFooter){
+            		$('body').append(footer());
+            		hasFooter = true;
+            	}
+            	scrollIndex++;
+            }
+        }
+
+        });
+
 });
+
+// change title of page by param
+function changePageTitle(location,cat,subcat){
+	if(location == null || location == ""){
+		location = "各區";
+	}
+	if(subcat == null || subcat == ""){
+		subcat = "各科";
+	}
+	if(cat == null || cat == ""){
+		cat = "醫生";
+	}
+	$('title').html(location + subcat + cat + " | Dr. Care");
+	// console.log($("title").html());
+	var description = "Dr. Care (隨行醫生)記錄香港";
+	var temp = subcat + cat;
+	if(cat == "西醫" || cat == "牙科"){
+		temp += "醫生";
+	}
+	description += location;
+	description += temp;
+	description += "資料,";
+	description += temp;
+	description += "名單,";
+	description += temp;
+	description += "簡介,診所地址,聯絡電話及辦公時間";
+	$("meta[name='description']").attr("content", description);
+}
+// Dr. Care (隨行醫生)記錄香港各區西醫資料,私家醫生名單,專科醫生簡介,診所地址,聯絡電話及辦公時間
 
 // display the docs in table
 function updateTable(doctors){
@@ -129,27 +186,52 @@ function updateTable(doctors){
 // ((doctors[i]["Clinicbot"] == null)?"<button class='clinicbotBtn hidden'>使用 Clinicbot</button>":"<button class='clinicbotBtn'>使用 Clinicbot</button>")
 
   	for(var i=0; i<doctors.length; i++) {
+  		var doctorSpan = '';
+  		if(doctors[i]["Category"] == "西醫" || doctors[i]["Category"] == "牙科"){
+  			doctorSpan = "<span class='docTitle'>醫生</span></p>";
+  		}
+
   		printInfo += "<div class='row'>" +
   		"<div class='num'>" + (i+1) + 
   		"</div>" +
   		"<div class='docInfo'>" +
   		"<div class='docNameDiv'><p>" +
   			"<span class='docName'>" + doctors[i]["Name"].split(" ", 1) + "</span>" +
-  			"<span class='docTitle'>醫生</span></p>" +
+  			doctorSpan +
   			"<p class='docType'>" + doctors[i]["SubCategory"] +
-  		"</p></div>" +
+  		"</p>" + 
+
+  		// '<img style="height:1.5em;" src="img/chatbotSymbol.jpg">' +		//uncomment for chatbot Symbol
+
+  		"</div>" +
   		
-  		"<div class='addressInfo'>" +
-	  		"<p class='docArea'>" + doctors[i]["Region"] + "</p>" +
-	  		"<p class='docAddress'>" + doctors[i]["Address_ch"] + "</p>" +
-	  	"</div>" +
-  		"<p hidden='hidden' class='docID'>" + doctors[i]["ID"] + "</p></div></div>";
+  		"<div class='addressInfo'>";
+
+  		// for(let i of doctors[i]["Clinics"]) {
+  		// 	"<p class='docArea'>" + i["Region"] + "</p>" +
+	  	// 	"<p class='docAddress'>" + i["Address_ch"] + "</p>" +
+  		// }
+  		
+  		for(let j of doctors[i]["Clinic"]) {
+  			printInfo += "<p class='docArea'>" + j["Region"] + "</p>" +
+	  					 "<p class='docAddress'>" + j["Address_ch"] + "</p>";
+  		}
+		// printInfo += "<p class='docArea'>" + doctors[i]["Region"] + "</p>" +
+	 	//  	"<p class='docAddress'>" + doctors[i]["Address_ch"] + "</p>";
+
+  		// '<div class="openTag">' +						//uncomment for 應診中
+	  	// 	'<i class="fa fa-square green"></i>'+
+	  	// 	'<p class="status ' + 'green' + '" >' +
+	  	// 	 '應診中' + '</p>' +
+  		//  '</div>' +
+
+		printInfo += "</div>" +
+		"<p hidden='hidden' class='docID'>" + doctors[i]["ID"] + "</p></div></div>";
   	}
 
 	$("#searchResults").html("");
 	$("#searchResults").append("<div id='searchIntro'><img class='introPic' src='img/logo.png'><p class='keyWord'></p><p class='intro'></p></div>");
 	$("#searchResults").append(printInfo);
-
 
 	var w;
 	var temp = $(".intro").html();
@@ -250,7 +332,7 @@ function loadDocFromDB(conf) {
 	// conf.type;
 	// conf.keyword;
 
-	$.getJSON("php/loadDoc.php",
+	$.getJSON("php/loadDoc-uat.php",
 		{curPage: conf.curPage,
 		perPage: docsNumPerPage,
 		Category: conf.specialist,
@@ -272,7 +354,7 @@ function loadDocFromDB(conf) {
 
 			deleteMarkers();
 			for(var i=0; i<json[0].length; i++){
-				pinAddress(json[0][i]);
+				pinAddrese_uat(json[0][i]);
 			}
 			
 			updateTable(json[0]);
@@ -306,6 +388,9 @@ function updateSearchText(pageCount) {
 		text += (type == "")?"":("<span>" + type + "</span>的");
 		text += (specialist == "")?"醫生":("<span>" + specialist +  "</span></p>");
 	}
+
+	// change page title
+	changePageTitle(area,specialist,type);
 
 	$("#searchText").html(text);
 

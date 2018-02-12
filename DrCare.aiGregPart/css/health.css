@@ -1,0 +1,476 @@
+/******************************/
+/******************************/
+/******************************/
+/******************************/
+/******************************/
+/*   [File] askdoc CSS   */
+
+.mainContainer {
+	position: absolute !important;
+	top: 0 !important;
+	left: 200px !important;
+	width: calc(100% - 200px) !important;
+	margin: 0 !important;
+	height: 100% !important;
+	overflow:scroll !important;
+	-webkit-overflow-scrolling: touch !important;
+	background: #F1F1F1 !important;
+}
+
+/*   navbar setting */
+#navbar {
+	position: fixed;
+	top: 0;
+	left: 0px;
+	background: #003E3E;
+	height: 100%;
+	width: 180px;
+	padding: 0 10px;
+	text-align: center;
+	z-index: 99999;
+	display: inline;
+}
+
+#navbarTop {
+	display: none !important;
+}
+
+	#menuBtn {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 30px;
+		height: 24px;
+		background: transparent;
+		cursor: pointer;
+	}
+
+	#upperNav {
+		float: left;
+		position: relative;
+		width: 180px;
+		height: 150px;
+		margin-top: 80px;
+	}
+		#upperNav > button {
+			position: absolute;
+			left: 0px;
+			height: 32px;
+			width: 180px;
+			background: #003E3E;
+			text-align: left;
+			font-size: 20px;
+			line-height: 30px;
+			cursor: pointer;
+			color: white;
+			overflow: hidden;
+			cursor: pointer;
+		}
+		.navIcon {
+			position: absolute;
+			left: 10px;
+			top: 0;
+			width: 30px;
+			height: 30px;
+		}
+		.navText {
+			position: absolute;
+			left: 60px;
+			top: 0;
+			width: 130px;
+			height: 30px;
+		}
+
+		#homePage {
+			top: 0;
+		}
+		#findoc {
+			top: 60px;
+		}
+		#knowledge {
+			top: 120px;
+		}
+		#sickness{
+			top:180px;
+		}
+		#hospitalTime{
+			top:240px;
+		}
+		#healthArticle{
+			top:300px;
+		}
+
+
+
+	.breakLine {
+		float: left;
+		width: 100%;
+		height: 1px;
+		margin-top: 50px;
+		margin-bottom: 20px;
+		background: white;
+		opacity: 0.3;
+		top: 130px;
+	}
+
+	#bottomNav {
+		float: left;
+		position: relative;
+		width: 100%;
+	}
+
+		.userInfo {
+			float: left;
+			position: relative;
+			width: 100%;
+			height: 50px;
+			margin-bottom: 30px;
+			padding: 5px 0;
+		}
+
+			.userInfo > img {
+				float: left;
+				width: 50px;
+				height: 50px;
+				margin-right: 5px;
+			}
+
+			.userInfo > p:nth-child(2) {
+				float: left;
+				font-size: 14px;
+				line-height: 20px;
+				color: white;
+			}
+
+				#userName {
+					float: left;
+					width: calc(100% - 60px);
+					font-size: 24px;
+					line-height: 30px;
+					color: white;
+					text-align: left;
+				}
+
+				#userSetting {
+					position: absolute;
+					right: 10px;
+					height: 0px;
+					background: transparent;
+					color: #AAA;
+					margin: 0;
+					padding: 0;
+					font-size: 15px;
+					cursor: pointer;
+				}
+
+				#userSetting:hover {
+					color: white;
+				}
+
+			.category {
+				float: left;
+				position: relative;
+				width: 100%;
+			}
+
+				.category > button {
+					float: left;
+					background: #003E3E;
+					color: white;
+					cursor: pointer;
+				}
+
+				.category > button {
+					font-size: 22px;
+				}
+
+				.category > button > img{
+					width: 16px;
+					height: 16px;
+				}
+
+				.category > div {
+					float: left;
+					width: 100%;
+					margin-top: 5px;
+					position: relative;
+					display: none;
+				}
+
+				#myDoc,#favArticle {
+					position: absolute;
+					left: 0;
+					background: #003E3E;
+					color: white;
+					cursor: pointer;
+					width: 100%;
+					height: 24px;
+					overflow: hidden;
+				}
+
+				#myDoc {
+					top: 0px;
+				}
+				#favArticle {
+					top: 40px;
+				}
+
+				.category > div > button:hover {
+					
+				}
+
+					.category > div > button > img {
+						position: absolute;
+						width: 22px;
+						height: 22px;
+						top: 0;
+						left: 4px;
+					}
+
+					.category > div > button > div {
+						position: absolute;
+						width: 20px;
+						height: 20px;
+						top: 5px;
+						left: 5px;
+						background: white;
+					}
+
+					.category > div > button > .navText {
+						position: absolute;
+						top: 0px;
+						left: 30px;
+						font-size: 16px;
+						color: white;
+						line-height: 24px;
+						text-align: left;
+					}
+
+					.category > div > button > .num {
+						position: absolute;
+						font-size: 16px;
+						color: white;
+						line-height: 24px;
+						top: 0;
+						left: 160px;
+					}
+
+
+		#bottomNav > button {
+			float: left;
+			background: transparent;
+			text-align: left;
+			margin-top: 10px;
+			margin-left: 20px;
+			font-size: 20px;
+			cursor: pointer;
+			color: white;
+		}
+
+	#navbar #login, #navbar #logout {
+		position: absolute;
+		left: 10px;
+		width: calc(100% - 20px);
+		margin-left: 0;
+		font-size: 22px;
+		padding: 10px 0;
+		border: none;
+		background: #11D4EB;
+		color: white;
+		cursor: pointer;
+	}
+
+	#navbar #login {
+		top: 420px;
+	}
+
+	#navbar #register {
+		position: absolute;
+		left: 0;
+		top: 480px;
+		width: auto;
+		height: 20px;
+		text-align: center;
+		font-size: 16px;
+		margin: 0;
+		left: calc(50% - 32px);
+		border: none;
+		color: white;
+		text-decoration: underline;
+		cursor: pointer;
+		background: transparent;
+	}
+
+	#navbar #logout {
+		bottom: 50px;
+	}
+
+/******************************/
+/*   select row   */
+.selectRow {
+	float: left;
+	width: 100%;
+	background: #00A3AE;
+	padding-bottom: 100px;
+	padding: 10px 0px;
+}
+
+	#subCategory, #disease {
+		float: left;
+		margin-left: 20px;
+		height: 40px;
+		width: 300px;
+		border-radius: 5px;
+		font-size: 20px;
+	}
+
+	.voiceButton {
+		float: right;
+		position: relative;
+		width: 360px;
+		height: 40px;
+		border-radius: 30px;
+		background: white;
+		margin-right: 20px;
+	}
+
+	.voiceIcon {
+		position: absolute;
+		top: 4px;
+		right: 10px;
+		width: 20px;
+		height: 32px;
+	}
+
+/******************************/
+/*   head title   */
+.pageHead {
+	float: left;
+	position: relative;
+	width: calc(100% - 60px);
+	margin: 20px 30px;
+}
+
+	.pageHead p {
+		float: left;
+		color: #AAA;
+		font-size: 18px;
+	}
+
+	.pageHead > div {
+		float: left;
+		position: relative;
+		width: 100%;
+	}
+
+		#articlesType {
+			color: black;
+			font-size: 32px;
+			margin-right: 30px;
+		}
+
+		#statement {
+			float: left;
+			margin-top: 14px;
+		}
+
+	#settings {
+		position: absolute;
+		top: 45px;
+		left: 0px;
+		background: transparent;
+		color: #AAA;
+		font-size: 20px;
+		padding: 0;
+		cursor: pointer;
+	}
+	#settings:hover {
+		color: #555;
+	}
+
+	.articles {
+		float: left;
+		width: calc(100% - 60px);
+		margin: 30px 30px;
+	}
+
+@media screen and (max-width: 1280px) {
+	#subCategory, #disease {
+		margin: 0 20px;
+		width: calc(50% - 40px);
+	}
+
+	.voiceButton {
+		margin-top: 10px;
+		width: calc(100% - 40px);
+	}
+}
+
+
+@media screen and (max-width: 980px) {
+	#navbar {
+		left: -200px;
+	}
+
+	#navbarTop {
+		display: inline !important;
+		height: 50px !important;
+	}
+
+	#navbarTop > .name {
+		top: 0px !important;
+		left: 0px !important;
+		width: 100% !important;
+		height: 50px !important;
+		line-height: 50px !important;
+		text-align: center !important;
+		background: #11D4EB !important;
+		z-index: 2 !important;
+	}
+
+	#navbarTop > #menuBtn {
+		display: inline !important;
+		left: 13px !important;
+		top: 13px !important;
+		z-index: 3 !important;
+	}
+
+	.mainContainer {
+		left: 0 !important;
+		top: 50px!important;
+		width: 100% !important;
+		height: calc(100% - 50px) !important;
+	}
+}
+
+@media screen and (max-width: 736px) {
+
+
+	#statement {
+			width: 100%;
+		}
+
+	#settings {
+		top: 15px;
+		left: 150px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#subCategory, #disease {
+		width: calc(100% - 40px);
+	}
+
+	#subCategory {
+		margin-bottom: 10px;
+	}
+
+	#type {
+		margin-top: 10px;
+	}
+
+	.voiceButton {
+		margin-top: 10px;
+		width: calc(100% - 40px);
+	}
+}

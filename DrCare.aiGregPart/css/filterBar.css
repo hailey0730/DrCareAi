@@ -1,0 +1,232 @@
+.showSearchDiv{
+	background: #11D4EB;
+	border-style: solid;
+	border-radius: 2em;
+}
+.showSearchDiv > p{
+	display: inline-block;
+}
+/******************************/
+/*   Search Row   */
+.showSearch {
+	width: 100%;
+	/*height: 30px;*/
+	text-align: center;
+	font-size: 22px;
+	line-height: 30px;
+	color: white;
+	background: #11D4EB;
+	margin-bottom: 1px;
+	display: none;
+	cursor: pointer;
+}
+
+.showSearch > * {
+	float: left;
+	margin-left: calc(50% - 70px);
+	width:7em;
+}
+
+.showSearch > p {
+	width: 50px;
+}
+
+.showSearch > img {
+	margin-top: 8px;
+	margin-left: 8px;
+	height: 14px;
+	width: 22px;
+}
+
+.searchRow {
+	float: left;
+	width: 100%;
+	height: 50px;
+	background: #11D4EB;
+	z-index:99;
+}
+
+#specialist, #type, #area {
+	float: left;
+	width: 20%;
+	height: 40px;
+	font-size: 20px;
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-left: 2%;
+	background: white;
+}
+
+/* for search tags */
+#searchInput {
+	float: left;
+	margin-top: 5px;
+	height: 40px;
+	width: calc(30% - 20px);
+	font-size: 20px;
+	border:none;
+	border-radius: 5px;
+	padding: 0 10px;
+	border-radius: 30px;
+	margin-left: 2%;
+	margin-rigth: 2%;
+}
+
+.voiceIcon {
+	position: absolute;
+	bottom: 9px;
+	right: calc(2% + 50px);
+	width: 18px;
+	height: 32px;
+	cursor: pointer;
+	display: none;
+}
+
+.searchIcon {
+	position: absolute;
+	bottom: 5px;
+	right: calc(2% - 0px);
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	background: white;
+	border-radius: 20px;
+}
+
+.searchAuto {
+	position: absolute;
+	top: 40px;
+	left: 430px;
+	width: 200px;
+	height: 150px;
+	background: white;
+	width: 200px;
+	border: 1px solid #666;
+	z-index: 9999;
+	padding-left: 10px;
+	display: none;
+}
+
+.autoResult {
+	font-size: 25px;
+	color: black;
+	line-height: 30px;
+	width: 100%;
+	color: grey;
+}
+
+.autoResult :hover {
+	background: #AAA;
+}
+
+.tagsContainer {
+	position: absolute;
+	top: 10px;
+	left: 650px;
+	width: 400px;
+	height: 30px;
+	z-index: 99999;
+}
+
+.tagIcon {
+	background: #CCC;
+	border-radius: 10px;
+	height: 30px;
+	float: left;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.tagIcon > img {
+	margin-top: 5px;
+	margin-left: 5px;
+	float: left;
+	width: 20px; 
+	height: 20px;
+}
+
+.tagIcon > p {
+	margin-top: 5px;
+	margin-right: 5px;
+	float: left;
+	font-size: 20px;
+}
+
+/* start of desktop styles */
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 991px) {
+     /* start of large tablet styles */
+    .searchRow {
+    	height: 100px;
+    }
+
+    #specialist {
+    	width: 30%;
+    	margin: 5px 1.5%;
+    }
+
+	#area {
+    	width: 30%;
+    	margin: 5px 1.5%;
+    }
+
+    #type {
+    	width: 30%;
+    	margin: 5px 1.5%;
+    }
+
+    #searchInput {
+    	float: left;
+    	width: calc(96% - 20px);
+    	margin: 5px 2.5% 5px 1.5%;
+    }
+
+    
+}
+
+@media screen and (max-width: 767px) {
+    /* start of medium tablet styles */
+    .searchRow {
+    	height: 200px;
+    }
+    #specialist {
+    	width: 90%;
+    	margin: 5px 5%;
+    }
+	#area {
+    	width: 90%;
+    	margin: 5px 5%;
+    }
+    #type {
+    	width: 90%;
+    	margin: 5px 5%;
+    }
+    #searchInput {
+    	width: calc(90% - 20px);
+    	margin: 5px 5% 5px 5%;
+    }
+    .voiceIcon {
+    	display: none;
+    }
+    .searchIcon {
+    	right: 5%;
+    }
+
+    
+}
+
+@media screen and (max-width: 479px) {
+     /* start of phone styles */
+    .showSearch {
+    	display: inline;
+    	
+    }
+    .searchRow {
+    	display: none;
+    }
+	
+}
