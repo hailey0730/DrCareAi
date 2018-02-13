@@ -6,9 +6,17 @@ var activeDiv = 'docArticles';
 var docName = '';
 var docGender = '';
 var hasFooter = false;
+var sickArticles = [];
+var clinicContact = [];
 
 $(document).ready(function(){ 
 	//alert(GetQueryString("id"));
+
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		$(".rightPart").empty();		//remove sickness info if mobile version
+	}else{
+		loadSicknessInfo();
+	}
 
 	$(document).bind("click",function(e){ 	//not tested yet
       	var target = $(e.target); 
@@ -206,6 +214,45 @@ $(document).ready(function(){
 
 });
 
+function loadSicknessInfo(){
+	$.ajax({
+	  method: "GET",
+	  url: "../DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+	})
+	  .done(function( msg ) {
+	    var json = JSON.parse(msg);
+
+    	for(i in json) {
+			sickArticles[i] = json[i];
+		}
+
+	    // if one clinic only show one sickness info card, else two
+	    if(clinicContact.length == 1)
+
+	    $('.contentTitle').each(function(i,obj){
+	    	var h3 = $(this).children();
+	    	$(h3).html(sickArticles[i+1].Name);
+	    });
+	    $(".image").each(function(i,obj){
+	    	var img = $(this).children();
+	    	$(img).attr("src",'../' + sickArticles[i+1].ImageUrl);
+	    });
+	    $(".content").each(function(i,obj){
+		    // change tags
+		    var tag = $(this).children()[0];
+		    var description = $(this).children()[1];
+		    var link = $(this).children()[2];
+
+		    $(description).html(sickArticles[i+1].Desc.substring(0,50) + ' ...');
+
+		    var a = $($(link).children()).children();
+		    $(a).attr("href","http://www.drcare.ai/sickness.php?name=" + sickArticles[i+1].Name);
+
+	    });
+
+
+  });
+}
 
 function loadArticle(name) {
 	$.getJSON("php/getArticle.php", 
@@ -331,8 +378,8 @@ function updatePageInfo(docInfo) {
 	$("#docName_en > span").html(splitDocName(docInfo["FullName"])[1]);
 	$("#docGender > span").html(docInfo["Sex"]);
 
-	// $("#docWkHr").html('<i class="fa fa-square green"></i>'+'應診中');			//uncomment for 應診中
-	// $("#docWkHr").addClass('green');		// or addClass('red') for break
+	$("#docWkHr").html('<i class="fa fa-square green"></i>'+'應診中');			//uncomment for 應診中
+	$("#docWkHr").addClass('green');		// or addClass('red') for break
 
 	$("#docType").html(docInfo["SubCategory"]); //type
 	$("#docAddress").html("地址： " + docInfo["Address_ch"]); //address
@@ -363,9 +410,15 @@ function updatePageInfo(docInfo) {
 	//others
 	var others = docInfo["Remarks"].replace("\r", "").split("\n");
 	for(var i=0; i<others.length; i++) {
+		var clinicOther = [];
 		if(others[i].replace(" ", "") == "" || others[i] == "") continue;
+		if(others[i].replace(" ","").substring(0,3) == "傳真機" || others[i].replace(" ","").substring(0,3) == "傳呼機" || others[i].replace(" ","").substring(0,4) == "電郵地址"){
+			clinicOther.push(others[i].replace(" ",""));
+		}
+		
 		$("#otherInfo").append("<p>" + others[i].replace(" ", "") + "</p>");
 	}
+	clinicContact.push(clinicOther);
 
 	if(docInfo["Clinicbot"] == null) {
 		$(".clinicbotDiv").css("display", "none");

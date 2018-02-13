@@ -1,0 +1,624 @@
+.mainContainer > div {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+/******************************/
+/*   Google Map   */
+.mapContainer {
+	height: 52%;
+}
+
+#googleMap {
+	width: 100%;
+	height: 100%;
+}
+
+/******************************/
+/*   Header Info   */
+.headInfo {
+	float: left;
+	position: relative;
+	z-index:88;
+}
+
+.headInfo > .searchResult {
+	float: left;
+	width: calc(100% - 40px);
+	height: 60px;
+	margin: 20px;
+}
+
+.searchResult > #searchText > p {
+/*.searchResult > #searchText {*/
+	float: left;
+	text-align: left;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: black;
+	margin-left: 10px;
+	line-height: 30px;
+}
+
+/*#searchText > div {
+	float: left;
+	position: relative;
+	height: 30px;
+	background: #11D4EB;
+	padding: 0px 30px 0px 10px;
+	margin: 0 5px;
+	color: white;
+	border-radius: 15px;
+}
+
+#searchText > div > button {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	height: 20px;
+	width: 20px;
+	color: white;
+	background: none;
+	cursor: pointer;
+}
+
+#searchText > span {
+	float: left;
+}*/
+
+#searchText span {
+	color: #11D4EB;
+}
+
+#voiceRead {
+	float: left;
+	height: 30px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+#resultText {
+	float: left;
+	width: calc(100% - 50px);
+	color: #888;
+	text-align: left;
+	margin-left: 10px;
+	line-height: 30px;
+}
+
+.headInfo > .pageControl {
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+	height: 20px;
+	padding-right: 30px;
+}
+
+.pageControl > p {
+	float: right;
+	color: grey;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.pageControl > label {
+	float: right;
+	color: #666;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+.pageControl > .pages {
+	float: right;
+	margin-left: 10px;
+}
+
+.pages > p {
+	float: left;
+	color: #666;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+#nextPage {
+	margin-right: 10px;
+}
+
+/******************************/
+/*   Result Info   */
+.status{
+	display: inline-block;
+	margin-left: 1em; 
+	margin-top:20px;"
+}
+
+#searchResults {
+	min-height: 500px;
+	margin-top: 1em;
+}
+
+#searchIntro {
+	float: left;
+	height: 100px;
+	width: calc(100% - 20px);
+	margin-left: 20px;
+	background: #F0F0F0;
+	margin-bottom: 3px;
+	display: none;
+}
+
+#searchIntro:hover {
+	background: #DDD;
+	cursor: pointer;
+}
+
+#searchIntro > .introPic {
+	float: left;
+	margin: 10px;
+	height: calc(100% - 20px);
+}
+
+#searchIntro > .keyWord {
+	float: left;
+	font-size: 28px;
+	margin: 30px;
+	line-height: 40px;
+}
+
+#searchIntro > .intro {
+	font-size: 16px;
+	margin: 30px 0;
+	height: 40px;
+	line-height: 20px;
+	overflow: hidden;
+	text-align:justify; 
+	text-justify:inter-ideograph;
+}
+
+.row {
+	float: left;
+	width: calc(100% - 20px);
+	margin-left: 20px;
+	background: rgb(252,252,252);
+	margin-bottom: 3px;
+	cursor: pointer;
+}
+
+#searchResults .num {
+	float: left;
+	background: #11D4EB;
+	width: 30px;
+	height: 100%;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+	position: absolute;
+	top: 0;
+	padding:1.5em 0 0 0;
+}
+
+.docInfo {
+	float: left;
+	position: relative;
+	padding: 10px 20px;
+	width: calc(100% - 70px);
+	height: 100%;
+	left: 30px;
+}
+
+.docNameDiv {
+	float: left;
+	height: 100%;
+	width: 150px;
+}
+
+.docNameDiv .docName {
+	float: left;
+	margin-top: 20px;
+	left: 50px;
+	font-size: 22px; 
+	color: black; 
+	font-weight: bold;
+}
+
+.docNameDiv .docName:hover {
+
+}
+
+.docNameDiv .docTitle {
+	float: left;
+	margin-top: 27px;
+	margin-left: 5px;
+	font-size: 16px; 
+	color: #888; 
+}
+
+.docType {
+	float: left;
+	width: 100%;
+	font-size: 16px; 
+	color: #888; 
+	margin-top: 5px;
+}
+
+.clinicbotBtn {
+	float: left;
+	margin: 35px 30px;
+	padding: 5px 10px;
+	height: 30px;
+	background: #11D4EB;
+	font-size: 16px;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.hidden {
+	visibility:hidden;
+}
+
+.clinicbotBtn:hover {
+	background: white;
+	color: black;
+}
+
+.addressInfo {
+	float: left;
+	margin-left: 50px;
+	height: 100%;
+	width: calc(100% - 400px);
+}
+
+.docArea {
+	float: left;
+	width: 100%;
+	/*margin-top: 15px;*/
+	font-size: 18px; 
+	text-align: left;
+	color: #11D4EB;
+	cursor: pointer;
+}
+
+.docArea:hover {
+	color: #AAA;
+}
+
+.docAddress {
+	float: left;
+	width: 100%;
+	z-index: 100;
+	font-size: 18px; 
+	text-align: left;
+	color: #888; 
+	overflow: hidden;
+}
+
+
+.details {
+	position: absolute;
+	top: 30px;
+	right: 200px;
+	font-size: 30px;
+	border: none;
+	border-radius: 10px;
+	outline:none;
+	cursor:pointer;
+	background: grey;
+}
+
+.mainContainer > .pageControl {
+	width: auto;
+    float: right;
+    /*margin-right: 50px;*/
+}
+
+.isOpenTag {
+	position:absolute;
+	top:5px;
+	right:10px;
+	color:green;
+}
+
+.fa-square{
+	font-size: 10px;
+	margin-right: 5px;
+}
+
+.clinicBotTag {
+	position:absolute;
+	bottom:15px;
+	right:10px;
+	width:50px;
+}
+
+/* start of desktop styles */
+
+@media screen and (max-width: 1280px) {
+     /* start of large tablet styles */
+    .clinicbotBtn {
+		margin: 35px 20px;
+	}
+
+	.docArea {
+	}
+
+	.docAddress {
+	}
+
+	.addressInfo {
+		margin-left: 10px;
+	}
+
+	.mapContainer {
+		height: 48%;
+	}
+}
+
+@media screen and (max-width: 991px) {
+     /* start of large tablet styles */
+    #searchIntro .keyWord {
+    	margin: 30px 10px;
+    }
+
+    .clinicbotBtn {
+		margin: 35px 10px;
+	}
+
+	.addressInfo {
+		width: calc(100% - 350px);
+	}
+
+	.docArea {
+	}
+
+	.docAddress {
+	}
+
+	.addressInfo {
+		margin-left: 10px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+    /* start of medium tablet styles */
+    .row {
+    	height: auto;
+    }
+   	#searchResults .num {
+    	padding: 0;
+    	line-height: 80px;
+    	height: 100%;
+    }
+    .row:hover {
+    	cursor: pointer;
+    	background: #EEEEEE;
+    }
+    .docInfo {
+    	padding: 0 10px;
+    	width: calc(100% - 50px);
+    }
+    .docNameDiv {
+    	width: 100px;
+    }
+    .docName {
+    	font-size: 20px !important;
+    	line-height: 25px;
+    	margin-top: 15px !important;
+    }
+    .docTitle {
+    	font-size: 14px !important;
+    	line-height: 20px;
+    	margin-top: 20px !important;
+    }
+    .docType {
+    	width: 100%;
+    	font-size: 14px;
+    	line-height: 20px;
+    }
+    .clinicbotBtn {
+    	margin: 20px 5px;
+    	font-size: 14px;
+    }
+    .addressInfo {
+		width: calc(100% - 230px);
+    }
+    .docArea {
+    	margin-top: 15px;
+    	font-size: 16px;
+    	line-height: 20px;
+    }
+    .addressInfo > .status{
+    	margin-top: 15px;
+    	font-size: 16px;
+    	line-height: 20px;
+    }
+    .docAddress {
+    	font-size: 14px;
+    	line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+     /* start of phone styles */
+    .mapContainer {
+		height: 40%;
+	}
+
+    #searchText {
+    	font-size: 1em;
+    }
+    #resultText {
+    	font-size: 14px;
+    	line-height: 20px;
+    }
+    .pageControl {
+    	bottom: 5px !important;
+    	right: 5px !important;
+    	padding-right: 10px !important;
+    }
+    .pageControl p {
+    	font-size: 15px;
+    	margin-right: 10px;
+    }
+    .pageControl > label {
+    	margin-left: 0;
+    	margin-right: 5px;
+    }
+    #nextPage {
+    	margin-right: 0;
+    }
+	#searchIntro {
+		width: calc(100% - 5px);
+		margin-left: 5px;
+		height: 60px;
+	}
+	#searchIntro > .introPic {
+		margin: 5px;
+		height: calc(100% - 10px);
+    }
+    #searchIntro > .keyWord {
+    	font-size: 16px;
+    	line-height: 20px;
+    	margin: 20px 10px;
+    }
+    #searchIntro > .intro {
+    	font-size: 12px;
+    	line-height: 20px;
+    	height: 40px;
+    	margin: 10px 0px;
+    }
+
+  	.row {
+		width: calc(100% - 5px);
+		margin-left: 5px;
+	}
+	#searchResults .num {
+    	padding: 0;
+    	line-height: 60px;
+    	height: 100%;
+    }
+    .docName {
+    	margin-top: 5px !important;
+    }
+    .docTitle {
+    	margin-top: 10px !important;
+    }
+    .clinicbotBtn {
+    	float: right;
+    	margin: 15px 0px;
+    	font-size: 12px;
+    }
+    .addressInfo {
+    	width: calc(100% - 210px);
+    	margin-top: 5px;
+    	/*margin: 0;*/
+    }
+
+    .openTag{
+    	float:right;
+    	font-size: 12px;
+    }
+    .docArea {
+    	float: right;
+    	width: 100%;
+    	margin-top: 5px;
+    	/*margin-top: 20px;*/
+    	font-size: 12px;
+    	line-height: 15px;
+    }
+
+	.addressInfo > .status{
+		float: right;
+    	width: auto;
+    	margin-top: 20px;
+    	font-size: 12px;
+    	line-height: 15px;
+    	margin-right: 1em;
+    	margin-left: 0;
+	}
+
+    .docAddress {
+    	display: none;
+    }
+
+    .isOpenTag {
+		font-size: 12px;
+	}
+
+	.clinicBotTag {
+		/*width:20px;*/
+		bottom:5px;
+	}
+}
+
+/*===== sick articles ==========*/
+.sickBar{
+	background-color: #dcd9d9;
+	font-weight: bold;
+	padding-left: 2em;
+	margin: 1em 0;
+}
+
+.sickBar > p{
+	color: black;
+	font-size: 17px;
+}
+
+.sickKnowledge{
+    margin: 0 auto;
+    /* width: 68rem; */
+    /*max-width: calc(100% - 6rem);*/
+}
+
+.posts > div > li > #content{
+	box-shadow: 2px 2px #888;
+    border-radius: 5px;
+    margin-bottom: 2em;
+}
+
+#content > a.image{
+	margin:0;
+}
+
+.contentTitle > h3{
+	color: white;
+	margin-left: 1em;
+}
+
+.contentTitle{
+	background-color: #305360;
+    margin-top: -7px;
+    border-radius: 5px;
+}
+
+#content > .content {
+    padding: 0rem 2rem 0.1rem 2rem;
+}
+
+.content > .tags{
+	color: #888;
+}
+
+.content > p{
+	font-weight:400;
+}
+
+ul.actions li.readBtn{
+	background-color: #305360;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin:1em auto;
+}
+
+.readBtn > a.button
+{
+	box-shadow: 0 0 transparent;
+	color: white !important;
+}
+
+.readBtn > a:hover {
+	background-color: #305360;
+	box-shadow: 0 0 transparent;
+}

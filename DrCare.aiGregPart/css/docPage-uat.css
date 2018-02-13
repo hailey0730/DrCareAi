@@ -1,0 +1,605 @@
+/****************************************/
+/*  Google Map Setting */
+#googleMap {
+	float: left;
+	width: 100%;
+	background: #CCCCCC;
+	height: 40%;
+}
+
+
+/****************************************/
+/*  Ask Doctor Row */
+.btnRow {
+	float: left;
+	position: relative;
+	width: 100%;
+	background: #11D4EB;
+	height: 50px;
+}
+
+#returnBtn {
+	position: absolute;
+	font-size: 25px;
+	left: 10px;
+	top: 7.5px;
+	background: transparent;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+#returnBtn > img {
+	width:20px;
+	height:20px;
+}
+
+
+/****************************************/
+/****************************************/
+/*  The main content about doctor */
+.infoContainer {
+	float: left;
+	width: calc(100% - 60px);
+	padding: 10px 30px;
+	margin-bottom: 50px;
+	display: none;
+}
+
+/*  Text */
+#viewinfo {
+	float: left;
+	font-size: 0px;
+	width: 100%;
+}
+
+#viewinfo > span {
+	font-size: 22px;
+}
+
+.commonText {
+	color: black;
+}
+
+#viewtype,#address {
+	color: #11D4EB;
+}
+
+#viewname{
+	font-weight: bold;
+}
+
+/*  Tags */
+#tagsContainer {
+	float: left;
+	width: 100%;
+	font-size: 20px;
+	height: 30px;
+	margin-top: 10px;
+}
+
+.tagClass {
+	float: left;
+	height: 30px;
+	margin-right: 10px;
+	background: #11D4EB;
+	border-radius: 15px;
+}
+
+.tagClass > img {
+	float: left;
+	width: 20px; 
+	height: 20px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.tagClass > p {
+	float: left;
+	font-size: 20px;
+	margin-right: 10px;
+	margin-top: 5px;
+	color: white;
+}
+
+
+
+/****************************************/
+/*  Left Div Block */
+.infoDiv {
+	float: left;
+	position: relative;
+	width: 100%;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.basicInfo {
+	float: left;
+	width: calc(100% - 100px);
+	margin-left: 20px;
+	margin-right: 50px;
+}
+
+.basicInfoDivRight {
+	float: left;
+	width: 75%;
+	/*width: 800px;*/
+	height: 360px;
+	margin-top: 50px;
+}
+
+/****************************/
+/*  LEFT DIV */
+/* basic info */
+.time{
+	width: 100%;
+	margin-bottom: 1px;
+	cursor: pointer;
+}
+
+.timeDiv{
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+}
+
+.timeDiv > p{
+	display: inline-block;
+}
+
+.timeRow{
+	display: none;
+}
+
+.basicInfoText {
+	float: left;
+	margin-right:10em;
+}
+
+.basicInfoText > p:first-child > span:first-child {
+	font-size:26px;
+}
+
+.basicInfoText > p:first-child > span:nth-child(2) {
+	font-size:16px;
+	color:#AAAAAA;
+}
+
+.basicInfoText > p:first-child > span:nth-child(3) {
+	font-size:20px;
+	color:#AAAAAA;
+	margin-left: 10px;
+}
+
+#docName_en {
+	font-size:20px;
+	line-height: 30px;
+}
+
+#docGender {
+	color:#AAAAAA;
+	font-size:14px;
+}
+
+#docWkHr{
+	display: inline-block;
+    margin-right: 2em;
+	font-size: 12px;
+	float: right;
+	margin:1em;
+}
+
+.fa-square{
+	margin-right: 1em;
+}
+
+.btns {
+	float: left;
+	margin-top: 20px;
+}
+
+.clinicbotDiv {
+	float: left;
+	position: relative;
+	height: 60px;
+	width: 160px;
+}
+
+.clinicbotDiv > img {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 30px;
+	height: 30px;
+}
+
+.clinicbotDiv > p {
+	position: absolute;
+	top: 45px;
+	left: 40px;
+	font-size: 12px;
+	color: #11D4EB;
+	width: 120px;
+	font-family: "Avenir Black", sans-serif;
+	text-align: center;
+}
+
+#useClinicbot {
+	position: absolute;
+	top: 0;
+	left: 40px;
+	height: 40px;
+	width: 120px;
+	font-size: 15px;
+	border: none;
+	border-radius: 5px;
+	background: #11D4EB;
+	color: white;
+	cursor: pointer;
+	padding: 0;
+}
+
+#useClinicbot:hover {
+	color: #11D4EB;
+	background: #CCC;
+}
+
+#favor {
+	float: left;
+	position: relative;
+	margin-left: 10px;
+	margin-top: 5px;
+	height: 30px;
+	background: transparent;
+	color: #AAA;
+	cursor: pointer;
+	padding: 0;
+	display: none;
+}
+#favor:hover {
+	color: #11D4EB;
+}
+#favor > img {
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+#favor > span {
+	float: left;
+	font-size: 18px;
+	margin-top: 5px;
+	line-height: 25px;
+	width: 80px;
+	height: 30px;
+}
+
+
+/* contact info */
+.contactInfo {
+	float: left;
+	width: 100%;
+}
+
+.contactInfoText {
+	margin-top: 20px;
+}
+
+.contactInfoText p {
+	line-height: 24px;
+}
+
+.contactInfoText > p:first-child {
+	font-weight: bold;
+}
+
+#docTel, #docEmail, #docAddress, #docLanguage {
+	color: #666666;
+}
+
+#docLanguage {
+	margin-top: 24px;
+}
+
+/****************************/
+/*  RIGHT DIV */
+/* certification info */
+#certifyInfo {
+	float: left;
+	margin-left: 25px;
+	margin-top: 25px;
+	width: calc(100% - 250px);
+}
+
+#certifyInfo > p:first-child {
+	color:black;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#certifyInfo > p {
+	line-height: 30px;
+	color:black;
+}
+
+#photo {
+	float: right;
+	margin-right: 25px;
+	margin-top: 25px;
+	max-width: 200px;
+	height: 200px;
+	border: none;
+	display: none;
+}
+
+
+/* timetable info */
+#timeInfo {
+	float: left;
+	margin: 25px;
+	background: #DDD;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 50px;
+	width: calc(100% - 150px);
+}
+
+#timeInfo > p:first-child {
+	color:black;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#timeInfo > p {
+	line-height: 24px;
+}
+
+.modifyInfo {
+	position: absolute;
+	right: 2rem;
+	bottom: 0px;
+}
+
+.modifyInfo > a {
+	color: #23b1ec;
+	text-decoration: underline;
+}
+
+/* clinic introduction */
+#otherInfo {
+	float: left;
+	margin-left: 25px;
+	margin-top: 25px;
+	width: calc(100% - 60px);
+}
+
+#otherInfo > p:first-child {
+	color:black;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#otherInfo > p {
+	line-height: 30px;
+	color:black;
+}
+
+/****************************************/
+/*  Bottom article part */
+.articles {
+	float: left;
+	position: relative;
+	width: 100%;
+	margin-bottom: 20px;
+	display: none;
+}
+	.articles > p {
+		position: absolute;
+		left: 20px;
+		top: -50px;
+		font-size: 24px;
+		font-weight: bold;
+	}
+
+
+@media screen and (max-width: 1080px) {
+	.basicInfo {
+		width: 100%;
+	}
+
+	.basicInfoText {
+		width: 50%;
+	}
+
+	.contactInfo {
+		width: 50%;
+	}
+
+
+	.basicInfoDivRight {
+		width: 100%;
+	}
+
+	.basicInfo {
+		margin-left: 10px;
+	}
+}
+
+
+@media screen and (max-width: 980px) {
+	#clinicPic {
+		margin-top: 70px;
+		height: 160px;
+	}
+
+	.diffMobileImg{
+		border-radius: 100%;
+	}
+
+}
+
+@media screen and (max-width: 736px) {
+	.infoContainer {
+		width: calc(100% - 40px);
+		padding: 10px 20px;
+	}
+
+	#viewinfo {
+		font-size: 18px;
+	}
+	
+	.basicInfo {
+		margin-left: 0;
+	}
+
+	#photo {
+		height: 150px;
+	}
+
+	#certifyInfo {
+		width: calc(100% - 200px);
+	}
+
+	#clinicPic {
+		float: left;
+		margin-top: 30px;
+		margin-left: calc(50% - 150px);
+		max-height: 80%;
+		width: 300px;
+		max-width: 80%;
+	}
+
+	#clinicInfo {
+		float: left;
+		margin: 10px 30px;
+		width: calc(100% - 60px);
+		padding: 0;
+	}
+	
+}
+
+@media screen and (max-width: 480px) {
+	.infoContainer {
+		width: calc(100% - 20px);
+		padding: 10px 10px;
+	}
+
+	#viewinfo {
+		font-size: 14px;
+	}
+
+	.basicInfoText {
+		width: 100%;
+	}
+
+	.contactInfo {
+		width: 100%;
+	}
+
+	#photo {
+		margin: 20px calc(50% - 75px) 0 calc(50% - 75px);
+	}
+
+	#certifyInfo {
+		width: calc(100% - 20px);
+		margin-left: 10px;
+	}
+
+	/* timetable info */
+	#timeInfo {
+		margin: 10px;
+		padding: 10px 10px;
+		width: calc(100% - 40px);
+	}
+
+	#timeInfo > p:first-child {
+		color:black;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	#timeInfo > p {
+		font-size: 12px;
+		line-height: 20px;
+	}
+
+	#clinicPic {
+		margin-left: 10px;
+		max-height: 80%;
+		width: 300px;
+		max-width: calc(100% - 20px);
+	}
+
+	.btns {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	.clinicbotDiv {
+	}
+	#favor {
+		margin-left: 5px;
+	}
+}
+
+/*======right side sickness info========*/
+.rightPart{
+	float: right;
+}
+
+.sickBar{
+	background-color: #dcd9d9;
+    padding: 5px 15px;
+    margin-right: -10em;
+}
+
+ul.articles{
+	margin:1em -2em 1em 2em;
+	width:15em;
+}
+
+ul > li > #content{
+	box-shadow: 2px 2px #888;
+    border-radius: 5px;
+    margin-bottom: 2em;
+}
+
+.image > img{
+	border-radius: 5px;
+}
+
+.contentTitle > h3{
+	color: white;
+	margin-left: 1em;
+}
+
+.contentTitle{
+	background-color: #305360;
+    margin-top: -7px;
+    border-radius: 5px;
+}
+
+#content > .content{
+	padding: 0 1em .5em 1em;
+}
+
+.content > .tags{
+	color: #888;
+}
+
+.content > p{
+	font-weight:400;
+}
+
+ul.actions li.readBtn{
+	background-color: #305360;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin:1em auto;
+}
+
+.readBtn > a{
+	color: white !important;
+	font-weight: 100;
+}
