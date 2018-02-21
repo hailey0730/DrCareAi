@@ -73,9 +73,8 @@
     <script src="js/speech.js"></script>
     <!-- <script src="../assets/js/footer.js"></script> -->
     <script src="../assets/js/footerFunction.js"></script>
-    <script src="../assets/js/main.js"></script>
     <script src="../assets/js/sendEmailFunction.js"></script>
-    <!-- <script src="../assets/js/main.js"></script> -->
+    <script src="../assets/js/main.js"></script>
 
     <!-- <link rel="stylesheet" type="text/css" href="../assets/css/headerFooter.css" /> -->
     <!-- unable to use the main one -->
@@ -178,11 +177,8 @@
 	<div id="googleMap"></div>
 	<!-- btn row below map -->
 	<button class="showSearch">
-		<div class="showSearchDiv">
-			<i class="fa fa-search"></i><p>搜索</p><i class="fa fa-sort-down"></i>
-		</div>
+		<i class="fa fa-search"></i><p>搜索</p><i class="fa fa-sort-down"></i>
 	</button>
-	<!-- <button class="showSearch"><p>搜索</p><img src="img/dropDown.png"></button> -->
 	<!-- Search Row -->
 	<div class="searchRow">
 		<!-- search by type -->
@@ -198,7 +194,7 @@
 		<!-- search by type -->
 		<select class="filter" id="area">
 			<option value="" selected="">全部地區</option>
-			<option>東區</option>
+			<!-- <option>東區</option> -->
 		</select>
 
 		<!-- search result -->
@@ -267,8 +263,8 @@
 				<div class="sickBar">
 					<p>你可能有興趣的疾病資訊:</p>
 				</div>
-				<ul class="articles">
-					<li>
+				<ul class="sicknessArticles">
+					<!-- <li>
 						<article id="content">
 							<a class="image"><img src=""></a>
 							<div class="contentTitle">
@@ -280,21 +276,7 @@
 								<ul class="actions"><li class="readBtn"><a href="http://www.drcare.ai/sickness.php?name=躁鬱症" class="button">繼續閱讀</a></li></ul>
 							</div>
 						</article>
-					</li>
-
-					<li>
-						<article id="content">
-							<a class="image"><img src=""></a>
-							<div class="contentTitle">
-								<h3>Testing</h3>
-							</div>
-							<div class="content">
-								<p class="tags"><i class="fa fa-tag"></i>Tags tags</p>
-								<p></p>
-								<ul class="actions"><li class="readBtn"><a href="http://www.drcare.ai/sickness.php?name=躁鬱症" class="button">繼續閱讀</a></li></ul>
-							</div>
-						</article>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 
@@ -328,30 +310,113 @@
 			</div>				
 
 				<!-- contact information about doc -->
-				<div class="contactInfo">
+				<!-- <div class="contactInfo">
+					<div class="btns">
+						<div class="clinicbotDiv">
+							<img src="img/messager.png">
+							<button type="button" id="useClinicbot">按此聯絡</button>
+							<p>Chatbot By Clinicbot</p>
+						</div>
+					</div>
 					<div class="contactInfoText">
 						<p>聯絡資料：</p>
-						<p id="docTel"></p>
-						<!-- <p id="docEmail"></p> -->
-						<p id="docAddress"></p>
+						<p id="region">12345</p>
+						<p id="docTel">電話：12345</p>
+						<p id="docAddress">地址：asdfg</p>
+						<p id="docFax">1234</p>
+						<p id="docCall">1234</p>
+						<p id="docEmail">電郵：asdf@asdf.lkjh</p>
 						<p id="docLanguage"></p>
-					</div>
-					<button class="time">
+					</div> -->
+					<!-- <button class="time">
 						<div class="timeDiv">
 							<p>診症時間</p><i class="fa fa-sort-down"></i>
 						</div>
-					</button>
-					<div class="timeRow">
+					</button> -->
+					<!-- <div class="timeRow">
 						<div id="timeInfo">
 						</div>
 					</div>
 
-				</div>
+				</div> -->
+
 			</div>
 
 			<div class="fb-page" style="display: block;" data-href="https://www.facebook.com/DrCareAi" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/DrCareAi" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DrCareAi">隨行醫生Dr.Care</a></blockquote></div>
 
-			<div id="vaccine"></div>
+			<div id="vaccine">
+				<h3>診所經扣除政府資助後每針疫苗接種費用</h3>
+				<div class="articles">
+					<table class="vaccineTable">
+						<thead>
+							<tr class="tableHeader">
+								<!-- header append here -->
+							</tr>
+						</thead>
+						<tbody>
+							<!-- table content append here -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+			<section id="moreEssay" class="main">
+			<h3 id="black">相關醫生 </h3> <h3 id="blue"></h3>
+			<div class="posts">
+				<div class="contentSickness">
+					<div class="bulletsDiv">
+						<p>1</p>
+					</div>
+					<a href="">
+						<div id="nameTag" class="nameTag">
+							<h3></h3>
+							<span>醫生</span>
+							<p></p>
+						</div>
+						<div id="address" class="address">
+							<h3></h3>
+							<p></p>
+						</div>
+					</a>
+				</div>
+				<div class="contentSickness">
+					<div class="bulletsDiv">
+						<p>2</p>
+					</div>
+					<a href="">
+						<div id="nameTag" class="nameTag">
+							<h3></h3>
+							<span>醫生</span>
+							<p></p>
+						</div>
+						<div id="address" class="address">
+							<h3></h3>
+							<p></p>
+						</div>
+					</a>
+				</div>
+				<div class="contentSickness">
+					<div class="bulletsDiv">
+						<p>3</p>
+					</div>
+					<a href="">
+						<div id="nameTag" class="nameTag">
+							<h3></h3>
+							<span>醫生</span>
+							<p></p>
+						</div>
+						<div id="address" class="address">
+							<h3></h3>
+							<p></p>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="more" style="width: 5em;">
+				<p>更多...</p>
+			</div>
+	</section>
 
 			
 		<!-- end of the info part -->
@@ -364,21 +429,35 @@
 					<div class="infiniteTabs">
 
 						<div class="tabDiv" id="docArticles">
-							<h3>醫生相關文章</h3>
+							<h3 id="articleTitle">醫生相關文章</h3>
+							<i class="fa fa-tag" style="display: inline-block;"></i>
+							<div style="display: inline-block;" id="articleTags"></div>
+							<p id="likeP">總文章讚好數 <span id="likeNum"></span><i class="fa fa-thumbs-up"></i></p>
 						</div>
 						<!-- <div class="tabDiv" id="docQA">
 							<h3 style="display:inline-block;">醫生回答</h3>
 							<img class="messageImg" src="img/if_message-01_186393.png">
 						</div> -->
 
+						<div class="sickKnowledge">
+							<ul class="posts">
+								<div id="main1">
+								</div>
+								<div id="main2">
+								</div>
+								<div id="main3">
+								</div>
+							</ul>
+						</div>
 
+<!-- 
 						<div class="infinitePanel" id="docArticles">
 							<div class="spotlight">
 								<div class="docArticles">
 								</div>
 							</div>		
 						</div>
-
+ -->
 						
 						<!-- <div class="infinitePanel" id="docQA">
 							<div class="spotlight">

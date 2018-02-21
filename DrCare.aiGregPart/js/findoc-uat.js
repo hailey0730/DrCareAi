@@ -6,17 +6,6 @@ $(document).ready(function(){ // Jquery, click the address and relocate the map
 	$(document).bind("click",function(e){ 
       	var target = $(e.target); 
       	
-		// if(target.closest(".showSearchDiv").length == 1 && $(window).width() <= 479){ 
-  //     		target.parent().parent().find(".searchRow").toggle("normal");
-		// }
-		if(target.closest(".showSearch").length == 1 && $(window).width() <= 479){ 
-      		target.parent().find(".searchRow").toggle("normal");
-		}
-    });
-
-	$(document).bind("click",function(e){ 
-      	var target = $(e.target); 
-      	
 		if(target.closest(".nextPage").length == 1){ 
       		if(parseInt($("#curPage").html()) < parseInt($("#totalPage").html())) {
       			changePage(parseInt($("#curPage").html()) + 1);
@@ -406,7 +395,7 @@ function updateTable(doctors){
 		}
 
 		if(doctors[i]["Clinicbot"] == null) {
-			printInfo += "<img class='clinicBotTag' src='./img/chatbotSymbol.jpg' >";
+			printInfo += "<img class='clinicBotTag' src='./img/chatbotSymbol.png' >";
 		}
 
 		printInfo += "</div>";

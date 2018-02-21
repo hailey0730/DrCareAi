@@ -1,35 +1,67 @@
 $(document).ready(function(){ // Jquery, click the address and relocate the map
 
+	loadRegion();
+
 	$(document).bind("click",function(e){ 
       	var target = $(e.target); 
       	
-		if(target.closest(".showSearchDiv").length == 1 && $(window).width() <= 479){ 
-      		target.parent().parent().find(".searchRow").toggle("normal");
-		}
-		// if(target.closest(".showSearch").length == 1 && $(window).width() <= 479){ 
-  //     		target.parent().find(".searchRow").toggle("normal");
+		// if(target.closest(".showSearchDiv").length == 1 && $(window).width() <= 479){ 
+  //     		target.parent().parent().find(".searchRow").toggle("normal");
 		// }
+		if($(window).width() <= 479){
+			if(target.closest(".showSearch").length == 1 ){ 
+	      		// target.parent().find(".searchRow").toggle("normal");
+	      		$('.searchRow').toggle('normal');
+	      	}
+		}
     });
 
 });
 
 var Categories = {};
 
-(function loadRegion() {
+function loadRegion() {
 	$.getJSON("php/loadRegion.php",
 		{},
 		function(regions){
 			for (i in regions) {
-				$("#area").append("<option value=" + regions[i]["Region"] + ">" + regions[i]["Region"] + "</option>");
+				if(regions[i]["Region"] != ""){
+					$("#area").append("<option value=" + regions[i]["Region"] + ">" + regions[i]["Region"] + "</option>");
+				}
 			}
+
 
 		var initialRegion = decodeURI(GetUrlParam("region"));
 		initialRegion = (initialRegion == "null")?"":initialRegion;
 		if(initialRegion != "") 
 			$("#area option[value=" + initialRegion + "]").prop("selected","selected");
 
+
 	});
-})();
+}
+
+// (function loadRegion() {
+// 	$.getJSON("php/loadRegion.php",
+// 		{},
+// 		function(regions){
+// 			for (i in regions) {
+// 				console.log(regions[i]["Region"]);
+// 				console.log($("#area").html());
+// 				if(regions[i]["Region"] != ""){
+// 					$("#area").append("<option value=" + regions[i]["Region"] + ">" + regions[i]["Region"] + "</option>");
+// 		console.log($("#area").html());
+// 				}
+// 			}
+
+
+// 		var initialRegion = decodeURI(GetUrlParam("region"));
+// 		initialRegion = (initialRegion == "null")?"":initialRegion;
+// 		if(initialRegion != "") 
+// 			$("#area option[value=" + initialRegion + "]").prop("selected","selected");
+
+
+// 	});
+// })();
 
 function loadCategory(callback) {
 	if(callback == undefined) {
@@ -46,7 +78,9 @@ function loadCategory(callback) {
 			}
 
 			for(i in Categories){
-				$("#specialist").append("<option value=" + i + ">" + i + "</option>");
+				if(i != ""){
+					$("#specialist").append("<option value=" + i + ">" + i + "</option>");
+				}
 			}
 			if(initialCategory != "all") {
 				$("#specialist option[value=" + initialCategory + "]").prop("selected","selected");

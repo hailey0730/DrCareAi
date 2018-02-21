@@ -167,9 +167,9 @@
 	</div>
 
 	<button class="showSearch">
-		<div class="showSearchDiv">
+		<!-- <div class="showSearchDiv"> -->
 			<i class="fa fa-search"></i><p>搜索</p><i class="fa fa-sort-down"></i>
-		</div>
+		<!-- </div> -->
 	</button>
 	<!-- <button class="showSearch">搜索+</button> -->
 	<!-- Search Row -->
@@ -233,55 +233,8 @@
 		<p class="firstPage"> < 最前</p>
 	</div>
 
-<!-- 	<div class="sickKnowledge">
-		<div class="sickBar">
-			<p>你可能有興趣的疾病資訊:</p>
-		</div>
-		<div class="sickArticles">		
-			
-			<div class="sickArticle">
-				<div class="sickColorBar">.</div>
-				<a class="sickLink" href="">
-					<img id="sickImg" src="">
-					<h2 id="sickTitle"></h2>
-					<div class="sickTags">
-						<i class="fa fa-tag"></i>
-						<p></p>
-					</div>
-				</a>
-			</div>
 
-			<div class="sickArticle">
-				<div class="sickColorBar">.</div>
-				<a class="sickLink" href="">
-					<img id="sickImg" src="">
-					<h2 id="sickTitle"></h2>
-					<div class="sickTags">
-						<i class="fa fa-tag"></i>
-						<p></p>
-					</div>
-				</a>
-			</div>
-
-			<div class="sickArticle">
-				<div class="sickColorBar">.</div>
-				<a class="sickLink" href="">
-					<img id="sickImg" src="">
-					<div class="sickRight">
-						<h2 id="sickTitle"></h2>
-						<div class="sickTags">
-							<i class="fa fa-tag"></i>
-							<p></p>
-						</div>
-					</div>
-				</a>
-			</div>
-
-		</div>	 -->	<!-- end of sickArticles -->
-
-		<!-- <button id="moreBtn">更多</button>
-	</div> -->
-
+	
 
 </div><!-- end of main container -->
 <!-- Footer -->

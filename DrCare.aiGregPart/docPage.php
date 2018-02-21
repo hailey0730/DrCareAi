@@ -178,9 +178,9 @@
 	<div id="googleMap"></div>
 	<!-- btn row below map -->
 	<button class="showSearch">
-		<div class="showSearchDiv">
+		<!-- <div class="showSearchDiv"> -->
 			<i class="fa fa-search"></i><p>搜索</p><i class="fa fa-sort-down"></i>
-		</div>
+		<!-- </div> -->
 	</button>
 	<!-- <button class="showSearch"><p>搜索</p><img src="img/dropDown.png"></button> -->
 	<!-- Search Row -->
@@ -198,7 +198,7 @@
 		<!-- search by type -->
 		<select class="filter" id="area">
 			<option value="" selected="">全部地區</option>
-			<option>東區</option>
+			<!-- <option>東區</option> -->
 		</select>
 
 		<!-- search result -->

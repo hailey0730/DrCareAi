@@ -1,3 +1,4 @@
+var scrollIndex = 0;
 var articles = [];
 var qaList = [];
 var scrollIndex1 = 0;
@@ -7,25 +8,35 @@ var docName = '';
 var docGender = '';
 var hasFooter = false;
 var sickArticles = [];
-var clinicContact = [];
+var listOfDoc = [];
+var docNum = 0;
+var moreCounter = 3;
+var nextPage = 2;
+var doctorType = '';
+var clinicNum = 0;
 
 $(document).ready(function(){ 
 	//alert(GetQueryString("id"));
-
+	var loadSickness = false;
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$(".rightPart").empty();		//remove sickness info if mobile version
 	}else{
-		loadSicknessInfo();
+		loadSickness = true;
 	}
 
 	$(document).bind("click",function(e){ 	//not tested yet
       	var target = $(e.target); 
+
+      	for(var i = 0; i < clinicNum; i ++){
+      		var time = "#time-" + i;
+      		var timeRow = "#timeRow-" + i;
+      		if(target.closest(time).length == 1){
+      			$(timeRow).toggle('normal');
+      		}
+      	}
       	
-		if(target.closest(".timeDiv").length == 1 && $(window).width() <= 479){ 
-      		target.parent().parent().find(".timeRow").toggle("normal");
-		}
-		// if(target.closest(".showSearch").length == 1 && $(window).width() <= 479){ 
-  //     		target.parent().find(".searchRow").toggle("normal");
+		// if(target.closest("#time-0").length == 1){ 
+  //     		target.parent().find("#timeRow-0").toggle("normal");
 		// }
     });
 
@@ -76,7 +87,7 @@ $(document).ready(function(){
 			$("#type option[value=" + initialSubCategory + "]").prop("selected","selected");
 	});
 
-	$.getJSON("php/loadDocInfo.php", 
+	$.getJSON("php/loadDocInfo-uat.php", 
 		{ID: GetUrlParam("ID")},
 		function(doctor){
 			pinAddress(doctor["Result"][0]);
@@ -86,8 +97,39 @@ $(document).ready(function(){
 
 			loadQA(GetUrlParam("ID"), doctor["Result"][0]["Name"], doctor["Result"][0]["Sex"]);		
 			docName = doctor["Result"][0]["Name"];
-			docGender = doctor["Result"][0]["Sex"]
+			docGender = doctor["Result"][0]["Sex"];
+
+			clinicNum = doctor["Result"][0]["Clinic"].length;
+			// =========load related doc=================
+		    doctorType = doctor["Result"][0]["SubCategory"];
+		    if(loadSickness){
+				loadSicknessInfo();
+			}
+		//show relatedDoctor
+		    var docCat = '(';
+		        docCat += doctorType;
+		        docCat += '醫生）'
+		        $('#blue').text(docCat);
+
+		   loadDocFromDB({
+		    curPage: 1,
+		    type: doctorType,   //SubCategory
+		    specialist: ''      //Category
+		  });
+
+		
+
 	});
+
+	$(".more").click(function(){
+
+	        loadDocFromDB({
+	          curPage: nextPage,
+	          type: doctorType,   //SubCategory
+	          specialist: ''      //Category
+	        });
+	       nextPage++;
+	    });
 
 
 	$('.tabDiv').each(function(i,obj){
@@ -102,6 +144,21 @@ $(document).ready(function(){
 			$(this).addClass('inactive');
 		}
 	});
+
+// ==============load vaccine table=======================
+$("#vaccine").css("display","none");
+	var url = "http://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+			// + "&doctorID=" + GetUrlParam("ID");
+            + "&Region=" + "灣仔" + "&Women=Y&Children=Y&Elder=Y";
+
+    $.get(url, function(data){
+        var json  = JSON.parse(data);
+        loadVaccine(json);
+        
+    });
+
+// ==============================================
+
 
 	// $('.tabDiv').bind("click", function(event){
 	// 	var id = this.id;
@@ -127,49 +184,6 @@ $(document).ready(function(){
 			
 	// });
 
-	//=======================different article view for mobile============
-	// if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	// 	var win = $(window);
-
- //         win.scroll(function() {
-
- //        // End of the document reached?
- //        if ($(document).height() - win.height() - 250 < win.scrollTop()) {
-           
- //        	// console.log(activeDiv);		//DEBUG
- //        	if(activeDiv == "docArticles"){
- //        		if(scrollIndex1 < articles.length){
- //            		var html = formatingArticleHTMLMobile(articles[scrollIndex1]);
-	//                 $(".docArticles").append(html);
-	//                 scrollIndex1 ++;
-	//             }else if(scrollIndex1 == articles.length){
-	//             	if(!hasFooter){
-	//             		$('body').append(footer());
-	//             		hasFooter = true;
-	//             	}
-	//             	scrollIndex1++;
-	//             }
- //        	}else{
- //        		if(scrollIndex2 < qaList.length){
- //            		var QAHTML = formatingQAHTML(qaList[scrollIndex2], docName, docGender);
-	// 				$('.QAContent').append(QAHTML);
-	// 				scrollIndex2 ++;
- //        		}else if(scrollIndex2 == qaList.length){
- //        			console.log(hasFooter);
- //        			if(!hasFooter){
-	//             		$('body').append(footer());
-	//             		hasFooter = true;
-	//             	}
-	//             	scrollIndex2++;
- //        		}
-                
-                
- //            }
- //        }
-
- //        });
-	// }else{
-
 // ===========================load when scroll============================
 	 var win = $(window);
 
@@ -180,17 +194,45 @@ $(document).ready(function(){
            
         	// console.log(activeDiv);		//DEBUG
         	if(activeDiv == "docArticles"){
-        		if(scrollIndex1 < articles.length){
-            		var html = formatingArticleHTML(articles[scrollIndex1]);
-	                $(".docArticles").append(html);
-	                scrollIndex1 ++;
-	            }else if(scrollIndex1 == articles.length){
-	            	if(!hasFooter){
-	            		$('body').append(footer());
-	            		hasFooter = true;
-	            	}
-	            	scrollIndex1++;
-	            }
+        		// if(scrollIndex1 < articles.length){
+          //   		var html = formatingArticleHTML(articles[scrollIndex1]);
+	         //        $(".docArticles").append(html);
+	         //        scrollIndex1 ++;
+	         //    }else if(scrollIndex1 == articles.length){
+	         //    	if(!hasFooter){
+	         //    		$('body').append(footer());
+	         //    		hasFooter = true;
+	         //    	}
+	         //    	scrollIndex1++;
+	         //    }
+
+	         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            // End of the document reached?
+            if(scrollIndex1 < articles.length){
+                   
+                    if(scrollIndex < articles.length){
+                        $('#main1').append(randomPost(articles[scrollIndex]));
+                        $('#loading').hide();
+                        scrollIndex++;
+                    }else if (scrollIndex == articles.length){
+                        $('#loading').hide();
+                        $('body').append(footer());
+                        scrollIndex++;
+                    }else{
+                        $('#loading').hide();
+                    }
+		        }
+		        }else{
+		             // End of the document reached?
+		        if ($(document).height() - win.height() - 500 < win.scrollTop()) {
+		        // if ($(document).height() - win.height() == win.scrollTop()) {
+		                $('#loading').show();
+
+		                appendArticles(articles,scrollIndex);
+		                scrollIndex += 3;
+		        }
+		    }
+
         	}else{
         		if(scrollIndex2 < qaList.length){
             		var QAHTML = formatingQAHTML(qaList[scrollIndex2], docName, docGender);
@@ -217,41 +259,70 @@ $(document).ready(function(){
 function loadSicknessInfo(){
 	$.ajax({
 	  method: "GET",
-	  url: "../DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+	  url: "../DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+	  data: { Name:  doctorType.split("科")[0]}
 	})
 	  .done(function( msg ) {
 	    var json = JSON.parse(msg);
+	    if(json!= null){
+	    	sicknessHtml(json);
+	    }else{
 
-    	for(i in json) {
+	    	$.ajax({
+			  method: "GET",
+			  url: "../DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+			})
+			  .done(function( msg ) {
+	    		var json = JSON.parse(msg);
+	    		sicknessHtml(json);
+			  });
+	    }
+	    
+  });
+}
+
+function sicknessHtml(json){
+	for(i in json) {
 			sickArticles[i] = json[i];
 		}
 
-	    // if one clinic only show one sickness info card, else two
-	    if(clinicContact.length == 1)
+	    var length = 0;
+	     if(clinicNum == 1){
+	    	length = 1;
+	    }else{
+	    	length = 2;
+	    }
+	    length = 1;
 
-	    $('.contentTitle').each(function(i,obj){
-	    	var h3 = $(this).children();
-	    	$(h3).html(sickArticles[i+1].Name);
-	    });
-	    $(".image").each(function(i,obj){
-	    	var img = $(this).children();
-	    	$(img).attr("src",'../' + sickArticles[i+1].ImageUrl);
-	    });
-	    $(".content").each(function(i,obj){
-		    // change tags
-		    var tag = $(this).children()[0];
-		    var description = $(this).children()[1];
-		    var link = $(this).children()[2];
+	    for(var i = 0; i < length; i ++){
+	    	var post = '';
+		    post += '<li>';
+		    post += '<article id="content">';
+		    post += '<a class="image"><img src="../';
+		    post += sickArticles[i].ImageUrl;
+		    post += '" alt="" />';
+		    post += '</a>';
+		    post += '<div class="contentTitle"><h3>';
+		    post += sickArticles[i].Name;
+		    post += '</h3></div>';
+		    post += '<div class="content"><p class="tags">';
 
-		    $(description).html(sickArticles[i+1].Desc.substring(0,50) + ' ...');
+		    post += '<i class="fa fa-tag"></i>'		//append tags
+		    post += sickArticles[i].Tag;
+		    post += '</p>';
 
-		    var a = $($(link).children()).children();
-		    $(a).attr("href","http://www.drcare.ai/sickness.php?name=" + sickArticles[i+1].Name);
+		    post += '<p>';
+		    post += sickArticles[i].Desc.substring(0,50);
+		    post += '...';
+		    post += '</p><ul class="actions"><li class="readBtn"><a target="_blank" href="http://www.drcare.ai/sickness.php?name=';
+		    post += sickArticles[i].Name;
+		    post += '" class="button">繼續閱讀</a></li></ul></div>';
+		    post += '</article>';
+		    post += '</li>';
 
-	    });
+		    $('.sicknessArticles').append(post);
 
-
-  });
+	    }
 }
 
 function loadArticle(name) {
@@ -260,18 +331,31 @@ function loadArticle(name) {
 		function(json){
 			// console.log(json);
 			$(".articles").css("display", "inline");
+
+			var tagList = '';
+			var likeNum = 0;
 			
 			for(i in json) {
 				articles[i] = json[i];
 				// var HTML = formatingArticleHTML(json[i]);
 				// $(".docArticles").append(HTML);
+				if(json[i]["Tags"]!= "NA"){
+						tagList += '<div class="tagDiv">';
+						tagList += json[i]["Tags"];
+						tagList += '</div>';
+				}
+			// console.log(json[i]["Like"]);		//DEBUG
+				likeNum += parseInt(json[i]["Like"]);
 			}
+			$("#articleTitle").html(articles.length + '篇有關' + docName + "醫生的文章:");
+			$("#articleTags").html(tagList);		//set tags
+			$("#likeNum").html(likeNum);		//set like num
+
+
 			var HTML;
-			// if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-			// 	HTML = formatingArticleHTMLMobile(json[0]);
-			// }else{
+			
 			 	HTML = formatingArticleHTML(json[0]);
-			// }
+		
 			$(".docArticles").append(HTML);
 
 			$(".panel").each(function(i,obj){
@@ -362,8 +446,12 @@ function updatePageInfo(docInfo) {
 	$("#commonText1").html(doctorSpan + "的簡介。他的專業是");
 	$("#viewtype").html('<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?category=' +  docInfo["Category"] + '"><u>' + docInfo["Category"] + '</u></a>' + ' ' + '<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?subcategory=' + docInfo["SubCategory"] + '"><u>' + docInfo["SubCategory"] + '</u></a>'); //type
 	// $("#viewtype").html(docInfo["Category"]+docInfo["SubCategory"]); //type
-	$("#commonText2").html("，診所位置位於");
-	$("#address").html('<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?region=' +  docInfo["Region"] + '"><u>' + docInfo["Region"] + '</u></a>' + " 。"); //address
+
+// =======uncomment to show location ===============
+	// $("#commonText2").html("，診所位置位於");
+	// $("#address").html('<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?region=' +  docInfo["Region"] + '"><u>' + docInfo["Region"] + '</u></a>' + " 。"); //address
+// ================================================
+
 	// $("#address").html('<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?region=' +  docInfo["Region"] + '"><u>' + docInfo["Address_ch"] + '</u></a>'); //address
 
 	// tags
@@ -378,14 +466,29 @@ function updatePageInfo(docInfo) {
 	$("#docName_en > span").html(splitDocName(docInfo["FullName"])[1]);
 	$("#docGender > span").html(docInfo["Sex"]);
 
-	$("#docWkHr").html('<i class="fa fa-square green"></i>'+'應診中');			//uncomment for 應診中
+	if(docInfo["isOpen"] == 1) {
+		$("#docWkHr").html('<i class="fa fa-square green"></i>'+'應診中');			//uncomment for 應診中
+	}
 	$("#docWkHr").addClass('green');		// or addClass('red') for break
 
 	$("#docType").html(docInfo["SubCategory"]); //type
-	$("#docAddress").html("地址： " + docInfo["Address_ch"]); //address
-	$("#docTel").html("電話： " + docInfo["Phone"]) //tel
-	// $("#docEmail").html("電郵： " + docInfo["Email"]) //email
+
+
+	// =======uncomment for final ver=====================
+	var clinicBranch;
+	for(var i = 0; i < docInfo['Clinic'].length; i ++){			//might change 'clinic' attr name
+		clinicBranch = contactInfohtml(docInfo['Clinic'][i], i);
+		$('.basicInfo').append(clinicBranch);
+	}
+	// ==================================================
+
+	// $("#docAddress").html("地址： " + docInfo["Address_ch"]); //address
+	// $("#docTel").html("電話： " + docInfo["Phone"]); //tel
+	// $("#docEmail").html("電郵： " + docInfo["Email"]); //email
+	// $("#docFax").html("電郵： " + docInfo["Email"]); //email
+	// $("#docCall").html("電郵： " + docInfo["Email"]); //email
 	//$("#docLanguage").html("語言： " + docInfo[""]) //language
+
 
 	$(".modifyInfo > span").html(splitDocName(docInfo["Name"])[0]);
 
@@ -397,32 +500,73 @@ function updatePageInfo(docInfo) {
 
 	//certification & worktime
 	var certs = docInfo["Certification"].split("\n");
-	for(var i=1; i<certs.length; i++) {
+	for(var i=0; i<certs.length; i++) {
 		$("#certifyInfo").append("<p>" + certs[i] + "</p>");
 	}
 
-	var times = docInfo["Opentime"].split("\n");
-	//$("#timeInfo").append("<p>" + docInfo["Opentime"].replace('\n', "<br/>") + "</p>");
-	for(var i=0; i<times.length; i++) {
-		$("#timeInfo").append("<p>" + times[i].replace('"', "") + "</p>");
-	}
+	// var times = docInfo["Opentime"].split("\n");
+	// console.log(times);
+	// //$("#timeInfo").append("<p>" + docInfo["Opentime"].replace('\n', "<br/>") + "</p>");
+	// for(var i=0; i<times.length; i++) {
+	// 	$("#timeInfo").append("<p>" + times[i].replace('"', "") + "</p>");
+	// }
+	// console.log($("#timeInfo").html());
 
 	//others
 	var others = docInfo["Remarks"].replace("\r", "").split("\n");
 	for(var i=0; i<others.length; i++) {
 		var clinicOther = [];
 		if(others[i].replace(" ", "") == "" || others[i] == "") continue;
-		if(others[i].replace(" ","").substring(0,3) == "傳真機" || others[i].replace(" ","").substring(0,3) == "傳呼機" || others[i].replace(" ","").substring(0,4) == "電郵地址"){
-			clinicOther.push(others[i].replace(" ",""));
-		}
+			$("#otherInfo").append("<p>" + others[i].replace(" ", "") + "</p>");
 		
-		$("#otherInfo").append("<p>" + others[i].replace(" ", "") + "</p>");
 	}
-	clinicContact.push(clinicOther);
 
 	if(docInfo["Clinicbot"] == null) {
 		$(".clinicbotDiv").css("display", "none");
 	}
+}
+
+function contactInfohtml(doc, j){
+	var times = doc["Opentime"].split("\n");
+	var timeHtml = '';
+	for(var i=0; i<times.length; i++) {
+		timeHtml += "<p>";
+		timeHtml += times[i].replace('"', "");
+		timeHtml += "</p>";
+	}
+
+	var html = '<div class="contactInfo">' +
+					'<div class="btns">' +
+						'<div class="clinicbotDiv">' +
+							'<img src="img/messager.png">' +
+							'<button type="button" id="useClinicbot">按此聯絡</button>' +
+							'<p>Chatbot By Clinicbot</p>' +
+						'</div>' +
+					'</div>' + 
+				'<div class="contactInfoText">' + 
+					// '<p>聯絡資料：</p>' + 
+					'<p id="region">' + doc["Region"] + '</p>' +
+					'<p id="docTel">' + "電話： " + doc["Phone"] + '</p>' + 
+					'<p id="docAddress">' + "地址： " + doc["Address_ch"] + '</p>' + 
+					// '<p id="docEmail">' + "電郵： " + doc["Email"] + '</p>' + 
+					// '<p id="docFax">'+ "傳真機： " +'</p>' + 
+					// '<p id="docCall">'+ "傳呼機： " +'</p>' + 
+				'</div>' + 
+				'<button class="time" id="time-' + j + '">' + 
+							'<p>診症時間</p><i class="fa fa-sort-down"></i>' + 
+					'</button>' +
+				'<div class="timeRow" id="timeRow-' + j + '">' + 
+					'<div id="timeInfo">' + 
+						timeHtml +
+	
+					'</div>' + 
+				'</div>' + 
+				'</div>'
+
+
+	// $("#docFax").html
+	// $("#docCall").html
+	return html;
 }
 
 // used to get the parameters in url
@@ -430,69 +574,6 @@ function getQueryString(name) {
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
      var r = window.location.search.substr(1).match(reg);
      if(r!=null)return  unescape(r[2]); return null;
-}
-
-function formatingArticleHTMLMobile(article){
-	var returnHTML = "",
-		title = "",
-		tag = "",
-		time = "",
-		author = "",
-		authorPic = "",
-		media = "",
-		mediaPic = "",
-		imgURL = "",
-		content = "",
-		articleURL = "",
-		like = "";
-
-	// title
-	title = article["Subject"];
-	//tag
-	var tags = article["Tags"].split(", ");
-	for(i in tags) {
-		if(tag == "") {
-			tag = '<img src="img/tag.png">';
-			tag += '<span>' + tags[i] + '</span>';
-		}
-		else {
-			tag += '|<span>' + tags[i] + '</span>';
-		}
-	}
-	//time
-	time = article["CreateDateTime"];
-	//author 
-	author = article["Doctor"];
-	//author photo
-	authorPic = article["DoctorPhotoUrl"];
-	//media
-	media = article["Media"];
-	//mediaPic
-	mediaPic = article["MediaLogoUrl"];
-	//imgURL
-	imgURL = article["ImageUrl"];
-	//content
-	content = article["Desc"];
-	//articleURL
-	articleURL = article["Url"];
-	//like
-	like = article["Like"];
-
-	returnHTML = "" +
-	'<article class="post diffMobilePost">' +
-	'<header>' +
-	'<a href="#"><span >作者: ' + author 
-		// + '</span><img src="' + authorPic + '" alt="" />'
-		+'</a>' +
-		'</header>' +		
-		'<div class="Content">' +
-			'<div class="image featured diffMobileDiv"><img class="diffMobileImg" src="' + imgURL + '"/></div>' +
-			'<h2><a class="getArticleUrl" target="_blank" href="' + articleURL + '"><u>' + title + ' ></u></a></h2>' +
-		'</div>' +
-	'</article>';
-
-
-	return returnHTML;
 }
 
 function formatingArticleHTML(article) {
@@ -576,4 +657,202 @@ function formatingArticleHTML(article) {
 
 
 	return returnHTML;
+}
+
+function loadVaccine(json){
+            
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    // var detail = '<p>季節性流感疫苗SIV(包括 孕婦-W, 兒童-C, 長者-E), 肺炎球菌疫苗(23vPPV)(只包括長者-E23), 肺炎球菌疫苗(PCV13)(只包括長者-E13)</p>';
+                    // $('#three header').append(detail);
+                    var header = headerhtmlMobile();
+                    // $('td:first').css('width', '5em');
+
+                }else{
+                    var header = headerhtml();
+                }           
+            for(var j = 0; j < json.length; j ++){
+	            var html = articlesHTML(json[j]);
+            	$("tbody").append(html);
+
+            }
+            $(".tableHeader").append(header);
+}
+
+function headerhtmlMobile(){
+    
+    var returnHTML = "<th>疫苗提供者</th><th>地址和電話號碼</th>";
+        returnHTML += "<th>W</th>";
+        returnHTML +=　"<th>C</th>";
+        returnHTML += "<th>E</th><th>E23</th><th>E13</th>";
+
+    return returnHTML;
+}
+
+function headerhtml(){
+    var returnHTML = "<th>疫苗提供者</th><th>地址和電話號碼</th>";
+        returnHTML += "<th>季節性流感疫苗(SIV)(孕婦)</th>";
+        returnHTML +=　"<th>季節性流感疫苗(SIV)(兒童)</th>";
+        returnHTML += "<th>季節性流感疫苗(SIV)(長者)</th><th>肺炎球菌疫苗(23vPPV)(長者)</th><th>肺炎球菌疫苗(PCV13)(長者)</th>";
+
+    return returnHTML;
+}
+
+// load doc from DB
+function loadDocFromDB(conf) {
+  var docsNumPerPage = 3;
+ 
+  if(conf.name == undefined) {
+    conf.name = "";
+  }
+ 
+  $.getJSON("php/loadDoc.php",
+    {curPage: conf.curPage,
+    perPage: docsNumPerPage,
+    Category: conf.specialist,
+    SubCategory: conf.type},
+    function(json){
+     // console.log(json);
+
+     docNum = json.pop();
+        for(var i = 0; i < json[0].length; i ++){
+          listOfDoc[i] = json[0][i];   //{ID, Name, FullName, Sex, PhotoUrl, Category, SubCategory, Region, Address_ch, Address_en, Phone, Email, Language, Certification, Latitude_X, Longitude_Y, Map, Service, Remarks, Opentime, CreateDateTime:{date, timezone_type, timezone}, Ref_url, Clinicbot, NumOfArticle, RowNum}
+        }
+        $('.nameTag').each(function(i,obj){
+          $($(this).children()[0]).text(listOfDoc[i].Name);   //doctor name
+          $($(this).children()[2]).text(conf.type);   //doctor type
+        });
+
+        $('.address').each(function(i,obj){
+          $($(this).children()[0]).text(listOfDoc[i].Region);   //address area
+          $($(this).children()[1]).text(listOfDoc[i].Address_ch);    //address
+        });
+
+
+        $('.contentSickness').each(function(i,obj){
+          var docLink = 'docPage.php?Name=';
+          docLink += listOfDoc[i].Name;
+          docLink += '&ID=';
+          docLink += listOfDoc[i].ID;
+          var a = $(this).children()[1];
+          $(a).attr('href', docLink);    //set link to doctor
+        });
+      
+  }).fail(function(d, textStatus, error){
+    console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+  });
+
+}
+
+//===================infinite loop post==================
+function articlesHTML(articles){
+    // console.log(articles);   //DEBUG
+   var returnHTML = "",
+        
+    returnHTML = "<tr class='tableContent'><td><div><a href='http://www.drcare.ai/Doctor/findoc.php?name=" 
+    + articles.Doctor + "'>" + "<u><p>" + articles.Name + "</p><p>" + articles.Doctor
+    + "</p></a><div></td><td><div><p>" + articles.Address + "</p></u><a href='tel:852" + articles.Phone  + "' data-rel='external'><u>" + articles.Phone + "</u></a>"
+    + "</div></td>";
+        returnHTML += "<td>" + temp(articles.SIV_Women) + "</td>";
+        returnHTML +=　 "<td>" + temp(articles.SIV_Children) + "</td>";
+        returnHTML +=  "<td>" + temp(articles.SIV_ElderSiv) + "</td>"
+        + "<td>" + temp(articles.SIV_Elder23) + "</td>" + "<td>" + temp(articles.SIV_Elder13) + "</td>";
+
+    returnHTML += "</tr>"
+
+    return returnHTML;
+
+}
+
+function temp(val){
+    var result = "";
+    if(val == null){
+        result = "不適用";
+    }else{
+        result = "$" + val;
+    }
+    return result;
+}
+
+function appendArticles(list, y){
+    
+     if((list.length - y) / 3 > 1){
+                    $('#main1').append(randomPost(list[y]));
+                    $('#main2').append(randomPost(list[y+1]));
+                    $('#main3').append(randomPost(list[y+2]));
+                    $('#loading').hide();
+                    // y+=3;
+                }else if((list.length - y) / 3 == 1){
+                    $('#main1').append(randomPost(list[y]));
+                    $('#main2').append(randomPost(list[y+1]));
+                    $('#main3').append(randomPost(list[y+2]));
+                    $('#loading').hide();
+                    $('body').append(footer());
+                    // y+=3;
+                }else if ((list.length - y) / 3 < 1 && (list.length - y) % 3 == 1){
+                    $('#main1').append(randomPost(list[y]));
+                    $('#loading').hide();
+                    $('body').append(footer());
+                    // y+=3;
+                }else if((list.length - y) / 3 < 1 && (list.length - y) % 3 == 2){
+                    $('#main1').append(randomPost(list[y]));
+                    $('#main2').append(randomPost(list[y+1]));
+                    $('#loading').hide();
+                    $('body').append(footer());
+                    // y+=3;
+                }else{
+                    $('#loading').hide();
+                }
+            
+}
+
+function randomPost(json){
+    // console.log(json);
+    // Generate the post
+    var post = '';
+    post += '<li>';
+    post += '<article id="content">';
+    post += '<div class="articleLike"><i class="fa fa-thumbs-up"></i>';
+    post += json["Like"]	//like num
+    post += '</div>';
+    post += '<div class="articleHeader"><span>';
+    post += json['Doctor'];
+    post += '  ・ </span>';
+    post += '<span>';
+    post += json['Media'];
+    post += '  ・ </span>';
+    post += '<span>';
+    post += json['CreateDateTime'];
+    post += '</span></div>';
+
+    post += '<a class="image"><img src="';
+    post += json.ImageUrl;
+    post += '" alt="" />';
+    post += '</a>';
+    post += '<div class="contentTitle"><h3>';
+    post += json.Subject;
+    post += '</h3></div>';
+    post += '<div class="content"><p class="tags">';
+
+    post += '<i class="fa fa-tag"></i>'		//append tags
+
+    // for(var i = 0; i < json['Tags'].length; i ++){		//uncomment to load tags
+    	post += '<span>';
+    	post += json['Tags'] != "NA"? json["Tags"] : "";
+    // 	post += ' ';
+    	post += '</span>';
+    // }
+
+    post += '</p>';
+
+    post += '<p>';
+    post += json.Desc.substring(0,50);
+    post += '...';
+    post += '</p><ul class="actions"><li class="readBtn"><a href="';
+    post += json.Url;
+    post += '" class="button">繼續閱讀</a></li></ul></div>';
+    post += '</article>';
+    post += '</li>';
+
+    return post;
+
 }

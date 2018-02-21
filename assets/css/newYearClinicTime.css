@@ -1,0 +1,33 @@
+#wrapper > .main > .tabs > .titles > .title.active{
+	cursor:default;
+	color: black;
+	font-size:2.5em;
+	font-weight: 400;	
+}
+
+#wrapper > .main > .tabs > .panels > .panel{
+	padding:2em;
+}
+
+.spotlight > p {
+	color: black;
+}
+
+table thead{
+	background-color: #305360;
+}
+
+table th{
+	color: white;
+	text-align: center;
+}
+
+table td{
+	text-align: center;
+	color: #305360;
+	font-weight: 400;
+}
+
+table td.clinic, table td.phone{
+	color: black;
+}

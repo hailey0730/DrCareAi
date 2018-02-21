@@ -210,7 +210,7 @@
 		</div>
 		<!-- page btns -->
 		<div class="pageControl">
-			<p class="lastPage">最后 > </p>
+			<p class="lastPage">最後 > </p>
 			<p class="nextPage">下一頁</p>
 			<div class="pages">
 			</div>
@@ -226,7 +226,7 @@
 	</div><!-- end of result container -->
 
 	<div class="pageControl">
-		<p class="lastPage">最后 > </p>
+		<p class="lastPage">最後 > </p>
 		<p class="nextPage">下一頁</p>
 		<div class="pages">
 		</div>
