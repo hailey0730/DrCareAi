@@ -1,0 +1,39 @@
+.infoContainer > .infoDiv{
+	margin:4em;
+}
+
+input, textarea{
+	box-shadow: inset 1px 1px 3px #555;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+.row{
+	margin-bottom:5px;
+}
+
+textarea{
+	width:100%;
+}
+
+.right{
+	float: right;
+}
+
+/*---------radio button-----------*/
+.radioP{
+	display: inline;
+}
+
+.radio{
+	box-shadow: 0px 0px;
+    -webkit-appearance: radio;
+    display: inline;
+
+}
+
+/*---------clinic time------------*/
+.clinicTime > input, .clinicTime > p{
+	display: inline;
+}
