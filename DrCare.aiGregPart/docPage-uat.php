@@ -64,9 +64,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA9HW61jlVn7qzBzYbhOh-pgOeS7-g9WJI"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9HW61jlVn7qzBzYbhOh-pgOeS7-g9WJI"></script>
     <script src="js/jquery/jquery-1.12.4.min.js"></script>
     <script src="js/general.js"></script>
+    <script src="../assets/js/onWindowResizeFunction.js"></script>
     <script src="js/docPage-uat.js"></script>
     <script src="js/googleMap.js"></script>
     <script src="js/filterModule.js"></script>
@@ -206,7 +207,7 @@
 		</div> -->
 
 		<!-- search by tags -->
-		<input id="searchInput" type="text" placeholder="請點擊按鈕講話"></input>
+		<input id="searchInput" type="text" placeholder="輸入搜索內容"></input>
 		<!-- voice func -->
 		<img src="img/mic.png" class="voiceIcon" onclick="startDictation(event)">
 		<img src="img/search.png" class="searchIcon" onclick="passToURL()">
@@ -342,8 +343,6 @@
 
 			</div>
 
-			<div class="fb-page" style="display: block;" data-href="https://www.facebook.com/DrCareAi" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/DrCareAi" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DrCareAi">隨行醫生Dr.Care</a></blockquote></div>
-
 			<div id="vaccine">
 				<h3>診所經扣除政府資助後每針疫苗接種費用</h3>
 				<div class="articles">
@@ -363,7 +362,10 @@
 
 			<section id="moreEssay" class="main">
 			<h3 id="black">相關醫生 </h3> <h3 id="blue"></h3>
-			<div class="posts">
+
+			<div class="left" onclick="leftArrow()"><img src="../../images/Arrow-Left.png"></div>
+
+			<div class="posts docPost">
 				<div class="contentSickness">
 					<div class="bulletsDiv">
 						<p>1</p>
@@ -374,10 +376,15 @@
 							<span>醫生</span>
 							<p></p>
 						</div>
+						<div class="rightBox">
+							<p class='isOpenTag green'><i class='fa fa-square green'></i>應診中</p>
+							<img class='clinicBotTag' src='./img/chatbotSymbol.png' >
+						</div>
 						<div id="address" class="address">
 							<h3></h3>
 							<p></p>
 						</div>
+						
 					</a>
 				</div>
 				<div class="contentSickness">
@@ -390,10 +397,15 @@
 							<span>醫生</span>
 							<p></p>
 						</div>
+						<div class="rightBox">
+							<p class='isOpenTag green'><i class='fa fa-square green'></i>應診中</p>
+							<img class='clinicBotTag' src='./img/chatbotSymbol.png' >
+						</div>
 						<div id="address" class="address">
 							<h3></h3>
 							<p></p>
 						</div>
+						
 					</a>
 				</div>
 				<div class="contentSickness">
@@ -406,17 +418,25 @@
 							<span>醫生</span>
 							<p></p>
 						</div>
+						<div class="rightBox">
+							<p class='isOpenTag green'><i class='fa fa-square green'></i>應診中</p>
+							<img class='clinicBotTag' src='./img/chatbotSymbol.png' >
+						</div>
 						<div id="address" class="address">
 							<h3></h3>
 							<p></p>
 						</div>
+						
 					</a>
 				</div>
+
 			</div>
-			<div class="more" style="width: 5em;">
-				<p>更多...</p>
-			</div>
+
+		<div class="right" onclick="rightArrow()"><img src="../../images/Arrow-Right.png"></div>
+			
 	</section>
+
+	<div class="fb-page" style="display: block;" data-href="https://www.facebook.com/DrCareAi" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/DrCareAi" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DrCareAi">隨行醫生Dr.Care</a></blockquote></div>
 
 			
 		<!-- end of the info part -->

@@ -1,4 +1,9 @@
 var doctor;
+var articleCount = 1;
+var vaccineCount = 1;
+var clinicCount = 1;
+var change = false;
+var changedVariable=[];
 
 $(document).ready(function(){ 
 
@@ -9,9 +14,159 @@ $(document).ready(function(){
 			// set all doc info
 			autoFillForm();
 
-		})
+		});
+
+	$("#docPic").change(function(){
+        readURL(this, "docPicPreview");
+    });
+
+	$('#docArticle').click(function(){
+		var html = '<div class="row" id="articleDiv-' + articleCount + '">' +
+	    			'<div class="col-sm-2">' +
+					'</div>' +
+					'<div class="col-sm-4">' +
+						'<input onchange="detectChange(' + "'醫生網上寫過的文章/網誌'" + ')" id="docArticleurl-' + articleCount + '" class="inputBox" type="url" placeholder="http://www.example.com">' +
+					'</div>' +
+					'<div class="col-sm-1"> ' + 
+					'<button class="add" type="submit" onclick="removeArticle(' + articleCount +')"><i class="fa fa-remove"></i></button>' + 
+					'</div>' +
+					'</div>';
+
+		articleCount++;
+		$('.docArticle').append(html);
+	});
+
+
+	$('#vaccine').click(function(){
+		var html = '<div class="row" id="vaccineDiv-' + vaccineCount +'">' +
+				'<div class="col-sm-2">' +
+					'<p>疫苗</p>' +
+				'</div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'疫苗'" + ')" id="vaccine-' + vaccineCount + '" class="inputBox" type="text">' +
+				'</div>' +
+				'<div class="col-sm-1">' +
+					'<p class="right">價格	$</p>' +
+				'</div>' +
+				'<div class="col-sm-2">' +
+					'<input onchange="detectChange(' + "'疫苗'" + ')" id="vaccinePrice-' + vaccineCount + '" type="number" min="0.01">' +
+				'</div>' +
+				'<div class="col-sm-1"> ' + 
+					'<button class="add" type="submit" onclick="removeVaccine(' + vaccineCount +')"><i class="fa fa-remove"></i></button>' + 
+					'</div>' +
+			'</div>';
+
+			vaccineCount++;
+		$('.vaccine').append(html);
+	});
+
+	$('#clinic').click(function(){
+		var html = '<div id="clinicDiv-' + clinicCount +'"><div class="line"></div>' +
+		'<button class="add" type="submit" onclick="removeClinic(' + clinicCount +')"><i class="fa fa-remove"></i> 取消診所</button>'+
+					'<div class="row">' +
+	    			'<div class="col-sm-2">' +
+	    			'<p>診所名稱 *</p>' +
+					'</div>' +
+					'<div class="col-sm-4">' +
+						'<input onchange="detectChange(' + "'診所名稱'" + ')" id="clinicName-' + clinicCount + '" type="text" class="inputBox">' +
+					'</div>' +
+					'</div>'+
+					' <div class="row">' +
+				'<div class="col-sm-2">' +
+					'<p>地址 *</p>' +
+				'</div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所地址'" + ')" name="address" class="address"  id="address-' + clinicCount +'" rows="1" value=""></textarea>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row">' +
+				'<div class="col-sm-2">' +
+					'<p>開診時間 *</p>' +
+				'</div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所開診時間'" + ')" name="clinicTime" id="clinicTime-' + clinicCount +'" rows="7" value=""></textarea>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>公眾假期 *</p></div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所公眾假期'" + ')" name="clinicHoliday" id="clinicHoliday-' + clinicCount +'" rows="3" value=""></textarea>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>診所電話 *</p></div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'診所電話'" + ')" id="clinicPhone-' + clinicCount +'" type="tel" class="inputBox">' +
+				'</div>' +
+			'</div>' +
+			'<div class="row">' +
+				'<div class="col-sm-2">' +
+    				'<p>預先致電查詢 *</p>' +
+    			'</div>' +
+    			'<div class="col-sm-1">' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="need"><p class="radioP">需要</p>' +
+    			'</div>' +
+    			'<div class="col-sm-1">' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="dontneed"><p class="radioP">不需要</p>' +
+    			'</div>' +
+			'</div>' +
+			'<div class="row">' +
+    			'<div class="col-sm-2">' +
+					'<p>診所集團網站</p>' +
+				'</div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'診所集團網站'" + ')" id="clinicUrl-' + clinicCount +'" type="url" placeholder="http://www.example.com" class="inputBox">' +
+				'</div>' +
+			'</div>' +
+			'<div class="row">' +
+    			'<div class="col-sm-2">' +
+					'<p>診所集團電郵</p>' +
+				'</div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'診所集團電郵'" + ')" id="clinicEmail-' + clinicCount +'" type="email" placeholder="example@something.com" class="inputBox">' +
+				'</div>' +
+			'</div>' +
+			'<div class="row">' +
+    			'<div class="col-sm-2">' +
+					'<p>診所集團圖片</p>' +
+				'</div>' +
+				'<div class="col-sm-4">' +
+					'<form id="form1" runat="server">' +
+						'<input type="file" id="clinicPic-' + clinicCount +'" onchange="readURL(this,' + "'clinicPicPreview-" + clinicCount + "'" + ')" />' +
+	    				'<img id="clinicPicPreview-' + clinicCount +'" src=""/>' +
+	    			'</form>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row">' +
+    			'<div class="col-sm-2">' +
+					'<p>診所集團介紹</p>' +
+				'</div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所集團介紹'" + ')" name="clinicIntro" id="clinicIntro-' + clinicCount +'" rows="7" value=""></textarea>' +
+				'</div>' +
+			'</div></div>';
+
+			clinicCount++;
+			$('.clinic').append(html);
+	});
+
+	$('#update').click(function(){
+		updateInfo();
+	});
 
 });
+
+function detectChange(variable){
+	change = true;
+	var added = false;
+	for(var i = 0; i < changedVariable.length; i ++){
+		if(changedVariable[i] == variable){
+			added = true;
+		}
+	}
+	if(!added){
+		changedVariable.push(variable);
+	}
+	console.log(changedVariable);
+}
 
 function autoFillForm(){
 	$('#chName').val(doctor["Name"]);
@@ -27,15 +182,15 @@ function autoFillForm(){
 
 	//others
 	var others = doctor["Remarks"].replace("\r", "").split("\n");
-	console.log(others);
+	// console.log(others);
 	for(var i=0; i<others.length; i++) {
 		if(others[i].indexOf('：') > 0){
 			var attr = others[i].split('：');
-			console.log(attr);
+			// console.log(attr);
 			if(attr[0] == " 使用語言"){
 				$('#language').val(attr[1]);
 			}
-			if(attr[0] == "使用醫院"){
+			if(attr[0] == " 使用醫院"){
 				$('#hospital').val(attr[1]);
 			}
 			if(attr[0] == " 傳真機"){
@@ -58,7 +213,219 @@ function autoFillForm(){
 	// 		$(this).prop("checked", true);
 	// 	}
 	// });
+
+	fillInClinic();
 }
+
+function removeArticle(count){
+	$("#articleDiv-"+count).remove();
+}
+
+function removeVaccine(count){
+	$("#vaccineDiv-"+count).remove();
+}
+
+function removeClinic(count){
+	$("#clinicDiv-"+count).remove();
+}
+
+function updateInfo(){
+	var filledIn = true;
+	var chName = $('#chName').val() == null? "":$.trim($('#chName').val());
+	var enName = $('#enName').val() == null? "":$.trim($('#enName').val());
+	var gender = $('input[name="gender"]').val() == null? "":$('input[name="gender"]').val();
+	var docPic = $('#docPicPreview').attr('src') == null? "":$('#docPicPreview').attr('src');
+	var specialist = $("#specialist").val() == null? "":$.trim($("#specialist").val());
+	var serviceProduct = $("#serviceProduct").val() == null? "":$("#serviceProduct").val();
+	var certificate = $("#certificate").val() == null? "":$("#certificate").val();
+	var language = $("#language").val() == null? "":$("#language").val();
+	var hospital = $("#hospital").val() == null? "":$("#hospital").val();
+	var phone = $("#phone").val() == null? "":$("#phone").val();
+	var phonePub = $("input[name='phone']").val() == null? "":$('input[name="phone"]').val();
+	var fax = $("#fax").val() == null? "":$("#fax").val();
+	var call = $("#call").val() == null? "":$("#call").val();
+	var email = $("#email").val() == null? "":$("#email").val();
+	var facebook = $("#facebook").val() == null? "":$("#facebook").val();
+	var article = [];
+	for(var i = 0; i < articleCount; i ++){
+		var articleId = "#docArticleurl-" + i;
+		var articleObj = $(articleId).val() == null? "": $(articleId).val();
+		article.push(articleObj);
+	}
+	var ticket = $('input[name="ticket"]').val() == null? "":$('input[name="ticket"]').val();
+	var night = $('input[name="night"]').val() == null? "":$('input[name="night"]').val();
+	var vaccine = [];
+	for(var i = 0; i < vaccineCount; i ++){
+		var vaccineId = "#vaccine-" + i;
+		var vaccinePriceId = "#vaccinePrice-" + i;
+		var vaccineName = $(vaccineId).val() == null? "":$(vaccineId).val();
+		var vaccinePrice = $(vaccinePriceId).val() == null? "":$(vaccinePriceId).val();
+		var vaccineObj = {
+			"Name":vaccineName,
+			"Price":vaccinePrice};
+		vaccine.push(vaccineObj);
+	}
+	var clinic = [];
+	for(var i = 0; i < clinicCount; i ++){
+		var clinicName = $('#clinicName-' +i).val() == null? "":$.trim($('#clinicName-' +i).val());
+		var address = $('#address-' + i).val() == null? "":$.trim($('#address-' +i).val());
+		var clinicTime = $('#clinicTime-' + i).val() == null? "":$.trim($('#clinicTime-' +i).val());
+		var clinicHoliday = $('#clinicHoliday-' + i).val() == null? "":$.trim($('#clinicHoliday-' +i).val());
+		var clinicPhone = $("#clinicPhone-"+i).val() == null? "":$.trim($('#clinicPhone-' +i).val());
+		var enquiry = $('input[name="enquiry"]').val() == null? "":$('input[name="enquiry"]').val();
+		var clinicUrl = $('#clinicUrl-' + i).val() == null? "":$('#clinicUrl-' +i).val();
+		var clinicEmail = $('#clinicEmail-'+i).val() == null? "":$('#clinicEmail-' +i).val();
+		var clinicPic = $('#clinicPicPreview-'+i).attr('src') == null? "":$('#clinicPicPreview-'+i).attr('src');
+		var clinicIntro = $('#clinicIntro-'+i).val() == null? "":$('#clinicIntro-'+i).val();
+		var clinicObj = {
+			"Address":address,
+			"Opentime":clinicTime
+		}
+		if(chName=="" || enName=="" || gender=="" || specialist=="" || clinicName=="" || address=="" || clinicTime=="" || clinicHoliday=="" || clinicPhone=="" || enquiry==""){
+			filledIn = false;
+			
+		}else{
+			clinic.push(clinicObj);
+		}
+
+	}
+
+	var ps = $('#ps').val()== null? "":$('#ps').val();
+
+	console.log(change);
+
+// to show which variable changed
+	// for(var i = 0; i < changedVariable.length; i ++){
+	// 	switch(changedVariable[i]){
+	// 		case '中文姓名':
+	// 			 += "(改)";
+	// 			break;
+	// 		case '英文姓名'
+				
+	// 			break;
+	// 		case '性別'
+				
+	// 			break;
+	// 		case '醫生照片'
+
+	// 			break;
+	// 		case '專業科目'
+	// 		case '特別的服務和產品'
+	// 		case '專業資格'
+	// 		case '使用語言'
+	// 		case '使用醫院'
+	// 		case '醫生電話'
+	// 		case '醫生傳真機'
+	// 		case '醫生傳呼機'
+	// 		case '電郵地址'
+	// 		case '醫生Facebook'
+	// 		case '醫生網上寫過的文章/網誌'
+	// 		case '醫療券'
+	// 		case '夜診'
+	// 		case '疫苗'
+	// 		case '診所名稱'
+	// 		case '診所地址'
+	// 		case '診所開診時間'
+	// 		case '診所公眾假期'
+	// 		case '診所電話'
+	// 		case '診所集團網站'
+	// 		case '診所集團電郵'
+	// 		case '診所集團圖片'
+	// 		case '診所集團介紹'
+	// 		case '備注'
+	// 	}
+	// }
+			
+	if(filledIn){
+		swal({
+			text:"閣下的資料已成功提交,我們將盡快為您更新網上資料。感謝閣下的時間。",
+			icon:"success",
+		});
+	}else{
+		swal({
+			  text: "有些必填項目還沒有填寫,請於有*項目補上資料。",
+			  icon: "error",
+			});
+		return false;
+	}
+}
+
+function fillInClinic(){
+	for(var i = 0; i < doctor["Clinic"].length; i ++){
+	var html = '<div class="row"><div class="col-sm-2"><p>診所名稱 *</p></div>' +
+					'<div class="col-sm-4">' +
+						'<input onchange="detectChange(' + "'診所名稱'" + ')" id="clinicName-0" type="text" class="inputBox">' +
+					'</div>' +
+					'</div>'+
+				'<div class="row"><div class="col-sm-2"><p>地址 *</p></div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所地址'" + ')" name="address" class="address" id="address-0" rows="1" value="">' + doctor["Clinic"][i]["Address_ch"] + '</textarea>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>開診時間 *</p></div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所開診時間'" + ')" name="clinicTime" id="clinicTime-0" rows="7" value="">' + doctor["Clinic"][i]["Opentime"] + '</textarea>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>公眾假期 *</p></div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所公眾假期'" + ')" name="clinicHoliday" id="clinicHoliday-0" rows="3" value=""></textarea>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>診所電話 *</p></div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'診所電話'" + ')" id="clinicPhone-0" class="inputBox" type="tel" value="' + doctor["Clinic"][i]["Phone"] +'">' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>預先致電查詢 *</p></div>' +
+    			'<div class="col-sm-1">' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="need"><p class="radioP">需要</p>' +
+    			'</div>' +
+    			'<div class="col-sm-1">' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="dontneed"><p class="radioP">不需要</p>' +
+    			'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>診所集團網站</p></div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'診所集團網站'" + ')" id="clinicUrl-0" type="url" placeholder="http://www.example.com" class="inputBox">' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>診所集團電郵</p></div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'診所集團電郵'" + ')" id="clinicEmail-0" type="email" placeholder="example@something.com" class="inputBox">' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>診所集團圖片</p></div>' +
+				'<div class="col-sm-4">' +
+					'<form id="form1" runat="server">' +
+						'<input type="file" id="clinicPic-0" onchange="readURL(this,' + "'clinicPicPreview-0'" + ')" />' +
+	    				'<img id="clinicPicPreview-0" src=""/>' +
+	    			'</form>' +
+				'</div>' +
+			'</div>' +
+			'<div class="row"><div class="col-sm-2"><p>診所集團介紹</p></div>' +
+				'<div class="col-sm-6">' +
+					'<textarea onchange="detectChange(' + "'診所集團介紹'" + ')" name="clinicIntro" id="clinicIntro-0" rows="7" value=""></textarea>' +
+				'</div>' +
+			'</div>';
+
+			$('.clinic').append(html);
+		}
+}
+
+function readURL(input,id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+            	var divId = "#" + id;
+                $(divId).attr('src', e.target.result);
+                if(id.split('-')[0] == 'clinicPicPreview'){
+                	detectChange('診所集團圖片');
+                }
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
 function GetUrlParam(name){
 	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");

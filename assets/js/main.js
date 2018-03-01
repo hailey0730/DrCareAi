@@ -207,46 +207,7 @@ $(document).ready(function(){
 
 })(jQuery);
 
-	if ('serviceWorker' in navigator && 'PushManager' in window) {
-
-	  console.log('Service Worker and Push is supported');
-	  navigator.serviceWorker.register('./assets/js/service-worker.js')
-
-	  .then(function(swReg) {
-
-	    console.log('Service Worker is registered', swReg);
-	    swRegistration = swReg;
-	   // askPermission();
-
-	  })
-	  .catch(function(error) {
-	    console.error('Service Worker Error', error);
-	  });
-	  
-	  askPermission()					
-	    .then(function(permissionResult){
-	    		console.log(permissionResult);
-	    		// do something with permissionResult
-	    }) 
-	    .catch(function(error) {
-		    console.error('Get Permission result Error', error);
-		  });
-
-	   //registerServiceWorker();
-	   //askPermission();
-	   //var pushSubscription = JSON.stringify(subscribeUserToPush());		//some json
-	   //sendSubscriptionToBackEnd(pushSubscription);
-
-	} else {
-	  console.warn('Push messaging is not supported');
-	  // pushButton.textContent = 'Push Not Supported';
-	}
-
-  
-
-
-});
-
+});	
 // $(document).ready(function(){ 
 //==============set login / logout function when there is nav bar=================================
 // 	var loginout = $($('#navPanel').children()).children().last();
@@ -265,106 +226,20 @@ $(document).ready(function(){
 
 // });
 
-// ====================== subscribe user to push notification ===============================
-
-function registerServiceWorker() {
-  return navigator.serviceWorker.register('./assets/js/service-worker.js')
-  .then(function(registration) {
-    console.log('Service worker successfully registered.');
-    return registration;
-  })
-  .catch(function(err) {
-    console.error('Unable to register service worker.', err);
-  });
-}
-
-function askPermission() {
-  return new Promise(function(resolve, reject) {
-    const permissionResult = Notification.requestPermission(function(result) {
-      resolve(result);
-    });
-
-    if (permissionResult) {
-      permissionResult.then(resolve, reject);
-    }
-  })
-  .then(function(permissionResult) {
-      console.log(permissionResult);
-    if (permissionResult !== 'granted') {
-      throw new Error('We weren\'t granted permission.');
-    }
-    return permissionResult
-  });
-}
-
-function subscribeUserToPush() {
-  return navigator.serviceWorker.register('./assets/js/service-worker.js')
-  .then(function(registration) {
-    const subscribeOptions = {
-      userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(
-        'BPUGUNwfjY2s4SLPLCEnlvNiGfAaXiGNdrlR_ZrrSSk6P1TTYkINSso4xb7vWICCz-nTm8bWVYDZEtLixkmLzfA'
-      )
-    };
-
-    return registration.pushManager.subscribe(subscribeOptions);
-  })
-  .then(function(pushSubscription) {
-    console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
-    return pushSubscription;
-  });
-}
-
-function sendSubscriptionToBackEnd(subscription) {
-  return fetch('/api/save-subscription/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(subscription)
-  })
-  .then(function(response) {
-    if (!response.ok) {
-      throw new Error('Bad status code from server.');
-    }
-
-    return response.json();
-  })
-  .then(function(responseData) {
-    if (!(responseData.data && responseData.data.success)) {
-      throw new Error('Bad response from server.');
-    }
-  });
-}
-
-function urlBase64ToUint8Array(base64String) {
-  const padding = '='.repeat((4 - base64String.length % 4) % 4);
-  const base64 = (base64String + padding)
-    .replace(/\-/g, '+')
-    .replace(/_/g, '/');
-
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-
-  for (var i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
-}
 
 // ====================== html to append to the content ===============================
 
 // <li><a href="http://www.drcare.ai/knowledge.php">健康總覽</a></li>
 function makeNav(){
 	var nav = '';
-	nav += '<nav id="nav">			<ul>				<li><a href="http://www.drcare.ai/clinicBotPage.php">隨行醫生</a></li>				<li>												<a href="#" class="icon fa-angle-down">醫生</a>					<ul>		<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>																																								<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>			</ul>				</li>	<li><a href="#" class="icon fa-angle-down">專業治療</a><ul><li><a href="http://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li><li><a href="http://www.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>							<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>							  <li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>			<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li> </ul>		<li><a href="http://www.drcare.ai/searchVaccine.html">流感疫苗</a></li>				<li>																<a href="#" class="icon fa-angle-down">健康資訊</a>					<ul>		<li><a href="http://www.drcare.ai/searchHealthArticle.php">健康誌</a></li>								<li><a href="http://www.drcare.ai/knowledgeList.php">疾病知識</a></li>										<li><a href="http://www.drcare.ai/hospitalTime.php">急症室時間</a></li>			<li><a href="http://www.drcare.ai/BMI.html">BMI知多啲</a></li>														</ul>				</li>	</div>			</ul>		</nav>';
+	nav += '<nav id="nav">			<ul>				<li><a href="https://www.drcare.ai/clinicBotPage.php">隨行醫生</a></li>				<li>												<a href="#" class="icon fa-angle-down">醫生</a>					<ul>		<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>																																								<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>			</ul>				</li>	<li><a href="#" class="icon fa-angle-down">專業治療</a><ul><li><a href="https://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li><li><a href="https://www.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>							<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>							  <li><a href="https://www.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>			<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li> </ul>		<li><a href="https://www.drcare.ai/searchVaccine.html">流感疫苗</a></li>		<li><a href="https://www.drcare.ai/holidayClinicTime.html">假期開診</a></li>		<li>																<a href="#" class="icon fa-angle-down">健康資訊</a>					<ul>		<li><a href="https://www.drcare.ai/searchHealthArticle.php">健康誌</a></li>								<li><a href="https://www.drcare.ai/knowledgeList.php">疾病知識</a></li>										<li><a href="https://www.drcare.ai/hospitalTime.php">急症室時間</a></li>			<li><a href="https://www.drcare.ai/BMI.html">BMI知多啲</a></li>														</ul>				</li>	</div>			</ul>		</nav>';
 	return nav;
 }
 
 
 function makeNavWithLoginout(){
 	var nav = '';
-	nav += '<nav id="nav">			<ul>				<li><a href="http://www.drcare.ai/clinicBotPage.php">智能助手</a></li>				<li>					<a href="#" class="icon fa-angle-down">醫生</a>					<ul>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>						<li><a href="http://www.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li>											</ul>				</li>				<li>					<a href="#" class="icon fa-angle-down">健康資訊</a>					<ul>						<li><a href="http://www.drcare.ai/knowledge.php">健康總覽</a></li>						<li><a href="http://www.drcare.ai/knowledgeList.php">疾病知識</a></li>						<li><a href="http://www.drcare.ai/hospitalTime.php">急症室時間</a></li>						<li><a href="http://www.drcare.ai/searchHealthArticle.php">健康誌</a></li>											</ul>				</li>				<!-- <li><a href="http://www.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->				<div id="login">					<!-- <li><a href="login.php">登入</a></li> -->		<?php 				        if(!isset($_SESSION["user_id"])) {				            echo "';
+	nav += '<nav id="nav">			<ul>				<li><a href="https://www.drcare.ai/clinicBotPage.php">智能助手</a></li>				<li>					<a href="#" class="icon fa-angle-down">醫生</a>					<ul>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=西醫">西醫</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=中醫">中醫</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=牙科">牙醫</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=物理治療">物理治療</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=脊骨神經科">脊醫</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=專業治療">專業治療</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=心理學">心理咨詢</a></li>						<li><a href="https://www.drcare.ai/Doctor/findoc.php?category=專業治療&subcategory=營養學">營養咨詢</a></li>											</ul>				</li>				<li>					<a href="#" class="icon fa-angle-down">健康資訊</a>					<ul>						<li><a href="https://www.drcare.ai/knowledge.php">健康總覽</a></li>						<li><a href="https://www.drcare.ai/knowledgeList.php">疾病知識</a></li>						<li><a href="https://www.drcare.ai/hospitalTime.php">急症室時間</a></li>						<li><a href="https://www.drcare.ai/searchHealthArticle.php">健康誌</a></li>											</ul>				</li>				<!-- <li><a href="https://www.drcare.ai/doctor/healthArticle.php">文章報導</a></li> -->				<div id="login">					<!-- <li><a href="login.php">登入</a></li> -->		<?php 				        if(!isset($_SESSION["user_id"])) {				            echo "';
 	nav += "				                <li id='loginbtn' style='cursor:pointer;'><a href=' onclick='createLoginWindow();'>登入</a></li>				            '";
 	nav += '				        }				        else {				            echo "';
 	nav += "				                <li id='logoutbtn' style='cursor:pointer;'><a href='' onclick='$.get(";

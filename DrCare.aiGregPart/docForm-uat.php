@@ -58,6 +58,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="js/general.js"></script>
     <script src="../assets/js/onWindowResizeFunction.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/docForm-uat.js"></script>
     <script src="js/googleMap.js"></script>
     <script src="js/filterModule.js"></script>
@@ -171,53 +172,56 @@
 			<h3>醫生資料</h3>
 			<div class="row">
     			<div class="col-sm-2">
-					<p>醫生中文姓名</p>
+					<p>醫生中文姓名 *</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="chName" type="text">
-				</div>
-			</div>
-			<div class="row">
-    			<div class="col-sm-2">
-					<p>醫生英文姓名</p>
-				</div>
-				<div class="col-sm-2">
-					<input id="enName" type="text">
+				<div class="col-sm-4">
+					<input onchange="detectChange('中文姓名')" id="chName" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
-					<p>性別</p>
+					<p>醫生英文姓名 *</p>
+				</div>
+				<div class="col-sm-4">
+					<input onchange="detectChange('英文姓名')" id="enName" class="inputBox" type="text">
+				</div>
+			</div>
+			<div class="row">
+    			<div class="col-sm-2">
+					<p>性別 *</p>
 				</div>
 				<div class="col-sm-1">
-					<input class="radio" type="radio" name="gender" value="男 "><p class="radioP">男</p>
+					<input onchange="detectChange('性別')" class="radio" type="radio" name="gender" value="男 "><p class="radioP">男</p>
 				</div>
 				<div class="col-sm-1">
-					<input class="radio" type="radio" name="gender" value="女 "><p class="radioP">女</p>
+					<input onchange="detectChange('性別')" class="radio" type="radio" name="gender" value="女 "><p class="radioP">女</p>
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>醫生最新照片</p>
 				</div>
-				<div class="col-sm-2">
-					<input type="text">
+				<div class="col-sm-4">
+	    			<form id="form1" runat="server">
+				        <input onchange="detectChange('醫生照片')" type='file' id="docPic" />
+				        <img id="docPicPreview" src="#" alt="" />
+				    </form>
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
-					<p>專業科目</p>
+					<p>專業科目 *</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="specialist" type="text">
+				<div class="col-sm-4">
+					<input onchange="detectChange('專業科目')" id="specialist" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>特別的服務和產品</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="serviceProduct" type="text">
+				<div class="col-sm-6">
+					<textarea onchange="detectChange('特別的服務和產品')" name="serviceProduct" id="serviceProduct" rows="7" value=""></textarea>
 				</div>
 			</div>
 			<div class="row">
@@ -225,7 +229,7 @@
 					<p>專業資格</p>
 				</div>
 				<div class="col-sm-6">
-					<textarea name="message" id="certificate" rows="7" placeholder="信息" value=""></textarea>
+					<textarea onchange="detectChange('專業資格')" name="certificate" id="certificate" rows="7" value=""></textarea>
 				</div>
 			</div>
 		<!-- end of the info part -->
@@ -237,70 +241,75 @@
     			<div class="col-sm-2">
 					<p>使用語言</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="language" type="text">
+				<div class="col-sm-4">
+					<input onchange="detectChange('使用語言')" id="language" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>使用醫院</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="hospital" type="text">
+				<div class="col-sm-4">
+					<input onchange="detectChange('使用醫院')" id="hospital" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>醫生電話</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="phone" type="tel">
+				<div class="col-sm-4">
+					<input onchange="detectChange('醫生電話')" id="phone" type="tel" class="inputBox">
 				</div>
 				<div class="col-sm-1">
-					<input class="radio" type="radio" name="phone" value="public"><p class="radioP">公開</p>
+					<input onchange="detectChange('醫生電話')" class="radio" type="radio" name="phone" value="public"><p class="radioP">公開</p>
 				</div>
 				<div class="col-sm-1">
-					<input class="radio" type="radio" name="phone" value="private"><p class="radioP">不公開</p>
+					<input onchange="detectChange('醫生電話')" class="radio" type="radio" name="phone" value="private"><p class="radioP">不公開</p>
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>醫生傳真機</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="fax" type="tel">
+				<div class="col-sm-4">
+					<input onchange="detectChange('醫生傳真機')" id="fax" type="tel" class="inputBox">
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>醫生傳呼機</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="call" type="tel">
+				<div class="col-sm-4">
+					<input onchange="detectChange('醫生傳呼機')" id="call" type="tel" class="inputBox">
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>電郵地址</p>
 				</div>
-				<div class="col-sm-2">
-					<input id="email" type="email">
+				<div class="col-sm-4">
+					<input onchange="detectChange('電郵地址')" id="email" class="inputBox" type="email" placeholder="example@something.com">
 				</div>
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>醫生Facebook</p>
 				</div>
-				<div class="col-sm-2">
-					<input type="url">
+				<div class="col-sm-4">
+					<input onchange="detectChange('醫生Facebook')" id="facebook" class="inputBox" type="url" placeholder="https://www.facebook.com/example">
 				</div>
 			</div>
-			<div class="row">
-    			<div class="col-sm-2">
-					<p>醫生網上寫過的文章/網誌</p>
-				</div>
-				<div class="col-sm-2">
-					<input type="url">
+			<div class="docArticle">
+				<div class="row">
+	    			<div class="col-sm-2">
+						<p>醫生網上寫過的文章/網誌</p>
+					</div>
+					<div class="col-sm-4">
+						<input onchange="detectChange('醫生網上寫過的文章/網誌')" id="docArticleurl-0" type="url" class="inputBox" placeholder="http://www.example.com">
+					</div>
+					<div class="col-sm-1">
+						<button id="docArticle" class="add" type="submit"><i class="fa fa-plus"></i></button>
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -308,10 +317,10 @@
     				<p>醫療券</p>
     			</div>
     			<div class="col-sm-1">
-    				<input class="radio" type="radio" name="ticket" value="use"><p class="radioP">可用</p>
+    				<input onchange="detectChange('醫療券')" class="radio" type="radio" name="ticket" value="use"><p class="radioP">可用</p>
     			</div>
     			<div class="col-sm-1">
-    				<input class="radio" type="radio" name="ticket" value="cantUse"><p class="radioP">不可用</p>
+    				<input onchange="detectChange('醫療券')" class="radio" type="radio" name="ticket" value="cantUse"><p class="radioP">不可用</p>
     			</div>
     		</div>
     		<div class="row">
@@ -319,160 +328,57 @@
     				<p>夜診</p>
     			</div>
     			<div class="col-sm-1">
-    				<input class="radio" type="radio" name="ticket" value="use"><p class="radioP">提供</p>
+    				<input onchange="detectChange('夜診')" class="radio" type="radio" name="night" value="yes"><p class="radioP">提供</p>
     			</div>
     			<div class="col-sm-1">
-    				<input class="radio" type="radio" name="ticket" value="cantUse"><p class="radioP">不提供</p>
+    				<input onchange="detectChange('夜診')" class="radio" type="radio" name="night" value="no"><p class="radioP">不提供</p>
     			</div>
     		</div>
 		</div>
 			
-		<div class="infoDiv">
+		<div class="infoDiv vaccine">
 			<h3>提供疫苗</h3>	
 			<div class="row">
 				<div class="col-sm-2">
-					<input type="text">
+					<p>疫苗</p>
+				</div>
+				<div class="col-sm-4">
+					<input onchange="detectChange('疫苗')" id="vaccine-0" class="inputBox" type="text">
 				</div>
 				<div class="col-sm-1">
-					<p>價格</p>
-				</div>
-				<div class="col-sm-1">
-					<p class="right">$</p>
+					<p class="right">價格	$</p>
 				</div>
 				<div class="col-sm-2">
-					<input type="number" min="0.01">
+					<input onchange="detectChange('疫苗')" id="vaccinePrice-0" type="number" min="0.01">
+				</div>
+				<div class="col-sm-1">
+					<button id="vaccine" class="add" type="submit"><i class="fa fa-plus"></i></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="infoDiv clinic">
+			<h3>診所/集團/辦公資料</h3>
+			<button id="clinic" class="add" type="submit"><i class="fa fa-plus"></i> 新增診所</button>
+		</div>
+
+		<div class="infoDiv">
+			<div class="row">
+				<div class="col-sm-2">
+					<h3>備注</h3>
+				</div>
+				<div class="col-sm-6">
+					<textarea onchange="detectChange('備注')" name="ps" id="ps" rows="3" value=""></textarea>
 				</div>
 			</div>
 		</div>
 
 		<div class="infoDiv">
-			<h3>診所/集團/辦公資料</h3>	
 			<div class="row">
 				<div class="col-sm-2">
-					<p>地址</p>
 				</div>
 				<div class="col-sm-2">
-					<input type="text">
-				</div>
-			</div>
-			<p>開診時間</p>
-			<div class="row">
-				<div class="col-sm-2">
-					<p>星期一</p>
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-2">
-					<p>星期二</p>
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-2">
-					<p>星期三</p>
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-2">
-					<p>星期四</p>
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-2">
-					<p>星期五</p>
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-2">
-					<p>星期六</p>
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-2">
-					<p>星期日</p>
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
-				</div>
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-3 clinicTime">
-					<input type="time">
-					<p>-</p>
-					<input type="time">
+					<button id="update" class="add" type="submit">提交</button>
 				</div>
 			</div>
 		</div>
@@ -480,7 +386,6 @@
 			
 
 		</div>
-
 
 </div><!-- end of main container -->
 

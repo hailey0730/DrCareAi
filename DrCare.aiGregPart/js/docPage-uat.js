@@ -1,4 +1,6 @@
-var scrollIndex = 0;
+var allarticles = [];
+var tagList = [];
+var tagNum = [];
 var articles = [];
 var qaList = [];
 var scrollIndex1 = 0;
@@ -14,6 +16,10 @@ var moreCounter = 3;
 var nextPage = 2;
 var doctorType = '';
 var clinicNum = 0;
+var appendRight = false;
+var appendLeft = false;
+var resizeTime = 100;     // total duration of the resize effect, 0 is instant
+var resizeDelay = 100;
 
 $(document).ready(function(){ 
 	//alert(GetQueryString("id"));
@@ -24,7 +30,7 @@ $(document).ready(function(){
 		loadSickness = true;
 	}
 
-	$(document).bind("click",function(e){ 	//not tested yet
+	$(document).bind("click",function(e){ 
       	var target = $(e.target); 
 
       	for(var i = 0; i < clinicNum; i ++){
@@ -34,24 +40,7 @@ $(document).ready(function(){
       			$(timeRow).toggle('normal');
       		}
       	}
-      	
-		// if(target.closest("#time-0").length == 1){ 
-  //     		target.parent().find("#timeRow-0").toggle("normal");
-		// }
     });
-
-	$("#returnBtn").click(function(){
-		window.location.href = "findoc.php";
-	});
-
-	$("#articleNextBtn").click(function(){
-		if(curPage == articles.length) {
-			displayArticle(curPage=0);
-		}
-		else {
-			displayArticle(++curPage);
-		}
-	});
 
 	$(".filter").change(function(){
 		var category = decodeURI(GetUrlParam("category"));
@@ -111,54 +100,57 @@ $(document).ready(function(){
 		        docCat += '醫生）'
 		        $('#blue').text(docCat);
 
-		   loadDocFromDB({
+     if(window.matchMedia("(max-width:980px)").matches){
+		$('.contentSickness').not(':first').css('display','none');
+
+		loadDocFromDB({
 		    curPage: 1,
+		    perPage:1,
 		    type: doctorType,   //SubCategory
 		    specialist: ''      //Category
 		  });
 
-		
+	}else{
+		$('.contentSickness').css('display','block');
 
+		loadDocFromDB({
+		    curPage: 1,
+		    perPage:3,
+		    type: doctorType,   //SubCategory
+		    specialist: ''      //Category
+		  });
+
+	}
 	});
 
-	$(".more").click(function(){
-
-	        loadDocFromDB({
-	          curPage: nextPage,
-	          type: doctorType,   //SubCategory
-	          specialist: ''      //Category
-	        });
-	       nextPage++;
-	    });
-
-
-	$('.tabDiv').each(function(i,obj){
-		if(this.id == "docArticles"){
-			$(this).addClass('blue');
-		}else{
-			$(this).addClass('grey');
-		}
-	});
-	$('.infinitePanel').each(function(i,obj){
-		if(this.id != "docArticles"){
-			$(this).addClass('inactive');
-		}
-	});
 
 // ==============load vaccine table=======================
 $("#vaccine").css("display","none");
-	var url = "http://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+	var url = "https://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
 			// + "&doctorID=" + GetUrlParam("ID");
             + "&Region=" + "灣仔" + "&Women=Y&Children=Y&Elder=Y";
 
-    $.get(url, function(data){
-        var json  = JSON.parse(data);
-        loadVaccine(json);
+// uncomment to show vaccine table
+    // $.get(url, function(data){
+    //     var json  = JSON.parse(data);
+    //     loadVaccine(json);
         
-    });
+    // });
 
-// ==============================================
+// ======uncomment to use Doctor QA section===============
 
+	// $('.tabDiv').each(function(i,obj){
+	// 	if(this.id == "docArticles"){
+	// 		$(this).addClass('blue');
+	// 	}else{
+	// 		$(this).addClass('grey');
+	// 	}
+	// });
+	// $('.infinitePanel').each(function(i,obj){
+	// 	if(this.id != "docArticles"){
+	// 		$(this).addClass('inactive');
+	// 	}
+	// });
 
 	// $('.tabDiv').bind("click", function(event){
 	// 	var id = this.id;
@@ -210,14 +202,14 @@ $("#vaccine").css("display","none");
             // End of the document reached?
             if(scrollIndex1 < articles.length){
                    
-                    if(scrollIndex < articles.length){
-                        $('#main1').append(randomPost(articles[scrollIndex]));
+                    if(scrollIndex1 < articles.length){
+                        $('#main1').append(randomPost(articles[scrollIndex1],scrollIndex1));
                         $('#loading').hide();
-                        scrollIndex++;
-                    }else if (scrollIndex == articles.length){
+                        scrollIndex1++;
+                    }else if (scrollIndex1 == articles.length){
                         $('#loading').hide();
                         $('body').append(footer());
-                        scrollIndex++;
+                        scrollIndex1++;
                     }else{
                         $('#loading').hide();
                     }
@@ -228,39 +220,72 @@ $("#vaccine").css("display","none");
 		        // if ($(document).height() - win.height() == win.scrollTop()) {
 		                $('#loading').show();
 
-		                appendArticles(articles,scrollIndex);
-		                scrollIndex += 3;
+		                appendArticles(articles,scrollIndex1);
+		                scrollIndex1 += 3;
 		        }
 		    }
 
         	}else{
-        		if(scrollIndex2 < qaList.length){
-            		var QAHTML = formatingQAHTML(qaList[scrollIndex2], docName, docGender);
-					$('.QAContent').append(QAHTML);
-					scrollIndex2 ++;
-        		}else if(scrollIndex2 == qaList.length){
-        			console.log(hasFooter);
-        			if(!hasFooter){
-	            		$('body').append(footer());
-	            		hasFooter = true;
-	            	}
-	            	scrollIndex2++;
-        		}
+        		// ======uncomment to use Doctor QA section===============
+     //    		if(scrollIndex2 < qaList.length){
+     //        		var QAHTML = formatingQAHTML(qaList[scrollIndex2], docName, docGender);
+					// $('.QAContent').append(QAHTML);
+					// scrollIndex2 ++;
+     //    		}else if(scrollIndex2 == qaList.length){
+     //    			console.log(hasFooter);
+     //    			if(!hasFooter){
+	    //         		$('body').append(footer());
+	    //         		hasFooter = true;
+	    //         	}
+	    //         	scrollIndex2++;
+     //    		}
                 
                 
             }
         }
 
         });
-     // }
+     if(window.matchMedia("(max-width:980px)").matches){
+		resize();
+	}
 
 });
+$(window).bind('resize',onWindowResize);
+
+function resize() {
+	if($(window).width() <= 980){
+		$('.right').attr("onclick","rightArrow(1)");
+		// $('.right').attr("onclick","oneRightArrow()");
+		$('.left').attr("onclick","leftArrow(1)");
+		// $('.left').attr("onclick","oneLeftArrow()");
+		$('.contentSickness').not(':first').css('display','none');
+
+		loadDocFromDB({
+	      curPage: nextPage - 1,
+	      perPage:1,
+	      type: doctorType,   //SubCategory
+	      specialist: ''      //Category
+	    });
+	}else if($(window).width() > 980){
+		// append two more
+		$('.right').attr("onclick","rightArrow(3)");
+		$('.left').attr("onclick","leftArrow(3)");
+		$('.contentSickness').css('display','block');
+
+		loadDocFromDB({
+	      curPage: nextPage - 1,
+	      perPage:3,
+	      type: doctorType,   //SubCategory
+	      specialist: ''      //Category
+	    });
+	}
+}
 
 function loadSicknessInfo(){
 	$.ajax({
 	  method: "GET",
 	  url: "../DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
-	  data: { Name:  doctorType.split("科")[0]}
+	  data: { Type:  doctorType}
 	})
 	  .done(function( msg ) {
 	    var json = JSON.parse(msg);
@@ -283,23 +308,31 @@ function loadSicknessInfo(){
 
 function sicknessHtml(json){
 	for(i in json) {
+		if(json[i]["What"] == null || json[i]["Why"] == null || json[i]["How"] == null){
+
+		}else{
 			sickArticles[i] = json[i];
 		}
+	}
 
 	    var length = 0;
-	     if(clinicNum == 1){
+	     if(clinicNum == 1 && sickArticles.length > 0){
 	    	length = 1;
-	    }else{
+	    }else if(sickArticles.length > 0){
 	    	length = 2;
+	    }else if(sickArticles.length == 0){
+	    	$('.rightPart').css('display','none');
 	    }
-	    length = 1;
 
 	    for(var i = 0; i < length; i ++){
+	    	var imgurl = '../';
+	    	imgurl += sickArticles[i].ImageUrl==null?"":sickArticles[i].ImageUrl;
+
 	    	var post = '';
 		    post += '<li>';
 		    post += '<article id="content">';
-		    post += '<a class="image"><img src="../';
-		    post += sickArticles[i].ImageUrl;
+		    post += '<a class="image"><img src="';
+		    post += sickArticles[i].ImageUrl==null? "":imgurl;
 		    post += '" alt="" />';
 		    post += '</a>';
 		    post += '<div class="contentTitle"><h3>';
@@ -314,7 +347,7 @@ function sicknessHtml(json){
 		    post += '<p>';
 		    post += sickArticles[i].Desc.substring(0,50);
 		    post += '...';
-		    post += '</p><ul class="actions"><li class="readBtn"><a target="_blank" href="http://www.drcare.ai/sickness.php?name=';
+		    post += '</p><ul class="actions"><li class="readBtn"><a target="_blank" href="../sickness.php?name=';
 		    post += sickArticles[i].Name;
 		    post += '" class="button">繼續閱讀</a></li></ul></div>';
 		    post += '</article>';
@@ -329,20 +362,27 @@ function loadArticle(name) {
 	$.getJSON("php/getArticle.php", 
 		{'target': name}, 
 		function(json){
-			// console.log(json);
 			$(".articles").css("display", "inline");
 
 			var tagList = '';
 			var likeNum = 0;
+			var tag = 0;
 			
 			for(i in json) {
+				allarticles[i] = json[i];
 				articles[i] = json[i];
+				var tagNumObj = {"jsonNum":i,"tagNum":tag};
 				// var HTML = formatingArticleHTML(json[i]);
 				// $(".docArticles").append(HTML);
-				if(json[i]["Tags"]!= "NA"){
-						tagList += '<div class="tagDiv">';
+				if(json[i]["Tags"]!= "NA" && json[i]["Tags"]!= "N/A" && $.trim(json[i]["Tags"]) != ""){
+						tagList += '<div class="tagDiv" onclick="tagDivClicked('+tag+",'" +json[i].Tags+"')" + '">';
 						tagList += json[i]["Tags"];
 						tagList += '</div>';
+						tag++;
+						tagNum.push(tagNumObj);
+				}else{
+					tagNumObj.i = -1;
+					tagNum.push(tagNumObj);
 				}
 			// console.log(json[i]["Like"]);		//DEBUG
 				likeNum += parseInt(json[i]["Like"]);
@@ -351,19 +391,7 @@ function loadArticle(name) {
 			$("#articleTags").html(tagList);		//set tags
 			$("#likeNum").html(likeNum);		//set like num
 
-
-			var HTML;
-			
-			 	HTML = formatingArticleHTML(json[0]);
-		
-			$(".docArticles").append(HTML);
-
-			$(".panel").each(function(i,obj){
-				if(i == 4 || i == 5){
-					$(this).css('height','50em');
-				}
-			});
-			scrollIndex1++;
+			// scrollIndex1++;
 	});
 }
 
@@ -371,8 +399,6 @@ function loadQA(ID, name, sex){		//sex to determine which doc pic to use
 	$.getJSON("php/loadQA.php", 
 		{'ID': ID}, 
 		function(json){
-			// console.log(json);
-			// console.log('test update');
 			var doc = $('.total').children();
 			$(doc[0]).text(name + "醫生共有");
 			for(i in json){
@@ -439,20 +465,16 @@ function updatePageInfo(docInfo) {
 	if(docInfo["Category"] == '西醫' || docInfo["Category"] == "牙科"){
 		 doctorSpan = '醫生';
 	}
-	console.log(doctorSpan);
 
 	// top info
 	$("#viewname").html(splitDocName(docInfo["Name"])[0] + " "); //name
 	$("#commonText1").html(doctorSpan + "的簡介。他的專業是");
-	$("#viewtype").html('<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?category=' +  docInfo["Category"] + '"><u>' + docInfo["Category"] + '</u></a>' + ' ' + '<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?subcategory=' + docInfo["SubCategory"] + '"><u>' + docInfo["SubCategory"] + '</u></a>'); //type
-	// $("#viewtype").html(docInfo["Category"]+docInfo["SubCategory"]); //type
+	$("#viewtype").html('<a style="color: #11D4EB;" href="./findoc.php?category=' +  docInfo["Category"] + '"><u>' + docInfo["Category"] + '</u></a>' + ' ' + '<a style="color: #11D4EB;" href="./findoc.php?subcategory=' + docInfo["SubCategory"] + '"><u>' + docInfo["SubCategory"] + '</u></a>'); //type
 
 // =======uncomment to show location ===============
 	// $("#commonText2").html("，診所位置位於");
-	// $("#address").html('<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?region=' +  docInfo["Region"] + '"><u>' + docInfo["Region"] + '</u></a>' + " 。"); //address
+	// $("#address").html('<a style="color: #11D4EB;" href="./findoc.php?region=' +  docInfo["Region"] + '"><u>' + docInfo["Region"] + '</u></a>' + " 。"); //address
 // ================================================
-
-	// $("#address").html('<a style="color: #11D4EB;" href="http://www.drcare.ai/Doctor/findoc.php?region=' +  docInfo["Region"] + '"><u>' + docInfo["Address_ch"] + '</u></a>'); //address
 
 	// tags
 	// var tags = docInfo[7].split("|");
@@ -467,28 +489,20 @@ function updatePageInfo(docInfo) {
 	$("#docGender > span").html(docInfo["Sex"]);
 
 	if(docInfo["isOpen"] == 1) {
-		$("#docWkHr").html('<i class="fa fa-square green"></i>'+'應診中');			//uncomment for 應診中
+		$("#docWkHr").html('<i class="fa fa-square green"></i>'+'應診中');
+		$("#docWkHr").addClass('green');
+	}else{
+		$("#docWkHr").html('<i class="fa fa-square red"></i>'+'休息中');
+		$("#docWkHr").addClass('red');
 	}
-	$("#docWkHr").addClass('green');		// or addClass('red') for break
 
 	$("#docType").html(docInfo["SubCategory"]); //type
 
-
-	// =======uncomment for final ver=====================
 	var clinicBranch;
-	for(var i = 0; i < docInfo['Clinic'].length; i ++){			//might change 'clinic' attr name
+	for(var i = 0; i < docInfo['Clinic'].length; i ++){	
 		clinicBranch = contactInfohtml(docInfo['Clinic'][i], i);
-		$('.basicInfo').append(clinicBranch);
+		$('.basicInfoDivRight').before(clinicBranch);
 	}
-	// ==================================================
-
-	// $("#docAddress").html("地址： " + docInfo["Address_ch"]); //address
-	// $("#docTel").html("電話： " + docInfo["Phone"]); //tel
-	// $("#docEmail").html("電郵： " + docInfo["Email"]); //email
-	// $("#docFax").html("電郵： " + docInfo["Email"]); //email
-	// $("#docCall").html("電郵： " + docInfo["Email"]); //email
-	//$("#docLanguage").html("語言： " + docInfo[""]) //language
-
 
 	$(".modifyInfo > span").html(splitDocName(docInfo["Name"])[0]);
 
@@ -503,14 +517,6 @@ function updatePageInfo(docInfo) {
 	for(var i=0; i<certs.length; i++) {
 		$("#certifyInfo").append("<p>" + certs[i] + "</p>");
 	}
-
-	// var times = docInfo["Opentime"].split("\n");
-	// console.log(times);
-	// //$("#timeInfo").append("<p>" + docInfo["Opentime"].replace('\n', "<br/>") + "</p>");
-	// for(var i=0; i<times.length; i++) {
-	// 	$("#timeInfo").append("<p>" + times[i].replace('"', "") + "</p>");
-	// }
-	// console.log($("#timeInfo").html());
 
 	//others
 	var others = docInfo["Remarks"].replace("\r", "").split("\n");
@@ -544,13 +550,9 @@ function contactInfohtml(doc, j){
 						'</div>' +
 					'</div>' + 
 				'<div class="contactInfoText">' + 
-					// '<p>聯絡資料：</p>' + 
 					'<p id="region">' + doc["Region"] + '</p>' +
 					'<p id="docTel">' + "電話： " + doc["Phone"] + '</p>' + 
 					'<p id="docAddress">' + "地址： " + doc["Address_ch"] + '</p>' + 
-					// '<p id="docEmail">' + "電郵： " + doc["Email"] + '</p>' + 
-					// '<p id="docFax">'+ "傳真機： " +'</p>' + 
-					// '<p id="docCall">'+ "傳呼機： " +'</p>' + 
 				'</div>' + 
 				'<button class="time" id="time-' + j + '">' + 
 							'<p>診症時間</p><i class="fa fa-sort-down"></i>' + 
@@ -563,9 +565,6 @@ function contactInfohtml(doc, j){
 				'</div>' + 
 				'</div>'
 
-
-	// $("#docFax").html
-	// $("#docCall").html
 	return html;
 }
 
@@ -662,8 +661,8 @@ function formatingArticleHTML(article) {
 function loadVaccine(json){
             
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                    // var detail = '<p>季節性流感疫苗SIV(包括 孕婦-W, 兒童-C, 長者-E), 肺炎球菌疫苗(23vPPV)(只包括長者-E23), 肺炎球菌疫苗(PCV13)(只包括長者-E13)</p>';
-                    // $('#three header').append(detail);
+                    var detail = '<p>季節性流感疫苗SIV(包括 孕婦-W, 兒童-C, 長者-E), 肺炎球菌疫苗(23vPPV)(只包括長者-E23), 肺炎球菌疫苗(PCV13)(只包括長者-E13)</p>';
+                    // $('#three header').append(detail);		//need to determine where to append 
                     var header = headerhtmlMobile();
                     // $('td:first').css('width', '5em');
 
@@ -671,7 +670,7 @@ function loadVaccine(json){
                     var header = headerhtml();
                 }           
             for(var j = 0; j < json.length; j ++){
-	            var html = articlesHTML(json[j]);
+	            var html = vaccineHTML(json[j]);
             	$("tbody").append(html);
 
             }
@@ -699,44 +698,90 @@ function headerhtml(){
 
 // load doc from DB
 function loadDocFromDB(conf) {
-  var docsNumPerPage = 3;
+  // var docsNumPerPage = 3;
  
   if(conf.name == undefined) {
     conf.name = "";
   }
- 
-  $.getJSON("php/loadDoc.php",
+
+  $.getJSON("php/loadDoc-uat.php",
     {curPage: conf.curPage,
-    perPage: docsNumPerPage,
+    perPage: conf.perPage,
     Category: conf.specialist,
     SubCategory: conf.type},
     function(json){
-     // console.log(json);
-
      docNum = json.pop();
         for(var i = 0; i < json[0].length; i ++){
-          listOfDoc[i] = json[0][i];   //{ID, Name, FullName, Sex, PhotoUrl, Category, SubCategory, Region, Address_ch, Address_en, Phone, Email, Language, Certification, Latitude_X, Longitude_Y, Map, Service, Remarks, Opentime, CreateDateTime:{date, timezone_type, timezone}, Ref_url, Clinicbot, NumOfArticle, RowNum}
+          listOfDoc[i] = json[0][i];
         }
+
         $('.nameTag').each(function(i,obj){
-          $($(this).children()[0]).text(listOfDoc[i].Name);   //doctor name
-          $($(this).children()[2]).text(conf.type);   //doctor type
+        	if(i < conf.perPage){
+	          $($(this).children()[0]).text(listOfDoc[i].Name);   //doctor name
+	          $($(this).children()[2]).text(conf.type);   //doctor type
+	      }
         });
 
         $('.address').each(function(i,obj){
-          $($(this).children()[0]).text(listOfDoc[i].Region);   //address area
-          $($(this).children()[1]).text(listOfDoc[i].Address_ch);    //address
+        	if(i < conf.perPage){
+	          $($(this).children()[0]).text(listOfDoc[i].Region);   //address area
+	          $($(this).children()[1]).text(listOfDoc[i].Address_ch);    //address
+	      }
         });
-
 
         $('.contentSickness').each(function(i,obj){
-          var docLink = 'docPage.php?Name=';
-          docLink += listOfDoc[i].Name;
-          docLink += '&ID=';
-          docLink += listOfDoc[i].ID;
-          var a = $(this).children()[1];
-          $(a).attr('href', docLink);    //set link to doctor
+        	if(i < conf.perPage){
+		          var docLink = 'docPage.php?Name=';
+		          docLink += listOfDoc[i].Name;
+		          docLink += '&ID=';
+		          docLink += listOfDoc[i].ID;
+		          var a = $(this).children()[1];
+		          $(a).attr('href', docLink);    //set link to doctor
+
+		        	// set show isOpen and message symbol
+		          if(listOfDoc[i]["isOpen"] == 1) {
+					$('.isOpenTag').addClass('green');
+					$('.fa-square').addClass('green');
+					$('.isOpenTag').removeClass('red');
+					$('.fa-square').removeClass('red');
+					$('.isOpenTag').html('應診中');
+				}else{
+					$('.isOpenTag').addClass('red');
+					$('.fa-square').addClass('red');
+					$('.isOpenTag').removeClass('green');
+					$('.fa-square').removeClass('green');
+					$('.isOpenTag').html('休息中');
+				}
+
+				if(listOfDoc[i]["Clinicbot"] != null) {
+					$('.clinicBotTag').css('display','block');
+				}else{
+					$('.clinicBotTag').css('display','none');
+				}
+			}
         });
-      
+
+        // determine if arrow need to be show
+        if(conf.curPage > 1 && !appendLeft){
+        	$('.left').css('display','block');
+        	appendLeft = true;
+        }
+
+        if(conf.curPage == 1 && appendLeft){
+        	$('.left').css('display','none');
+        	appendLeft = false;
+        }
+
+        if(docNum - (conf.curPage * conf.perPage) > 0 && !appendRight){
+        	$('.right').css('display','block');
+        	appendRight = true;
+        }
+
+        if(docNum - (conf.curPage * conf.perPage) <= 0 && appendRight){
+        	$('.right').css('display','none');
+        	appendRight = false;
+        }
+
   }).fail(function(d, textStatus, error){
     console.error("getJSON failed, status: " + textStatus + ", error: "+error)
   });
@@ -744,11 +789,11 @@ function loadDocFromDB(conf) {
 }
 
 //===================infinite loop post==================
-function articlesHTML(articles){
+function vaccineHTML(articles){
     // console.log(articles);   //DEBUG
    var returnHTML = "",
         
-    returnHTML = "<tr class='tableContent'><td><div><a href='http://www.drcare.ai/Doctor/findoc.php?name=" 
+    returnHTML = "<tr class='tableContent'><td><div><a href='./findoc.php?name=" 
     + articles.Doctor + "'>" + "<u><p>" + articles.Name + "</p><p>" + articles.Doctor
     + "</p></a><div></td><td><div><p>" + articles.Address + "</p></u><a href='tel:852" + articles.Phone  + "' data-rel='external'><u>" + articles.Phone + "</u></a>"
     + "</div></td>";
@@ -760,42 +805,36 @@ function articlesHTML(articles){
     returnHTML += "</tr>"
 
     return returnHTML;
-
 }
 
 function temp(val){
-    var result = "";
-    if(val == null){
-        result = "不適用";
-    }else{
-        result = "$" + val;
-    }
+    var result = val==null?"不適用":("$" + val);
     return result;
 }
 
 function appendArticles(list, y){
     
      if((list.length - y) / 3 > 1){
-                    $('#main1').append(randomPost(list[y]));
-                    $('#main2').append(randomPost(list[y+1]));
-                    $('#main3').append(randomPost(list[y+2]));
+                    $('#main1').append(randomPost(list[y], y));
+                    $('#main2').append(randomPost(list[y+1], y+1));
+                    $('#main3').append(randomPost(list[y+2], y+2));
                     $('#loading').hide();
                     // y+=3;
                 }else if((list.length - y) / 3 == 1){
-                    $('#main1').append(randomPost(list[y]));
-                    $('#main2').append(randomPost(list[y+1]));
-                    $('#main3').append(randomPost(list[y+2]));
+                    $('#main1').append(randomPost(list[y], y));
+                    $('#main2').append(randomPost(list[y+1], y+1));
+                    $('#main3').append(randomPost(list[y+2], y+2));
                     $('#loading').hide();
                     $('body').append(footer());
                     // y+=3;
                 }else if ((list.length - y) / 3 < 1 && (list.length - y) % 3 == 1){
-                    $('#main1').append(randomPost(list[y]));
+                    $('#main1').append(randomPost(list[y], y));
                     $('#loading').hide();
                     $('body').append(footer());
                     // y+=3;
                 }else if((list.length - y) / 3 < 1 && (list.length - y) % 3 == 2){
-                    $('#main1').append(randomPost(list[y]));
-                    $('#main2').append(randomPost(list[y+1]));
+                    $('#main1').append(randomPost(list[y], y));
+                    $('#main2').append(randomPost(list[y+1], y+1));
                     $('#loading').hide();
                     $('body').append(footer());
                     // y+=3;
@@ -805,9 +844,7 @@ function appendArticles(list, y){
             
 }
 
-function randomPost(json){
-    // console.log(json);
-    // Generate the post
+function randomPost(json, j){
     var post = '';
     post += '<li>';
     post += '<article id="content">';
@@ -832,22 +869,28 @@ function randomPost(json){
     post += json.Subject;
     post += '</h3></div>';
     post += '<div class="content"><p class="tags">';
-
-    post += '<i class="fa fa-tag"></i>'		//append tags
-
-    // for(var i = 0; i < json['Tags'].length; i ++){		//uncomment to load tags
-    	post += '<span>';
-    	post += json['Tags'] != "NA"? json["Tags"] : "";
-    // 	post += ' ';
+    if(json.Tags != "NA" && json.Tags != "N/A" && $.trim(json.Tags) != ""){
+    	post += '<i class="fa fa-tag"></i>'		//append tags
+    	post += '<span onclick="tagDivClicked(';
+    	for(var i = 0; i < tagNum.length; i ++){
+    		if(tagNum[i]["jsonNum"] == j){
+    			post += tagNum[i]["tagNum"];
+    		}
+    	}
+    	post += ",'";
+    	post += json["Tags"];
+    	post += "')";
+    	post += '">';
+    	post += json["Tags"];
     	post += '</span>';
-    // }
+    }
 
     post += '</p>';
 
     post += '<p>';
     post += json.Desc.substring(0,50);
     post += '...';
-    post += '</p><ul class="actions"><li class="readBtn"><a href="';
+    post += '</p><ul class="actions"><li class="readBtn"><a target="_blank" href="';
     post += json.Url;
     post += '" class="button">繼續閱讀</a></li></ul></div>';
     post += '</article>';
@@ -855,4 +898,69 @@ function randomPost(json){
 
     return post;
 
+}
+
+function rightArrow(perPage){
+    loadDocFromDB({
+      curPage: nextPage,
+      perPage:perPage,
+      type: doctorType,   //SubCategory
+      specialist: ''      //Category
+    });
+   nextPage++;
+
+	
+}
+
+function leftArrow(perPage){
+    loadDocFromDB({
+      curPage: nextPage - 2,
+      perPage:perPage,
+      type: doctorType,   //SubCategory
+      specialist: ''      //Category
+    });
+   nextPage--;
+}
+
+function tagDivClicked(i, tag){
+
+	$('.tagDiv').each(function(j,obj){
+		if($(this).html() == tag){
+			if($(this).hasClass('selected')){
+				$(this).removeClass('selected');
+				for(var j = 0; j < tagList.length; j++){
+					if(tagList[j] == tag){
+						tagList.splice(j,1);
+						j--;
+					}
+				}
+			}else{
+				$(this).addClass('selected');
+				tagList.push(tag);
+			}
+		}
+	});
+
+	$('#main1').empty();
+	$('#main2').empty();
+	$('#main3').empty();
+	$('footer').remove();
+	scrollIndex1 = 0;
+	// filter articles with tag to be show
+	filterTag();
+}
+
+function filterTag(){
+	articles = [];
+	for(var i = 0 ; i < allarticles.length; i ++){
+		if(tagList.length == 0){
+			articles.push(allarticles[i]);
+		}else{
+			for(var j = 0; j < tagList.length; j ++){
+				if(allarticles[i]["Tags"] == tagList[j]){
+					articles.push(allarticles[i]);
+				}
+			}
+		}
+	}
 }

@@ -124,44 +124,26 @@ $(document).ready(function(){ // Jquery, click the address and relocate the map
 
 	//updatetest in loadFileter.php
 
-	loadSickArticles();		//uncomment to load sick articles
+	// loadSickArticles();		//uncomment to load sick articles(not related type)
 
 	//load more sickness knowledge articles on scroll
 	var win = $(window);
-
-      //    win.scroll(function() {
-
-      //   // End of the document reached?
-      //   if ($(document).height() - win.height() - 400 < win.scrollTop()) {
-           
-    		// if(scrollIndex < articles.length){
-      //   		var html = formatingArticleHTML(articles[scrollIndex1]);
-      //           $(".sickArticles").append(html);
-      //           scrollIndex ++;
-      //       }else if(scrollIndex == articles.length){
-      //       	if(!hasFooter){
-      //       		$('body').append(footer());
-      //       		hasFooter = true;
-      //       	}
-      //       	scrollIndex++;
-      //       }
-      //   }
-
-      //   });
 
       win.scroll(function() {
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             // End of the document reached?
             if ($(document).height() - win.height() - 500 < win.scrollTop()) {
                     $('#loading').show();
-                   
                     if(scrollIndex < articles.length){
                         $('#main1').append(randomPost(articles[scrollIndex]));
                         $('#loading').hide();
                         scrollIndex++;
                     }else if (scrollIndex == articles.length){
                         $('#loading').hide();
-                        $('body').append(footer());
+                        if(!hasFooter){
+		            		$('body').append(footer());
+		            		hasFooter = true;
+		            	}
                         scrollIndex++;
                     }else{
                         $('#loading').hide();
@@ -170,10 +152,9 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
         }else{
              // End of the document reached?
         if ($(document).height() - win.height() - 500 < win.scrollTop()) {
-        // if ($(document).height() - win.height() == win.scrollTop()) {
                 $('#loading').show();
-
                 appendArticles(articles,scrollIndex);
+                // scrollIndex ++;
                 scrollIndex += 3;
         }
     }
@@ -183,39 +164,45 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 });
 
 function appendArticles(list, y){
-    
      if((list.length - y) / 3 > 1){
-                    $('#main1').append(randomPost(list[y]));
-                    $('#main2').append(randomPost(list[y+1]));
-                    $('#main3').append(randomPost(list[y+2]));
-                    $('#loading').hide();
-                    // y+=3;
-                }else if((list.length - y) / 3 == 1){
-                    $('#main1').append(randomPost(list[y]));
-                    $('#main2').append(randomPost(list[y+1]));
-                    $('#main3').append(randomPost(list[y+2]));
-                    $('#loading').hide();
-                    $('body').append(footer());
-                    // y+=3;
-                }else if ((list.length - y) / 3 < 1 && (list.length - y) % 3 == 1){
-                    $('#main1').append(randomPost(list[y]));
-                    $('#loading').hide();
-                    $('body').append(footer());
-                    // y+=3;
-                }else if((list.length - y) / 3 < 1 && (list.length - y) % 3 == 2){
-                    $('#main1').append(randomPost(list[y]));
-                    $('#main2').append(randomPost(list[y+1]));
-                    $('#loading').hide();
-                    $('body').append(footer());
-                    // y+=3;
-                }else{
-                    $('#loading').hide();
-                }
+        $('#main1').append(randomPost(list[y]));
+        $('#main2').append(randomPost(list[y+1]));
+
+        $('#main3').append(randomPost(list[y+2]));
+	   
+        $('#loading').hide();
+        // y+=3;
+    }else if((list.length - y) / 3 == 1 && !hasFooter){
+        $('#main1').append(randomPost(list[y]));
+
+        $('#main2').append(randomPost(list[y+1]));
+
+        $('#main3').append(randomPost(list[y+2]));
+	    
+        $('#loading').hide();
+        $('body').append(footer());
+        // y+=3;
+    }else if ((list.length - y) / 3 < 1 && (list.length - y) % 3 == 1 && !hasFooter){
+        $('#main1').append(randomPost(list[y]));
+	   
+        $('#loading').hide();
+        $('body').append(footer());
+        // y+=3;
+    }else if((list.length - y) / 3 < 1 && (list.length - y) % 3 == 2 && !hasFooter){
+        $('#main1').append(randomPost(list[y]));
+
+        $('#main2').append(randomPost(list[y+1]));
+	    
+        $('#loading').hide();
+        $('body').append(footer());
+        // y+=3;
+    }else{
+        $('#loading').hide();
+    }
             
 }
 
 function randomPost(json){
-    // console.log(json);
     var imgurl= '../';
     imgurl += json.ImageUrl;
     // Generate the post
@@ -223,7 +210,7 @@ function randomPost(json){
     post += '<li>';
     post += '<article id="content">';
     post += '<a class="image"><img src="';
-    post += imgurl;
+    post += json.ImageUrl==null? "":imgurl;
     post += '" alt="" />';
     post += '</a>';
     post += '<div class="contentTitle"><h3>';
@@ -232,13 +219,13 @@ function randomPost(json){
     post += '<div class="content"><p class="tags">';
 
     post += '<i class="fa fa-tag"></i>'		//append tags
-    post += 'tags tags';
+    post += json.Tag==null?"":json.Tag;
     post += '</p>';
 
     post += '<p>';
     post += json.Desc.substring(0,50);
     post += '...';
-    post += '</p><ul class="actions"><li class="readBtn"><a href="http://www.drcare.ai/sickness.php?name=';
+    post += '</p><ul class="actions"><li class="readBtn"><a target="_blank" href="../sickness.php?name=';
     post += json.Name;
     post += '" class="button">繼續閱讀</a></li></ul></div>';
     post += '</article>';
@@ -248,66 +235,43 @@ function randomPost(json){
 
 }
 
-function loadSickArticles(){
-	// $.getJSON("php/getArticle.php", 
-	// function(json){
-	// 	// console.log(json);
-	// 	$(".articles").css("display", "inline");
-		
-	// 	for(i in json) {
-	// 		articles[i] = json[i];
-	// 		// var HTML = formatingArticleHTML(json[i]);
-	// 		// $(".docArticles").append(HTML);
-	// 	}
-	// 	var HTML;
-	// 	// if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	// 	// 	HTML = formatingArticleHTMLMobile(json[0]);
-	// 	// }else{
-	// 	 	HTML = formatingArticleHTML(json[0]);
-	// 	// }
-	// 	$(".docArticles").append(HTML);
+function loadSickArticles(type){
 
-	// 	$(".panel").each(function(i,obj){
-	// 		if(i == 4 || i == 5){
-	// 			$(this).css('height','50em');
-	// 		}
-	// 	});
-	// 	scrollIndex1++;
-	// });
+	// $.getJSON("../php/loadSicknessContent.php",
+	// 	{Type:type},
+	// 	function(json){
+	// 	})
 
 	$.ajax({
 	  method: "GET",
-	  url: "../DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+	  url: "../DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513",
+	  data: {Type: type}
 	})
 	  .done(function( msg ) {
 	    var json = JSON.parse(msg);
-
+	    $('#main1').empty();
+	    $('#main2').empty();
+	    $('#main3').empty();
+	    scrollIndex = 0;
+	    articles = [];
+	    $('footer').remove();
+	    hasFooter = false;
     	for(i in json) {
-			articles[i] = json[i];
+			
+			if(json[i]["What"] == null || json[i]["Why"] == null || json[i]["How"] == null){
+
+			}else{
+				articles[i] = json[i];
+			}
+		}
+		if(articles.length == 0){
+			$('.sickKnowledge').css('display','none');
+			$('body').append(footer());
+		}else{
+			$('.sickKnowledge').css('display','block');
 		}
 
-	    // loadArticles(scrollIndex);
-
   });
-}
-
-function loadArticles(index){
-	for(var j = 0; j < articles.length; j ++){
-		$('.sickLink').each(function(i,obj){
-			var link = "http://www.chatbot.hk/DrCare.Disease.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513&Name="
-			+ articles[index + i].Name;
-			$(this).attr("href",link);
-		});
-
-		$("#sickImg").each(function(i,obj){
-			$(this).attr("src", "../" + articles[index + i].ImageUrl);
-		});
-
-		$("#sickTitle").each(function(i,obj){
-			$(this).html(articles[index + i].Name);
-		});
-		scrollIndex = scrollIndex + 3;
-	}
 }
 
 // change title of page by param
@@ -363,17 +327,10 @@ function updateTable(doctors){
   			"<p class='docType'>" + doctors[i]["SubCategory"] +
   		"</p>" + 
 
-  		// '<img style="height:1.5em;" src="img/chatbotSymbol.jpg">' +		//uncomment for chatbot Symbol
-
   		"</div>" +
   		
   		"<div class='addressInfo'>";
 
-  		// for(let i of doctors[i]["Clinics"]) {
-  		// 	"<p class='docArea'>" + i["Region"] + "</p>" +
-	  	// 	"<p class='docAddress'>" + i["Address_ch"] + "</p>" +
-  		// }
-  		
   		for(let j of doctors[i]["Clinic"]) {
   			printInfo += "<p class='docArea'>" + j["Region"] + "</p>" +
 	  					 "<p class='docAddress'>" + j["Address_ch"] + "</p>";
@@ -381,24 +338,20 @@ function updateTable(doctors){
 		// printInfo += "<p class='docArea'>" + doctors[i]["Region"] + "</p>" +
 	 	//  	"<p class='docAddress'>" + doctors[i]["Address_ch"] + "</p>";
 
-  		// '<div class="openTag">' +						//uncomment for 應診中
-	  	// 	'<i class="fa fa-square green"></i>'+
-	  	// 	'<p class="status ' + 'green' + '" >' +
-	  	// 	 '應診中' + '</p>' +
-  		//  '</div>' +
-
 		printInfo += "</div>" +
-		"<p hidden='hidden' class='docID'>" + doctors[i]["ID"] + "</p></div>";
+		"<p hidden='hidden' class='docID'>" + doctors[i]["ID"] + "</p></div><div class='rightBox'>";
 
-		if(doctors[i]["isOpen"] == "1") {
-			printInfo += "<p class='isOpenTag'><i class='fa fa-square green'></i>應診中</p>";
+		if(doctors[i]["isOpen"] == 1) {
+			printInfo += "<p class='isOpenTag green'><i class='fa fa-square green'></i>應診中</p>";
+		}else{
+			printInfo += "<p class='isOpenTag red'><i class='fa fa-square red'></i>休息中</p>";
 		}
 
-		if(doctors[i]["Clinicbot"] == null) {
+		if(doctors[i]["Clinicbot"] != null) {
 			printInfo += "<img class='clinicBotTag' src='./img/chatbotSymbol.png' >";
 		}
 
-		printInfo += "</div>";
+		printInfo += "</div></div>";
   	}
 
 	$("#searchResults").html("");
@@ -573,6 +526,8 @@ function updateSearchText(pageCount) {
 		area: area,
 		specialist: specialist
 	});
+
+	loadSickArticles(type);
 
 }
 //  end
