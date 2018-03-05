@@ -72,7 +72,7 @@
 		<!-- Banner -->
 		<section id="banner">
 			<header class="accent1 main">
-				<p style="margin-bottom: 0; color: black;">你的全方位健康知識</p>
+				<p style="margin-bottom: 0; color: black;">你的健康全方位知識</p>
 				<h2 style="margin-bottom: 0;">搜尋健康誌</h2>
 			<form id="searchForm">
 				<input type="text" id="text-area">
@@ -230,9 +230,10 @@
 
 </div>
 		<!-- Scripts -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 		<script src="assets/js/infiniteLoop.js"></script>
+		<script src="assets/js/pushNotification.js"></script>
 		
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.dropotron.min.js"></script>

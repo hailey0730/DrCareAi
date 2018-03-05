@@ -167,7 +167,19 @@
 <div class="mainContainer">
 	<!-- doc info window -->
 	<div class="infoContainer">
-		
+
+<!-- testing form -->
+		<!-- <form action="https://script.google.com/macros/s/AKfycbyG_pdTU6ZGhXsWHrUkp0BPI8BDh01p-8i_cri8T9vY3x75SoAv/exec" method="post" target="hidden_iframe">
+<input type="hidden" name="method" value="write" />
+<input type="text" name="chName" placeholder="填入稱謂" title="填入稱謂" /><br/>
+<input type="text" name="enName" placeholder="填入性別" title="填入性別" /><br/>
+<input type="text" name="gender" placeholder="填入註解" title="填入註解" /><br/>
+<input type="submit" value="提交" id="hiddenBtn" />
+</form> -->
+<!-- ============================= -->
+		<form action="https://script.google.com/macros/s/AKfycbyG_pdTU6ZGhXsWHrUkp0BPI8BDh01p-8i_cri8T9vY3x75SoAv/exec" method="post" target="hidden_iframe">
+		<input type="hidden" name="method" value="write" />
+		<input type="hidden" name="docId" id="docId" />
 		<div class="infoDiv">
 			<h3>醫生資料</h3>
 			<div class="row">
@@ -175,7 +187,7 @@
 					<p>醫生中文姓名 *</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('中文姓名')" id="chName" class="inputBox" type="text">
+					<input onchange="detectChange('中文姓名')" id="chName" name="chName" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
@@ -183,7 +195,7 @@
 					<p>醫生英文姓名 *</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('英文姓名')" id="enName" class="inputBox" type="text">
+					<input onchange="detectChange('英文姓名')" id="enName" name="enName" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
@@ -199,13 +211,14 @@
 			</div>
 			<div class="row">
     			<div class="col-sm-2">
-					<p>醫生最新照片</p>
+					<p>醫生最新照片(連結)</p>
 				</div>
 				<div class="col-sm-4">
-	    			<form id="form1" runat="server">
-				        <input onchange="detectChange('醫生照片')" type='file' id="docPic" />
-				        <img id="docPicPreview" src="#" alt="" />
-				    </form>
+	    			<!-- <form id="form1" runat="server"> -->
+				        <!-- <input onchange="detectChange('醫生照片')" type='file' id="docPic"  name="docPic"/> -->
+				        <!-- <img id="docPicPreview" src="#" alt=""  name="docPic" /> -->
+				        <input onchange="detectChange('醫生照片')" class="inputBox" type='text' id="docPic" name="docPic" placeholder="www.example.jpg" />
+				    <!-- </form> -->
 				</div>
 			</div>
 			<div class="row">
@@ -213,7 +226,7 @@
 					<p>專業科目 *</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('專業科目')" id="specialist" class="inputBox" type="text">
+					<input onchange="detectChange('專業科目')" id="specialist"  name="specialist" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
@@ -237,12 +250,33 @@
 
 		<div class="infoDiv">
 			<h3>其他資料</h3>
+			<div class="price">
+				<div class="row">
+	    			<div class="col-sm-2">
+						<p>診金</p>
+					</div>
+					<div class="col-sm-4">
+						<input onchange="detectChange('診金')" placeholder="服務 e.g. 補牙" id="service-0" name="service-0" class="inputBox" type="text"
+						>
+					</div>
+					<div class="col-sm-1">
+						<p class="right">$</p>
+					</div>
+					<div class="col-sm-2">
+						<input onchange="detectChange('診金')" placeholder="e.g. 500-1000" id="price-0" name="price-0" class="inputBox" type="text"
+						>
+					</div>
+					<div class="col-sm-1">
+						<button id="docPrice" class="add" type="submit"><i class="fa fa-plus"></i></button>
+					</div>
+				</div>
+			</div>
 			<div class="row">
     			<div class="col-sm-2">
 					<p>使用語言</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('使用語言')" id="language" class="inputBox" type="text">
+					<input onchange="detectChange('使用語言')" id="language" name="language" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
@@ -250,7 +284,7 @@
 					<p>使用醫院</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('使用醫院')" id="hospital" class="inputBox" type="text">
+					<input onchange="detectChange('使用醫院')" id="hospital" name="hospital" class="inputBox" type="text">
 				</div>
 			</div>
 			<div class="row">
@@ -258,7 +292,7 @@
 					<p>醫生電話</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('醫生電話')" id="phone" type="tel" class="inputBox">
+					<input onchange="detectChange('醫生電話')" id="phone" name="phoneNum" type="tel" class="inputBox">
 				</div>
 				<div class="col-sm-1">
 					<input onchange="detectChange('醫生電話')" class="radio" type="radio" name="phone" value="public"><p class="radioP">公開</p>
@@ -272,7 +306,7 @@
 					<p>醫生傳真機</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('醫生傳真機')" id="fax" type="tel" class="inputBox">
+					<input onchange="detectChange('醫生傳真機')" id="fax" name="fax" type="tel" class="inputBox">
 				</div>
 			</div>
 			<div class="row">
@@ -280,7 +314,7 @@
 					<p>醫生傳呼機</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('醫生傳呼機')" id="call" type="tel" class="inputBox">
+					<input onchange="detectChange('醫生傳呼機')" id="call" name="call" type="tel" class="inputBox">
 				</div>
 			</div>
 			<div class="row">
@@ -288,7 +322,7 @@
 					<p>電郵地址</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('電郵地址')" id="email" class="inputBox" type="email" placeholder="example@something.com">
+					<input onchange="detectChange('電郵地址')" id="email" name="email" class="inputBox" type="email" placeholder="example@something.com">
 				</div>
 			</div>
 			<div class="row">
@@ -296,7 +330,7 @@
 					<p>醫生Facebook</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('醫生Facebook')" id="facebook" class="inputBox" type="url" placeholder="https://www.facebook.com/example">
+					<input onchange="detectChange('醫生Facebook')" id="facebook" name="facebook" class="inputBox" type="url" placeholder="https://www.facebook.com/example">
 				</div>
 			</div>
 			<div class="docArticle">
@@ -305,7 +339,7 @@
 						<p>醫生網上寫過的文章/網誌</p>
 					</div>
 					<div class="col-sm-4">
-						<input onchange="detectChange('醫生網上寫過的文章/網誌')" id="docArticleurl-0" type="url" class="inputBox" placeholder="http://www.example.com">
+						<input onchange="detectChange('醫生網上寫過的文章/網誌')" id="docArticleurl-0" name="docArticleurl-0" type="url" class="inputBox" placeholder="http://www.example.com">
 					</div>
 					<div class="col-sm-1">
 						<button id="docArticle" class="add" type="submit"><i class="fa fa-plus"></i></button>
@@ -343,13 +377,13 @@
 					<p>疫苗</p>
 				</div>
 				<div class="col-sm-4">
-					<input onchange="detectChange('疫苗')" id="vaccine-0" class="inputBox" type="text">
+					<input onchange="detectChange('疫苗')" id="vaccine-0" name="vaccine-0" class="inputBox" type="text">
 				</div>
 				<div class="col-sm-1">
 					<p class="right">價格	$</p>
 				</div>
 				<div class="col-sm-2">
-					<input onchange="detectChange('疫苗')" id="vaccinePrice-0" type="number" min="0.01">
+					<input onchange="detectChange('疫苗')" id="vaccinePrice-0" name="vaccinePrice-0" type="text">
 				</div>
 				<div class="col-sm-1">
 					<button id="vaccine" class="add" type="submit"><i class="fa fa-plus"></i></button>
@@ -378,12 +412,14 @@
 				<div class="col-sm-2">
 				</div>
 				<div class="col-sm-2">
-					<button id="update" class="add" type="submit">提交</button>
+					<!-- <button id="update" class="add" type="submit">提交</button> -->
+			<input id="update" class="add" type="submit" value="提交"/>
+
 				</div>
 			</div>
 		</div>
 
-			
+</form>
 
 		</div>
 

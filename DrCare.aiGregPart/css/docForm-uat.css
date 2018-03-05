@@ -1,4 +1,4 @@
-.infoContainer > .infoDiv{
+.infoDiv{
 	margin:4em;
 }
 
@@ -6,6 +6,11 @@ input, textarea{
 	box-shadow: inset 1px 1px 3px #555;
     border-radius: 5px;
     padding: 5px;
+
+}
+
+.inputBox{
+	width:100%;
 }
 
 
@@ -35,6 +40,11 @@ textarea.address{
 .line{
 	border:solid #c7c7c7;
 	margin-bottom: 1em;
+}
+
+#form1 > img{
+    max-height: 15em;
+    display: block;
 }
 
 /*---------radio button-----------*/

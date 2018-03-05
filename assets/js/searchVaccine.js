@@ -13,7 +13,7 @@
 $(document).ready(function() {
     $('#searchWord').hide();
 
-    $.get("http://www.chatbot.hk/DrCare.Region.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513", function(data){
+    $.get("https://www.chatbot.hk/DrCare.Region.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513", function(data){
         var json = JSON.parse(data);
         loadSelectOptions(json);
     });
@@ -42,7 +42,7 @@ $(document).ready(function() {
        eVal = $('#elderly').is(':checked')? "Y":"N";
 
 
-            var url = "http://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
+            var url = "https://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"
             + "&Region=" + $('#area').val() + "&Women=" + wVal + "&Children=" + cVal
             + "&Elder=" + eVal;
 
@@ -99,7 +99,7 @@ function initLoad(){
     cVal = "Y"; 
     eVal = "Y";
 
-        var url = "http://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"+ "&Women=" + wVal + "&Children=" + cVal
+        var url = "https://www.chatbot.hk/DrCare.SIV.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513"+ "&Women=" + wVal + "&Children=" + cVal
             + "&Elder=" + eVal;;
 
         $.get(url, function(data){
@@ -229,8 +229,8 @@ function articlesHTML(articles, w,c,e){
     // console.log(articles);   //DEBUG
    var returnHTML = "",
         
-    returnHTML = "<tr class='tableContent'><td><div><a href='http://www.drcare.ai/Doctor/docPage.php?Name=" 
-    + articles.Doctor + "&ID=" + articles.DoctorID + "'>" + "<u><p>" + articles.Name + "</p><p>" + articles.Doctor
+    returnHTML = "<tr class='tableContent'><td><div><a href='http://www.drcare.ai/Doctor/findoc.php?name=" 
+    + articles.Doctor + "'>" + "<u><p>" + articles.Name + "</p><p>" + articles.Doctor
     + "</p></a><div></td><td><div><p>" + articles.Address + "</p></u><a href='tel:852" + articles.Phone  + "' data-rel='external'><u>" + articles.Phone + "</u></a>"
     + "</div></td>";
 

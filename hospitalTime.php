@@ -96,17 +96,17 @@
 					<article>
 						<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>東區尤德夫人那打素醫院</h3>
 						<ul class="actions">
-							<li><a href="#one" class="button round">附近診所</a></li>
+							<li><a href="#one" class="nearby button round">附近診所</a></li>
 						</ul>
 					</article>
 					<article>
 						<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>瑪麗醫院</h3><ul class="actions">
-						<li><a href="#one" class="button round">附近診所</a></li>
+						<li><a href="#one" class="nearby button round">附近診所</a></li>
 					</ul>
 				</article>
 				<article>
 					<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>律敦治醫院</h3><ul class="actions">
-					<li><a href="#one" class="button round">附近診所</a></li>
+					<li><a href="#one" class="nearby button round">附近診所</a></li>
 				</ul>
 			</article>
 		</div>
@@ -121,22 +121,22 @@
 		<div class="stats">
 			<article>
 				<h3 class="estimate">等候 大約 </h3><h3><span class="time">0</span>小時</h3> <h3>明愛醫院</h3><ul class="actions">
-				<li><a href="#one" class="button round">附近診所</a></li>
+				<li><a href="#one" class="nearby button round">附近診所</a></li>
 			</ul>
 		</article>
 		<article>
 			<h3 class="estimate">等候 大約 </h3><h3><span class="time">0</span>小時</h3> <h3>廣華醫院</h3><ul class="actions">
-			<li><a href="#one" class="button round">附近診所</a></li>
+			<li><a href="#one" class="nearby button round">附近診所</a></li>
 		</ul>
 	</article>
 	<article>
 		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>伊利沙伯醫院</h3><ul class="actions">
-		<li><a href="#one" class="button round">附近診所</a></li>
+		<li><a href="#one" class="nearby button round">附近診所</a></li>
 	</ul>
 </article>
 <article>
 	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>基督教聯合醫院</h3><ul class="actions">
-	<li><a href="#one" class="button round">附近診所</a></li>
+	<li><a href="#one" class="nearby button round">附近診所</a></li>
 </ul>
 </article>
 </div>
@@ -151,22 +151,22 @@
 		<div class="stats">
 			<article>
 				<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>雅麗氏何妙齡那打素醫院</h3><ul class="actions">
-				<li><a href="#one" class="button round">附近診所</a></li>
+				<li><a href="#one" class="nearby button round">附近診所</a></li>
 			</ul>
 		</article>
 		<article>
 			<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>北區醫院</h3><ul class="actions">
-			<li><a href="#one" class="button round">附近診所</a></li>
+			<li><a href="#one" class="nearby button round">附近診所</a></li>
 		</ul>
 	</article>
 	<article>
 		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>北大嶼山醫院</h3><ul class="actions">
-		<li><a href="#one" class="button round">附近診所</a></li>
+		<li><a href="#one" class="nearby button round">附近診所</a></li>
 	</ul>
 </article>
 <article>
 	<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>博愛醫院</h3><ul class="actions">
-	<li><a href="#one" class="button round">附近診所</a></li>
+	<li><a href="#one" class="nearby button round">附近診所</a></li>
 </ul>
 </article>
 </div>
@@ -179,22 +179,22 @@
 		<div class="stats">
 			<article>
 				<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>威爾斯親王醫院</h3><ul class="actions">
-				<li><a href="#one" class="button round">附近診所</a></li>
+				<li><a href="#one" class="nearby button round">附近診所</a></li>
 			</ul>
 		</article>
 		<article>
 			<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>瑪嘉烈醫院</h3><ul class="actions">
-			<li><a href="#one" class="button round">附近診所</a></li>
+			<li><a href="#one" class="nearby button round">附近診所</a></li>
 		</ul>
 	</article>
 	<article>
 		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>長洲醫院</h3><ul class="actions">
-		<li><a href="#one" class="button round">附近診所</a></li>
+		<li><a href="#one" class="nearby button round">附近診所</a></li>
 	</ul>
 </article>
 <article>
 	<h3 class="estimate">等候 大約</h3><h3><span class="time">0</span>小時</h3> <h3>天水圍醫院(急症服務時間 早上8時至下午4時)</h3><ul class="actions">
-	<li><a href="#one" class="button round">附近診所</a></li>
+	<li><a href="#one" class="nearby button round">附近診所</a></li>
 </ul>
 </article>
 </div>
@@ -207,17 +207,17 @@
 		<div class="stats">
 			<article>
 				<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>將軍澳醫院</h3><ul class="actions">
-				<li><a href="#one" class="button round">附近診所</a></li>
+				<li><a href="#one" class="nearby button round">附近診所</a></li>
 			</ul>
 		</article>
 		<article>
 			<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>屯門醫院</h3><ul class="actions">
-			<li><a href="#one" class="button round">附近診所</a></li>
+			<li><a href="#one" class="nearby button round">附近診所</a></li>
 		</ul>
 	</article>
 	<article>
 		<h3 class="estimate">等候 超過</h3><h3><span class="time">0</span>小時</h3> <h3>仁濟醫院</h3><ul class="actions">
-		<li><a href="#one" class="button round">附近診所</a></li>
+		<li><a href="#one" class="nearby button round">附近診所</a></li>
 	</ul>
 </article>
 </div>
@@ -584,7 +584,7 @@
 		
 
 <!-- Scripts -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>

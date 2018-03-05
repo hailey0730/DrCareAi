@@ -2,6 +2,7 @@ var doctor;
 var articleCount = 1;
 var vaccineCount = 1;
 var clinicCount = 1;
+var docPrice = 1;
 var change = false;
 var changedVariable=[];
 
@@ -25,7 +26,7 @@ $(document).ready(function(){
 	    			'<div class="col-sm-2">' +
 					'</div>' +
 					'<div class="col-sm-4">' +
-						'<input onchange="detectChange(' + "'醫生網上寫過的文章/網誌'" + ')" id="docArticleurl-' + articleCount + '" class="inputBox" type="url" placeholder="http://www.example.com">' +
+						'<input onchange="detectChange(' + "'醫生網上寫過的文章/網誌'" + ')" id="docArticleurl-' + articleCount + '" name="docArticleurl-' + articleCount + '" class="inputBox" type="url" placeholder="http://www.example.com">' +
 					'</div>' +
 					'<div class="col-sm-1"> ' + 
 					'<button class="add" type="submit" onclick="removeArticle(' + articleCount +')"><i class="fa fa-remove"></i></button>' + 
@@ -36,6 +37,25 @@ $(document).ready(function(){
 		$('.docArticle').append(html);
 	});
 
+	$('#docPrice').click(function(){
+		var html = '<div class="row" id="priceDiv-' + docPrice +'">' +'<div class="col-sm-2"></div>' +
+				'<div class="col-sm-4">' +
+					'<input onchange="detectChange(' + "'診金'" + ')" placeholder="服務 e.g. 補牙" id="service-' + docPrice + '" name="service-' + docPrice + '" class="inputBox" type="text"' +
+					'>' +
+				'</div>' +
+				'<div class="col-sm-1">' +
+					'<p class="right">$</p>' +
+				'</div>' +
+				'<div class="col-sm-2">' +
+					'<input onchange="detectChange(' + "'診金'" + ')" placeholder="e.g. 500-1000" id="price-' + docPrice + '" name="price-' + docPrice + '" class="inputBox" type="text">' +
+				'</div>' + 
+				'<div class="col-sm-1"> ' + 
+					'<button class="add" type="submit" onclick="removePrice(' + docPrice +')"><i class="fa fa-remove"></i></button>' + 
+					'</div>' + '</div>';
+		docPrice++;
+		$('.price').append(html);
+	})
+
 
 	$('#vaccine').click(function(){
 		var html = '<div class="row" id="vaccineDiv-' + vaccineCount +'">' +
@@ -43,13 +63,13 @@ $(document).ready(function(){
 					'<p>疫苗</p>' +
 				'</div>' +
 				'<div class="col-sm-4">' +
-					'<input onchange="detectChange(' + "'疫苗'" + ')" id="vaccine-' + vaccineCount + '" class="inputBox" type="text">' +
+					'<input onchange="detectChange(' + "'疫苗'" + ')" id="vaccine-' + vaccineCount + '" name="vaccine-' + vaccineCount + '" class="inputBox" type="text">' +
 				'</div>' +
 				'<div class="col-sm-1">' +
 					'<p class="right">價格	$</p>' +
 				'</div>' +
 				'<div class="col-sm-2">' +
-					'<input onchange="detectChange(' + "'疫苗'" + ')" id="vaccinePrice-' + vaccineCount + '" type="number" min="0.01">' +
+					'<input onchange="detectChange(' + "'疫苗'" + ')" id="vaccinePrice-' + vaccineCount + '" name="vaccinePrice-' + vaccineCount + '" type="text">' +
 				'</div>' +
 				'<div class="col-sm-1"> ' + 
 					'<button class="add" type="submit" onclick="removeVaccine(' + vaccineCount +')"><i class="fa fa-remove"></i></button>' + 
@@ -68,7 +88,7 @@ $(document).ready(function(){
 	    			'<p>診所名稱 *</p>' +
 					'</div>' +
 					'<div class="col-sm-4">' +
-						'<input onchange="detectChange(' + "'診所名稱'" + ')" id="clinicName-' + clinicCount + '" type="text" class="inputBox">' +
+						'<input onchange="detectChange(' + "'診所名稱'" + ')" id="clinicName-' + clinicCount + '" name="clinicName-' + clinicCount + '" type="text" class="inputBox">' +
 					'</div>' +
 					'</div>'+
 					' <div class="row">' +
@@ -76,7 +96,7 @@ $(document).ready(function(){
 					'<p>地址 *</p>' +
 				'</div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所地址'" + ')" name="address" class="address"  id="address-' + clinicCount +'" rows="1" value=""></textarea>' +
+					'<textarea onchange="detectChange(' + "'診所地址'" + ')" name="address-' + clinicCount +'" class="address"  id="address-' + clinicCount +'" rows="1" value=""></textarea>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row">' +
@@ -84,17 +104,17 @@ $(document).ready(function(){
 					'<p>開診時間 *</p>' +
 				'</div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所開診時間'" + ')" name="clinicTime" id="clinicTime-' + clinicCount +'" rows="7" value=""></textarea>' +
+					'<textarea onchange="detectChange(' + "'診所開診時間'" + ')" name="clinicTime-' + clinicCount +'" id="clinicTime-' + clinicCount +'" rows="7" value=""></textarea>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>公眾假期 *</p></div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所公眾假期'" + ')" name="clinicHoliday" id="clinicHoliday-' + clinicCount +'" rows="3" value=""></textarea>' +
+					'<textarea onchange="detectChange(' + "'診所公眾假期'" + ')" name="clinicHoliday-' + clinicCount +'" id="clinicHoliday-' + clinicCount +'" rows="3" value=""></textarea>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>診所電話 *</p></div>' +
 				'<div class="col-sm-4">' +
-					'<input onchange="detectChange(' + "'診所電話'" + ')" id="clinicPhone-' + clinicCount +'" type="tel" class="inputBox">' +
+					'<input onchange="detectChange(' + "'診所電話'" + ')" id="clinicPhone-' + clinicCount +'" name="clinicPhone-' + clinicCount +'" type="tel" class="inputBox">' +
 				'</div>' +
 			'</div>' +
 			'<div class="row">' +
@@ -102,10 +122,10 @@ $(document).ready(function(){
     				'<p>預先致電查詢 *</p>' +
     			'</div>' +
     			'<div class="col-sm-1">' +
-    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="need"><p class="radioP">需要</p>' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry-' + clinicCount +'" value="need"><p class="radioP">需要</p>' +
     			'</div>' +
     			'<div class="col-sm-1">' +
-    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="dontneed"><p class="radioP">不需要</p>' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry-' + clinicCount +'" value="dontneed"><p class="radioP">不需要</p>' +
     			'</div>' +
 			'</div>' +
 			'<div class="row">' +
@@ -113,7 +133,7 @@ $(document).ready(function(){
 					'<p>診所集團網站</p>' +
 				'</div>' +
 				'<div class="col-sm-4">' +
-					'<input onchange="detectChange(' + "'診所集團網站'" + ')" id="clinicUrl-' + clinicCount +'" type="url" placeholder="http://www.example.com" class="inputBox">' +
+					'<input onchange="detectChange(' + "'診所集團網站'" + ')" id="clinicUrl-' + clinicCount +'" name="clinicUrl-' + clinicCount +'" type="url" placeholder="http://www.example.com" class="inputBox">' +
 				'</div>' +
 			'</div>' +
 			'<div class="row">' +
@@ -121,7 +141,7 @@ $(document).ready(function(){
 					'<p>診所集團電郵</p>' +
 				'</div>' +
 				'<div class="col-sm-4">' +
-					'<input onchange="detectChange(' + "'診所集團電郵'" + ')" id="clinicEmail-' + clinicCount +'" type="email" placeholder="example@something.com" class="inputBox">' +
+					'<input onchange="detectChange(' + "'診所集團電郵'" + ')" id="clinicEmail-' + clinicCount +'" name="clinicEmail-' + clinicCount +'" type="email" placeholder="example@something.com" class="inputBox">' +
 				'</div>' +
 			'</div>' +
 			'<div class="row">' +
@@ -129,10 +149,11 @@ $(document).ready(function(){
 					'<p>診所集團圖片</p>' +
 				'</div>' +
 				'<div class="col-sm-4">' +
-					'<form id="form1" runat="server">' +
-						'<input type="file" id="clinicPic-' + clinicCount +'" onchange="readURL(this,' + "'clinicPicPreview-" + clinicCount + "'" + ')" />' +
-	    				'<img id="clinicPicPreview-' + clinicCount +'" src=""/>' +
-	    			'</form>' +
+					// '<form id="form1" runat="server">' +
+						// '<input type="file" id="clinicPic-' + clinicCount +'" name="clinicPic-' + clinicCount +'" onchange="readURL(this,' + "'clinicPicPreview-" + clinicCount + "'" + ')" />' +
+						'<input type="text" id="clinicPic-' + clinicCount +'" class="inputBox" name="clinicPic-' + clinicCount +'" onchange="detectChange(' + "'診所集團圖片'" + ')" placeholder="www.example.jpg" />' +
+	    				// '<img id="clinicPicPreview-' + clinicCount +'" src=""/>' +
+	    			// '</form>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row">' +
@@ -140,7 +161,7 @@ $(document).ready(function(){
 					'<p>診所集團介紹</p>' +
 				'</div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所集團介紹'" + ')" name="clinicIntro" id="clinicIntro-' + clinicCount +'" rows="7" value=""></textarea>' +
+					'<textarea onchange="detectChange(' + "'診所集團介紹'" + ')" name="clinicIntro-' + clinicCount +'" id="clinicIntro-' + clinicCount +'" rows="7" value=""></textarea>' +
 				'</div>' +
 			'</div></div>';
 
@@ -169,6 +190,7 @@ function detectChange(variable){
 }
 
 function autoFillForm(){
+	$('#docId').val(doctor["ID"]);
 	$('#chName').val(doctor["Name"]);
 	$('#enName').val(doctor["FullName"].split(doctor["Name"])[1]);
 	$('input[name="gender"]').each(function(i,obj){
@@ -221,6 +243,10 @@ function removeArticle(count){
 	$("#articleDiv-"+count).remove();
 }
 
+function removePrice(count){
+	$("#priceDiv-"+count).remove();
+}
+
 function removeVaccine(count){
 	$("#vaccineDiv-"+count).remove();
 }
@@ -238,6 +264,8 @@ function updateInfo(){
 	var specialist = $("#specialist").val() == null? "":$.trim($("#specialist").val());
 	var serviceProduct = $("#serviceProduct").val() == null? "":$("#serviceProduct").val();
 	var certificate = $("#certificate").val() == null? "":$("#certificate").val();
+	// var price = $('#price').val() == null?"":$('#price').val();
+	// loop to get price and service
 	var language = $("#language").val() == null? "":$("#language").val();
 	var hospital = $("#hospital").val() == null? "":$("#hospital").val();
 	var phone = $("#phone").val() == null? "":$("#phone").val();
@@ -272,7 +300,7 @@ function updateInfo(){
 		var clinicTime = $('#clinicTime-' + i).val() == null? "":$.trim($('#clinicTime-' +i).val());
 		var clinicHoliday = $('#clinicHoliday-' + i).val() == null? "":$.trim($('#clinicHoliday-' +i).val());
 		var clinicPhone = $("#clinicPhone-"+i).val() == null? "":$.trim($('#clinicPhone-' +i).val());
-		var enquiry = $('input[name="enquiry"]').val() == null? "":$('input[name="enquiry"]').val();
+		var enquiry = $('input[name="enquiry-' + i+'"]').val() == null? "":$('input[name="enquiry-' + i+'"]').val();
 		var clinicUrl = $('#clinicUrl-' + i).val() == null? "":$('#clinicUrl-' +i).val();
 		var clinicEmail = $('#clinicEmail-'+i).val() == null? "":$('#clinicEmail-' +i).val();
 		var clinicPic = $('#clinicPicPreview-'+i).attr('src') == null? "":$('#clinicPicPreview-'+i).attr('src');
@@ -312,6 +340,7 @@ function updateInfo(){
 	// 		case '專業科目'
 	// 		case '特別的服務和產品'
 	// 		case '專業資格'
+	// 		case '診金'
 	// 		case '使用語言'
 	// 		case '使用醫院'
 	// 		case '醫生電話'
@@ -341,6 +370,38 @@ function updateInfo(){
 			text:"閣下的資料已成功提交,我們將盡快為您更新網上資料。感謝閣下的時間。",
 			icon:"success",
 		});
+		var  data = {
+		"method": "write",
+		"name": "Hailey",
+		"sex": "female",
+		"remark": "測試寫入功能"
+		}
+
+		// $.post('php/updateGoogleSpreadsheet.php',data,function(response){
+		// 	console.log(response);
+		// },'json');
+
+		// $.ajax({
+		// type: "post",
+		// crossDomain:true,
+		// data: {
+		// "method": "write",
+		// "name": "Hailey",
+		// "sex": "female",
+		// "remark": "測試寫入功能"
+		// },
+		// dataType:'json',
+		// url: "https://script.google.com/macros/s/AKfycbyG_pdTU6ZGhXsWHrUkp0BPI8BDh01p-8i_cri8T9vY3x75SoAv/exec", // 填入網路應用程式網址
+		// headers: {
+  //                   'Access-Control-Allow-Origin': '*',
+  //                   'Access-Control-Allow-Methods': 'GET, POST, PUT',
+		// 			'Access-Control-Allow-Headers': 'Content-Type'
+  //               },
+		// success:function(){
+		// 	console.log('done');
+		// }
+		// });
+
 	}else{
 		swal({
 			  text: "有些必填項目還沒有填寫,請於有*項目補上資料。",
@@ -354,58 +415,59 @@ function fillInClinic(){
 	for(var i = 0; i < doctor["Clinic"].length; i ++){
 	var html = '<div class="row"><div class="col-sm-2"><p>診所名稱 *</p></div>' +
 					'<div class="col-sm-4">' +
-						'<input onchange="detectChange(' + "'診所名稱'" + ')" id="clinicName-0" type="text" class="inputBox">' +
+						'<input onchange="detectChange(' + "'診所名稱'" + ')" id="clinicName-0" name="clinicName-0" type="text" class="inputBox">' +
 					'</div>' +
 					'</div>'+
 				'<div class="row"><div class="col-sm-2"><p>地址 *</p></div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所地址'" + ')" name="address" class="address" id="address-0" rows="1" value="">' + doctor["Clinic"][i]["Address_ch"] + '</textarea>' +
+					'<textarea onchange="detectChange(' + "'診所地址'" + ')" name="address-0" class="address" id="address-0" rows="1" value="">' + doctor["Clinic"][i]["Address_ch"] + '</textarea>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>開診時間 *</p></div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所開診時間'" + ')" name="clinicTime" id="clinicTime-0" rows="7" value="">' + doctor["Clinic"][i]["Opentime"] + '</textarea>' +
+					'<textarea onchange="detectChange(' + "'診所開診時間'" + ')" name="clinicTime-0" id="clinicTime-0" rows="7" value="">' + doctor["Clinic"][i]["Opentime"] + '</textarea>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>公眾假期 *</p></div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所公眾假期'" + ')" name="clinicHoliday" id="clinicHoliday-0" rows="3" value=""></textarea>' +
+					'<textarea onchange="detectChange(' + "'診所公眾假期'" + ')" name="clinicHoliday-0" id="clinicHoliday-0" rows="3" value=""></textarea>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>診所電話 *</p></div>' +
 				'<div class="col-sm-4">' +
-					'<input onchange="detectChange(' + "'診所電話'" + ')" id="clinicPhone-0" class="inputBox" type="tel" value="' + doctor["Clinic"][i]["Phone"] +'">' +
+					'<input onchange="detectChange(' + "'診所電話'" + ')" id="clinicPhone-0" name ="clinicPhone-0" class="inputBox" type="tel" value="' + doctor["Clinic"][i]["Phone"] +'">' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>預先致電查詢 *</p></div>' +
     			'<div class="col-sm-1">' +
-    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="need"><p class="radioP">需要</p>' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry-0" value="need"><p class="radioP">需要</p>' +
     			'</div>' +
     			'<div class="col-sm-1">' +
-    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry" value="dontneed"><p class="radioP">不需要</p>' +
+    				'<input onchange="detectChange(' + "'診所電話'" + ')" class="radio" type="radio" name="enquiry-0" value="dontneed"><p class="radioP">不需要</p>' +
     			'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>診所集團網站</p></div>' +
 				'<div class="col-sm-4">' +
-					'<input onchange="detectChange(' + "'診所集團網站'" + ')" id="clinicUrl-0" type="url" placeholder="http://www.example.com" class="inputBox">' +
+					'<input onchange="detectChange(' + "'診所集團網站'" + ')" id="clinicUrl-0" name="clinicUrl-0" type="url" placeholder="http://www.example.com" class="inputBox">' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>診所集團電郵</p></div>' +
 				'<div class="col-sm-4">' +
-					'<input onchange="detectChange(' + "'診所集團電郵'" + ')" id="clinicEmail-0" type="email" placeholder="example@something.com" class="inputBox">' +
+					'<input onchange="detectChange(' + "'診所集團電郵'" + ')" id="clinicEmail-0" name="clinicEmail-0" type="email" placeholder="example@something.com" class="inputBox">' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>診所集團圖片</p></div>' +
 				'<div class="col-sm-4">' +
-					'<form id="form1" runat="server">' +
-						'<input type="file" id="clinicPic-0" onchange="readURL(this,' + "'clinicPicPreview-0'" + ')" />' +
-	    				'<img id="clinicPicPreview-0" src=""/>' +
-	    			'</form>' +
+					// '<form id="form1" runat="server">' +
+						// '<input type="file" id="clinicPic-0" name="clinicPic-0" onchange="readURL(this,' + "'clinicPicPreview-0'" + ')" />' +
+	    	// 			'<img id="clinicPicPreview-0" src=""/>' +
+	    	'<input type="text" id="clinicPic-0" class="inputBox" name="clinicPic-0" onchange="detectChange(' + "'診所集團圖片'" + ')" placeholder="www.example.jpg" />' +
+	    			// '</form>' +
 				'</div>' +
 			'</div>' +
 			'<div class="row"><div class="col-sm-2"><p>診所集團介紹</p></div>' +
 				'<div class="col-sm-6">' +
-					'<textarea onchange="detectChange(' + "'診所集團介紹'" + ')" name="clinicIntro" id="clinicIntro-0" rows="7" value=""></textarea>' +
+					'<textarea onchange="detectChange(' + "'診所集團介紹'" + ')" name="clinicIntro-0" id="clinicIntro-0" rows="7" value=""></textarea>' +
 				'</div>' +
 			'</div>';
 
