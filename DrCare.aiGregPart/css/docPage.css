@@ -119,6 +119,7 @@
 	width: calc(100% - 100px);
 	margin-left: 20px;
 	margin-right: 50px;
+	z-index: 5;
 }
 
 .basicInfoDivRight {

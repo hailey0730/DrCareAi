@@ -78,7 +78,12 @@ $(document).ready(function(){
 
 			loadQA(GetUrlParam("ID"), doctor["Result"][0]["Name"], doctor["Result"][0]["Sex"]);		
 			docName = doctor["Result"][0]["Name"];
-			docGender = doctor["Result"][0]["Sex"]
+			docGender = doctor["Result"][0]["Sex"];
+
+			var fbShareBtn = '<div class="fb-like" data-href="https://www.drcare.ai/Doctor/docPage.php?Name='
+			+ doctor["Result"][0]["Name"] + '&ID=' + doctor["Result"][0]["ID"] + '&category=' + doctor["Result"][0]["Category"] + '&subcategory=' + doctor["Result"][0]["SubCategory"] + '" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>';
+			
+			$('.infoDiv').before(fbShareBtn);
 	});
 
 
@@ -189,7 +194,7 @@ $(document).ready(function(){
 					$('.QAContent').append(QAHTML);
 					scrollIndex2 ++;
         		}else if(scrollIndex2 == qaList.length){
-        			console.log(hasFooter);
+        			// console.log(hasFooter);
         			if(!hasFooter){
 	            		$('body').append(footer());
 	            		hasFooter = true;
@@ -308,7 +313,7 @@ function updatePageInfo(docInfo) {
 	if(docInfo["Category"] == '西醫' || docInfo["Category"] == "牙科"){
 		 doctorSpan = '醫生';
 	}
-	console.log(doctorSpan);
+	// console.log(doctorSpan);
 
 	// top info
 	$("#viewname").html(splitDocName(docInfo["Name"])[0] + " "); //name
@@ -336,7 +341,7 @@ function updatePageInfo(docInfo) {
 
 	$("#docType").html(docInfo["SubCategory"]); //type
 	$("#docAddress").html("地址： " + docInfo["Address_ch"]); //address
-	$("#docTel").html("電話： " + docInfo["Phone"]) //tel
+	$("#docTel").html("電話： <a style='color: #11D4EB;' href='tel:852" + docInfo["Phone"]  + "' data-rel='external'>" + docInfo["Phone"] + "</a>") //tel
 	// $("#docEmail").html("電郵： " + docInfo["Email"]) //email
 	//$("#docLanguage").html("語言： " + docInfo[""]) //language
 

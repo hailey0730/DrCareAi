@@ -180,6 +180,7 @@
 		<form action="https://script.google.com/macros/s/AKfycbyG_pdTU6ZGhXsWHrUkp0BPI8BDh01p-8i_cri8T9vY3x75SoAv/exec" method="post" target="hidden_iframe">
 		<input type="hidden" name="method" value="write" />
 		<input type="hidden" name="docId" id="docId" />
+		<input type="hidden" name="token" id="token" />
 		<div class="infoDiv">
 			<h3>醫生資料</h3>
 			<div class="row">
@@ -214,11 +215,12 @@
 					<p>醫生最新照片(連結)</p>
 				</div>
 				<div class="col-sm-4">
-	    			<!-- <form id="form1" runat="server"> -->
-				        <!-- <input onchange="detectChange('醫生照片')" type='file' id="docPic"  name="docPic"/> -->
-				        <!-- <img id="docPicPreview" src="#" alt=""  name="docPic" /> -->
-				        <input onchange="detectChange('醫生照片')" class="inputBox" type='text' id="docPic" name="docPic" placeholder="www.example.jpg" />
-				    <!-- </form> -->
+	    			<div id="form1" runat="server">
+				        <input onchange="detectChange('醫生照片')" type='file' id="docPic" />
+				        <img id="docPicPreview" src="#" alt=""  name="docPic" />
+				        <input id="passDocPic" type="text" name="docPic" style="display: none;">
+				        <!-- <input onchange="detectChange('醫生照片')" class="inputBox" type='text' id="docPic" name="docPic" placeholder="www.example.jpg" /> -->
+				    </div>
 				</div>
 			</div>
 			<div class="row">
@@ -267,7 +269,7 @@
 						>
 					</div>
 					<div class="col-sm-1">
-						<button id="docPrice" class="add" type="submit"><i class="fa fa-plus"></i></button>
+						<div id="docPrice" class="add" ><i class="fa fa-plus"></i></div>
 					</div>
 				</div>
 			</div>
@@ -342,7 +344,7 @@
 						<input onchange="detectChange('醫生網上寫過的文章/網誌')" id="docArticleurl-0" name="docArticleurl-0" type="url" class="inputBox" placeholder="http://www.example.com">
 					</div>
 					<div class="col-sm-1">
-						<button id="docArticle" class="add" type="submit"><i class="fa fa-plus"></i></button>
+						<div id="docArticle" class="add" ><i class="fa fa-plus"></i></div>
 					</div>
 				</div>
 			</div>
@@ -386,14 +388,16 @@
 					<input onchange="detectChange('疫苗')" id="vaccinePrice-0" name="vaccinePrice-0" type="text">
 				</div>
 				<div class="col-sm-1">
-					<button id="vaccine" class="add" type="submit"><i class="fa fa-plus"></i></button>
+					<div id="vaccine" class="add" ><i class="fa fa-plus"></i></div>
 				</div>
 			</div>
 		</div>
 
 		<div class="infoDiv clinic">
 			<h3>診所/集團/辦公資料</h3>
-			<button id="clinic" class="add" type="submit"><i class="fa fa-plus"></i> 新增診所</button>
+			<div class="col-sm-2">
+				<div id="clinic" class="add" ><i class="fa fa-plus"></i> 新增診所</div>
+			</div>
 		</div>
 
 		<div class="infoDiv">
@@ -412,9 +416,8 @@
 				<div class="col-sm-2">
 				</div>
 				<div class="col-sm-2">
-					<!-- <button id="update" class="add" type="submit">提交</button> -->
-			<input id="update" class="add" type="submit" value="提交"/>
-
+					<!-- <div id="update" class="add" type="submit">提交</div> -->
+					<input id="update" class="add" type="submit" value="提交"/>
 				</div>
 			</div>
 		</div>

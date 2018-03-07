@@ -88,6 +88,11 @@ $(document).ready(function(){
 			docName = doctor["Result"][0]["Name"];
 			docGender = doctor["Result"][0]["Sex"];
 
+			var fbShareBtn = '<div class="fb-like" data-href="https://www.drcare.ai/Doctor/docPage.php?Name='
+			+ doctor["Result"][0]["Name"] + '&ID=' + doctor["Result"][0]["ID"] + '&category=' + doctor["Result"][0]["Category"] + '&subcategory=' + doctor["Result"][0]["SubCategory"] + '" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>';
+			
+			$('.infoDiv').before(fbShareBtn);
+
 			clinicNum = doctor["Result"][0]["Clinic"].length;
 			// =========load related doc=================
 		    doctorType = doctor["Result"][0]["SubCategory"];
@@ -501,6 +506,7 @@ function updatePageInfo(docInfo) {
 	var clinicBranch;
 	for(var i = 0; i < docInfo['Clinic'].length; i ++){	
 		clinicBranch = contactInfohtml(docInfo['Clinic'][i], i);
+		// $('.rightPart').before(clinicBranch);
 		$('.basicInfoDivRight').before(clinicBranch);
 	}
 
@@ -551,7 +557,7 @@ function contactInfohtml(doc, j){
 					'</div>' + 
 				'<div class="contactInfoText">' + 
 					'<p id="region">' + doc["Region"] + '</p>' +
-					'<p id="docTel">' + "電話： " + doc["Phone"] + '</p>' + 
+					'<p id="docTel">' + "電話： <a style='color: #11D4EB;' href='tel:852" + doc["Phone"]  + "' data-rel='external'>" + doc["Phone"] + '</a></p>' + 
 					'<p id="docAddress">' + "地址： " + doc["Address_ch"] + '</p>' + 
 				'</div>' + 
 				'<button class="time" id="time-' + j + '">' + 

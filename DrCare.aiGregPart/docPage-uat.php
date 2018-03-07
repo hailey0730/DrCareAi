@@ -63,6 +63,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:url"           content="https://www.drcare.ai/Doctor/docPage.php?Name=<?php echo $docName; ?>&ID=<?php echo $docID ?>&category=<?php echo $cat ?>&subcategory=<?php echo $subcat ?>" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="DrCare.ai" />
+    <meta property="og:description"   content="<? echo $fullName."-".$subcat."-".$addr_ch."-Tel:".$phone."; ".$relatedArticle.$essay1. " ".$essay2." ".$essay3; ?>" />
+    <meta property="og:image"         content="https://www.chatbot.hk/Image/DrCare/Article/ArticleNoPic.jpg" />
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9HW61jlVn7qzBzYbhOh-pgOeS7-g9WJI"></script>
     <script src="js/jquery/jquery-1.12.4.min.js"></script>

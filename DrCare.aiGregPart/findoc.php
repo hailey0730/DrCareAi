@@ -54,7 +54,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA9HW61jlVn7qzBzYbhOh-pgOeS7-g9WJI"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9HW61jlVn7qzBzYbhOh-pgOeS7-g9WJI"></script>
     <script src="js/jquery/jquery-1.12.4.min.js"></script>
     <script src="js/jquery-ui/jquery-ui.min.js"></script>
     <script src="js/general.js"></script>
@@ -63,9 +63,9 @@
     <script src="js/googleMap.js"></script>
     <script src="js/filterModule.js"></script>
     <script src="js/speech.js"></script>
-	<script src="http://www.drcare.ai/assets/js/footer.js"></script>
-    <script src="http://www.drcare.ai/assets/js/footerFunction.js"></script>
-	<script src="http://www.drcare.ai/assets/js/sendEmailFunction.js"></script>
+	<script src="../assets/js/footer.js"></script>
+    <script src="../assets/js/footerFunction.js"></script>
+	<script src="../assets/js/sendEmailFunction.js"></script>
 	<script src="../assets/js/main.js"></script>
 	<!-- <script src="../assets/js/main.js"></script> -->
 

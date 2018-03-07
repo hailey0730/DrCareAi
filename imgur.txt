@@ -1,0 +1,4 @@
+imgur
+username: Hay0730
+Client ID:6004c1196bd631d
+Client secret:a2f3be1875c26b061bb90ddbb7476da93aadd9b9

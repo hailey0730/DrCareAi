@@ -1,6 +1,7 @@
 <?php
 	header("Content-Type:text/html;charset=utf-8");
 	$docName = $_GET['Name'];
+	$docID = $_GET['ID'];
 
 	$url = "http://www.chatbot.hk/DrCare.Doctor.api.php?Key=63ebdad609d02ac15a71bde64fb21f8ea43ac513";
 
@@ -9,6 +10,7 @@
 	$results = json_decode($json, true);
 
 	$fullName = $results["Result"][0]['FullName'];
+	$cat = $results["Result"][0]['Category'];
 	$subcat = $results['Result'][0]['SubCategory'];
 	$addr_ch = $results["Result"][0]['Address_ch'];
 	$phone  = $results["Result"][0]['Phone'];
@@ -62,9 +64,14 @@
     <meta name="description" content="<? echo $fullName."-".$subcat."-".$addr_ch."-Tel:".$phone."; ".$relatedArticle.$essay1. " ".$essay2." ".$essay3; ?>">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:url"           content="https://www.drcare.ai/Doctor/docPage.php?Name=<?php echo $docName; ?>&ID=<?php echo $docID ?>&category=<?php echo $cat ?>&subcategory=<?php echo $subcat ?>" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="DrCare.ai" />
+    <meta property="og:description"   content="<? echo $fullName."-".$subcat."-".$addr_ch."-Tel:".$phone."; ".$relatedArticle.$essay1. " ".$essay2." ".$essay3; ?>" />
+    <meta property="og:image"         content="https://www.chatbot.hk/Image/DrCare/Article/ArticleNoPic.jpg" />
 
-
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA9HW61jlVn7qzBzYbhOh-pgOeS7-g9WJI"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9HW61jlVn7qzBzYbhOh-pgOeS7-g9WJI"></script>
     <script src="js/jquery/jquery-1.12.4.min.js"></script>
     <script src="js/general.js"></script>
     <script src="js/docPage.js"></script>
@@ -102,13 +109,13 @@
 		  ref="drcare.ai">
 		</div>
 		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
+		<!-- <script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
 		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+		}(document, 'script', 'facebook-jssdk'));</script> -->
 
 <header id="header" >
 <!-- navbar -->
@@ -210,7 +217,7 @@
 		</div> -->
 
 		<!-- search by tags -->
-		<input id="searchInput" type="text" placeholder="請點擊按鈕講話"></input>
+		<input id="searchInput" type="text" placeholder="輸入搜索內容"></input>
 		<!-- voice func -->
 		<img src="img/mic.png" class="voiceIcon" onclick="startDictation(event)">
 		<img src="img/search.png" class="searchIcon" onclick="passToURL()">

@@ -31,6 +31,8 @@ textarea{
     box-shadow: 1px 1px 3px #555;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    width: 70%;
 }
 
 textarea.address{
